@@ -6,6 +6,27 @@ body {
 	font-weight: 500;
 }
 
+.btn {
+	cursor: pointer;
+	display: inline-block;
+	text-decoration: none;
+	text-transform: uppercase;
+	transition: $transition;
+}
+
+.btn_more {
+	border: 1px solid $c_main;
+	color: #fff;
+	font-size: 14px;
+	font-weight: 600;
+	letter-spacing: .03em;
+	padding: .8em 3.8em;
+
+	&:hover {
+		background-color: $c_main;
+	}
+}
+
 .home {
 	.hero_block {
 		background: url(#{$i}/home_bg.png) center no-repeat scroll transparent;

@@ -42,9 +42,11 @@
 
 							<div class="hero_block_slide__address">Большая Никитская ул., 9/15с1, Москва</div>
 
-							<div class="hero_block_slide__more">more</div>
+							<div class="hero_block_slide__more">
+								<a class="btn btn_more" href="#">Подробнее</a>
+							</div>
 
-							<div class="hero_block_slide__developer">developer</div>
+							<div class="hero_block_slide__developer">Capital towers</div>
 
 							<div class="hero_block_slide__img">img</div>
 						</div>
