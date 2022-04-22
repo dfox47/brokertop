@@ -19,6 +19,9 @@ wp_nav_menu(array(
 	'menu_class'        => 'footer_submenu',
 )); ?>
 
+<?php // all scripts in one file with GULP ?>
+<script src="<?php echo esc_url(get_template_directory_uri()); ?>/all.min.js?v<?php echo(date("YmdHis")); ?>"></script>
+
 <?php wp_footer(); ?>
 
 </body>

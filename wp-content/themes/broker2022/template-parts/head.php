@@ -31,4 +31,21 @@
 			</ul>
 		</header>
 	</div>
+
+	<section class="js-splide-slider splide" aria-label="Splide Basic HTML Example">
+		<div class="splide__track">
+			<ul class="splide__list">
+				<li class="splide__slide">Slide 01</li>
+				<li class="splide__slide">Slide 02</li>
+				<li class="splide__slide">Slide 03</li>
+			</ul>
+		</div>
+	</section>
+
+	<?php if (is_front_page()) { ?>
+		<div class="hero_block__footer">
+			<?php echo(date("Y")); ?> TOP BROKER ESTATE.<br />
+			Москва, Пресненская набережная 8 стр.1, 571
+		</div>
+	<?php } ?>
 </div>

@@ -6,12 +6,24 @@ body {
 	font-weight: 500;
 }
 
-.hero_block {}
+.hero_block {
+	&__footer {
+		bottom: 50px;
+		color: #fff;
+		font-size: 10px;
+		left: 0;
+		opacity: .5;
+		position: absolute;
+		text-align: center;
+		width: 100%;
+	}
+}
 
 .home {
 	.hero_block {
 		background: url(#{$i}/home_bg.png) center no-repeat scroll transparent;
 		background-size: cover;
+		min-height: 100vh;
 	}
 }
 
