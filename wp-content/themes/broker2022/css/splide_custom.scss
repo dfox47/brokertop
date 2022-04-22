@@ -1,0 +1,30 @@
+
+.splide {
+	&__pagination {
+		bottom: 0;
+		width: 100%;
+
+		li {
+			align-items: flex-end;
+			display: flex;
+			height: 28px;
+			padding: 3px;
+		}
+
+		&__page {
+			background-color: $c_main;
+			border-radius: 0;
+			height: 16px;
+			margin: 0;
+			transition: $transition;
+			width: 2px;
+
+			&:hover,
+			&.is-active {
+				background-color: $c_main;
+				height: 28px;
+				transform: none;
+			}
+		}
+	}
+}
