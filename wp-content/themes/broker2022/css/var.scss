@@ -4,6 +4,9 @@ $c_text:            #2c2c2c;
 
 $transition:        all .3s ease-in-out;
 
+$i:                 '/wp-content/themes/broker2022/i';
+$icons:             $i + '/icons';
+
 // @medias
 $desktop:           'only screen and (max-width: 1279px)';
 $mobile:            'only screen and (max-width: 767px)';

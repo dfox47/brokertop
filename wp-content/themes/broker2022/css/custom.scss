@@ -1,18 +1,16 @@
 
 body {
-	background-color: $c_main;
+	background-color: #444;
 }
 
 .hidden {
 	display: none;
 }
 
-.header {}
-
-.header_menu {
-	&__item {}
-
-	&__link {}
-
-	&__list {}
+.logo {
+	background-size: contain;
+	background: url(#{$i}/logo.svg) center no-repeat scroll transparent;
+	display: inline-block;
+	height: 51px;
+	width: 143px;
 }
