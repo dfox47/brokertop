@@ -650,7 +650,7 @@ function twentyseventeen_unique_id( $prefix = '' ) {
 /**
  * Implement the Custom Header feature.
  */
-require get_parent_theme_file_path( '/inc/custom-header.php' );
+require get_parent_theme_file_path( '/inc/custom-head.php' );
 
 /**
  * Custom template tags for this theme.

@@ -476,7 +476,7 @@ final class WP_Screen {
 	/**
 	 * Set the parent information for the screen.
 	 *
-	 * This is called in admin-header.php after the menu parent for the screen has been determined.
+	 * This is called in admin-head.php after the menu parent for the screen has been determined.
 	 *
 	 * @since 3.3.0
 	 *
@@ -491,7 +491,7 @@ final class WP_Screen {
 	/**
 	 * Adds an option for the screen.
 	 *
-	 * Call this in template files after admin.php is loaded and before admin-header.php is loaded
+	 * Call this in template files after admin.php is loaded and before admin-head.php is loaded
 	 * to add screen options.
 	 *
 	 * @since 3.3.0
@@ -683,7 +683,7 @@ final class WP_Screen {
 	/**
 	 * Add a sidebar to the contextual help for the screen.
 	 *
-	 * Call this in template files after admin.php is loaded and before admin-header.php is loaded
+	 * Call this in template files after admin.php is loaded and before admin-head.php is loaded
 	 * to add a sidebar to the contextual help.
 	 *
 	 * @since 3.3.0

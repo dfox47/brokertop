@@ -12,7 +12,7 @@ if ( ! defined( 'WP_ADMIN' ) ) {
 }
 
 /**
- * In case admin-header.php is included in a function.
+ * In case admin-head.php is included in a function.
  *
  * @global string    $title
  * @global string    $hook_suffix
@@ -26,7 +26,7 @@ if ( ! defined( 'WP_ADMIN' ) ) {
 global $title, $hook_suffix, $current_screen, $wp_locale, $pagenow,
 	$update_title, $total_update_count, $parent_file;
 
-// Catch plugins that include admin-header.php before admin.php completes.
+// Catch plugins that include admin-head.php before admin.php completes.
 if ( empty( $current_screen ) ) {
 	set_current_screen();
 }

@@ -54,7 +54,7 @@ function _wp_scripts_maybe_doing_it_wrong( $function ) {
 /**
  * Prints scripts in document head that are in the $handles queue.
  *
- * Called by admin-header.php and {@see 'wp_head'} hook. Since it is called by wp_head on every page load,
+ * Called by admin-head.php and {@see 'wp_head'} hook. Since it is called by wp_head on every page load,
  * the function does not instantiate the WP_Scripts object unless script names are explicitly passed.
  * Makes use of already-instantiated $wp_scripts global if present. Use provided {@see 'wp_print_scripts'}
  * hook to register/enqueue new scripts.

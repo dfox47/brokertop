@@ -14,7 +14,7 @@
 /** The descriptions for theme files. */
 $wp_file_descriptions = array(
 	'functions.php'         => __( 'Theme Functions' ),
-	'header.php'            => __( 'Theme Header' ),
+	'head.php'            => __( 'Theme Header' ),
 	'footer.php'            => __( 'Theme Footer' ),
 	'sidebar.php'           => __( 'Sidebar' ),
 	'comments.php'          => __( 'Comments' ),

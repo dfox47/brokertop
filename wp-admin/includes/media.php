@@ -535,7 +535,7 @@ function wp_iframe( $content_func, ...$args ) {
 	isRtl = <?php echo (int) is_rtl(); ?>;
 	</script>
 	<?php
-	/** This action is documented in wp-admin/admin-header.php */
+	/** This action is documented in wp-admin/admin-head.php */
 	do_action( 'admin_enqueue_scripts', 'media-upload-popup' );
 
 	/**
@@ -545,7 +545,7 @@ function wp_iframe( $content_func, ...$args ) {
 	 */
 	do_action( 'admin_print_styles-media-upload-popup' );  // phpcs:ignore WordPress.NamingConventions.ValidHookName.UseUnderscores
 
-	/** This action is documented in wp-admin/admin-header.php */
+	/** This action is documented in wp-admin/admin-head.php */
 	do_action( 'admin_print_styles' );
 
 	/**
@@ -555,7 +555,7 @@ function wp_iframe( $content_func, ...$args ) {
 	 */
 	do_action( 'admin_print_scripts-media-upload-popup' ); // phpcs:ignore WordPress.NamingConventions.ValidHookName.UseUnderscores
 
-	/** This action is documented in wp-admin/admin-header.php */
+	/** This action is documented in wp-admin/admin-head.php */
 	do_action( 'admin_print_scripts' );
 
 	/**
@@ -566,7 +566,7 @@ function wp_iframe( $content_func, ...$args ) {
 	 */
 	do_action( 'admin_head-media-upload-popup' ); // phpcs:ignore WordPress.NamingConventions.ValidHookName.UseUnderscores
 
-	/** This action is documented in wp-admin/admin-header.php */
+	/** This action is documented in wp-admin/admin-head.php */
 	do_action( 'admin_head' );
 
 	if ( is_string( $content_func ) ) {

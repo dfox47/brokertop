@@ -3212,7 +3212,7 @@ function get_home_url( $blog_id = null, $path = '', $scheme = null ) {
 
 /**
  * Retrieves the URL for the current site where WordPress application files
- * (e.g. wp-blog-header.php or the wp-admin/ folder) are accessible.
+ * (e.g. wp-blog-head.php or the wp-admin/ folder) are accessible.
  *
  * Returns the 'site_url' option with the appropriate protocol, 'https' if
  * is_ssl() and 'http' otherwise. If $scheme is 'http' or 'https', is_ssl() is
@@ -3230,7 +3230,7 @@ function site_url( $path = '', $scheme = null ) {
 
 /**
  * Retrieves the URL for a given site where WordPress application files
- * (e.g. wp-blog-header.php or the wp-admin/ folder) are accessible.
+ * (e.g. wp-blog-head.php or the wp-admin/ folder) are accessible.
  *
  * Returns the 'site_url' option with the appropriate protocol, 'https' if
  * is_ssl() and 'http' otherwise. If `$scheme` is 'http' or 'https',

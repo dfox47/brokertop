@@ -1978,25 +1978,25 @@ var ajaxurl = '<?php echo esc_js( admin_url( 'admin-ajax.php', 'relative' ) ); ?
 	isRtl = <?php echo (int) is_rtl(); ?>;
 </script>
 	<?php
-	/** This action is documented in wp-admin/admin-header.php */
+	/** This action is documented in wp-admin/admin-head.php */
 	do_action( 'admin_enqueue_scripts', $hook_suffix );
 
-	/** This action is documented in wp-admin/admin-header.php */
+	/** This action is documented in wp-admin/admin-head.php */
 	do_action( "admin_print_styles-{$hook_suffix}" );  // phpcs:ignore WordPress.NamingConventions.ValidHookName.UseUnderscores
 
-	/** This action is documented in wp-admin/admin-header.php */
+	/** This action is documented in wp-admin/admin-head.php */
 	do_action( 'admin_print_styles' );
 
-	/** This action is documented in wp-admin/admin-header.php */
+	/** This action is documented in wp-admin/admin-head.php */
 	do_action( "admin_print_scripts-{$hook_suffix}" ); // phpcs:ignore WordPress.NamingConventions.ValidHookName.UseUnderscores
 
-	/** This action is documented in wp-admin/admin-header.php */
+	/** This action is documented in wp-admin/admin-head.php */
 	do_action( 'admin_print_scripts' );
 
-	/** This action is documented in wp-admin/admin-header.php */
+	/** This action is documented in wp-admin/admin-head.php */
 	do_action( "admin_head-{$hook_suffix}" ); // phpcs:ignore WordPress.NamingConventions.ValidHookName.UseUnderscores
 
-	/** This action is documented in wp-admin/admin-header.php */
+	/** This action is documented in wp-admin/admin-head.php */
 	do_action( 'admin_head' );
 
 	$admin_body_class .= ' locale-' . sanitize_html_class( strtolower( str_replace( '_', '-', get_user_locale() ) ) );
@@ -2013,7 +2013,7 @@ var ajaxurl = '<?php echo esc_js( admin_url( 'admin-ajax.php', 'relative' ) ); ?
 	 */
 	$admin_body_id = isset( $GLOBALS['body_id'] ) ? 'id="' . $GLOBALS['body_id'] . '" ' : '';
 
-	/** This filter is documented in wp-admin/admin-header.php */
+	/** This filter is documented in wp-admin/admin-head.php */
 	$admin_body_classes = apply_filters( 'admin_body_class', '' );
 	$admin_body_classes = ltrim( $admin_body_classes . ' ' . $admin_body_class );
 	?>
