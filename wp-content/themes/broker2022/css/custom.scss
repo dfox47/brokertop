@@ -33,13 +33,16 @@ body {
 
 		.splide {
 			height: 100%;
-			max-width: 1000px;
+			// TODO uncomment
+			//max-width: 1178px;
+			max-width: 800px;
 			width: 100%;
 
 			&__arrow {
 				background: none;
 				border-radius: 0;
 				height: 100%;
+				width: 100%;
 
 				&::after,
 				&::before {
@@ -50,6 +53,7 @@ body {
 				&::after {
 					background-color: $c_main;
 					height: 2px;
+					top: 50%;
 					width: 500px;
 				}
 
@@ -69,11 +73,11 @@ body {
 					right: auto;
 
 					&::after {
-						left: 100%;
-						margin: 0 0 0 12px;
+						left: 42px;
 					}
 
 					&::before {
+						left: 0;
 						transform: rotate(135deg);
 					}
 				}
@@ -83,11 +87,11 @@ body {
 					right: 100%;
 
 					&::after {
-						margin: 0 12px 0 0;
-						right: 100%;
+						right: 42px;
 					}
 
 					&::before {
+						right: 0;
 						transform: rotate(-45deg);
 					}
 				}
