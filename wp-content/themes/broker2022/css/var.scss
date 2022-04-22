@@ -1,31 +1,14 @@
 
+$c_main:            #ddb472;
+$c_text:            #2c2c2c;
 
-
-$c_bg__footer:          #ededed;
-$c_bg__grey_dark:       #404040;
-$c_header_bg:           #f0f0f0;
-$c_hr:                  #636363;
-$c_main:                #e4032b;
-$c_menu_bg:             #2d2d2d;
-$c_search__bg:          #d6d6d6;
-$c_submenu_bg:          #ccc;
-$c_text__grey:          #999;
-$c_text__greyX:         #23346b;
-$c_text__greyX:         #d01417;
-
-
-
-$transition:            all .3s ease-in-out;
-
-
+$transition:        all .3s ease-in-out;
 
 // @medias
-$desktop:               'only screen and (max-width: 1279px)';
-$mobile:                'only screen and (max-width: 767px)';
-$mobile_s:              'only screen and (max-width: 400px)';
-$tablet:                'only screen and (max-width: 1023px)';
-
-
+$desktop:           'only screen and (max-width: 1279px)';
+$mobile:            'only screen and (max-width: 767px)';
+$mobile_s:          'only screen and (max-width: 400px)';
+$tablet:            'only screen and (max-width: 1023px)';
 
 // fonts
 $font_main:                 'proxima_reg',      Arial, Helvetica, sans-serif;
@@ -34,8 +17,6 @@ $font_proxima_bold:         'proxima_bold',     Arial, Helvetica, sans-serif;
 $font_proxima_light:        'proxima_light',    Arial, Helvetica, sans-serif;
 $font_proxima_reg:          'proxima_reg',      Arial, Helvetica, sans-serif;
 $font_proxima_semibold:     'proxima_semibold', Arial, Helvetica, sans-serif;
-
-
 
 // proxima_black
 @font-face {

@@ -48,7 +48,7 @@ gulp.task('css', function () {
 		.pipe(sass())
 		.pipe(cssMinify())
 		.pipe(rename({
-			base: 'style'
+			basename: 'style'
 			// suffix: ".min"
 		}))
 		.pipe(conn.dest(remoteFolder))
@@ -77,12 +77,11 @@ gulp.task('copy_js', function () {
 gulp.task('js', function () {
 	return gulp.src([
 			// localFolderJs + 'jquery.3.2.1.js',
-			localFolderJs + 'owl.carousel.js',
-			localFolderJs + 'jspdf.min.js',
+			// localFolderJs + 'owl.carousel.js',
 			localFolderJs + '**/*.js'
 		])
 		.pipe(concat('all.js'))
-		// .pipe(uglify())
+		.pipe(uglify())
 		.pipe(rename({
 			suffix: ".min"
 		}))
