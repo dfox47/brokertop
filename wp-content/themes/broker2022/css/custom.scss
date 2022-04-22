@@ -1,10 +1,18 @@
 
 body {
 	background-color: #444;
+	font-size: 14px;
+	font-family: $font_main;
+	font-weight: 500;
 }
 
-.hidden {
-	display: none;
+.hero_block {}
+
+.home {
+	.hero_block {
+		background: url(#{$i}/home_bg.png) center no-repeat scroll transparent;
+		background-size: cover;
+	}
 }
 
 .logo {
@@ -12,5 +20,41 @@ body {
 	background: url(#{$i}/logo.svg) center no-repeat scroll transparent;
 	display: inline-block;
 	height: 51px;
+	position: relative;
 	width: 143px;
+
+	&::after,
+	&::before {
+		background-color: $c_main;
+		content: "";
+		height: 100%;
+		opacity: 0;
+		position: absolute;
+		transition: $transition;
+		width: 100%;
+		z-index: -1;
+	}
+
+	&::after {
+		right: 100%;
+	}
+
+	&::before {
+		left: 100%;
+	}
+
+	&:hover {
+		&::after,
+		&::before {
+			opacity: .5;
+		}
+
+		&::after {
+			right: 0;
+		}
+
+		&::before {
+			left: 0;
+		}
+	}
 }

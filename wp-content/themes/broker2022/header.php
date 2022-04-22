@@ -21,7 +21,7 @@ $favicon    = $i . '/favicon'; ?>
 	<link rel="stylesheet" href="<?php echo esc_url(get_template_directory_uri()); ?>/style.css?v<?php echo(date("YmdHis")); ?>" />
 </head>
 
-<body>
+<body <?php body_class(); ?>>
 <?php // header
 include "template-parts/head.php"; ?>
 

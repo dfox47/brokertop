@@ -1,4 +1,7 @@
 
+// https://fonts.google.com/specimen/Montserrat?subset=cyrillic
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&display=swap');
+
 $c_main:            #ddb472;
 $c_text:            #2c2c2c;
 
@@ -14,12 +17,8 @@ $mobile_s:          'only screen and (max-width: 400px)';
 $tablet:            'only screen and (max-width: 1023px)';
 
 // fonts
-$font_main:                 'proxima_reg',      Arial, Helvetica, sans-serif;
-$font_proxima_black:        'proxima_black',    Arial, Helvetica, sans-serif;
-$font_proxima_bold:         'proxima_bold',     Arial, Helvetica, sans-serif;
-$font_proxima_light:        'proxima_light',    Arial, Helvetica, sans-serif;
-$font_proxima_reg:          'proxima_reg',      Arial, Helvetica, sans-serif;
-$font_proxima_semibold:     'proxima_semibold', Arial, Helvetica, sans-serif;
+$font_main:         'Montserrat',      Arial, Helvetica, sans-serif;
+$font_montserrat:   'Montserrat',      Arial, Helvetica, sans-serif;
 
 // proxima_black
 @font-face {
@@ -30,41 +29,3 @@ $font_proxima_semibold:     'proxima_semibold', Arial, Helvetica, sans-serif;
 	url('fonts/proxima_black.woff') format('woff'),
 	url('fonts/proxima_black.ttf') format('truetype');
 }
-
-// proxima_bold
-@font-face {
-	font-family: 'proxima_bold';
-	src: url('fonts/proxima_bold.eot');
-	src: url('fonts/proxima_bold.eot?#iefix') format('embedded-opentype'),
-	url('fonts/proxima_bold.woff') format('woff'),
-	url('fonts/proxima_bold.ttf') format('truetype');
-}
-
-// proxima_light
-@font-face {
-	font-family: 'proxima_light';
-	src: url('fonts/proxima_light.eot');
-	src: url('fonts/proxima_light.eot?#iefix') format('embedded-opentype'),
-	url('fonts/proxima_light.woff') format('woff'),
-	url('fonts/proxima_light.ttf') format('truetype');
-}
-
-// proxima_reg
-@font-face {
-	font-family: 'proxima_reg';
-	src: url('fonts/proxima_reg.eot');
-	src: url('fonts/proxima_reg.eot?#iefix') format('embedded-opentype'),
-	url('fonts/proxima_reg.woff') format('woff'),
-	url('fonts/proxima_reg.ttf') format('truetype');
-}
-
-// proxima_semibold
-@font-face {
-	font-family: 'proxima_semibold';
-	src: url('fonts/proxima_semibold.eot');
-	src: url('fonts/proxima_reg.eot?#iefix') format('embedded-opentype'),
-	url('fonts/proxima_semibold.woff') format('woff'),
-	url('fonts/proxima_semibold.ttf') format('truetype');
-}
-
-
