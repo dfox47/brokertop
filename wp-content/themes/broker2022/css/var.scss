@@ -2,13 +2,17 @@
 // https://fonts.google.com/specimen/Montserrat?subset=cyrillic
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&display=swap');
 
+// theme folders
+$themeFolder:       '/wp-content/themes/broker2022';
+$i:                 $themeFolder + '/i';
+$icons:             $i + '/icons';
+$fonts:             $themeFolder + '/fonts';
+
+// colors
 $c_main:            #ddb472;
 $c_text:            #2c2c2c;
 
 $transition:        all .3s ease-in-out;
-
-$i:                 '/wp-content/themes/broker2022/i';
-$icons:             $i + '/icons';
 
 // @medias
 $desktop:           'only screen and (max-width: 1279px)';
@@ -17,15 +21,16 @@ $mobile_s:          'only screen and (max-width: 400px)';
 $tablet:            'only screen and (max-width: 1023px)';
 
 // fonts
-$font_main:         'Montserrat',      Arial, Helvetica, sans-serif;
-$font_montserrat:   'Montserrat',      Arial, Helvetica, sans-serif;
+$font_main:         'Montserrat',           Arial, Helvetica, sans-serif;
+$font_montserrat:   'Montserrat',           Arial, Helvetica, sans-serif;
+$font_arsenica:     'Arsenica-Regular',     Arial, Helvetica, sans-serif;
 
-// proxima_black
+// Arsenica-Regular
 @font-face {
-	font-family: 'proxima_black';
-	src: url('fonts/proxima_black.eot');
-	src: url('fonts/proxima_black.eot?#iefix') format('embedded-opentype'),
-	url('fonts/proxima_black.woff2') format('woff2'),
-	url('fonts/proxima_black.woff') format('woff'),
-	url('fonts/proxima_black.ttf') format('truetype');
+	font-family: 'Arsenica-Regular';
+	src: url($fonts + '/Arsenica-Regular.eot');
+	src: url($fonts + '/Arsenica-Regular.eot?#iefix') format('embedded-opentype'),
+	url($fonts + '/Arsenica-Regular.woff2') format('woff2'),
+	url($fonts + '/Arsenica-Regular.woff') format('woff'),
+	url($fonts + '/Arsenica-Regular.ttf') format('truetype');
 }

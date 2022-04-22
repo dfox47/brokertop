@@ -36,7 +36,19 @@
 		<section class="js-splide-slider splide" data-splide='{"type":"loop","perPage":1}'>
 			<div class="splide__track">
 				<ul class="splide__list">
-					<li class="splide__slide">Slide 01</li>
+					<li class="splide__slide">
+						<div class="hero_block_slide">
+							<div class="hero_block_slide__title">Bvlgari Hotel<br />Residences Moscow</div>
+
+							<div class="hero_block_slide__address">Большая Никитская ул., 9/15с1, Москва</div>
+
+							<div class="hero_block_slide__more">more</div>
+
+							<div class="hero_block_slide__developer">developer</div>
+
+							<div class="hero_block_slide__img">img</div>
+						</div>
+					</li>
 
 					<li class="splide__slide">Slide 02</li>
 
