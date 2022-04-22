@@ -7,6 +7,8 @@ body {
 }
 
 .hero_block {
+	position: relative;
+
 	&__footer {
 		bottom: 50px;
 		color: #fff;
@@ -16,6 +18,126 @@ body {
 		position: absolute;
 		text-align: center;
 		width: 100%;
+	}
+
+	&__slider {
+		align-items: center;
+		display: flex;
+		height: 100%;
+		justify-content: center;
+		left: 0;
+		position: absolute;
+		top: 0;
+		width: 100%;
+		z-index: 1;
+
+		.splide {
+			height: 100%;
+			max-width: 1000px;
+			width: 100%;
+
+			&__arrow {
+				background: none;
+				border-radius: 0;
+				height: 100%;
+
+				&::after,
+				&::before {
+					content: "";
+					position: absolute;
+				}
+
+				&::after {
+					background-color: $c_main;
+					height: 2px;
+					width: 500px;
+				}
+
+				&::before {
+					border-left: 2px solid $c_main;
+					border-top: 2px solid $c_main;
+					height: 25px;
+					width: 25px;
+				}
+
+				svg {
+					display: none;
+				}
+
+				&--next {
+					left: 100%;
+					right: auto;
+
+					&::after {
+						left: 100%;
+						margin: 0 0 0 12px;
+					}
+
+					&::before {
+						transform: rotate(135deg);
+					}
+				}
+
+				&--prev {
+					left: auto;
+					right: 100%;
+
+					&::after {
+						margin: 0 12px 0 0;
+						right: 100%;
+					}
+
+					&::before {
+						transform: rotate(-45deg);
+					}
+				}
+			}
+
+			&__pagination {
+				bottom: 0;
+				width: 100%;
+
+				li {
+					align-items: flex-end;
+					display: flex;
+					height: 28px;
+				}
+
+				&__page {
+					background: none;
+					border-radius: 0;
+					height: 16px;
+					margin: 0;
+					position: relative;
+					width: 8px;
+
+					&::after {
+						background-color: $c_main;
+						bottom: 0;
+						content: "";
+						height: 13px;
+						left: 50%;
+						position: absolute;
+						transition: $transition;
+						width: 2px;
+					}
+
+					&:hover,
+					&.is-active {
+						background: none;
+						transform: none;
+
+						&::after {
+							height: 28px;
+						}
+					}
+				}
+			}
+
+			&__track {
+				height: 100%;
+			}
+		}
 	}
 }
 
