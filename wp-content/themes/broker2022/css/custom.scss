@@ -6,3 +6,13 @@ body {
 .hidden {
 	display: none;
 }
+
+.header {}
+
+.header_menu {
+	&__item {}
+
+	&__link {}
+
+	&__list {}
+}
