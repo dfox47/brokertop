@@ -6,6 +6,8 @@ body {
 	font-weight: 500;
 }
 
+
+
 .btn {
 	cursor: pointer;
 	display: inline-block;
@@ -31,7 +33,8 @@ body {
 	.hero_block {
 		background: url(#{$i}/home_bg.png) center no-repeat scroll transparent;
 		background-size: cover;
-		min-height: 100vh;
+		height: 100vh;
+		min-height: 650px;
 	}
 }
 

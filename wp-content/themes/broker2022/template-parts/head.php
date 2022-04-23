@@ -4,6 +4,10 @@
 		<header class="header">
 			<a class="logo" href="/"></a>
 
+			<div class="header_menu_toggle js-header-menu-toggle">
+				<span></span> Меню
+			</div>
+
 			<?php // header_menu
 			wp_nav_menu(array(
 				'container'         => false,
@@ -39,7 +43,7 @@
 					<ul class="splide__list">
 						<li class="splide__slide">
 							<div class="hero_block_slide">
-								<div class="hero_block_slide__title">Bvlgari Hotel<br />Residences Moscow</div>
+								<div class="hero_block_slide__title">Bvlgari Hotel Residences Moscow</div>
 
 								<div class="hero_block_slide__address">Большая Никитская ул., 9/15с1, Москва</div>
 
@@ -49,7 +53,9 @@
 
 								<div class="hero_block_slide__developer">Capital towers</div>
 
-								<div class="hero_block_slide__img" style="background-image: url(https://brokertop.ru/wp-content/uploads/2022/04/home_slider_1.png);"></div>
+								<div class="hero_block_slide__img">
+									<img src="/wp-content/uploads/2022/04/home_slider_1.png" alt="" />
+								</div>
 							</div>
 						</li>
 
