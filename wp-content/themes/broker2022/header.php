@@ -3,7 +3,7 @@ $favicon    = $i . '/favicon'; ?>
 
 <!DOCTYPE html>
 
-<html <?php language_attributes(); ?> class="header_menu_active">
+<html <?php language_attributes(); ?>>
 
 <head>
 	<meta charset="<?php bloginfo( 'charset' ); ?>" />

@@ -12,11 +12,14 @@
 }
 
 .header_menu {
+	display: flex;
+	flex-grow: 1;
+	flex-direction: column;
 	flex-wrap: wrap;
 	font-size: 24px;
 	font-weight: 500;
 	justify-content: space-between;
-	margin: 80px 0 0;
+	padding: 80px 0;
 	text-align: center;
 	text-transform: uppercase;
 
@@ -54,12 +57,6 @@
 	}
 
 	li {
-		margin: 0 0 80px;
-
-		&:last-child {
-			margin: 0;
-		}
-
 		&.current-menu-item {
 			a,
 			a:visited {
@@ -70,11 +67,14 @@
 			}
 		}
 	}
+
+	@media #{$mobile} {
+		font-size: 16px;
+		padding: 30px 0;
+	}
 }
 
 .header_menu_active {
-	.header_menu {}
-
 	.header_menu_wrap {
 		background-color: $c_menu_bg;
 		display: flex;
@@ -142,10 +142,15 @@
 	height: 100%;
 	justify-content: center;
 	left: 0;
+	padding: 50px 0 0;
 	position: fixed;
 	top: 0;
 	width: 100%;
 	z-index: 9;
+
+	@media #{$mobile} {
+		padding: 14px 0;
+	}
 }
 
 .header_phone,
