@@ -1,7 +1,10 @@
 <?php
 
 // allow menus
-add_theme_support( 'menus' );
+add_theme_support('menus');
+
+// title at head
+add_theme_support( 'title-tag' );
 
 // remove class from li at menus
 //add_filter('nav_menu_css_class', '__return_empty_array', 10, 3);
@@ -20,20 +23,3 @@ function footerMenu() {
 	register_nav_menu( 'footer', 'Footer menu' );
 }
 add_action('after_setup_theme', 'footerMenu');
-
-// footer submenu
-function footerSubmenu() {
-	register_nav_menu( 'footer_submenu', 'Footer submenu' );
-}
-add_action('after_setup_theme', 'footerSubmenu');
-
-function special_nav_class ($classes, $item) {
-	if (in_array('current-menu-item', $classes) ){
-		$classes[] = 'active ';
-	}
-	return $classes;
-}
-//add_filter('nav_menu_css_class' , 'special_nav_class' , 10 , 2);
-
-// title at head
-add_theme_support( 'title-tag' );

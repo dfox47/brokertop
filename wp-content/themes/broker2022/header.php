@@ -1,5 +1,3 @@
-<?php $i    = esc_url(get_template_directory_uri()) . '/i';
-$favicon    = $i . '/favicon'; ?>
 
 <!DOCTYPE html>
 
