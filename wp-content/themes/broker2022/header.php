@@ -14,7 +14,7 @@ $favicon    = $i . '/favicon'; ?>
 	<?php // favicon
 	include "template-parts/favicon.php"; ?>
 
-	<title><?php wp_title(''); ?></title>
+	<title><?php wp_title(''); ?> | <?php bloginfo('name'); ?></title>
 
 	<?php wp_head(); ?>
 
