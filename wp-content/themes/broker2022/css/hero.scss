@@ -183,7 +183,24 @@
 	}
 
 	&__img {
-		display: none;
+		background-position: center;
+		background-repeat: no-repeat;
+		background-size: cover;
+		height: 247px;
+		position: absolute;
+		right: 0;
+		top: 50%;
+		width: 247px;
+
+		&::after {
+			background-color: $c_img_bg;
+			content: "";
+			height: 100%;
+			left: 22px;
+			position: absolute;
+			top: 22px;
+			width: 100%;
+		}
 	}
 
 	&__more {

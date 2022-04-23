@@ -49,7 +49,7 @@
 
 								<div class="hero_block_slide__developer">Capital towers</div>
 
-								<div class="hero_block_slide__img">img</div>
+								<div class="hero_block_slide__img" style="background-image: url(https://brokertop.ru/wp-content/uploads/2022/04/home_slider_1.png);"></div>
 							</div>
 						</li>
 

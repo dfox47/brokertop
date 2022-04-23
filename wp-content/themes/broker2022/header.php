@@ -18,7 +18,7 @@ $favicon    = $i . '/favicon'; ?>
 
 	<?php wp_head(); ?>
 
-	<link rel="stylesheet" href="<?php echo esc_url(get_template_directory_uri()); ?>/style.css?v<?php echo(date("YmdHis")); ?>" />
+	<link rel="stylesheet" href="<?php echo esc_url(get_template_directory_uri()); ?>/style.css?v<?php echo(date("Ymd")); ?>" />
 </head>
 
 <body <?php body_class(); ?>>
