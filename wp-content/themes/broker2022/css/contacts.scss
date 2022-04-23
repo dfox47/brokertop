@@ -1,0 +1,40 @@
+
+.contacts_info {
+	background: url(#{$i}/contacts_bg.png) no-repeat center scroll $c_img_bg;
+	background-size: cover;
+	color: #fff;
+	margin: 0 0 0 6px;
+	padding: 28px 100px 102px;
+}
+
+.contacts_form {
+	background-color: $c_menu_bg;
+	position: absolute;
+	left: 50%;
+	margin: 0 0 0 12px;
+	padding: 32px 0 0 72px;
+	top: 30px;
+	width: calc(50% + 10px);
+
+	input {
+		&[type="email"],
+		&[type="text"] {
+			background: none;
+			border: 0 none;
+			border-bottom: 1px solid #fff;
+			color: #fff;
+		}
+	}
+
+	label {
+		position: relative;
+	}
+
+	&__label {
+		color: #fff;
+		left: 0;
+		opacity: .3;
+		position: absolute;
+		top: 0;
+	}
+}

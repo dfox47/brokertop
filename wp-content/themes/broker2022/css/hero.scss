@@ -238,4 +238,8 @@
 
 .hero_block_wrap {
 	padding: 27px;
+
+	@media #{$mobile} {
+		padding: 0;
+	}
 }

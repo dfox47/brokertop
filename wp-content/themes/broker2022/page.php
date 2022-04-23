@@ -1,23 +1,22 @@
 
 <?php get_header(); ?>
 
-<main class="site-main">
-	<h1><?php single_post_title(); ?></h1>
+<main class="main_content_wrap">
+	<div class="main_content">
+		<div class="wrap2">
+			<h1><?php single_post_title(); ?></h1>
 
-	<div class="" data-img="<?php echo get_the_post_thumbnail_url(); ?>">XXX</div>
+			<?php // content
+			the_content(); ?>
 
-	<?php // content
-	the_content(); ?>
-
-	<?php // posts
-	if ( have_posts() ) {
-		while ( have_posts() ) {
-			the_post();
-		}
-	}
-	else { ?>
-		<div class="hidden">empty</div>
-	<?php } ?>
+			<?php // posts
+			if ( have_posts() ) {
+				while ( have_posts() ) {
+					the_post();
+				}
+			} ?>
+		</div>
+	</div>
 </main>
 
 <?php get_footer(); ?>

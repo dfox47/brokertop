@@ -6,6 +6,31 @@ body {
 	font-weight: 500;
 }
 
+h1 {
+	color: $c_main;
+	font-family: $font_arsenica;
+	font-size: 64px;
+	font-weight: 400;
+	letter-spacing: -.04em;
+	margin: 0 0 .1em;
+}
+
+h2 {
+	color: $c_main;
+	font-family: $font_arsenica;
+	font-size: 40px;
+	font-weight: 400;
+	line-height: 1.2;
+}
+
+h3 {
+	color: $c_main;
+	font-size: 12px;
+	font-weight: 400;
+	line-height: 1.2;
+	margin: 40px 0 11px;
+}
+
 
 
 .btn {
@@ -117,6 +142,27 @@ body {
 	}
 }
 
+.main_content {
+	background-color: $c_content_bg;
+	padding: 30px 0 140px;
+	position: relative;
+
+	.wrap2 {
+		position: relative;
+	}
+}
+
+.main_content_wrap {
+	margin: -27px 0 0;
+	padding: 0 27px;
+}
+
+.page {
+	.hero_block {
+		min-height: 466px;
+	}
+}
+
 .powered_by {
 	align-items: center;
 	color: #fff;
@@ -141,6 +187,13 @@ body {
 .wrap {
 	margin: 0 auto;
 	max-width: 1373px;
+	padding: 0 30px;
+	width: 100%;
+}
+
+.wrap2 {
+	margin: 0 auto;
+	max-width: 1248px;
 	padding: 0 30px;
 	width: 100%;
 }
