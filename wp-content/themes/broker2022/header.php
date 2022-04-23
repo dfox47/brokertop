@@ -3,7 +3,7 @@ $favicon    = $i . '/favicon'; ?>
 
 <!DOCTYPE html>
 
-<html <?php language_attributes(); ?>>
+<html <?php language_attributes(); ?> <?php body_class(); ?>>
 
 <head>
 	<meta charset="<?php bloginfo( 'charset' ); ?>" />
@@ -21,6 +21,6 @@ $favicon    = $i . '/favicon'; ?>
 	<link rel="stylesheet" href="<?php echo esc_url(get_template_directory_uri()); ?>/style.css?v<?php echo(date("YmdHis")); ?>" />
 </head>
 
-<body <?php body_class(); ?>>
+<body>
 <?php // header
 include "template-parts/head.php"; ?>

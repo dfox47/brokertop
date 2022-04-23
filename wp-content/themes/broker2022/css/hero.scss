@@ -1,6 +1,8 @@
 
 .hero_block {
-	background-color: $c_img_bg;
+	background: url(#{$i}/hero_bg.png) center no-repeat scroll $c_img_bg;
+	background-size: cover;
+	min-height: 244px;
 	overflow: hidden;
 	position: relative;
 

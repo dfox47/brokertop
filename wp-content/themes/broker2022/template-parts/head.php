@@ -3,10 +3,12 @@
 	<div class="hero_block">
 		<div class="header_wrap">
 			<header class="header">
-				<a class="logo" href="/"></a>
+				<div class="header_left">
+					<a class="logo" href="/"></a>
 
-				<div class="header_menu_toggle js-header-menu-toggle">
-					<span></span> Меню
+					<div class="header_menu_toggle js-header-menu-toggle">
+						<span></span> Меню
+					</div>
 				</div>
 
 				<div class="header_menu_wrap">
@@ -23,21 +25,23 @@
 					)); ?>
 				</div>
 
-				<a class="header_phone" href="tel:+74951503977">+7 (495) 150 -39 -77</a>
+				<div class="header_right">
+					<a class="header_phone" href="tel:+74951503977">+7 (495) 150 -39 -77</a>
 
-				<ul class="header_social">
-					<li class="header_social__item">
-						<a class="header_social__icon header_social__icon--whatsapp" href="" target="_blank"></a>
-					</li>
+					<ul class="header_social">
+						<li class="header_social__item">
+							<a class="header_social__icon header_social__icon--whatsapp" href="" target="_blank"></a>
+						</li>
 
-					<li class="header_social__item">
-						<a class="header_social__icon header_social__icon--telegram" href="" target="_blank"></a>
-					</li>
+						<li class="header_social__item">
+							<a class="header_social__icon header_social__icon--telegram" href="" target="_blank"></a>
+						</li>
 
-					<li class="header_social__item">
-						<a class="header_social__icon header_social__icon--instagram" href="" target="_blank"></a>
-					</li>
-				</ul>
+						<li class="header_social__item">
+							<a class="header_social__icon header_social__icon--instagram" href="" target="_blank"></a>
+						</li>
+					</ul>
+				</div>
 			</header>
 		</div>
 

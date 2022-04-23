@@ -1,5 +1,12 @@
 
 .home {
+	&.header_menu_active {
+		.header_menu_wrap {
+			background-color: $c_menu_bg;
+			display: flex;
+		}
+	}
+
 	.header_menu {
 		flex-direction: row;
 		font-size: 11px;
@@ -34,10 +41,19 @@
 				}
 			}
 		}
+
+		@media #{$desktop_hd} {
+			flex-direction: column;
+			padding: 80px 0;
+		}
 	}
 
 	.header_menu_toggle {
 		display: none;
+
+		@media #{$desktop_hd} {
+			display: block;
+		}
 	}
 
 	.header_menu_wrap {
@@ -48,11 +64,30 @@
 		position: relative;
 		top: auto;
 		width: auto;
+
+		@media #{$desktop_hd} {
+			align-items: center;
+			display: none;
+			flex-direction: column;
+			height: 100%;
+			justify-content: center;
+			left: 0;
+			padding: 50px 0 0;
+			position: fixed;
+			top: 0;
+			width: 100%;
+			z-index: 9;
+		}
 	}
 
 	.hero_block {
-		background: url(#{$i}/home_bg.png) center no-repeat scroll transparent;
-		background-size: cover;
+		background: url(#{$i}/home_bg.png) center no-repeat scroll $c_img_bg;
+		height: 100%;
+		width: 100%;
+	}
+
+	.hero_block_wrap {
+		display: flex;
 		height: 100vh;
 		min-height: 650px;
 	}
