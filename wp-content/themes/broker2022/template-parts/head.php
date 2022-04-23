@@ -10,6 +10,8 @@
 				</div>
 
 				<div class="header_menu_wrap">
+					<div class="btn btn_close js-header-menu-toggle"></div>
+
 					<?php // header_menu
 					wp_nav_menu(array(
 						'container'         => false,

@@ -5,24 +5,17 @@
 
 		a,
 		a:visited {
-			&::after {
-				background-color: $c_main;
-				content: "";
-				height: 1px;
-				left: 0;
-				margin: 4px 0 0;
-				position: absolute;
-				top: 100%;
-				transition: $transition;
-				width: 0;
-			}
-
 			&:hover {
-				color: $c_main;
-
 				&::after {
 					width: 100%;
 				}
+			}
+
+			&::after {
+				height: 1px;
+				left: 0;
+				margin: 4px 0 0;
+				top: 100%;
 			}
 		}
 

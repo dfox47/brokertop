@@ -11,9 +11,42 @@ body {
 .btn {
 	cursor: pointer;
 	display: inline-block;
+	position: relative;
 	text-decoration: none;
 	text-transform: uppercase;
 	transition: $transition;
+}
+
+.btn_close {
+	height: 50px;
+	width: 50px;
+
+	&:hover {
+		&::after,
+		&::before {
+			height: 3px;
+		}
+	}
+
+	&::after,
+	&::before {
+		background-color: $c_main;
+		content: "";
+		height: 1px;
+		left: 4px;
+		position: absolute;
+		top: 22px;
+		transition: $transition;
+		width: 40px;
+	}
+
+	&::after {
+		transform: rotate(45deg);
+	}
+
+	&::before {
+		transform: rotate(-45deg);
+	}
 }
 
 .btn_more {
