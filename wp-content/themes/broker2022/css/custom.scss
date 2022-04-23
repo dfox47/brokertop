@@ -29,23 +29,6 @@ body {
 	}
 }
 
-.home {
-	.header_menu {
-		display: flex;
-	}
-
-	.header_menu_toggle {
-		display: none;
-	}
-
-	.hero_block {
-		background: url(#{$i}/home_bg.png) center no-repeat scroll transparent;
-		background-size: cover;
-		height: 100vh;
-		min-height: 650px;
-	}
-}
-
 .logo {
 	background-size: contain;
 	background: url(#{$i}/logo.svg) center no-repeat scroll transparent;

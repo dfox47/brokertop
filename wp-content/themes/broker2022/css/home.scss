@@ -1,0 +1,63 @@
+
+.home {
+	.header_menu {
+		font-size: 11px;
+
+		a,
+		a:visited {
+			&::after {
+				background-color: $c_main;
+				content: "";
+				height: 1px;
+				left: 0;
+				margin: 4px 0 0;
+				position: absolute;
+				top: 100%;
+				transition: $transition;
+				width: 0;
+			}
+
+			&:hover {
+				color: $c_main;
+
+				&::after {
+					width: 100%;
+				}
+			}
+		}
+
+		li {
+			padding: 0 20px;
+
+			&.current-menu-item {
+				a,
+				a:visited {
+					&::after {
+						width: 100%;
+					}
+				}
+			}
+		}
+	}
+
+	.header_menu_toggle {
+		display: none;
+	}
+
+	.header_menu_wrap {
+		display: block;
+		height: auto;
+		left: auto;
+		padding: 0 0 6px;
+		position: relative;
+		top: auto;
+		width: auto;
+	}
+
+	.hero_block {
+		background: url(#{$i}/home_bg.png) center no-repeat scroll transparent;
+		background-size: cover;
+		height: 100vh;
+		min-height: 650px;
+	}
+}

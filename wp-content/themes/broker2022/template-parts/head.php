@@ -9,15 +9,17 @@
 					<span></span> Меню
 				</div>
 
-				<?php // header_menu
-				wp_nav_menu(array(
-					'container'         => false,
-					'depth'             => 0,
-					'item_spacing'      => 'preserve',
-					'items_wrap'        => '<ul class="%2$s">%3$s</ul>',
-					'menu'              => 'header_menu',
-					'menu_class'        => 'header_menu',
-				)); ?>
+				<div class="header_menu_wrap">
+					<?php // header_menu
+					wp_nav_menu(array(
+						'container'         => false,
+						'depth'             => 0,
+						'item_spacing'      => 'preserve',
+						'items_wrap'        => '<ul class="%2$s">%3$s</ul>',
+						'menu'              => 'header_menu',
+						'menu_class'        => 'header_menu',
+					)); ?>
+				</div>
 
 				<a class="header_phone" href="tel:+74951503977">+7 (495) 150 -39 -77</a>
 
