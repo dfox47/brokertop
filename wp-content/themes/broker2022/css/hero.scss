@@ -1,10 +1,11 @@
 
 .hero_block {
-	border: 27px solid #fff;
+	background-color: $c_img_bg;
+	overflow: hidden;
 	position: relative;
 
 	&__footer {
-		bottom: 50px;
+		bottom: 46px;
 		color: #fff;
 		font-size: 10px;
 		left: 0;
@@ -12,6 +13,7 @@
 		position: absolute;
 		text-align: center;
 		width: 100%;
+		z-index: 1;
 	}
 
 	&__slider {
@@ -23,7 +25,7 @@
 		position: absolute;
 		top: 0;
 		width: 100%;
-		z-index: 1;
+		z-index: 3;
 
 		.splide {
 			height: 100%;
@@ -230,4 +232,9 @@
 		line-height: 115px;
 		max-width: 74%;
 	}
+}
+
+.hero_block_wrap {
+	background-color: #fff;
+	padding: 27px;
 }

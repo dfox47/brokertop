@@ -12,7 +12,7 @@
 }
 
 .header_menu {
-	display: flex;
+	display: none;
 	flex-wrap: wrap;
 	font-size: 11px;
 	font-weight: 500;
@@ -62,18 +62,26 @@
 	}
 }
 
+.header_menu_active {
+	.header_menu {
+		display: block;
+	}
+}
+
 .header_menu_toggle {
 	color: #fff;
 	cursor: pointer;
-	display: none;
 	font-size: 10px;
 	line-height: 14px;
 	padding: 0 0 0 30px;
 	position: relative;
 	text-transform: uppercase;
+	transition: $transition;
 	vertical-align: middle;
 
 	&:hover {
+		color: $c_main;
+
 		&::after,
 		&::before,
 		span {
@@ -94,11 +102,11 @@
 	}
 
 	&::after {
-		top: 1px;
+		top: 0;
 	}
 
 	&::before {
-		top: 10px;
+		top: 12px;
 		width: 19px;
 	}
 
@@ -108,7 +116,7 @@
 		height: 2px;
 		left: 0;
 		position: absolute;
-		top: 8px;
+		top: 6px;
 		transition: $transition;
 		width: 15px;
 	}
@@ -189,4 +197,7 @@
 	}
 }
 
-.header_wrap {}
+.header_wrap {
+	position: relative;
+	z-index: 5;
+}
