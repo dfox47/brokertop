@@ -1,6 +1,13 @@
 
+<?php // thumb img url
+$thumbUrl = '';
+
+if ( get_the_post_thumbnail_url() ) {
+	$thumbUrl = str_replace('https://brokertop.ru', '', get_the_post_thumbnail_url());
+} ?>
+
 <div class="hero_block_wrap">
-	<div class="hero_block">
+	<div class="hero_block" <?php if ($thumbUrl !== '') { ?>style="background-image: url(<?php echo $thumbUrl; ?>);"<?php } ?>>
 		<div class="header_wrap">
 			<header class="header">
 				<div class="header_left">

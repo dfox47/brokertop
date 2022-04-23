@@ -2,6 +2,10 @@
 <?php get_header(); ?>
 
 <main class="site-main">
+	<h1><?php single_post_title(); ?></h1>
+
+	<div class="" data-img="<?php echo get_the_post_thumbnail_url(); ?>">XXX</div>
+
 	<?php // content
 	the_content(); ?>
 
