@@ -1,7 +1,7 @@
 
 <?php $i = esc_url(get_template_directory_uri()) . '/i'; ?>
 
-<footer class="footer">
+<footer class="footer<?php if (is_front_page()) { ?> footer--home<?php } ?>">
 	<div class="wrap">
 		<div class="footer_wrap">
 			<?php // footer_menu

@@ -6,6 +6,21 @@
 	margin: 0 0 0 6px;
 	padding: 28px 100px 102px;
 	width: 60%;
+
+	@media #{$desktop} {
+		margin: 0;
+		width: 100%;
+	}
+
+	@media #{$tablet} {
+		padding: 30px 20px;
+
+		h3 {
+			&:first-child {
+				margin-top: 0;
+			}
+		}
+	}
 }
 
 .contacts_form {
@@ -87,7 +102,6 @@
 	textarea {
 		display: block;
 		height: 125px;
-		max-width: 430px;
 		width: 100%;
 
 		&:focus {
@@ -204,6 +218,10 @@
 		}
 	}
 
+	.wpcf7-form {
+		max-width: 430px;
+	}
+
 	.wpcf7-form-control {
 		display: block;
 		width: 100%;
@@ -233,5 +251,17 @@
 		top: 0;
 		width: 100%;
 		z-index: 3;
+	}
+
+	@media #{$desktop} {
+		left: auto;
+		margin: 0;
+		position: relative;
+		top: auto;
+		width: 100%;
+	}
+
+	@media #{$mobile} {
+		padding: 30px 20px;
 	}
 }
