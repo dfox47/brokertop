@@ -81,7 +81,7 @@ gulp.task('js', function () {
 			localFolderJs + '**/*.js'
 		])
 		.pipe(concat('all.js'))
-		.pipe(uglify())
+		// .pipe(uglify())
 		.pipe(rename({
 			suffix: ".min"
 		}))
