@@ -1,20 +1,20 @@
 
-let fs                  = require('fs');
-let concat              = require('gulp-concat')
-let config              = JSON.parse(fs.readFileSync('../config.json'))
-let cssMinify           = require('gulp-csso')
-let ftp                 = require('vinyl-ftp')
-let gulp                = require('gulp')
-let gutil               = require('gulp-util')
-let rename              = require('gulp-rename')
-let sass                = require('gulp-sass')(require('sass'))
-let uglify              = require('gulp-uglify')
+let fs          = require('fs')
+let concat      = require('gulp-concat')
+let config      = JSON.parse(fs.readFileSync('../config.json'))
+let cssMinify   = require('gulp-csso')
+let ftp         = require('vinyl-ftp')
+let gulp        = require('gulp')
+let gutil       = require('gulp-util')
+let rename      = require('gulp-rename')
+let sass        = require('gulp-sass')(require('sass'))
+let uglify      = require('gulp-uglify')
 
 // FTP config
-let host                = config.host
-let password            = config.password
-let port                = config.port
-let user                = config.user
+let host        = config.host
+let password    = config.password
+let port        = config.port
+let user        = config.user
 
 let remoteFolder                = '/www/brokertop.ru/wp-content/themes/broker2022/'
 let remoteFolderCss             = remoteFolder + 'css/'
@@ -76,12 +76,11 @@ gulp.task('copy_js', function () {
 
 gulp.task('js', function () {
 	return gulp.src([
-			// localFolderJs + 'jquery.3.2.1.js',
 			localFolderJs + 'splide.min.js',
 			localFolderJs + '**/*.js'
 		])
 		.pipe(concat('all.js'))
-		// .pipe(uglify())
+		.pipe(uglify())
 		.pipe(rename({
 			suffix: ".min"
 		}))
