@@ -13,7 +13,7 @@
 	}
 
 	@media #{$tablet} {
-		padding: 30px 20px;
+		padding: 30px 20px 55px;
 
 		h3 {
 			&:first-child {
@@ -221,6 +221,10 @@
 				color: $c_main;
 			}
 		}
+
+		@media #{$mobile} {
+			margin-bottom: 22px;
+		}
 	}
 
 	.wpcf7-form {
@@ -272,6 +276,10 @@
 	}
 
 	@media #{$mobile} {
-		padding: 30px 14px;
+		padding: 30px 20px;
+
+		h2 {
+			margin: 0 -5px;
+		}
 	}
 }

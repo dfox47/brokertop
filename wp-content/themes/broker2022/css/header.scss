@@ -9,6 +9,10 @@
 	padding: 28px 30px;
 	position: relative;
 	z-index: 3;
+
+	@media #{$mobile} {
+		padding: 28px 19px;
+	}
 }
 
 .header_menu {
@@ -180,24 +184,6 @@
 	@media #{$mobile} {
 		justify-content: space-between;
 		width: 100%;
-	}
-}
-
-.header_phone,
-.header_phone:visited {
-	background: url(#{$icons}/phone.svg) left center no-repeat scroll transparent;
-	color: #fff;
-	font-size: 14px;
-	font-weight: 700;
-	letter-spacing: .01em;
-	line-height: 19px;
-	margin: 0 30px 0 0;
-	padding: 0 0 0 18px;
-	text-decoration: none;
-	transition: $transition;
-
-	&:hover {
-		color: $c_main;
 	}
 }
 

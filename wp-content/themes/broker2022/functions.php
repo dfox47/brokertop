@@ -23,3 +23,6 @@ function footerMenu() {
 	register_nav_menu( 'footer', 'Footer menu' );
 }
 add_action('after_setup_theme', 'footerMenu');
+
+// theme's custom options
+include "template-parts/theme_options.php";

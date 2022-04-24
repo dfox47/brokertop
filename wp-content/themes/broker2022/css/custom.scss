@@ -17,6 +17,11 @@ h1 {
 	@media #{$desktop} {
 		text-align: center;
 	}
+
+	@media #{$mobile} {
+		font-size: 40px;
+		margin: 0 0 15px;
+	}
 }
 
 h2 {
@@ -33,6 +38,10 @@ h3 {
 	font-weight: 400;
 	line-height: 1.2;
 	margin: 40px 0 11px;
+
+	@media #{$mobile} {
+		margin-top: 20px;
+	}
 }
 
 
@@ -106,7 +115,7 @@ h3 {
 	}
 
 	@media #{$mobile} {
-		padding-bottom: 0;
+		padding: 18px 0 0;
 	}
 }
 
@@ -126,6 +135,23 @@ h3 {
 .page {
 	.hero_block {
 		min-height: 466px;
+	}
+}
+
+.phone {
+	background: url(#{$icons}/phone.svg) left center no-repeat scroll transparent;
+	color: #fff;
+	font-size: 14px;
+	font-weight: 700;
+	letter-spacing: .01em;
+	line-height: 19px;
+	margin: 0 30px 0 0;
+	padding: 0 0 0 18px;
+	text-decoration: none;
+	transition: $transition;
+
+	&:hover {
+		color: $c_main;
 	}
 }
 

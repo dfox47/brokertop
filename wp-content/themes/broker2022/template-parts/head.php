@@ -33,8 +33,7 @@ if ( get_the_post_thumbnail_url() ) {
 				</div>
 
 				<div class="header_right">
-					<a class="header_phone" href="tel:+74951503977">+7 (495) 150 -39 -77</a>
-
+					<?php include "phone.php"; ?>
 					<?php include "social.php"; ?>
 				</div>
 			</header>
