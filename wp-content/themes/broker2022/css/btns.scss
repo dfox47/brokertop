@@ -2,6 +2,8 @@
 .btn {
 	cursor: pointer;
 	display: inline-block;
+	font-size: 14px;
+	font-weight: 600;
 	position: relative;
 	text-decoration: none;
 	text-transform: uppercase;
@@ -43,12 +45,23 @@
 .btn_more {
 	border: 1px solid $c_main;
 	color: #fff;
-	font-size: 14px;
-	font-weight: 600;
 	letter-spacing: .03em;
 	padding: .8em 3.8em;
 
 	&:hover {
 		background-color: $c_main;
+	}
+}
+
+.btn_submit {
+	background: none;
+	border: 1px solid $c_main;
+	color: #fff;
+	letter-spacing: .08em;
+	padding: 14px 54px 12px;
+
+	&:hover {
+		background-color: $c_main;
+		color: #000;
 	}
 }
