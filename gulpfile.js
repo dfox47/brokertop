@@ -49,7 +49,6 @@ gulp.task('css', function () {
 		.pipe(cssMinify())
 		.pipe(rename({
 			basename: 'style'
-			// suffix: ".min"
 		}))
 		.pipe(conn.dest(remoteFolder))
 })
