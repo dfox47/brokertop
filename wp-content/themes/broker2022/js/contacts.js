@@ -3,14 +3,11 @@
 let $contactInputs = document.getElementsByClassName('wpcf7-form-control')
 
 Array.from($contactInputs).forEach(function(input) {
-	let $label      = input.closest('label')
-	let inputVal    = input.value
+	let $label = input.closest('label')
 
-	if (!$label) {
-		return
-	}
+	if (!$label) return
 
-	$label.classList.toggle('active', inputVal)
+	$label.classList.toggle('active', input.value)
 
 	input.addEventListener('input', (e) => {
 		$label.classList.toggle('active', e.target.value)
@@ -20,8 +17,15 @@ Array.from($contactInputs).forEach(function(input) {
 		$label.classList.toggle('active', e.target.value)
 	})
 
-	input.addEventListener('focusin', () => {
+	input.addEventListener('focusin', (e) => {
 		$label.classList.add('active')
+
+		let $parnet = e.target.parentElement
+		let error = $parnet.querySelector('.wpcf7-not-valid-tip')
+
+		if (!error) return
+
+		error.remove()
 	})
 })
 // inputs [END]
