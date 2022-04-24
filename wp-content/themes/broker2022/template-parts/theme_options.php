@@ -25,7 +25,7 @@ function customOptionsSettings() {
 
 function customOptionsContent() { ?>
 	<div class="wrap">
-		<h1>Your Plugin Name</h1>
+		<h1>Настройки Top Broker</h1>
 
 		<form method="post" action="options.php">
 			<?php settings_fields( 'broker-options-admin' ); ?>
