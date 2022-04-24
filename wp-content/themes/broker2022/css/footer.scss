@@ -7,6 +7,11 @@
 	&--home {
 		display: none;
 	}
+
+	@media #{$mobile} {
+		background: #fff;
+		padding: 30px 10px;
+	}
 }
 
 .footer_agree {
@@ -20,6 +25,10 @@
 	&:hover {
 		opacity: 1;
 	}
+
+	@media #{$mobile} {
+		color: $c_menu_bg;
+	}
 }
 
 .footer_bottom {
@@ -28,6 +37,10 @@
 	justify-content: space-between;
 	margin: 31px 0 0;
 	padding: 19px 0 0;
+
+	@media #{$mobile} {
+		border: 0 none;
+	}
 }
 
 .footer_menu {
