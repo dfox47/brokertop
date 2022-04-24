@@ -1,6 +1,6 @@
 
-<ul class="social_list social_list">
-	<li class="social_list__item social_list__item">
+<ul class="social_list">
+	<li class="social_list__item">
 		<a class="social_list__icon social_list__icon--whatsapp" href="" target="_blank"></a>
 	</li>
 
