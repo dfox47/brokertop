@@ -35,19 +35,7 @@ if ( get_the_post_thumbnail_url() ) {
 				<div class="header_right">
 					<a class="header_phone" href="tel:+74951503977">+7 (495) 150 -39 -77</a>
 
-					<ul class="header_social">
-						<li class="header_social__item">
-							<a class="header_social__icon header_social__icon--whatsapp" href="" target="_blank"></a>
-						</li>
-
-						<li class="header_social__item">
-							<a class="header_social__icon header_social__icon--telegram" href="" target="_blank"></a>
-						</li>
-
-						<li class="header_social__item">
-							<a class="header_social__icon header_social__icon--instagram" href="" target="_blank"></a>
-						</li>
-					</ul>
+					<?php include "social.php"; ?>
 				</div>
 			</header>
 		</div>

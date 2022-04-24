@@ -26,6 +26,8 @@
 				Москва, Пресненская набережная 8 стр.1, 571
 			</div>
 
+			<?php include "template-parts/social.php"; ?>
+
 			<a class="footer_agree" href="">Согласие на обработку персональных данных</a>
 		</div>
 	</div>
