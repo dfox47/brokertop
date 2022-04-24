@@ -199,6 +199,11 @@
 				&::before {
 					transform: rotate(-45deg);
 				}
+
+				@media #{$mobile} {
+					font-size: 16px;
+					padding: 20px;
+				}
 			}
 		}
 	}
@@ -219,6 +224,7 @@
 	}
 
 	.wpcf7-form {
+		margin: 0 auto;
 		max-width: 430px;
 	}
 
@@ -229,6 +235,10 @@
 		&.btn {
 			display: inline-block;
 			width: auto;
+
+			@media #{$mobile} {
+				width: 100%;
+			}
 		}
 	}
 
@@ -262,6 +272,6 @@
 	}
 
 	@media #{$mobile} {
-		padding: 30px 20px;
+		padding: 30px 14px;
 	}
 }
