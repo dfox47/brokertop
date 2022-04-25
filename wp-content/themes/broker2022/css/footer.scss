@@ -6,6 +6,10 @@
 
 	&--home {
 		display: none;
+
+		@media #{$desktop_hd} {
+			display: block;
+		}
 	}
 
 	@media #{$mobile} {

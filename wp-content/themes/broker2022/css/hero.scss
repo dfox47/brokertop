@@ -16,6 +16,10 @@
 		text-align: center;
 		width: 100%;
 		z-index: 1;
+
+		@media #{$tablet} {
+			display: none;
+		}
 	}
 
 	&__slider {
@@ -23,10 +27,7 @@
 		display: flex;
 		height: 100%;
 		justify-content: center;
-		left: 0;
-		position: absolute;
-		top: 0;
-		width: 100%;
+		position: relative;
 		z-index: 3;
 
 		.splide {
@@ -94,14 +95,41 @@
 						transform: rotate(-45deg);
 					}
 				}
+
+				@media #{$desktop_hd} {
+					width: 50px;
+
+					&::after {
+						display: none;
+					}
+
+					&--next {
+						margin: 0;
+					}
+
+					&--prev {
+						margin: 0;
+					}
+				}
+			}
+
+			&__arrows {
+				@media #{$desktop_hd} {
+					bottom: 34px;
+					height: 50px;
+					position: absolute;
+					right: 30px;
+					width: 100px;
+					z-index: 7;
+				}
 			}
 
 			&__pagination {
 				bottom: 34px;
 				justify-content: flex-start;
 				left: 50%;
-				max-width: 1178px;
-				padding: 0;
+				max-width: 1238px;
+				padding: 0 30px;
 				transform: translateX(-50%);
 				width: 100%;
 
@@ -140,6 +168,10 @@
 						}
 					}
 				}
+
+				@media #{$tablet} {
+					padding: 0 20px;
+				}
 			}
 
 			&__slide {
@@ -150,15 +182,27 @@
 
 			&__track {
 				height: 100%;
+
+				@media #{$mobile} {
+					height: auto;
+				}
 			}
+
+			@media #{$mobile} {
+				height: auto;
+			}
+		}
+
+		@media #{$mobile} {
+			height: auto;
 		}
 	}
 }
 
 .hero_block_slide {
 	margin: 0 auto;
-	max-width: 1178px;
-	padding: 108px 0 0;
+	max-width: 1238px;
+	padding: 108px 30px 0;
 	position: relative;
 	width: 100%;
 
@@ -170,6 +214,10 @@
 		margin: 1em 0;
 		min-height: 26px;
 		padding: 0 0 0 36px;
+
+		@media #{$desktop} {
+			//display: none;
+		}
 	}
 
 	&__developer {
@@ -190,6 +238,10 @@
 			position: absolute;
 			top: 100%;
 			width: 100%;
+		}
+
+		@media #{$desktop_hd} {
+			display: none;
 		}
 	}
 
@@ -220,10 +272,18 @@
 			width: 100%;
 			z-index: 1;
 		}
+
+		@media #{$desktop_hd} {
+			display: none;
+		}
 	}
 
 	&__more {
 		margin: 34px 0 0;
+
+		@media #{$mobile} {
+			text-align: center;
+		}
 	}
 
 	&__title {
@@ -231,8 +291,22 @@
 		font-family: $font_arsenica;
 		font-size: 96px;
 		letter-spacing: -.04em;
-		line-height: 115px;
-		max-width: 74%;
+		line-height: 1.2;
+		max-width: 850px;
+
+		@media #{$tablet} {
+			font-size: 70px;
+			max-width: 650px;
+		}
+
+		@media #{$mobile} {
+			font-size: 54px;
+			text-align: center;
+		}
+	}
+
+	@media #{$mobile} {
+		padding: 142px 10px 140px;
 	}
 }
 
