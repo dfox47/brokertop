@@ -10,7 +10,7 @@
 
 	@media #{$mobile} {
 		background: #fff;
-		padding: 30px 10px;
+		padding: 0 10px 35px;
 	}
 }
 
@@ -28,6 +28,9 @@
 
 	@media #{$mobile} {
 		color: $c_menu_bg;
+		font-size: 14px;
+		letter-spacing: -.07em;
+		max-width: 230px;
 	}
 }
 
@@ -43,6 +46,7 @@
 		align-items: center;
 		border: 0 none;
 		flex-direction: column;
+		margin-top: 17px;
 		text-align: center;
 	}
 }
@@ -96,6 +100,7 @@
 
 	.phone {
 		color: $c_menu_bg;
+		margin: 0 20px 0 0;
 	}
 
 	@media #{$mobile} {
@@ -105,7 +110,7 @@
 
 .footer_social {
 	display: none;
-	margin: 30px 0;
+	margin: 15px 0 21px;
 
 	@media #{$mobile} {
 		display: block;
@@ -124,6 +129,7 @@
 		align-items: center;
 		flex-direction: column;
 		justify-content: center;
+		margin: 22px 0 0;
 	}
 }
 
