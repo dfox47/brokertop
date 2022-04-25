@@ -211,15 +211,24 @@
 	width: 100%;
 
 	&__address {
-		background: url(#{$icons}/map.svg) left center no-repeat scroll transparent;
 		color: #fff;
 		font-size: 16px;
-		line-height: 26px;
+		line-height: 1.6;
 		margin: 1em 0;
-		min-height: 26px;
-		padding: 0 0 0 36px;
 
-		@media #{$desktop} {}
+		span {
+			background: url(#{$icons}/map.svg) left center no-repeat scroll transparent;
+			display: inline-block;
+			min-height: 26px;
+			padding: 0 0 0 36px;
+			position: relative;
+			text-align: left;
+		}
+
+		@media #{$mobile} {
+			padding: 0 10px;
+			text-align: center;
+		}
 	}
 
 	&__developer {
