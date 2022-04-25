@@ -26,10 +26,8 @@
 					<?php include "template-parts/phone.php"; ?>
 				</div>
 
-				<div class="copyright">
-					<?php echo(date("Y")); ?> TOP BROKER ESTATE.<br />
-					Москва, Пресненская набережная 8 стр.1, 571
-				</div>
+				<?php // copyright
+				include "template-parts/copyright.php"; ?>
 
 				<div class="footer_social">
 					<?php // social

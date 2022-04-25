@@ -18,6 +18,8 @@ function customOptions() {
 }
 
 function customOptionsSettings() {
+	register_setting( 'broker-options-admin', 'broker_footer_address' );
+	register_setting( 'broker-options-admin', 'broker_footer_title' );
 	register_setting( 'broker-options-admin', 'broker_inst' );
 	register_setting( 'broker-options-admin', 'broker_phone' );
 	register_setting( 'broker-options-admin', 'broker_whatsapp' );
@@ -34,17 +36,61 @@ function customOptionsContent() { ?>
 			<table class="form-table">
 				<tr>
 					<th scope="row"><label for="broker_phone">Телефон</label></th>
-					<td><input id="broker_phone" type="text" name="broker_phone" value="<?php echo esc_attr(get_option('broker_phone')); ?>" placeholder="+7 (495) 150 -39 -77" /></td>
+					<td>
+						<input id="broker_phone"
+						       name="broker_phone"
+						       placeholder="+7 (495) 150 -39 -77"
+						       type="text"
+						       value="<?php echo esc_attr(get_option('broker_phone')); ?>"
+						/>
+					</td>
 				</tr>
 
 				<tr>
 					<th scope="row"><label for="broker_inst">Instagram</label></th>
-					<td><input id="broker_inst" type="text" name="broker_inst" value="<?php echo esc_attr(get_option('broker_inst')); ?>" placeholder="lnstameow" /></td>
+					<td>
+						<input id="broker_inst"
+						       name="broker_inst"
+						       placeholder="lnstameow"
+						       type="text"
+						       value="<?php echo esc_attr(get_option('broker_inst')); ?>"
+						/>
+					</td>
 				</tr>
 
 				<tr>
 					<th scope="row"><label for="broker_whatsapp">WhatsApp</label></th>
-					<td><input id="broker_whatsapp" type="text" name="broker_whatsapp" value="<?php echo esc_attr(get_option('broker_whatsapp')); ?>" /></td>
+					<td>
+						<input id="broker_whatsapp"
+						       name="broker_whatsapp"
+						       type="text"
+						       value="<?php echo esc_attr(get_option('broker_whatsapp')); ?>"
+						/>
+					</td>
+				</tr>
+
+				<tr>
+					<th scope="row"><label for="broker_footer_title">Footer | Заголовок</label></th>
+					<td>
+						<input id="broker_footer_title"
+						       name="broker_footer_title"
+						       placeholder="TOP BROKER ESTATE."
+						       type="text"
+						       value="<?php echo esc_attr(get_option('broker_footer_title')); ?>"
+						/>
+					</td>
+				</tr>
+
+				<tr>
+					<th scope="row"><label for="broker_footer_address">Footer | Адрес</label></th>
+					<td>
+						<input id="broker_footer_address"
+						       name="broker_footer_address"
+						       placeholder="Москва, Пресненская набережная 8 стр.1, 571"
+						       type="text"
+						       value="<?php echo esc_attr(get_option('broker_footer_address')); ?>"
+						/>
+					</td>
 				</tr>
 			</table>
 

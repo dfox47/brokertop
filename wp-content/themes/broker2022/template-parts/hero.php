@@ -62,6 +62,6 @@
 </div>
 
 <div class="hero_block__footer">
-	<?php echo(date("Y")); ?> TOP BROKER ESTATE.<br />
-	Москва, Пресненская набережная 8 стр.1, 571
+	<?php // copyright
+	include "copyright.php"; ?>
 </div>
