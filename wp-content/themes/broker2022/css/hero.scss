@@ -101,7 +101,7 @@
 				}
 
 				@media #{$desktop_hd} {
-					width: 50px;
+					width: 60px;
 
 					&::after {
 						display: none;
@@ -115,6 +115,22 @@
 						margin: 0;
 					}
 				}
+
+				@media #{$mobile} {
+					&--next {
+						&::before {
+							left: 50%;
+							margin-left: -15px;
+						}
+					}
+
+					&--prev {
+						&::before {
+							margin-right: -12px;
+							right: 50%;
+						}
+					}
+				}
 			}
 
 			&__arrows {
@@ -123,8 +139,13 @@
 					height: 50px;
 					position: absolute;
 					right: 30px;
-					width: 100px;
+					width: 120px;
 					z-index: 7;
+				}
+
+				@media #{$mobile} {
+					bottom: 48px;
+					right: 0;
 				}
 			}
 
@@ -176,6 +197,11 @@
 				@media #{$tablet} {
 					padding: 0 20px;
 				}
+
+				@media #{$mobile} {
+					bottom: 54px;
+					padding: 0 15px;
+				}
 			}
 
 			&__slide {
@@ -214,19 +240,22 @@
 		color: #fff;
 		font-size: 16px;
 		line-height: 1.6;
-		margin: 1em 0;
+		margin: 1em auto;
 
 		span {
-			background: url(#{$icons}/map.svg) left center no-repeat scroll transparent;
+			background: url(#{$icons}/map.svg) left top no-repeat scroll transparent;
 			display: inline-block;
 			min-height: 26px;
-			padding: 0 0 0 36px;
+			padding: 5px 0 0 36px;
 			position: relative;
 			text-align: left;
 		}
 
 		@media #{$mobile} {
-			padding: 0 10px;
+			line-height: 1.2;
+			margin: 12px auto;
+			max-width: 240px;
+			padding: 0;
 			text-align: center;
 		}
 	}
@@ -317,7 +346,7 @@
 	}
 
 	@media #{$mobile} {
-		padding: 142px 10px 140px;
+		padding: 142px 10px;
 	}
 }
 

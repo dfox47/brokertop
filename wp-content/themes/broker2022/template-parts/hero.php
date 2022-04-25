@@ -23,7 +23,7 @@
 
 				<li class="splide__slide">
 					<div class="hero_block_slide">
-						<div class="hero_block_slide__title">Bvlgari Hotel 2<br />Residences Moscow</div>
+						<div class="hero_block_slide__title">Bvlgari Hotel Residences Moscow</div>
 
 						<div class="hero_block_slide__address"><span>Большая Никитская ул., 9/15с1, Москва</span></div>
 
@@ -41,7 +41,7 @@
 
 				<li class="splide__slide">
 					<div class="hero_block_slide">
-						<div class="hero_block_slide__title">Bvlgari Hotel 3<br />Residences Moscow</div>
+						<div class="hero_block_slide__title">Bvlgari Hotel Residences Moscow</div>
 
 						<div class="hero_block_slide__address"><span>Большая Никитская ул., 9/15с1, Москва</span></div>
 
