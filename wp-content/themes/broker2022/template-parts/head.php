@@ -44,9 +44,3 @@ if ( get_the_post_thumbnail_url() ) {
 		<?php } ?>
 	</div>
 </div>
-
-<div class="hidden">
-	<?php if (is_active_sidebar('after_header' )) : ?>
-		<?php dynamic_sidebar('after_header' ); ?>
-	<?php endif; ?>
-</div>
