@@ -26,3 +26,6 @@ add_action('after_setup_theme', 'footerMenu');
 
 // theme's custom options
 include "template-parts/theme_options.php";
+
+// widgets
+include "template-parts/widgets.php";
