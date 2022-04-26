@@ -6,7 +6,7 @@ if ( get_the_post_thumbnail_url() ) {
 	$thumbUrl = str_replace('https://brokertop.ru', '', get_the_post_thumbnail_url());
 } ?>
 
-<div class="hero_block_wrap">
+<div class="hero_block_wrap<?php if (is_front_page()) { ?> hero_block_wrap--home<?php } ?>">
 	<div class="hero_block" <?php if ($thumbUrl !== '') { ?>style="background-image: url(<?php echo $thumbUrl; ?>);"<?php } ?>>
 		<div class="header_wrap">
 			<header class="header">
@@ -45,7 +45,7 @@ if ( get_the_post_thumbnail_url() ) {
 	</div>
 </div>
 
-<div class="wrap">
+<div class="hidden">
 	<?php if (is_active_sidebar('after_header' )) : ?>
 		<?php dynamic_sidebar('after_header' ); ?>
 	<?php endif; ?>

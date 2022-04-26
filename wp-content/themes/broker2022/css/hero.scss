@@ -351,7 +351,11 @@
 }
 
 .hero_block_wrap {
-	padding: 27px;
+	padding: 27px 27px 0;
+
+	&--home {
+		padding-bottom: 27px;
+	}
 
 	@media #{$mobile} {
 		padding: 0;

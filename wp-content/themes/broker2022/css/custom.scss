@@ -121,12 +121,7 @@ h3 {
 }
 
 .main_content_wrap {
-	margin: -27px 0 0;
 	padding: 0 27px;
-
-	@media #{$tablet} {
-		margin-top: 0;
-	}
 
 	@media #{$mobile} {
 		padding: 0;
