@@ -3,10 +3,15 @@
 
 <?php // attributes
 global $product;
-$koostis = $product->get_attribute( 'pa_kolichestvo-komnat' );
 
-echo $koostis;
-?>
+$productAttributes = [
+	'pa_kolichestvo-komnat',
+	'pa_material-doma',
+	'pa_obshhaya-ploshhad',
+	'pa_rajony',
+	'pa_remont',
+	'pa_stancziya-metro'
+]; ?>
 
 <main class="main_content_wrap">
 	<div class="main_content">
@@ -15,6 +20,18 @@ echo $koostis;
 
 			<?php // content
 			the_content(); ?>
+
+			<?php foreach ($productAttributes as $productAttribute) {
+				$value      = $product -> get_attribute($productAttribute);
+				$label      = wc_attribute_label($productAttribute);
+
+				if ($value) { ?>
+					<div class="product_attr">
+						<div class="product_attr__title"><?php echo $label; ?></div>
+						<div class="product_attr__desc"><?php echo $value; ?></div>
+					</div>
+				<?php }
+			} ?>
 
 			<?php // posts
 			if ( have_posts() ) {
