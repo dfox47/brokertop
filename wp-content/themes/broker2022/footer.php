@@ -1,6 +1,10 @@
 
 <?php $i = esc_url(get_template_directory_uri()) . '/i'; ?>
 
+<?php if (is_active_sidebar('footer')) : ?>
+	<?php dynamic_sidebar('footer'); ?>
+<?php endif; ?>
+
 <footer class="footer<?php if (is_front_page()) { ?> footer--home<?php } ?>">
 	<div class="wrap">
 		<div class="footer_wrap2">

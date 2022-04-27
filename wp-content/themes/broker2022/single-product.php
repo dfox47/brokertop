@@ -16,6 +16,10 @@ $productAttributes = [
 <main class="main_content_wrap">
 	<div class="main_content">
 		<div class="wrap2">
+			<?php if (is_active_sidebar('woocommerce_filter')) : ?>
+				<?php dynamic_sidebar('woocommerce_filter'); ?>
+			<?php endif; ?>
+
 			<h1><?php single_post_title(); ?></h1>
 
 			<?php // content

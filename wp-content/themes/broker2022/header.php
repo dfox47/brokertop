@@ -22,3 +22,7 @@
 <body>
 <?php // header
 include "template-parts/head.php"; ?>
+
+<?php if (is_active_sidebar('after_header')) : ?>
+	<?php dynamic_sidebar('after_header'); ?>
+<?php endif; ?>
