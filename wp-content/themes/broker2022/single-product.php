@@ -3,6 +3,7 @@
 
 <?php // attributes
 global $product;
+$gallery_images = $product->get_gallery_image_ids();
 
 $productAttributes = [
 	'pa_kolichestvo-komnat',
@@ -13,19 +14,19 @@ $productAttributes = [
 	'pa_stancziya-metro'
 ]; ?>
 
+<?php // filter
+if (is_active_sidebar('woocommerce_filter')) { ?>
+	<?php dynamic_sidebar('woocommerce_filter'); ?>
+<?php } ?>
+
 <main class="main_content_wrap">
 	<div class="main_content">
 		<div class="wrap2">
-			<?php if (is_active_sidebar('woocommerce_filter')) : ?>
-				<?php dynamic_sidebar('woocommerce_filter'); ?>
-			<?php endif; ?>
-
-			<h1><?php single_post_title(); ?></h1>
-
 			<?php // content
 			the_content(); ?>
 
-			<?php foreach ($productAttributes as $productAttribute) {
+			<?php // attributes
+			foreach ($productAttributes as $productAttribute) {
 				$value      = $product -> get_attribute($productAttribute);
 				$label      = wc_attribute_label($productAttribute);
 
@@ -45,6 +46,15 @@ $productAttributes = [
 			} ?>
 		</div>
 	</div>
+
+	<ul class="product_gallery">
+		<?php // gallery images
+		foreach ($gallery_images as $gallery_image) {
+			$image_link = str_replace('https://' . $_SERVER['SERVER_NAME'], '', wp_get_attachment_url($gallery_image)); ?>
+
+			<li class="product_gallery__item"><img class="product_gallery__img" src="<?php echo $image_link; ?>" alt="" /></li>
+		<?php } ?>
+	</ul>
 </main>
 
 <?php get_footer(); ?>
