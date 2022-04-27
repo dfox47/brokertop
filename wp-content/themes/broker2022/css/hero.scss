@@ -4,7 +4,13 @@
 	background-size: cover;
 	min-height: 244px;
 	overflow: hidden;
+	padding: 120px 0 0;
 	position: relative;
+
+	&__content {
+		position: relative;
+		z-index: 3;
+	}
 
 	&__footer {
 		bottom: 46px;
@@ -355,6 +361,22 @@
 
 	&--home {
 		padding-bottom: 27px;
+	}
+
+	&--product {
+		.hero_block {
+			&::after {
+				background-color: $c_menu_bg;
+				content: "";
+				height: 100%;
+				left: 0;
+				opacity: .8;
+				position: absolute;
+				top: 0;
+				width: 100%;
+				z-index: 1;
+			}
+		}
 	}
 
 	@media #{$mobile} {

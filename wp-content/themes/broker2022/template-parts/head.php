@@ -2,11 +2,11 @@
 <?php // thumb img url
 $thumbUrl = '';
 
-if ( get_the_post_thumbnail_url() ) {
+if (get_the_post_thumbnail_url()) {
 	$thumbUrl = str_replace('https://' . $_SERVER['SERVER_NAME'], '', get_the_post_thumbnail_url());
 } ?>
 
-<div class="hero_block_wrap<?php if (is_front_page()) { ?> hero_block_wrap--home<?php } ?>">
+<div class="hero_block_wrap<?php if (is_front_page()) { ?> hero_block_wrap--home<?php } ?><?php if (is_product()) { ?> hero_block_wrap--product<?php } ?>">
 	<div class="hero_block" <?php if ($thumbUrl !== '') { ?>style="background-image: url(<?php echo $thumbUrl; ?>);"<?php } ?>>
 		<div class="header_wrap">
 			<header class="header">
@@ -37,6 +37,17 @@ if ( get_the_post_thumbnail_url() ) {
 					<?php include "social.php"; ?>
 				</div>
 			</header>
+		</div>
+
+		<div class="hero_block__content">
+			<?php // show H1 at product page
+			if (is_product()) { ?>
+				<?php if (get_the_title()) { ?>
+					<div class="wrap2">
+						<h1><?php echo get_the_title(); ?></h1>
+					</div>
+				<?php } ?>
+			<?php } ?>
 		</div>
 
 		<?php if (is_front_page()) { ?>

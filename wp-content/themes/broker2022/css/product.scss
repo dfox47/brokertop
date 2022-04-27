@@ -14,3 +14,23 @@
 	}
 }
 
+.product_gallery {
+	display: flex;
+	flex-wrap: wrap;
+	padding: 0 15px;
+
+	&__img {
+		cursor: pointer;
+		display: block;
+		transition: $transition;
+
+		&:hover {
+			box-shadow: 0 15px 25px rgba(#000, .25);
+			opacity: .7;
+		}
+	}
+
+	&__item {
+		padding: 12px;
+	}
+}
