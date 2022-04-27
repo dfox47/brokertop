@@ -3,7 +3,7 @@
 $thumbUrl = '';
 
 if ( get_the_post_thumbnail_url() ) {
-	$thumbUrl = str_replace('https://brokertop.ru', '', get_the_post_thumbnail_url());
+	$thumbUrl = str_replace('https://' . $_SERVER['SERVER_NAME'], '', get_the_post_thumbnail_url());
 } ?>
 
 <div class="hero_block_wrap<?php if (is_front_page()) { ?> hero_block_wrap--home<?php } ?>">
