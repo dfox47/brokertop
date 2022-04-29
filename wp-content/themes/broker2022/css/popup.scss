@@ -1,9 +1,13 @@
 
 .popup {
 	align-items: center;
-	display: flex;
+	display: none;
 	justify-content: center;
 	position: fixed;
+
+	&.active {
+		display: flex;
+	}
 
 	&::after {
 		background-color: #000;
@@ -35,7 +39,9 @@
 			background-color: #fff;
 			content: "";
 			height: 2px;
+			left: 10px;
 			transition: $transition;
+			top: 2px;
 			width: 24px;
 		}
 

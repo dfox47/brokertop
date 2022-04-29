@@ -61,12 +61,12 @@ if (is_active_sidebar('woocommerce_filter')) { ?>
 	</ul>
 </main>
 
-<div class="popup">
+<div class="popup" data-popup="product_gallery">
 	<div class="popup__bg"></div>
 
 	<div class="popup__content">
 		<div class="popup__close">
-			<div class="product_slider">
+			<div class="product_slider js-splide-slider">
 				<?php // gallery images
 				foreach ($gallery_images as $gallery_image) {
 					$image_link = str_replace('https://' . $_SERVER['SERVER_NAME'], '', wp_get_attachment_url($gallery_image)); ?>
