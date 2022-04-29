@@ -65,19 +65,19 @@ if (is_active_sidebar('woocommerce_filter')) { ?>
 	<div class="popup__bg"></div>
 
 	<div class="popup__content">
-		<div class="popup__close">
-			<div class="product_slider js-splide-slider splide" data-splide='{"type":"loop","perPage":1}'>
-				<div class="splide__track">
-					<ul class="splide__list">
-						<?php // gallery images
-						foreach ($gallery_images as $gallery_image) {
-							$image_link = str_replace('https://' . $_SERVER['SERVER_NAME'], '', wp_get_attachment_url($gallery_image)); ?>
-							<li class="splide__slide">
-								<img class="product_slider__img" src="<?php echo $image_link; ?>" alt="" />
-							</li>
-						<?php } ?>
-					</ul>
-				</div>
+		<div class="popup__close"></div>
+
+		<div class="product_slider js-splide-slider splide" data-splide='{"type":"loop","perPage":1}'>
+			<div class="splide__track">
+				<ul class="splide__list">
+					<?php // gallery images
+					foreach ($gallery_images as $gallery_image) {
+						$image_link = str_replace('https://' . $_SERVER['SERVER_NAME'], '', wp_get_attachment_url($gallery_image)); ?>
+						<li class="splide__slide">
+							<img class="product_slider__img" src="<?php echo $image_link; ?>" alt="" />
+						</li>
+					<?php } ?>
+				</ul>
 			</div>
 		</div>
 	</div>

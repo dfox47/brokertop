@@ -45,4 +45,194 @@
 
 .product_slider {
 	&__img {}
+
+	.splide {
+		&__arrow {
+			background: none;
+			border-radius: 0;
+			height: 100%;
+			width: 600px;
+
+			&::after,
+			&::before {
+				content: "";
+				position: absolute;
+				top: 48%;
+			}
+
+			&::after {
+				background-color: $c_main;
+				height: 2px;
+				margin: 4px 0 0;
+				width: 500px;
+			}
+
+			&::before {
+				border-left: 2px solid $c_main;
+				border-top: 2px solid $c_main;
+				height: 20px;
+				margin: -4px 0 0;
+				width: 20px;
+			}
+
+			svg {
+				display: none;
+			}
+
+			&--next {
+				left: 50%;
+				margin: 0 0 0 600px;
+				right: auto;
+
+				&::after {
+					left: 41px;
+				}
+
+				&::before {
+					left: 7px;
+					transform: rotate(135deg);
+				}
+			}
+
+			&--prev {
+				left: auto;
+				margin: 0 600px 0 0;
+				right: 50%;
+
+				&::after {
+					right: 41px;
+				}
+
+				&::before {
+					right: 7px;
+					transform: rotate(-45deg);
+				}
+			}
+
+			@media #{$desktop_hd} {
+				width: 60px;
+
+				&::after {
+					display: none;
+				}
+
+				&--next {
+					margin: 0;
+				}
+
+				&--prev {
+					margin: 0;
+				}
+			}
+
+			@media #{$mobile} {
+				&--next {
+					&::before {
+						left: 50%;
+						margin-left: -15px;
+					}
+				}
+
+				&--prev {
+					&::before {
+						margin-right: -12px;
+						right: 50%;
+					}
+				}
+			}
+		}
+
+		&__arrows {
+			@media #{$desktop_hd} {
+				bottom: 34px;
+				height: 50px;
+				position: absolute;
+				right: 30px;
+				width: 120px;
+				z-index: 7;
+			}
+
+			@media #{$mobile} {
+				bottom: 48px;
+				right: 0;
+			}
+		}
+
+		&__list {
+			align-items: center;
+		}
+
+		&__pagination {
+			bottom: -30px;
+			justify-content: center;
+			left: 50%;
+			max-width: 1238px;
+			transform: translateX(-50%);
+			width: 100%;
+
+			li {
+				align-items: flex-end;
+				display: flex;
+				height: 28px;
+			}
+
+			&__page {
+				background: none;
+				border-radius: 0;
+				height: 16px;
+				margin: 0;
+				position: relative;
+				width: 9px;
+
+				&::after {
+					background-color: $c_main;
+					bottom: 0;
+					content: "";
+					height: 13px;
+					left: 50%;
+					position: absolute;
+					transition: $transition;
+					width: 2px;
+				}
+
+				&:hover,
+				&.is-active {
+					background: none;
+					transform: none;
+
+					&::after {
+						height: 28px;
+					}
+				}
+			}
+
+			@media #{$tablet} {
+				padding: 0 20px;
+			}
+
+			@media #{$mobile} {
+				bottom: 54px;
+				padding: 0 15px;
+			}
+		}
+
+		&__slide {
+			align-items: center;
+			display: flex;
+			height: 100%;
+			justify-content: center;
+		}
+
+		&__track {
+			height: 100%;
+
+			@media #{$mobile} {
+				height: auto;
+			}
+		}
+
+		@media #{$mobile} {
+			height: auto;
+		}
+	}
 }
