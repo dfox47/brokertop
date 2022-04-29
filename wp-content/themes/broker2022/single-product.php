@@ -6,12 +6,14 @@ global $product;
 $gallery_images = $product->get_gallery_image_ids();
 
 $productAttributes = [
+	'pa_etazh',
 	'pa_kolichestvo-komnat',
 	'pa_material-doma',
 	'pa_obshhaya-ploshhad',
 	'pa_rajony',
 	'pa_remont',
-	'pa_stancziya-metro'
+	'pa_stancziya-metro',
+	'pa_vsego-etazhej'
 ]; ?>
 
 <?php // filter
