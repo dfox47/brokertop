@@ -1,0 +1,55 @@
+
+.popup {
+	align-items: center;
+	display: flex;
+	justify-content: center;
+	position: fixed;
+
+	&::after {
+		background-color: #000;
+		content: "";
+		height: 100%;
+		opacity: .5;
+		width: 100%;
+		z-index: 1;
+	}
+
+	&__bg {
+		height: 100%;
+		left: 0;
+		position: absolute;
+		top: 0;
+		width: 100%;
+		z-index: 2;
+	}
+
+	&__close {
+		position: absolute;
+		right: 0;
+		top: 0;
+		height: 50px;
+		width: 50px;
+
+		&::after,
+		&::before {
+			background-color: #fff;
+			content: "";
+			height: 2px;
+			transition: $transition;
+			width: 24px;
+		}
+
+		&::after {
+			transform: rotate(45deg);
+		}
+
+		&::before {
+			transform: rotate(-45deg);
+		}
+	}
+
+	&__content {
+		position: relative;
+		z-index: 3;
+	}
+}
