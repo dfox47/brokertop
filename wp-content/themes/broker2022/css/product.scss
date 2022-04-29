@@ -32,7 +32,9 @@
 	}
 
 	&__item {
+		max-width: 310px;
 		padding: 12px;
+		width: 100%;
 	}
 
 	@media #{$desktop_hd} {
