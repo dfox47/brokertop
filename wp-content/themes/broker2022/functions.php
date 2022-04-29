@@ -29,3 +29,9 @@ include "template-parts/theme_options.php";
 
 // widgets
 include "template-parts/widgets.php";
+
+// support woocommerce custom themes
+function woocommerceThemeSupport() {
+	add_theme_support( 'woocommerce' );
+}
+add_action('after_setup_theme', 'woocommerceThemeSupport');
