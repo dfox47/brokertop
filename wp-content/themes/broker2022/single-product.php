@@ -66,7 +66,7 @@ if (is_active_sidebar('woocommerce_filter')) { ?>
 
 	<div class="popup__content">
 		<div class="popup__close">
-			<div class="product_slider js-splide-slider" data-splide='{"type":"loop","perPage":1}'>
+			<div class="product_slider js-splide-slider splide" data-splide='{"type":"loop","perPage":1}'>
 				<div class="splide__track">
 					<ul class="splide__list">
 						<?php // gallery images
