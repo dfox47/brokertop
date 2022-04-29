@@ -62,22 +62,24 @@ if (is_active_sidebar('woocommerce_filter')) { ?>
 </main>
 
 <div class="popup js-popup" data-popup="product_gallery">
-	<div class="popup__bg"></div>
+	<div class="popup__bg js-popup-close"></div>
 
 	<div class="popup__content">
-		<div class="popup__close"></div>
+		<div class="popup__close js-popup-close"></div>
 
-		<div class="product_slider js-splide-slider splide" data-splide='{"type":"loop","perPage":1}'>
-			<div class="splide__track">
-				<ul class="splide__list">
-					<?php // gallery images
-					foreach ($gallery_images as $gallery_image) {
-						$image_link = str_replace('https://' . $_SERVER['SERVER_NAME'], '', wp_get_attachment_url($gallery_image)); ?>
-						<li class="splide__slide">
-							<img class="product_slider__img" src="<?php echo $image_link; ?>" alt="" />
-						</li>
-					<?php } ?>
-				</ul>
+		<div class="product_slider">
+			<div class="js-splide-slider splide" data-splide='{"keyboard":"global","type":"loop","perPage":1}'>
+				<div class="splide__track">
+					<ul class="splide__list">
+						<?php // gallery images
+						foreach ($gallery_images as $gallery_image) {
+							$image_link = str_replace('https://' . $_SERVER['SERVER_NAME'], '', wp_get_attachment_url($gallery_image)); ?>
+							<li class="splide__slide">
+								<img class="product_slider__img" src="<?php echo $image_link; ?>" alt="" />
+							</li>
+						<?php } ?>
+					</ul>
+				</div>
 			</div>
 		</div>
 	</div>

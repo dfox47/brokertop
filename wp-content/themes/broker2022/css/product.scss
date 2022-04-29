@@ -44,9 +44,11 @@
 }
 
 .product_slider {
-	&__img {}
+	height: 100%;
 
 	.splide {
+		height: 100%;
+
 		&__arrow {
 			background: none;
 			border-radius: 0;
@@ -153,7 +155,7 @@
 			}
 
 			@media #{$mobile} {
-				bottom: 48px;
+				bottom: -30px;
 				right: 0;
 			}
 		}
@@ -211,7 +213,6 @@
 			}
 
 			@media #{$mobile} {
-				bottom: 54px;
 				padding: 0 15px;
 			}
 		}
@@ -225,14 +226,6 @@
 
 		&__track {
 			height: 100%;
-
-			@media #{$mobile} {
-				height: auto;
-			}
-		}
-
-		@media #{$mobile} {
-			height: auto;
 		}
 	}
 }

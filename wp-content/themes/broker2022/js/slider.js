@@ -3,5 +3,7 @@
 let splideSliders = document.getElementsByClassName('js-splide-slider')
 
 for (let i = 0; i < splideSliders.length; i++) {
-	new Splide(splideSliders[ i ]).mount({})
+	let splide = new Splide(splideSliders[ i ]).mount({})
+
+	splide.go( 2 );
 }
