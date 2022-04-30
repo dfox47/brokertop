@@ -1,4 +1,13 @@
 
+.product_address {
+	background: url(#{$icons}/map.svg) left top no-repeat scroll transparent;
+	color: #fff;
+	font-size: 16px;
+	min-height: 26px;
+	padding: 4px 0 30px 40px;
+	position: relative;
+}
+
 .product_apt_info {
 	max-width: 880px;
 	padding: 0 0 0 28px;

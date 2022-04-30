@@ -40,13 +40,21 @@ if (get_the_post_thumbnail_url()) {
 		</div>
 
 		<div class="hero_block__content">
-			<?php // show H1 at product page
+			<?php // product page
 			if (is_product()) { ?>
-				<?php if (get_the_title()) { ?>
-					<div class="wrap2">
+				<div class="wrap2">
+					<?php // title
+					if (get_the_title()) { ?>
 						<h1><?php echo get_the_title(); ?></h1>
-					</div>
-				<?php } ?>
+					<?php } ?>
+
+					<?php // Адрес объекта
+					global $product;
+
+					if ($product -> get_attribute('pa_adres')) { ?>
+						<div class="product_address"><?php echo $product -> get_attribute('pa_adres'); ?></div>
+					<?php } ?>
+				</div>
 			<?php } ?>
 		</div>
 

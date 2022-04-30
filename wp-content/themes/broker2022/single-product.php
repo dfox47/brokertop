@@ -7,7 +7,6 @@ $gallery_images = $product->get_gallery_image_ids();
 
 $productAttributes = [
 	'pa_material-doma',
-	'pa_adres',
 	'pa_rajony',
 	'pa_ssylka-na-prezentacziyu',
 	'pa_remont',
