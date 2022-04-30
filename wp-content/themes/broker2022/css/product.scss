@@ -60,6 +60,10 @@
 	padding: 30px 0 45px;
 	text-transform: uppercase;
 
+	&__class {
+		padding: 0 0 0 30px;
+	}
+
 	&__item {
 		color: $c_text;
 		display: flex;
@@ -76,6 +80,10 @@
 			.product_info__value {
 				margin: 0 15px 0 0;
 			}
+		}
+
+		&--start {
+			align-items: flex-start;
 		}
 
 		&::after {
@@ -103,11 +111,20 @@
 	&__title {
 		font-size: 14px;
 		opacity: .5;
+
+		&--short {
+			max-width: 130px;
+		}
 	}
 
 	&__value {
 		font-size: 20px;
 		font-weight: 600;
+
+		&--bold {
+			font-size: 36px;
+			font-weight: 700;
+		}
 
 		&--xl {
 			font-size: 64px;

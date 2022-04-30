@@ -7,7 +7,6 @@ $gallery_images = $product->get_gallery_image_ids();
 
 $productAttributes = [
 	'pa_material-doma',
-	'pa_obshhaya-ploshhad',
 	'pa_rajony',
 	'pa_remont',
 	'pa_stancziya-metro'
@@ -48,6 +47,31 @@ $productAttributes = [
 			<div class="product_desc">
 				<?php // content
 				the_content(); ?>
+			</div>
+
+			<div class="product_info product_info--start">
+				<?php // Вид из окон и класс ?>
+				<div class="product_info__item product_info__item--cols product_info__item--start">
+					<div class="product_info__title product_info__title--short"><?php echo $product -> get_attribute('pa_vid-iz-okon'); ?></div>
+
+					<?php // Класс ?>
+					<div class="product_info__class">
+						<div class="product_info__title"><?php echo wc_attribute_label('pa_klass'); ?></div>
+						<div class="product_info__value"><?php echo $product -> get_attribute('pa_klass'); ?></div>
+					</div>
+				</div>
+
+				<?php // Общая площадь ?>
+				<div class="product_info__item product_info__item--start">
+					<div class="product_info__title"><?php echo wc_attribute_label('pa_obshhaya-ploshhad'); ?></div>
+					<div class="product_info__value"><?php echo $product -> get_attribute('pa_obshhaya-ploshhad'); ?> м<sup>2</sup></div>
+				</div>
+
+				<?php // Стоимость ?>
+				<div class="product_info__item product_info__item--start">
+					<div class="product_info__title">Стоимость</div>
+					<div class="product_info__value product_info__value--bold"><?php echo number_format($product -> get_price(),0,'',' '); ?>&nbsp;₽</div>
+				</div>
 			</div>
 
 			<?php // attributes
