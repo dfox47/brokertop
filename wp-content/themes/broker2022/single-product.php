@@ -6,15 +6,11 @@ global $product;
 $gallery_images = $product->get_gallery_image_ids();
 
 $productAttributes = [
-	'pa_etazh',
-	'pa_kolichestvo-komnat',
 	'pa_material-doma',
 	'pa_obshhaya-ploshhad',
 	'pa_rajony',
 	'pa_remont',
-	'pa_stancziya-metro',
-	'pa_tip-nedvizhimosti',
-	'pa_vsego-etazhej'
+	'pa_stancziya-metro'
 ]; ?>
 
 <?php // filter
@@ -49,8 +45,10 @@ $productAttributes = [
 				</div>
 			</div>
 
-			<?php // content
-			the_content(); ?>
+			<div class="product_desc">
+				<?php // content
+				the_content(); ?>
+			</div>
 
 			<?php // attributes
 			foreach ($productAttributes as $productAttribute) {
