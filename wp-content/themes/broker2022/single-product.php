@@ -13,19 +13,44 @@ $productAttributes = [
 	'pa_rajony',
 	'pa_remont',
 	'pa_stancziya-metro',
+	'pa_tip-nedvizhimosti',
 	'pa_vsego-etazhej'
 ]; ?>
 
 <?php // filter
-if (is_active_sidebar('woocommerce_filter')) { ?>
-	<?php dynamic_sidebar('woocommerce_filter'); ?>
-<?php } ?>
+//if (is_active_sidebar('woocommerce_filter')) { ?>
+<!--	--><?php //dynamic_sidebar('woocommerce_filter'); ?>
+<?php //} ?>
 
 <main class="main_content_wrap">
 	<div class="main_content">
 		<div class="wrap2">
 			<?php // content
 			the_content(); ?>
+
+			<div class="product_info">
+				<?php // Тип квартиры ?>
+				<div class="product_info__item">
+					<div class="product_info__title"><?php echo wc_attribute_label('pa_tip-nedvizhimosti'); ?></div>
+					<div class="product_info__value"><?php echo $product -> get_attribute('pa_tip-nedvizhimosti'); ?></div>
+				</div>
+
+				<?php // Количество комнат ?>
+				<div class="product_info__item">
+					<div class="product_info__value product_info__value--xl"><?php echo $product -> get_attribute('pa_kolichestvo-komnat'); ?></div>
+					<div class="product_info__title product_info__title--xl">Количество<br />комнат</div>
+				</div>
+
+				<?php // Этаж ?>
+				<div class="product_info__item">
+					<div class="product_info__value product_info__value--xl"><?php echo $product -> get_attribute('pa_etazh'); ?></div>
+
+					<div class="product_info_floor">
+						<div class="product_info_floor__from">/ <?php echo $product -> get_attribute('pa_vsego-etazhej'); ?></div>
+						<div class="product_info__title product_info__title--xl">Этажность</div>
+					</div>
+				</div>
+			</div>
 
 			<?php // attributes
 			foreach ($productAttributes as $productAttribute) {
