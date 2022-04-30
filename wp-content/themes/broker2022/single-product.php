@@ -21,7 +21,7 @@ $productAttributes = [
 
 <main class="main_content_wrap">
 	<div class="main_content">
-		<div class="wrap2">
+		<div class="wrap3">
 			<div class="product_info_wrap">
 				<div class="product_apt_info">
 					<div class="product_info">
@@ -112,7 +112,7 @@ $productAttributes = [
 
 					<?php // Телефон риэлтора
 					if ($product -> get_attribute('pa_telefon-rieltora')) { ?>
-						<div class="product_realtor__phone"><?php echo $product -> get_attribute('pa_telefon-rieltora'); ?></div>
+						<a class="product_realtor__phone" href="tel:<?php echo $product -> get_attribute('pa_telefon-rieltora'); ?>" target="_blank"><?php echo $product -> get_attribute('pa_telefon-rieltora'); ?></a>
 					<?php } ?>
 
 					<?php // Ссылка на презентацию

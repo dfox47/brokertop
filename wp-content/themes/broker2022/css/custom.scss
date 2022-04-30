@@ -265,3 +265,14 @@ h3 {
 		padding: 0;
 	}
 }
+
+.wrap3 {
+	margin: 0 auto;
+	max-width: 1277px;
+	padding: 0 30px;
+	width: 100%;
+
+	@media #{$mobile} {
+		padding: 0;
+	}
+}
