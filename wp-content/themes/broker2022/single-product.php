@@ -25,9 +25,6 @@ $productAttributes = [
 <main class="main_content_wrap">
 	<div class="main_content">
 		<div class="wrap2">
-			<?php // content
-			the_content(); ?>
-
 			<div class="product_info">
 				<?php // Тип квартиры ?>
 				<div class="product_info__item">
@@ -36,13 +33,13 @@ $productAttributes = [
 				</div>
 
 				<?php // Количество комнат ?>
-				<div class="product_info__item">
+				<div class="product_info__item product_info__item--cols">
 					<div class="product_info__value product_info__value--xl"><?php echo $product -> get_attribute('pa_kolichestvo-komnat'); ?></div>
 					<div class="product_info__title product_info__title--xl">Количество<br />комнат</div>
 				</div>
 
 				<?php // Этаж ?>
-				<div class="product_info__item">
+				<div class="product_info__item product_info__item--cols">
 					<div class="product_info__value product_info__value--xl"><?php echo $product -> get_attribute('pa_etazh'); ?></div>
 
 					<div class="product_info_floor">
@@ -51,6 +48,9 @@ $productAttributes = [
 					</div>
 				</div>
 			</div>
+
+			<?php // content
+			the_content(); ?>
 
 			<?php // attributes
 			foreach ($productAttributes as $productAttribute) {
