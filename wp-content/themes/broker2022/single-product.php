@@ -7,7 +7,11 @@ $gallery_images = $product->get_gallery_image_ids();
 
 $productAttributes = [
 	'pa_material-doma',
+	'pa_nomer-obekta',
 	'pa_rajony',
+	'pa_imya-rieltora',
+	'pa_telefon-rieltora',
+	'pa_ssylka-na-prezentacziyu',
 	'pa_remont',
 	'pa_stancziya-metro'
 ]; ?>
@@ -21,27 +25,36 @@ $productAttributes = [
 	<div class="main_content">
 		<div class="wrap2">
 			<div class="product_info">
-				<?php // Тип квартиры ?>
-				<div class="product_info__item">
-					<div class="product_info__title"><?php echo wc_attribute_label('pa_tip-nedvizhimosti'); ?></div>
-					<div class="product_info__value"><?php echo $product -> get_attribute('pa_tip-nedvizhimosti'); ?></div>
-				</div>
-
-				<?php // Количество комнат ?>
-				<div class="product_info__item product_info__item--cols">
-					<div class="product_info__value product_info__value--xl"><?php echo $product -> get_attribute('pa_kolichestvo-komnat'); ?></div>
-					<div class="product_info__title product_info__title--xl">Количество<br />комнат</div>
-				</div>
-
-				<?php // Этаж ?>
-				<div class="product_info__item product_info__item--cols">
-					<div class="product_info__value product_info__value--xl"><?php echo $product -> get_attribute('pa_etazh'); ?></div>
-
-					<div class="product_info_floor">
-						<div class="product_info_floor__from">/ <?php echo $product -> get_attribute('pa_vsego-etazhej'); ?></div>
-						<div class="product_info__title product_info__title--xl">Этажность</div>
+				<?php // Тип квартиры
+				if ($product -> get_attribute('pa_tip-nedvizhimosti')) { ?>
+					<div class="product_info__item">
+						<div class="product_info__title"><?php echo wc_attribute_label('pa_tip-nedvizhimosti'); ?></div>
+						<div class="product_info__value"><?php echo $product -> get_attribute('pa_tip-nedvizhimosti'); ?></div>
 					</div>
-				</div>
+				<?php } ?>
+
+				<?php // Количество комнат
+				if ($product -> get_attribute('pa_kolichestvo-komnat')) { ?>
+					<div class="product_info__item product_info__item--cols">
+						<div class="product_info__value product_info__value--xl"><?php echo $product -> get_attribute('pa_kolichestvo-komnat'); ?></div>
+						<div class="product_info__title product_info__title--xl">Количество<br />комнат</div>
+					</div>
+				<?php } ?>
+
+				<?php // Этаж
+				if ($product -> get_attribute('pa_etazh')) { ?>
+					<div class="product_info__item product_info__item--cols">
+						<div class="product_info__value product_info__value--xl"><?php echo $product -> get_attribute('pa_etazh'); ?></div>
+
+						<?php // Этажность
+						if ($product -> get_attribute('pa_vsego-etazhej')) { ?>
+							<div class="product_info_floor">
+								<div class="product_info_floor__from">/ <?php echo $product -> get_attribute('pa_vsego-etazhej'); ?></div>
+								<div class="product_info__title product_info__title--xl">Этажность</div>
+							</div>
+						<?php } ?>
+					</div>
+				<?php } ?>
 			</div>
 
 			<div class="product_desc">
@@ -50,29 +63,40 @@ $productAttributes = [
 			</div>
 
 			<div class="product_info product_info--start">
-				<?php // Вид из окон и класс ?>
-				<div class="product_info__item product_info__item--cols product_info__item--start">
-					<div class="product_info__title product_info__title--short"><?php echo $product -> get_attribute('pa_vid-iz-okon'); ?></div>
+				<?php // Вид из окон и класс
+				if ($product -> get_attribute('pa_vid-iz-okon')) { ?>
+					<div class="product_info__item product_info__item--cols product_info__item--start">
+						<div class="product_info__title product_info__title--short"><?php echo $product -> get_attribute('pa_vid-iz-okon'); ?></div>
 
-					<?php // Класс ?>
-					<div class="product_info__class">
-						<div class="product_info__title"><?php echo wc_attribute_label('pa_klass'); ?></div>
-						<div class="product_info__value"><?php echo $product -> get_attribute('pa_klass'); ?></div>
+						<?php // Класс ?>
+						<div class="product_info__class">
+							<div class="product_info__title"><?php echo wc_attribute_label('pa_klass'); ?></div>
+							<div class="product_info__value"><?php echo $product -> get_attribute('pa_klass'); ?></div>
+						</div>
 					</div>
-				</div>
+				<?php } ?>
 
-				<?php // Общая площадь ?>
-				<div class="product_info__item product_info__item--start">
-					<div class="product_info__title"><?php echo wc_attribute_label('pa_obshhaya-ploshhad'); ?></div>
-					<div class="product_info__value"><?php echo $product -> get_attribute('pa_obshhaya-ploshhad'); ?> м<sup>2</sup></div>
-				</div>
+				<?php // Общая площадь
+				if ($product -> get_attribute('pa_obshhaya-ploshhad')) { ?>
+					<div class="product_info__item product_info__item--start">
+						<div class="product_info__title"><?php echo wc_attribute_label('pa_obshhaya-ploshhad'); ?></div>
+						<div class="product_info__value"><?php echo $product -> get_attribute('pa_obshhaya-ploshhad'); ?> <small>м</small><sup>2</sup></div>
+					</div>
+				<?php } ?>
 
-				<?php // Стоимость ?>
-				<div class="product_info__item product_info__item--start">
-					<div class="product_info__title">Стоимость</div>
-					<div class="product_info__value product_info__value--bold"><?php echo number_format($product -> get_price(),0,'',' '); ?>&nbsp;₽</div>
-				</div>
+				<?php // Стоимость
+				if ($product -> get_price()) { ?>
+					<div class="product_info__item product_info__item--start">
+						<div class="product_info__title">Стоимость</div>
+						<div class="product_info__value product_info__value--bold"><?php echo number_format($product -> get_price(),0,'',' '); ?>&nbsp;₽</div>
+					</div>
+				<?php } ?>
 			</div>
+
+
+
+
+
 
 			<?php // attributes
 			foreach ($productAttributes as $productAttribute) {
