@@ -46,7 +46,7 @@ let conn = getFtpConnection()
 
 
 gulp.task('copy_css', function () {
-	return gulp.src(localFolderCss + '**/*')
+	return gulp.src(localFolderCss + '**/*.scss')
 		.pipe(conn.dest(remoteFolderCss))
 })
 
@@ -66,7 +66,7 @@ gulp.task('copy_template_parts', function () {
 })
 
 gulp.task('copy_woocommerce', function () {
-	return gulp.src(localWoocommerce + '*.php')
+	return gulp.src(localWoocommerce + '**/*.php')
 		.pipe(conn.dest(remoteWoocommerce))
 })
 
