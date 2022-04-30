@@ -6,11 +6,10 @@ global $product;
 $gallery_images = $product->get_gallery_image_ids();
 
 $productAttributes = [
-	'pa_material-doma',
-	'pa_rajony',
-	'pa_ssylka-na-prezentacziyu',
-	'pa_remont',
-	'pa_stancziya-metro'
+//	'pa_material-doma',
+//	'pa_rajony',
+//	'pa_remont',
+//	'pa_stancziya-metro'
 ]; ?>
 
 <?php // filter
@@ -134,10 +133,7 @@ $productAttributes = [
 				$label      = wc_attribute_label($productAttribute);
 
 				if ($value) { ?>
-					<div class="product_attr">
-						<div class="product_attr__title"><?php echo $label; ?></div>
-						<div class="product_attr__desc"><?php echo $value; ?></div>
-					</div>
+					<div><?php echo $label; ?> --|-- <?php echo $value; ?></div>
 				<?php }
 			} ?>
 

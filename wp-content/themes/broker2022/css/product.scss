@@ -14,21 +14,6 @@
 	width: 100%;
 }
 
-.product_attr {
-	display: flex;
-	flex-wrap: wrap;
-
-	&__desc {
-		font-weight: 700;
-	}
-
-	&__title {
-		padding: 0 10px 0 0;
-		text-align: right;
-		width: 200px;
-	}
-}
-
 .product_desc {
 	font-size: 12px;
 	line-height: 1.7;
