@@ -204,7 +204,49 @@
 		}
 	}
 
-	&__presentation {}
+	&__presentation {
+		color: $c_text;
+		display: block;
+		font-size: 14px;
+		font-weight: 600;
+		letter-spacing: .03em;
+		margin: 68px 0 0;
+		min-height: 35px;
+		padding: 3px 0 0;
+		position: relative;
+		text-decoration: none;
+		text-transform: uppercase;
+		transition: $transition;
+
+		&:hover {
+			opacity: .7;
+
+			&::after {
+				height: 5px;
+			}
+		}
+
+		&::after {
+			background-color: $c_main;
+			bottom: 3px;
+			content: "";
+			height: 1px;
+			left: 0;
+			position: absolute;
+			transition: $transition;
+			width: 100%;
+		}
+
+		&::before {
+			background: url(#{$icons}/download.svg) 0 0 no-repeat scroll transparent;
+			content: "";
+			height: 35px;
+			left: -46px;
+			position: absolute;
+			top: 0;
+			width: 27px;
+		}
+	}
 }
 
 .product_slider {

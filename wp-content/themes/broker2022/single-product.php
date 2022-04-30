@@ -115,7 +115,7 @@ $productAttributes = [
 
 					<?php // Ссылка на презентацию
 					if ($product -> get_attribute('pa_ssylka-na-prezentacziyu')) { ?>
-						<div class="product_realtor__presentation"><?php echo $product -> get_attribute('pa_ssylka-na-prezentacziyu'); ?></div>
+						<a class="product_realtor__presentation" href="<?php echo $product -> get_attribute('pa_ssylka-na-prezentacziyu'); ?>" target="_blank">Скачать презентацию</a>
 					<?php } ?>
 				</div>
 			</div>
