@@ -1,5 +1,5 @@
 
-<?php // ?>
+<?php // map  ?>
 <div class="product_map"></div>
 
 <script>
@@ -144,4 +144,4 @@
 	}
 </script>
 
-<script async src="//maps.googleapis.com/maps/api/js?key=AIzaSyA2J-HodSUWcfoSjV1_sSD99kYhFTsaJFo&callback=initMap"></script>
+<script async src="//maps.googleapis.com/maps/api/js?key=<?php echo googleMapsApi; ?>&callback=initMap"></script>
