@@ -1,18 +1,23 @@
 
-<?php // map  ?>
+<?php // map
+global $product;
+
+$googleMapsX = (empty($product->get_attribute('pa_google-api-x')) ? '55.7560299' : $product->get_attribute('pa_google-api-x'));
+$googleMapsY = (empty($product->get_attribute('pa_google-api-y')) ? '37.6048052' : $product->get_attribute('pa_google-api-y')); ?>
+
 <div class="product_map"></div>
 
 <script>
 	function initMap() {
-		// center of the map
+		// coordinates
 		let myLatLng = {
-			lat: 50.44973057721140,
-			lng: 30.483638212303163
+			lat: <?php echo $googleMapsX ?>,
+			lng: <?php echo $googleMapsY ?>
 		};
 
 		let map = new google.maps.Map(document.querySelector('.product_map'), {
-			zoom: 17,  // zoom
-			center: myLatLng
+			center:     myLatLng,
+			zoom:       15
 		});
 
 		// styles | examples https://snazzymaps.com/
