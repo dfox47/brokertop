@@ -28,13 +28,16 @@
 .product_gallery {
 	display: flex;
 	flex-wrap: wrap;
-	justify-content: flex-start;
-	padding: 0 15px;
+	justify-content: center;
+	padding: 15px;
 
 	&__img {
 		cursor: pointer;
 		display: block;
+		height: 100%!important;
+		object-fit: cover;
 		transition: $transition;
+		width: 100%;
 
 		&:hover {
 			box-shadow: 0 15px 25px rgba(#000, .25);
@@ -43,14 +46,16 @@
 	}
 
 	&__item {
+		height: 261px;
 		max-width: 334px;
 		padding: 12px;
 		width: 100%;
 	}
 
-	@media #{$desktop_hd} {
-		justify-content: center;
-		padding: 15px 0;
+	&__link {
+		display: block;
+		height: 100%;
+		width: 100%;
 	}
 }
 

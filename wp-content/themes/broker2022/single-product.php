@@ -152,7 +152,7 @@ $productAttributes = [
 			$image_link = str_replace('https://' . $_SERVER['SERVER_NAME'], '', wp_get_attachment_url($gallery_image)); ?>
 
 			<li class="product_gallery__item">
-				<a class="js-popup-show" href="javascript:void(0);" data-popup="product_gallery"><img class="product_gallery__img" src="<?php echo $image_link; ?>" alt="" /></a>
+				<a class="product_gallery__link js-popup-show" href="javascript:void(0);" data-popup="product_gallery"><img class="product_gallery__img" src="<?php echo $image_link; ?>" alt="" /></a>
 			</li>
 		<?php } ?>
 	</ul>
