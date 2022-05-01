@@ -88,7 +88,7 @@
 				"elementType": "all",
 				"stylers": [
 					{
-						"color": "#46bcec"
+						"color": "#ddb472"
 					},
 					{
 						"visibility": "on"
@@ -106,10 +106,9 @@
 
 		let image = {
 			url: '/wp-content/themes/broker2022/i/icons/map.svg',
-			size: new google.maps.Size(22, 26),
+			size: new google.maps.Size(imgWidth, imgHeight),
 			origin: new google.maps.Point(0, 0),
-			// anchor: new google.maps.Point(15, 118)
-			anchor: new google.maps.Point(11, 26)
+			anchor: new google.maps.Point(imgWidth / 2, imgHeight)
 		};
 		// marker on map [END]
 
@@ -117,8 +116,8 @@
 		let contentString = '<div id="map-content">' +
 			'<div id="siteNotice">' +
 			'</div>' +
-			'<h2 id="firstHeading" class="firstHeading">Some title</h2>' +
-			'<div id="bodyContent">Some text</div>' +
+			'<h2 id="firstHeading" class="firstHeading"><?php echo get_the_title(); ?></h2>' +
+			'<div id="bodyContent"><?php echo number_format($product -> get_price(),0,'',' '); ?>&nbsp;₽</div>' +
 			'</div>';
 
 		let infowindow = new google.maps.InfoWindow({
@@ -132,7 +131,7 @@
 			icon:       image,
 			map:        map,
 			position:   myLatLng,
-			title:      'Special Title'
+			title:      '<?php echo get_the_title(); ?>'
 		});
 
 		let myOptions = {
