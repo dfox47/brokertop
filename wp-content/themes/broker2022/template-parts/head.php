@@ -4,9 +4,22 @@ $thumbUrl = '';
 
 if (get_the_post_thumbnail_url()) {
 	$thumbUrl = str_replace('https://' . $_SERVER['SERVER_NAME'], '', get_the_post_thumbnail_url());
+}
+
+// page type
+$pageType = '';
+
+if (is_front_page()) {
+	$pageType = ' hero_block_wrap--home';
+}
+else if (is_product()) {
+	$pageType = ' hero_block_wrap--product';
+}
+else if (is_category()) {
+	$pageType = ' hero_block_wrap--category';
 } ?>
 
-<div class="hero_block_wrap<?php if (is_front_page()) { ?> hero_block_wrap--home<?php } ?><?php if (is_product()) { ?> hero_block_wrap--product<?php } ?>">
+<div class="hero_block_wrap<?php echo $pageType; ?>">
 	<div class="hero_block" <?php if ($thumbUrl !== '' && is_product()) { ?>style="background-image: url(<?php echo $thumbUrl; ?>);"<?php } ?>>
 		<div class="header_wrap">
 			<header class="header">
