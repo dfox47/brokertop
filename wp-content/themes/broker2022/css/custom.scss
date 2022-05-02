@@ -183,6 +183,10 @@ h3 {
 .single-product {
 	h1 {
 		font-size: 96px;
+
+		@media #{$tablet} {
+			font-size: 54px;
+		}
 	}
 }
 

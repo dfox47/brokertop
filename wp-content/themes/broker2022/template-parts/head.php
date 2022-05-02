@@ -52,7 +52,9 @@ if (get_the_post_thumbnail_url()) {
 					global $product;
 
 					if ($product -> get_attribute('pa_adres')) { ?>
-						<div class="product_address"><?php echo $product -> get_attribute('pa_adres'); ?></div>
+						<div class="product_address">
+							<span><?php echo $product -> get_attribute('pa_adres'); ?></span>
+						</div>
 					<?php } ?>
 				</div>
 			<?php } ?>
