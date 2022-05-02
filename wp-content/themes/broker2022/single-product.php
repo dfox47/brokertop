@@ -64,7 +64,7 @@ $productAttributes = [
 						<?php // Вид из окон
 						if ($product -> get_attribute('pa_vid-iz-okon')) { ?>
 							<div class="product_info__item product_info__item--start">
-								<div class="product_info__title"><?php echo $product -> get_attribute('pa_vid-iz-okon'); ?></div>
+								<div class="product_info__title product_info__title--short"><?php echo $product -> get_attribute('pa_vid-iz-okon'); ?></div>
 							</div>
 						<?php } ?>
 

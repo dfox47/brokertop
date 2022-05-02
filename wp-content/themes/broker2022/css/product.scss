@@ -164,6 +164,10 @@
 		padding: 0 0 10px;
 		text-transform: uppercase;
 
+		&--short {
+			max-width: 130px;
+		}
+
 		&:last-child {
 			padding: 0;
 		}
