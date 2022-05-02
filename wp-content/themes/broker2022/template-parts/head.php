@@ -7,7 +7,7 @@ if (get_the_post_thumbnail_url()) {
 } ?>
 
 <div class="hero_block_wrap<?php if (is_front_page()) { ?> hero_block_wrap--home<?php } ?><?php if (is_product()) { ?> hero_block_wrap--product<?php } ?>">
-	<div class="hero_block" <?php if ($thumbUrl !== '' && !is_single()) { ?>style="background-image: url(<?php echo $thumbUrl; ?>);"<?php } ?>>
+	<div class="hero_block" <?php if ($thumbUrl !== '' && is_product()) { ?>style="background-image: url(<?php echo $thumbUrl; ?>);"<?php } ?>>
 		<div class="header_wrap">
 			<header class="header">
 				<div class="header_left">
