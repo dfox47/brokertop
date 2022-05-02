@@ -322,10 +322,14 @@
 			top: 0;
 			width: 27px;
 		}
+
+		@media #{$mobile} {
+			margin-left: 30px;
+		}
 	}
 
 	@media #{$desktop} {
-		padding: 100px 0 0;
+		padding: 100px 0 30px;
 	}
 }
 
