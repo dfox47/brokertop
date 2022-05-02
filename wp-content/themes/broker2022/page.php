@@ -1,24 +1,26 @@
 
 <?php get_header(); ?>
 
-<main class="main_content_wrap">
-	<div class="main_content">
-		<div class="wrap2">
-			<?php if (single_post_title()) { ?>
-				<h1><?php single_post_title(); ?></h1>
-			<?php } ?>
+<?php if (!is_front_page()) { ?>
+	<main class="main_content_wrap">
+		<div class="main_content">
+			<div class="wrap2">
+				<?php if (single_post_title()) { ?>
+					<h1><?php single_post_title(); ?></h1>
+				<?php } ?>
 
-			<?php // content
-			the_content(); ?>
+				<?php // content
+				the_content(); ?>
 
-			<?php // posts
-			if ( have_posts() ) {
-				while ( have_posts() ) {
-					the_post();
-				}
-			} ?>
+				<?php // posts
+				if ( have_posts() ) {
+					while ( have_posts() ) {
+						the_post();
+					}
+				} ?>
+			</div>
 		</div>
-	</div>
-</main>
+	</main>
+<?php } ?>
 
 <?php get_footer(); ?>
