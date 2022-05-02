@@ -1,11 +1,21 @@
 
 .product_address {
-	background: url(#{$icons}/map.svg) left top no-repeat scroll transparent;
 	color: #fff;
 	font-size: 16px;
-	min-height: 26px;
-	padding: 4px 0 30px 40px;
-	position: relative;
+
+	span {
+		background: url(#{$icons}/map.svg) left top no-repeat scroll transparent;
+		display: inline-block;
+		min-height: 26px;
+		padding: 4px 0 30px 40px;
+		position: relative;
+		text-align: left;
+	}
+
+	@media #{$tablet} {
+		padding: 0 15px;
+		text-align: center;
+	}
 }
 
 .product_apt_info {
@@ -166,6 +176,11 @@
 	flex-wrap: wrap;
 	justify-content: space-between;
 	padding: 25px 0;
+
+	@media #{$desktop} {
+		align-items: center;
+		flex-direction: column;
+	}
 }
 
 .product_map {
@@ -256,6 +271,10 @@
 			top: 0;
 			width: 27px;
 		}
+	}
+
+	@media #{$desktop} {
+		padding: 100px 0 0;
 	}
 }
 
