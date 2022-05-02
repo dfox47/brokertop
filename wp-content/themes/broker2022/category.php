@@ -15,7 +15,7 @@ if (get_the_post_thumbnail_url()) {
 
 			<?php // posts
 			if (have_posts()) { ?>
-				<ul class="news_list">
+				<ul class="news_list js-news-list">
 					<?php // The Loop
 					while (have_posts()) : the_post(); ?>
 						<li class="news_list__item">
@@ -23,6 +23,20 @@ if (get_the_post_thumbnail_url()) {
 						</li>
 					<?php endwhile; ?>
 				</ul>
+
+				<?php // Загрузить ещё
+				global $wp_query;
+
+				$total_pages    = $wp_query -> max_num_pages;
+				$paged          = (get_query_var('paged')) ? get_query_var('paged') : 1;
+
+				if ($paged !== $total_pages) { ?>
+					<div class="pagination_wrap js-pagination-more">
+						<?php next_posts_link( 'Загрузить ещё' ); ?>
+					</div>
+				<?php } ?>
+
+				<div class="pagination_result js-pagination-result"></div>
 			<?php } ?>
 		</div>
 	</div>

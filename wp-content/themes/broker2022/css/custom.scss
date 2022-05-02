@@ -190,6 +190,29 @@ h3 {
 	}
 }
 
+.pagination_result {
+	display: none;
+}
+
+.pagination_wrap {
+	text-align: center;
+
+	a {
+		border: 1px solid $c_main;
+		color: $c_text;
+		display: inline-block;
+		margin: 21px 0;
+		padding: .5em 3em;
+		text-decoration: none;
+		text-transform: uppercase;
+		transition: $transition;
+
+		&:hover {
+			background-color: $c_main;
+		}
+	}
+}
+
 .phone {
 	background: url(#{$icons}/phone.svg) left center no-repeat scroll transparent;
 	color: #fff;
