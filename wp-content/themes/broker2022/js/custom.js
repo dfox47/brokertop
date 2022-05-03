@@ -2,9 +2,10 @@
 // some special code here
 function paginationAjax() {
 	let paginationWrap = document.querySelector('.js-pagination-more')
-	let paginationLink = paginationWrap.querySelector('a')
 
-	if (!paginationLink) return
+	if (!paginationWrap) return
+
+	let paginationLink = paginationWrap.querySelector('a')
 
 	paginationLink.addEventListener('click', (link) => {
 		link.preventDefault()
