@@ -4,7 +4,9 @@
 <main class="main_content_wrap">
 	<div class="main_content">
 		<div class="wrap2">
-			<h1><?php single_post_title(); ?></h1>
+			<?php if (single_post_title()) { ?>
+				<h1><?php single_post_title(); ?></h1>
+			<?php } ?>
 
 			<?php // content
 			the_content(); ?>
