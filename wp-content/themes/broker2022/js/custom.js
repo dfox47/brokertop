@@ -3,9 +3,17 @@
 function paginationAjax() {
 	let paginationWrap = document.querySelector('.js-pagination-more')
 
+	console.log('s6');
+
 	if (!paginationWrap) return
 
+	console.log('s10');
+
 	let paginationLink = paginationWrap.querySelector('a')
+
+	if (!paginationLink) return
+
+	console.log('s16');
 
 	paginationLink.addEventListener('click', (link) => {
 		link.preventDefault()
