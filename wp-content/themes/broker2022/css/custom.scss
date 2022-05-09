@@ -130,60 +130,6 @@ h3 {
 	}
 }
 
-.news_list {
-	display: grid;
-	grid-gap: 30px;
-	grid-template-columns: auto auto auto auto;
-	list-style: none;
-
-	&__item {
-		//grid-column: 1;
-		//grid-row: 1;
-
-		&:first-child {
-			grid-column: 1 / 3;
-			grid-row: 1 / 3;
-
-			@media #{$mobile} {
-				grid-column: 1;
-				grid-row: 1;
-			}
-		}
-	}
-
-	&__link {
-		background-position: center;
-		background-repeat: no-repeat;
-		background-size: cover;
-		display: block;
-		height: auto;
-		position: relative;
-		width: 100%;
-
-		&::after {
-			content: "";
-			display: block;
-			padding: 100% 0 0;
-			position: relative;
-			width: 100%;
-		}
-	}
-
-	@media #{$tablet} {
-		grid-template-columns: auto auto auto;
-	}
-
-	@media #{$mobile} {
-		grid-gap: 28px;
-		grid-template-columns: auto auto;
-		padding: 0 8px;
-	}
-
-	@media #{$mobile_s} {
-		grid-template-columns: auto;
-	}
-}
-
 .page {
 	.hero_block {
 		min-height: 466px;
