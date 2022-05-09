@@ -18,7 +18,20 @@
 defined( 'ABSPATH' ) || exit;
 
 get_header( 'shop' );
+?>
 
+<div class="pew-filter-block">
+	<div class="pew-hidden-fields">
+		<input type="hidden" name="pew-filter-current-square-from" value="" autocomplete="off">
+		<input type="hidden" name="pew-filter-current-square-to" value="" autocomplete="off">
+	</div>
+
+	<div class="wrap">
+		<?php echo do_shortcode( '[woof]' ); ?>
+	</div>
+</div>
+
+<?
 /**
  * Hook: woocommerce_before_main_content.
  *
@@ -29,6 +42,7 @@ get_header( 'shop' );
 do_action( 'woocommerce_before_main_content' );
 
 ?>
+
 <header class="woocommerce-products-header">
 	<?php if ( apply_filters( 'woocommerce_show_page_title', true ) ) : ?>
 		<h1 class="woocommerce-products-header__title page-title"><?php woocommerce_page_title(); ?></h1>
