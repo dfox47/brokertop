@@ -46,3 +46,7 @@ function remove_page_from_query_string($query_string) {
 	return $query_string;
 }
 add_filter('request', 'remove_page_from_query_string');
+
+add_filter('woof_clear_all_text', function($default_text) {
+    return 'Сбросить фильтр';
+}, 99, 1);
