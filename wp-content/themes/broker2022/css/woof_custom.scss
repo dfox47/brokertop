@@ -3,3 +3,40 @@
 	display: flex;
 	flex-wrap: wrap;
 }
+
+.woof_products_top_panel {
+	z-index: 4;
+
+	li {
+		a {
+			display: block;
+			min-height: 30px;
+		}
+
+		span {
+			background: none;
+			margin: 0 4px 0 0;
+			padding: 0 24px 0 0;
+			position: relative;
+
+			&::after,
+			&::before {
+				background-color: $c_main;
+				content: "";
+				height: 1px;
+				position: absolute;
+				right: 0;
+				top: 9px;
+				width: 22px;
+			}
+
+			&::after {
+				transform: rotate(45deg);
+			}
+
+			&::before {
+				transform: rotate(-45deg);
+			}
+		}
+	}
+}
