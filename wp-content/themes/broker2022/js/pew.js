@@ -20,18 +20,18 @@ jQuery(document).ready(function($) {
 
 	// минимальная площадь
 	$('body').on('change', 'input[name="pew-range-filter-from"]', function() {
-		var value       = $(this).val()
-		var max_value   = $('input[name="pew-range-filter-to"]').val()
+		var value   = $(this).val()
+		var maxVal  = $('input[name="pew-range-filter-to"]').val()
 
 		woof_current_values['filter_min_square'] = value
-		woof_current_values['filter_max_square'] = max_value
+		woof_current_values['filter_max_square'] = maxVal
 		$('input[name="pew-filter-current-square-from"]').val(value)
 
-		$.each(valuesBlocks, function(index, cur_value){
+		$.each(valuesBlocks, function(index) {
 			let option          = $(this)
 			let option_value    = option.val()
 
-			if (+value <= +option_value && (+max_value == 0 || +max_value >= +option_value)) {
+			if (+value <= +option_value && (+maxVal == 0 || +maxVal >= +option_value)) {
 				if(!option.is(':disabled') && +option_value > 0) {
 					option.prop("selected", true)
 				}
@@ -40,10 +40,10 @@ jQuery(document).ready(function($) {
 				option.prop("selected", false);
 			}
 
-			let isLastElement = index == valuesBlocks.length -1;
+			let isLastElement = index === valuesBlocks.length -1;
 
 			if (isLastElement) {
-				$(".woof_mselect_pa_obshhaya-ploshhad").trigger("change")
+				$('.woof_mselect_pa_obshhaya-ploshhad').trigger('change')
 			}
 		})
 	})
@@ -72,7 +72,7 @@ jQuery(document).ready(function($) {
 				option.prop("selected", false)
 			}
 
-			let isLastElement = index == valuesBlocks.length -1
+			let isLastElement = index === valuesBlocks.length -1
 
 			if (isLastElement) {
 				$(".woof_mselect_pa_obshhaya-ploshhad").trigger("change")
