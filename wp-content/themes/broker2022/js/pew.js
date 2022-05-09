@@ -1,8 +1,7 @@
 
-/* pew-pew filters */
 jQuery(document).ready(function($) {
-	// получение всех значений
-	let valuesBlocks = $(".woof_mselect_pa_obshhaya-ploshhad").find("option")
+	// get all values
+	let valuesBlocks = $('.woof_mselect_pa_obshhaya-ploshhad').find('option')
 	let values = []
 
 	$.each(valuesBlocks, function() {
@@ -11,14 +10,14 @@ jQuery(document).ready(function($) {
 
 	filterAddSquareFields();
 
-	// фильтр полей по цифрам
-	$('input[name="pew-range-filter-from"], input[name="pew-range-filter-to"]').on("input paste", function() {
+	// filter by numbers
+	$('input[name="pew-range-filter-from"], input[name="pew-range-filter-to"]').on('input paste', function() {
 		if (/\D/g.test(this.value)) {
 			this.value = this.value.replace(/\D/g, '')
 		}
 	})
 
-	// минимальная площадь
+	// min square
 	$('body').on('change', 'input[name="pew-range-filter-from"]', function() {
 		var value   = $(this).val()
 		var maxVal  = $('input[name="pew-range-filter-to"]').val()
@@ -32,7 +31,7 @@ jQuery(document).ready(function($) {
 			let option_value    = option.val()
 
 			if (+value <= +option_value && (+maxVal == 0 || +maxVal >= +option_value)) {
-				if(!option.is(':disabled') && +option_value > 0) {
+				if (!option.is(':disabled') && +option_value > 0) {
 					option.prop("selected", true)
 				}
 			}
@@ -43,12 +42,12 @@ jQuery(document).ready(function($) {
 			let isLastElement = index === valuesBlocks.length -1;
 
 			if (isLastElement) {
-				$('.woof_mselect_pa_obshhaya-ploshhad').trigger('change')
+				valuesBlocks.trigger('change')
 			}
 		})
 	})
 
-	// максимальная площадь
+	// max square
 	$('body').on('change', 'input[name="pew-range-filter-to"]', function() {
 		let value       = $(this).val();
 		let min_value   = $('input[name="pew-range-filter-from"]').val()
@@ -58,13 +57,12 @@ jQuery(document).ready(function($) {
 
 		$('input[name="pew-filter-current-square-to"]').val(value)
 
-		$.each(valuesBlocks, function(index, cur_value) {
+		$.each(valuesBlocks, function(index) {
 			let option = $(this)
 			let option_value = option.val()
 
 			if (+value >= +option_value && +min_value <= +option_value) {
-				if(!option.is(':disabled') && +option_value > 0)
-				{
+				if(!option.is(':disabled') && +option_value > 0) {
 					option.prop("selected", true).attr("data-test", "1")
 				}
 			}
@@ -75,12 +73,12 @@ jQuery(document).ready(function($) {
 			let isLastElement = index === valuesBlocks.length -1
 
 			if (isLastElement) {
-				$(".woof_mselect_pa_obshhaya-ploshhad").trigger("change")
+				valuesBlocks.trigger('change')
 			}
 		})
 	})
 
-	// переключение на 1 вкладку если пусто
+	// switch to the 1st tab if empty
 	setTimeout(function() {
 		let urlParams       = new URLSearchParams(window.location.search)
 		let product_cat     = urlParams.has('product_cat')
@@ -93,7 +91,7 @@ jQuery(document).ready(function($) {
 	function filterAddSquareFields() {
 		valuesBlocks = $('.woof_mselect_pa_obshhaya-ploshhad').find('option')
 
-		/* площадь */
+		// square
 		let urlParams           = new URLSearchParams(window.location.search);
 		let filter_min_square   = urlParams.has('filter_min_square') === true ? urlParams.get('filter_min_square') : ''
 		let filter_max_square   = urlParams.has('filter_max_square') === true ? urlParams.get('filter_max_square') : ''
