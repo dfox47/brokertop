@@ -159,6 +159,14 @@ h3 {
 	}
 }
 
+.pew-filter-block {
+	.pew-range-fields {
+		input {
+			text-align: left;
+		}
+	}
+}
+
 .phone {
 	background: url(#{$icons}/phone.svg) left center no-repeat scroll transparent;
 	color: #fff;
@@ -286,6 +294,10 @@ h3 {
 
 .woocommerce-products-header__title {
 	display: none;
+}
+
+.wp-block-columns {
+	margin: 0;
 }
 
 .wrap {

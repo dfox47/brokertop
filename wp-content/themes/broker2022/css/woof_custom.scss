@@ -1,7 +1,17 @@
 
-.woof_redraw_zone {
-	display: flex;
-	flex-wrap: wrap;
+.woof_container_pa_obshhaya-ploshhad {
+	h4 {
+		display: inline-block;
+		position: relative;
+
+		&::after {
+			content: "2";
+			font-size: 10px;
+			position: absolute;
+			right: -6px;
+			top: 0;
+		}
+	}
 }
 
 .woof_products_top_panel {
@@ -39,4 +49,13 @@
 			}
 		}
 	}
+}
+
+.woof_redraw_zone {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.woof_submit_search_form_container {
+	display: none;
 }
