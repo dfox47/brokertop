@@ -1,4 +1,14 @@
 
+.woof_block_html_items {
+	max-width: 242px;
+}
+
+.woof_container_pa_kolichestvo-komnat {
+	.woof_block_html_items {
+		max-width: none;
+	}
+}
+
 .woof_container_pa_obshhaya-ploshhad {
 	h4 {
 		display: inline-block;
@@ -54,6 +64,7 @@
 .woof_redraw_zone {
 	display: flex;
 	flex-wrap: wrap;
+	justify-content: flex-start;
 }
 
 .woof_submit_search_form_container {

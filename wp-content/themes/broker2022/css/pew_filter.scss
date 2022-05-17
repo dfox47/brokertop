@@ -37,8 +37,24 @@
 			line-height: 30px !important;
 			padding: 0;
 
+			div {
+				align-items: center;
+				display: flex;
+				justify-content: center;
+				top: -2px;
+				right: 11px;
+
+				b {
+					background-size: 12px!important;
+					background: url(#{$icons}/dropdown.svg) no-repeat 0 0 scroll transparent!important;
+					height: 7px;
+					width: 12px;
+				}
+			}
+
 			span {
 				font-size: 14px;
+				margin: 0;
 			}
 		}
 
@@ -72,10 +88,9 @@
 		justify-content: space-between;
 
 		input {
-			border-bottom: 2px solid $c_text;
-			flex: none;
-			height: 30px;
-			outline: none !important;
+			border-bottom: 1px solid $c_text;
+			height: 25px;
+			outline: none;
 			text-align: left;
 			width: 100%;
 		}
@@ -90,21 +105,144 @@
 		background: linear-gradient(0deg, #fff, #fff), $c_content_bg;
 		border-radius: 12px;
 		box-shadow: 0 10px 15px rgba(#000, .15);
-		padding: 30px;
+		padding: 30px 10px 30px 51px;
 		position: relative;
 
 		.woof_container {
-			border-right: 1px solid $c_filter_border;
-			margin: 0 0 50px;
-			padding: 0 15px;
-			width: 25%;
+			margin: 0 0 30px;
+			position: relative;
+			width: 100%;
+
+			&::after {
+				background-color: $c_text;
+				content: "";
+				height: 36px;
+				position: absolute;
+				right: 0;
+				top: 6px;
+				width: 1px;
+			}
 
 			&:nth-child(4n+1) {
-				border-right: none;
+				&::after {
+					display: none;
+				}
 			}
 
 			&:nth-child(n+5) {
 				margin-bottom: 0;
+			}
+
+			&.woof_container_pa_kolichestvo-komnat {
+				padding: 0 0 0 50px;
+				max-width: 300px;
+
+				li {
+					&:first-child {
+						.woof_checkbox_label {
+							margin: 0 10px 0 0;
+						}
+					}
+				}
+			}
+
+			&.woof_container_pa_material-doma {
+				padding: 0 0 0 47px;
+				max-width: 328px;
+			}
+
+			&.woof_container_pa_obshhaya-ploshhad {
+				padding: 0 24px 0 0;
+				max-width: 278px;
+
+				.woof_block_html_items {
+					display: none;
+				}
+			}
+
+			&.woof_container_pa_rajony {
+				padding: 0 0 0 54px;
+				max-width: 334px;
+			}
+
+			&.woof_container_pa_remont {
+				padding: 0 30px 0 54px;
+				max-width: 225px;
+			}
+
+			&.woof_container_pa_stancziya-metro {
+				padding: 0 0 0 48px;
+				max-width: 328px;
+			}
+
+			&.woof_container_pa_tip-nedvizhimosti {
+				max-width: 278px;
+			}
+
+			&.woof_container_product_cat {
+				height: 40px;
+				left: 0;
+				max-width: none;
+				padding: 0 15px;
+				position: absolute;
+				top: -40px;
+				width: 100%;
+
+				&::after {
+					display: none;
+				}
+
+				.woof_list {
+					&.woof_list_radio {
+						display: flex;
+					}
+
+					input {
+						&:checked {
+							+ label {
+								background: #fff !important;
+								color: #515151 !important;
+								opacity: 1;
+							}
+						}
+					}
+
+					label {
+						padding: 0 38px;
+					}
+
+					li {
+						height: 40px;
+
+						label {
+							border-radius: 8px 8px 0 0;
+							color: #fff;
+							font-weight: 700;
+							height: 40px;
+							line-height: 40px;
+							opacity: .75;
+							text-align: center;
+							text-decoration: none;
+
+							.woof_radio_count {
+								display: none !important;
+							}
+						}
+					}
+
+					.woof_radio_term_reset_visible {
+						display: none !important;
+					}
+				}
+			}
+
+			&.woof_container_product_tag {
+				padding: 0 0 0 50px;
+				max-width: 410px;
+
+				.woof_block_html_items {
+					max-width: none;
+				}
 			}
 
 			h4 {
@@ -127,64 +265,6 @@
 		font-weight: 400;
 	}
 
-	.woof_container_pa_obshhaya-ploshhad {
-		.woof_block_html_items {
-			display: none !important;
-		}
-	}
-
-	.woof_container_product_cat {
-		flex: none;
-		height: 40px;
-		left: 0;
-		position: absolute;
-		top: -40px;
-		width: 100% !important;
-
-		.woof_list {
-			&.woof_list_radio {
-				display: flex;
-			}
-
-			input {
-				&:checked {
-					+ label {
-						background: #fff !important;
-						color: #515151 !important;
-						opacity: 1;
-					}
-				}
-			}
-
-			label {
-				padding: 0 38px;
-			}
-
-			li {
-				height: 40px;
-
-				label {
-					border-radius: 8px 8px 0 0;
-					color: #fff;
-					font-weight: 700;
-					height: 40px;
-					line-height: 40px;
-					opacity: .75;
-					text-align: center;
-					text-decoration: none;
-
-					.woof_radio_count {
-						display: none !important;
-					}
-				}
-			}
-
-			.woof_radio_term_reset_visible {
-				display: none !important;
-			}
-		}
-	}
-
 	.woof_list {
 		input {
 			display: none;
@@ -193,6 +273,7 @@
 				+ label {
 					background-color: $c_menu_bg;
 					color: #fff;
+					font-weight: 700;
 				}
 			}
 
@@ -209,6 +290,7 @@
 			height: 24px;
 			line-height: 24px;
 			min-width: 24px;
+			padding: 0;
 			text-align: center;
 
 			.woof_checkbox_count {
