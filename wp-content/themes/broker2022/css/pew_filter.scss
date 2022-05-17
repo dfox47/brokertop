@@ -33,15 +33,18 @@
 			border-radius: 0 !important;
 			border: none;
 			box-shadow: none !important;
-			box-sizing: border-box;
 			height: 30px !important;
 			line-height: 30px !important;
 			padding: 0;
+
+			span {
+				font-size: 14px;
+			}
 		}
 
 		.chosen-drop {
-			border-color: #2c2c2c;
-			border-top: 1px solid #2c2c2c;
+			border-color: $c_text;
+			border-top: 1px solid $c_text;
 			margin-top: 0;
 		}
 
@@ -52,10 +55,9 @@
 
 			input[type=text] {
 				border: none;
-				border-bottom: 1px solid #2c2c2c;
+				border-bottom: 1px solid $c_text;
 				height: 31px;
 				padding: 0 10px;
-				box-sizing: border-box;
 			}
 		}
 
@@ -88,12 +90,12 @@
 		background: linear-gradient(0deg, #fff, #fff), $c_content_bg;
 		border-radius: 12px;
 		box-shadow: 0 10px 15px rgba(#000, .15);
-		padding: 25px 0;
+		padding: 30px;
 		position: relative;
 
 		.woof_container {
-			border-right: 1px solid #7A7A7A;
-			margin-bottom: 50px;
+			border-right: 1px solid $c_filter_border;
+			margin: 0 0 50px;
 			padding: 0 15px;
 			width: 25%;
 
@@ -106,61 +108,16 @@
 			}
 
 			h4 {
-				color: #7F7F7F;
+				color: $c_filter_title;
+				font-size: 12px;
 				font-weight: 500;
-				margin-bottom: 10px;
+				margin: 0 0 4px;
 			}
 
 			ul {
 				&.woof_list_checkbox {
 					display: flex;
 					flex-wrap: wrap;
-				}
-			}
-
-			.woof_list {
-				input {
-					display: none;
-
-					&:checked {
-						+ label {
-							background-color: $c_menu_bg;
-							color: #fff;
-						}
-					}
-
-					&:disabled {
-						+ label {
-							opacity: .5;
-						}
-					}
-				}
-
-				label {
-					background: transparent;
-					border-radius: 7px;
-					box-sizing: border-box;
-					height: 24px;
-					line-height: 24px;
-					min-width: 24px;
-					padding: 0 5px;
-					text-align: center;
-
-					.woof_checkbox_count {
-						display: none;
-						margin-left: 0;
-					}
-				}
-
-				li {
-					margin: 0 !important;
-					padding: 0 !important;
-
-					&:first-child {
-						label {
-							margin-left: 0 !important;
-						}
-					}
 				}
 			}
 		}
@@ -199,20 +156,22 @@
 				}
 			}
 
+			label {
+				padding: 0 38px;
+			}
+
 			li {
 				height: 40px;
 
 				label {
-					border-radius: 8px 8px 0 0 !important;
+					border-radius: 8px 8px 0 0;
 					color: #fff;
 					font-weight: 700;
-					height: 40px !important;
-					line-height: 40px !important;
-					margin-left: 25px;
+					height: 40px;
+					line-height: 40px;
 					opacity: .75;
 					text-align: center;
 					text-decoration: none;
-					width: 150px;
 
 					.woof_radio_count {
 						display: none !important;
@@ -224,6 +183,48 @@
 				display: none !important;
 			}
 		}
+	}
+
+	.woof_list {
+		input {
+			display: none;
+
+			&:checked {
+				+ label {
+					background-color: $c_menu_bg;
+					color: #fff;
+				}
+			}
+
+			&:disabled {
+				+ label {
+					opacity: .5;
+				}
+			}
+		}
+
+		label {
+			background: transparent;
+			border-radius: 7px;
+			height: 24px;
+			line-height: 24px;
+			min-width: 24px;
+			text-align: center;
+
+			.woof_checkbox_count {
+				display: none;
+				margin-left: 0;
+			}
+		}
+
+		li {
+			margin: 0 !important;
+			padding: 0 !important;
+		}
+	}
+
+	.woof_radio_label {
+		margin: 0;
 	}
 
 	.woof_submit_search_form_container {
