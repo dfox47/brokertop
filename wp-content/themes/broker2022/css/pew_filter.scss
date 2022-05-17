@@ -1,116 +1,147 @@
 
-.pew-filter-block{
-	margin: -70px 0 60px;
+.pew-filter-block {
+	margin: -72px 0 60px;
 	position: relative;
 	z-index: 2;
-}
 
-.pew-filter-block .woof{
-	background: #fff;
-	border-radius: 8px;
-	box-shadow: 0 10px 20px 0 rgba(34,60,80, .2);
-	padding: 25px 0;
-	position: relative;
-}
+	.chosen-container-single {
+		.chosen-single {
+			background: none;
+			border-radius: 0 !important;
+			border: none;
+			box-shadow: none !important;
+			box-sizing: border-box;
+			height: 30px !important;
+			line-height: 30px !important;
+			padding: 0;
+		}
 
-.pew-filter-block .woof .woof_container {
-	width: 25%;
-	padding: 0 20px;
-	border-right: 1px solid #7A7A7A;
-	margin-bottom: 50px;
-}
+		.chosen-drop {
+			border-color: #2c2c2c;
+			border-top: 1px solid #2c2c2c;
+			margin-top: 0;
+		}
 
-.pew-filter-block .woof .woof_container: nth-child(4n+1){
-	border-right: none;
-}
+		.chosen-search {
+			height: 31px;
+			margin: 0;
+			padding: 0;
 
-.pew-filter-block .woof .woof_container: nth-child(n+5){
-	margin-bottom: 0;
-}
+			input[type=text] {
+				border: none;
+				border-bottom: 1px solid #2c2c2c;
+				height: 31px;
+				padding: 0 10px;
+				box-sizing: border-box;
+			}
+		}
 
-.pew-filter-block .woof .woof_container h4{
-	color: #7F7F7F;
-	font-weight: 500;
-	margin-bottom: 10px;
-}
+		.chosen-results {
+			padding: 0;
+			margin: 0;
+		}
+	}
 
-.pew-filter-block .woof .woof_container ul.woof_list_checkbox{
-	display: flex;
-	flex-wrap: wrap;
-}
+	.pew-range-fields {
+		input {
+			text-align: left;
+		}
+	}
 
-.pew-filter-block .woof .woof_container .woof_list li{
-	margin: 0 !important;
-	padding: 0 !important;
-}
+	.woof {
+		background: linear-gradient(0deg, #fff, #fff), $c_content_bg;
+		border-radius: 12px;
+		box-shadow: 0 10px 15px rgba(#000, .15);
+		padding: 25px 0;
+		position: relative;
 
-.pew-filter-block .woof .woof_container .woof_list input{
-	display: none;
-}
+		.woof_container {
+			border-right: 1px solid #7A7A7A;
+			margin-bottom: 50px;
+			padding: 0 15px;
+			width: 25%;
 
-.pew-filter-block .woof .woof_container .woof_list label{
-	background: transparent;
-	border-radius: 4px;
-	height: 30px;
-	line-height: 30px;
-	padding: 0 5px;
-	min-width: 30px;
-	text-align: center;
-	box-sizing: border-box;
-}
+			.woof_list {
+				input {
+					&:checked {
+						+ label {
+							background-color: $c_menu_bg;
+						}
+					}
+				}
 
-.pew-filter-block .woof .woof_container .woof_list li: first-child label{
-	margin-left: 0 !important;
-}
+				label {
+					border-radius: 7px;
+					height: 24px;
+					line-height: 24px;
+					min-width: 24px;
+				}
+			}
 
-.pew-filter-block .woof .woof_container .woof_list label .woof_checkbox_count{
-	display: none;
-	margin-left: 0;
-}
 
-.pew-filter-block .woof .woof_container .woof_list input: checked + label{
-	background: #2c2c2c;
-	color: #fff;
-}
 
-.pew-filter-block .woof .woof_container .woof_list input: disabled + label{
-	opacity: 0.5;
-}
+			&:nth-child(4n+1) {
+				border-right: none;
+			}
 
-.pew-filter-block .chosen-container-single .chosen-single{
-	border: none;
-	padding: 0;
-	height: 30px !important;
-	line-height: 30px !important;
-	background: none;
-	box-sizing: border-box;
-	box-shadow: none !important;
-	border-radius: 0 !important;
-}
+			&:nth-child(n+5) {
+				margin-bottom: 0;
+			}
 
-.pew-filter-block .chosen-container-single .chosen-drop{
-	margin-top: 0px;
-	border-color: #2c2c2c;
-	border-top: 1px solid #2c2c2c;
-}
+			h4 {
+				color: #7F7F7F;
+				font-weight: 500;
+				margin-bottom: 10px;
+			}
 
-.pew-filter-block .chosen-container-single .chosen-search{
-	padding: 0;
-	margin: 0;
-	height: 31px;
-}
+			ul.woof_list_checkbox {
+				display: flex;
+				flex-wrap: wrap;
+			}
 
-.pew-filter-block .chosen-container-single .chosen-search input[type=text]{
-	border: none;
-	border-bottom: 1px solid #2c2c2c;
-	height: 31px;
-	padding: 0 10px;
-	box-sizing: border-box;
-}
+			.woof_list li {
+				margin: 0 !important;
+				padding: 0 !important;
+			}
 
-.pew-filter-block .chosen-container-single .chosen-results{
-	padding: 0;
-	margin: 0;
+			.woof_list input {
+				display: none;
+			}
+
+			.woof_list label {
+				background: transparent;
+				border-radius: 4px;
+				box-sizing: border-box;
+				height: 30px;
+				line-height: 30px;
+				min-width: 30px;
+				padding: 0 5px;
+				text-align: center;
+			}
+
+			.woof_list li:first-child label {
+				margin-left: 0 !important;
+			}
+
+			.woof_list label .woof_checkbox_count {
+				display: none;
+				margin-left: 0;
+			}
+
+			.woof_list input:checked + label {
+				background: #2c2c2c;
+				color: #fff;
+			}
+
+			.woof_list input:disabled + label {
+				opacity: 0.5;
+			}
+		}
+	}
+
+	.woof_checkbox_label_selected {
+		font-weight: 400;
+	}
 }
 
 .pew-filter-block .chosen-container .chosen-results li {
@@ -120,17 +151,17 @@
 	padding: 0 10px;
 }
 
-.pew-filter-block .chosen-container .chosen-results li.active-result.result-selected, 
-.pew-filter-block .chosen-container .chosen-results li.active-result: hover {
+.pew-filter-block .chosen-container .chosen-results li.active-result.result-selected,
+.pew-filter-block .chosen-container .chosen-results li.active-result:hover {
 	background: #2c2c2c;
 	color: #fff;
 }
 
-.pew-filter-block .chosen-container .chosen-results li.disabled-result{
+.pew-filter-block .chosen-container .chosen-results li.disabled-result {
 	opacity: 0.5;
 }
 
-.pew-filter-block .woof_submit_search_form_container{
+.pew-filter-block .woof_submit_search_form_container {
 	margin: 35px auto 0;
 	border-radius: 4px;
 	width: 100%;
@@ -139,7 +170,7 @@
 	justify-content: center;
 }
 
-.pew-filter-block .woof_submit_search_form_container button{
+.pew-filter-block .woof_submit_search_form_container button {
 	height: 40px;
 	width: 160px;
 	line-height: 36px;
@@ -150,34 +181,34 @@
 	font-size: 0;
 }
 
-.pew-filter-block .woof_submit_search_form_container button: after {
+.pew-filter-block .woof_submit_search_form_container button:after {
 	content: 'Сбросить фильтр';
 	font-size: 14px;
 }
 
-.pew-filter-block .woof_submit_search_form_container button: hover{
-	background: #2c2c2c;
+.pew-filter-block .woof_submit_search_form_container button:hover {
+	background-color: $c_text;
 	color: #fff;
 }
 
-.pew-filter-block .woof_container_product_cat{
-	position: absolute;
-	left: 0;
-	width: 100% !important;
-	top: -40px;
-	height: 40px;
+.pew-filter-block .woof_container_product_cat {
 	flex: none;
+	height: 40px;
+	left: 0;
+	position: absolute;
+	top: -40px;
+	width: 100% !important;
 }
 
 .pew-filter-block .woof_container_product_cat .woof_list.woof_list_radio {
 	display: flex;
 }
 
-.pew-filter-block .woof_container_product_cat .woof_list li{
+.pew-filter-block .woof_container_product_cat .woof_list li {
 	height: 40px;
 }
 
-.pew-filter-block .woof_container_product_cat .woof_list li label{
+.pew-filter-block .woof_container_product_cat .woof_list li label {
 	width: 150px;
 	height: 40px !important;
 	text-align: center;
@@ -190,36 +221,36 @@
 	opacity: 0.75;
 }
 
-.pew-filter-block .woof_container_product_cat .woof_list li label .woof_radio_count{
+.pew-filter-block .woof_container_product_cat .woof_list li label .woof_radio_count {
 	display: none !important;
 }
 
-.pew-filter-block .woof_container_product_cat .woof_list input: checked + label{
+.pew-filter-block .woof_container_product_cat .woof_list input:checked + label {
 	background: #fff !important;
 	color: #515151 !important;
 	opacity: 1;
 }
 
-.pew-filter-block .woof_container_product_cat .woof_list .woof_radio_term_reset_visible{
+.pew-filter-block .woof_container_product_cat .woof_list .woof_radio_term_reset_visible {
 	display: none !important;
 }
 
-.pew-filter-block .woof_container_pa_obshhaya-ploshhad .woof_block_html_items{
+.pew-filter-block .woof_container_pa_obshhaya-ploshhad .woof_block_html_items {
 	display: none !important;
 }
 
-.pew-filter-block .pew-range-fields{
+.pew-filter-block .pew-range-fields {
 	display: flex;
 	justify-content: space-between;
 }
 
 .pew-filter-block .pew-range-fields .pew-range-from,
-.pew-filter-block .pew-range-fields .pew-range-to{
+.pew-filter-block .pew-range-fields .pew-range-to {
 	width: 45%;
 }
 
-.pew-filter-block .pew-range-fields input{
-	border-bottom: 2px solid #2c2c2c;
+.pew-filter-block .pew-range-fields input {
+	border-bottom: 2px solid $c_text;
 	flex: none;
 	height: 30px;
 	outline: none !important;

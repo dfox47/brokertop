@@ -159,47 +159,6 @@ h3 {
 	}
 }
 
-
-
-.pew-filter-block {
-	.pew-range-fields {
-		input {
-			text-align: left;
-		}
-	}
-
-	.woof {
-		background: linear-gradient(0deg, #fff, #fff), $c_content_bg;
-		border-radius: 12px;
-		box-shadow: 0 10px 15px rgba(#000, .15);
-
-		.woof_container {
-			padding: 0 15px;
-
-			.woof_list {
-				input {
-					&:checked {
-						+ label {
-							background-color: $c_menu_bg;
-						}
-					}
-				}
-
-				label {
-					border-radius: 7px;
-					height: 24px;
-					line-height: 24px;
-					min-width: 24px;
-				}
-			}
-		}
-	}
-
-	.woof_checkbox_label_selected {
-		font-weight: 400;
-	}
-}
-
 .phone {
 	background: url(#{$icons}/phone.svg) left center no-repeat scroll transparent;
 	color: #fff;
