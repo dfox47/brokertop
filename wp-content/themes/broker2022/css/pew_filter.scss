@@ -4,6 +4,29 @@
 	position: relative;
 	z-index: 2;
 
+	.chosen-container {
+		.chosen-results {
+			li {
+				background: transparent;
+				color: $c_text;
+				line-height: 30px;
+				padding: 0 10px;
+
+				&.active-result {
+					&:hover,
+					&.result-selected {
+						background-color: $c_text;
+						color: #fff;
+					}
+				}
+
+				&.disabled-result {
+					opacity: .5;
+				}
+			}
+		}
+	}
+
 	.chosen-container-single {
 		.chosen-single {
 			background: none;
@@ -133,53 +156,36 @@
 	.woof_checkbox_label_selected {
 		font-weight: 400;
 	}
-}
 
-.pew-filter-block .chosen-container .chosen-results li {
-	background: transparent;
-	color: #2c2c2c;
-	line-height: 30px;
-	padding: 0 10px;
-}
+	.woof_submit_search_form_container {
+		border-radius: 4px;
+		flex: none;
+		justify-content: center;
+		margin: 35px auto 0;
+		text-align: center;
+		width: 100%;
 
-.pew-filter-block .chosen-container .chosen-results li.active-result.result-selected,
-.pew-filter-block .chosen-container .chosen-results li.active-result:hover {
-	background: #2c2c2c;
-	color: #fff;
-}
+		button {
+			background: transparent;
+			border: 2px solid $c_text;
+			font-size: 0;
+			height: 40px;
+			line-height: 36px;
+			padding: 0;
+			text-align: center;
+			width: 160px;
 
-.pew-filter-block .chosen-container .chosen-results li.disabled-result {
-	opacity: 0.5;
-}
+			&::after {
+				content: 'Сбросить фильтр';
+				font-size: 14px;
+			}
 
-.pew-filter-block .woof_submit_search_form_container {
-	margin: 35px auto 0;
-	border-radius: 4px;
-	width: 100%;
-	flex: none;
-	text-align: center;
-	justify-content: center;
-}
-
-.pew-filter-block .woof_submit_search_form_container button {
-	height: 40px;
-	width: 160px;
-	line-height: 36px;
-	text-align: center;
-	background: transparent;
-	border: 2px solid #2c2c2c;
-	padding: 0;
-	font-size: 0;
-}
-
-.pew-filter-block .woof_submit_search_form_container button:after {
-	content: 'Сбросить фильтр';
-	font-size: 14px;
-}
-
-.pew-filter-block .woof_submit_search_form_container button:hover {
-	background-color: $c_text;
-	color: #fff;
+			&:hover {
+				background-color: $c_text;
+				color: #fff;
+			}
+		}
+	}
 }
 
 .pew-filter-block .woof_container_product_cat {
