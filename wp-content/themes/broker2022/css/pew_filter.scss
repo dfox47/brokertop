@@ -66,8 +66,21 @@
 	}
 
 	.pew-range-fields {
+		display: flex;
+		justify-content: space-between;
+
 		input {
+			border-bottom: 2px solid $c_text;
+			flex: none;
+			height: 30px;
+			outline: none !important;
 			text-align: left;
+			width: 100%;
+		}
+
+		.pew-range-from,
+		.pew-range-to {
+			width: 45%;
 		}
 	}
 
@@ -157,6 +170,62 @@
 		font-weight: 400;
 	}
 
+	.woof_container_pa_obshhaya-ploshhad {
+		.woof_block_html_items {
+			display: none !important;
+		}
+	}
+
+	.woof_container_product_cat {
+		flex: none;
+		height: 40px;
+		left: 0;
+		position: absolute;
+		top: -40px;
+		width: 100% !important;
+
+		.woof_list {
+			&.woof_list_radio {
+				display: flex;
+			}
+
+			input {
+				&:checked {
+					+ label {
+						background: #fff !important;
+						color: #515151 !important;
+						opacity: 1;
+					}
+				}
+			}
+
+			li {
+				height: 40px;
+
+				label {
+					border-radius: 8px 8px 0 0 !important;
+					color: #fff;
+					font-weight: 700;
+					height: 40px !important;
+					line-height: 40px !important;
+					margin-left: 25px;
+					opacity: .75;
+					text-align: center;
+					text-decoration: none;
+					width: 150px;
+
+					.woof_radio_count {
+						display: none !important;
+					}
+				}
+			}
+
+			.woof_radio_term_reset_visible {
+				display: none !important;
+			}
+		}
+	}
+
 	.woof_submit_search_form_container {
 		border-radius: 4px;
 		flex: none;
@@ -186,71 +255,4 @@
 			}
 		}
 	}
-}
-
-.pew-filter-block .woof_container_product_cat {
-	flex: none;
-	height: 40px;
-	left: 0;
-	position: absolute;
-	top: -40px;
-	width: 100% !important;
-}
-
-.pew-filter-block .woof_container_product_cat .woof_list.woof_list_radio {
-	display: flex;
-}
-
-.pew-filter-block .woof_container_product_cat .woof_list li {
-	height: 40px;
-}
-
-.pew-filter-block .woof_container_product_cat .woof_list li label {
-	width: 150px;
-	height: 40px !important;
-	text-align: center;
-	line-height: 40px !important;
-	border-radius: 8px 8px 0 0 !important;
-	margin-left: 25px;
-	color: #fff;
-	font-weight: 700;
-	text-decoration: none;
-	opacity: 0.75;
-}
-
-.pew-filter-block .woof_container_product_cat .woof_list li label .woof_radio_count {
-	display: none !important;
-}
-
-.pew-filter-block .woof_container_product_cat .woof_list input:checked + label {
-	background: #fff !important;
-	color: #515151 !important;
-	opacity: 1;
-}
-
-.pew-filter-block .woof_container_product_cat .woof_list .woof_radio_term_reset_visible {
-	display: none !important;
-}
-
-.pew-filter-block .woof_container_pa_obshhaya-ploshhad .woof_block_html_items {
-	display: none !important;
-}
-
-.pew-filter-block .pew-range-fields {
-	display: flex;
-	justify-content: space-between;
-}
-
-.pew-filter-block .pew-range-fields .pew-range-from,
-.pew-filter-block .pew-range-fields .pew-range-to {
-	width: 45%;
-}
-
-.pew-filter-block .pew-range-fields input {
-	border-bottom: 2px solid $c_text;
-	flex: none;
-	height: 30px;
-	outline: none !important;
-	text-align: center;
-	width: 100%;
 }
