@@ -1,6 +1,10 @@
 
 .woof_block_html_items {
 	max-width: 242px;
+
+	@media #{$mobile} {
+		max-width: 300px;
+	}
 }
 
 .woof_container_pa_kolichestvo-komnat {

@@ -110,7 +110,7 @@
 
 		.woof_container {
 			margin: 0 50px 35px 0;
-			max-width: 280px;
+			max-width: 278px;
 			padding: 0;
 			position: relative;
 			width: 100%;
@@ -125,15 +125,13 @@
 				width: 1px;
 			}
 
-			&:nth-child(4n+1) {
-				&::after {
-					display: none;
-				}
-			}
-
 			&.woof_container_pa_kolichestvo-komnat {
 				margin-right: 0;
 				max-width: 258px;
+
+				&::after {
+					display: none;
+				}
 
 				li {
 					&:first-child {
@@ -142,11 +140,25 @@
 						}
 					}
 				}
+
+				@media #{$desktop_hd} {
+					margin-right: 50px;
+
+					&::after {
+						display: block;
+					}
+				}
+
+				@media #{$mobile} {
+					max-width: none;
+
+					&::after {
+						display: none;
+					}
+				}
 			}
 
-			&.woof_container_pa_material-doma {
-				max-width: 278px;
-			}
+			&.woof_container_pa_material-doma {}
 
 			&.woof_container_pa_obshhaya-ploshhad {
 				padding: 0 24px 0 0;
@@ -155,24 +167,32 @@
 				.woof_block_html_items {
 					display: none;
 				}
+
+				@media #{$mobile} {
+					max-width: none;
+				}
 			}
 
 			&.woof_container_pa_rajony {
 				max-width: 284px;
+
+				@media #{$mobile} {
+					max-width: none;
+				}
 			}
 
 			&.woof_container_pa_remont {
 				padding: 0 30px 0 0;
 				max-width: 176px;
+
+				@media #{$mobile} {
+					max-width: none;
+				}
 			}
 
-			&.woof_container_pa_stancziya-metro {
-				max-width: 278px;
-			}
+			&.woof_container_pa_stancziya-metro {}
 
-			&.woof_container_pa_tip-nedvizhimosti {
-				max-width: 278px;
-			}
+			&.woof_container_pa_tip-nedvizhimosti {}
 
 			&.woof_container_product_cat {
 				height: 40px;
@@ -235,6 +255,10 @@
 				margin-right: 0;
 				max-width: 370px;
 
+				&::after {
+					display: none;
+				}
+
 				.woof_block_html_items {
 					max-width: none;
 				}
@@ -257,6 +281,9 @@
 					}
 				}
 
+				@media #{$mobile} {
+					max-width: none;
+				}
 			}
 
 			h4 {
@@ -272,6 +299,19 @@
 					flex-wrap: wrap;
 				}
 			}
+
+			@media #{$mobile} {
+				margin-right: 0;
+				max-width: none;
+
+				&::after {
+					display: none;
+				}
+			}
+		}
+
+		@media #{$mobile} {
+			padding: 20px;
 		}
 	}
 
