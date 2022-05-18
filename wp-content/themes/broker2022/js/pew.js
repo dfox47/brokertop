@@ -114,7 +114,15 @@ let $woof           = document.querySelector('.woof')
 let $woofMoreBtn    = document.createElement('div')
 
 $woofMoreBtn.classList.add('js-pew-more', 'woof_more')
-$woofMoreBtn.innerHTML = '<span class="woof_more__hide">Свернуть</span><span class="woof_more__show">Больше фильтров</span>'
+$woofMoreBtn.innerHTML = '<span class="woof_more__hide">Свернуть</span><span class="woof_more__show">Показать фильтры</span>'
 
 $woof.appendChild($woofMoreBtn)
+
+
+
+let $woofMore = document.querySelector('.js-pew-more')
+
+$woofMore.addEventListener('click', () => {
+	$html.classList.toggle('woof_more__active')
+})
 // show more|less button [END]

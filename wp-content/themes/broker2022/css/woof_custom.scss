@@ -29,7 +29,84 @@
 }
 
 .woof_more {
-	display: block;
+	display: none;
+	text-align: center;
+
+	span {
+		cursor: pointer;
+		position: relative;
+		transition: $transition;
+
+		&:hover {
+			opacity: .7;
+		}
+
+		&::after,
+		&::before {
+			background-color: $c_main;
+			content: "";
+			height: 2px;
+			position: absolute;
+			top: 8px;
+			width: 12px;
+		}
+
+		&::after {
+			left: -24px;
+			transform: rotate(45deg);
+		}
+
+		&::before {
+			left: -32px;
+			transform: rotate(-45deg);
+		}
+
+		&.woof_more__show {
+			&::after {
+				left: -32px;
+			}
+
+			&::before {
+				left: -24px;
+			}
+		}
+	}
+
+	&__active {
+		.woof_more {
+			&__hide {
+				display: inline-block;
+			}
+
+			&__show {
+				display: none;
+			}
+		}
+
+		.woof_redraw_zone {
+			@media #{$desktop} {
+				height: auto;
+			}
+		}
+	}
+
+	&__hide {
+		display: none;
+	}
+
+	&__show {
+		&::after {
+			left: -32px;
+		}
+
+		&::before {
+			left: -24px;
+		}
+	}
+
+	@media #{$desktop} {
+		display: block;
+	}
 }
 
 .woof_products_top_panel {
@@ -73,6 +150,12 @@
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: flex-start;
+	overflow: hidden;
+	position: relative;
+
+	@media #{$desktop} {
+		height: 0;
+	}
 }
 
 .woof_submit_search_form_container {
