@@ -17,8 +17,7 @@
 
 defined( 'ABSPATH' ) || exit;
 
-get_header( 'shop' );
-?>
+get_header( 'shop' ); ?>
 
 <div class="pew-filter-block">
 	<div class="pew-hidden-fields">
@@ -31,7 +30,7 @@ get_header( 'shop' );
 	</div>
 </div>
 
-<?
+<?php
 /**
  * Hook: woocommerce_before_main_content.
  *
@@ -39,27 +38,23 @@ get_header( 'shop' );
  * @hooked woocommerce_breadcrumb - 20
  * @hooked WC_Structured_Data::generate_website_data() - 30
  */
-do_action( 'woocommerce_before_main_content' );
-
-?>
+do_action( 'woocommerce_before_main_content' ); ?>
 
 <header class="woocommerce-products-header">
 	<?php if ( apply_filters( 'woocommerce_show_page_title', true ) ) : ?>
 		<h1 class="woocommerce-products-header__title page-title"><?php woocommerce_page_title(); ?></h1>
 	<?php endif; ?>
 
-	<?php
-	/**
+	<?php /**
 	 * Hook: woocommerce_archive_description.
 	 *
 	 * @hooked woocommerce_taxonomy_archive_description - 10
 	 * @hooked woocommerce_product_archive_description - 10
 	 */
-	do_action( 'woocommerce_archive_description' );
-	?>
+	do_action( 'woocommerce_archive_description' ); ?>
 </header>
-<?php
-if ( woocommerce_product_loop() ) {
+
+<?php if ( woocommerce_product_loop() ) {
 
 	/**
 	 * Hook: woocommerce_before_shop_loop.
@@ -76,10 +71,8 @@ if ( woocommerce_product_loop() ) {
 		while ( have_posts() ) {
 			the_post();
 
-			/**
-			 * Hook: woocommerce_shop_loop.
-			 */
-			do_action( 'woocommerce_shop_loop' );
+			// Hook: woocommerce_shop_loop
+			do_action('woocommerce_shop_loop');
 
 			wc_get_template_part( 'content', 'product' );
 		}
@@ -93,7 +86,8 @@ if ( woocommerce_product_loop() ) {
 	 * @hooked woocommerce_pagination - 10
 	 */
 	do_action( 'woocommerce_after_shop_loop' );
-} else {
+}
+else {
 	/**
 	 * Hook: woocommerce_no_products_found.
 	 *
