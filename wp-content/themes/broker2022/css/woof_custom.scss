@@ -86,6 +86,7 @@
 		.woof_redraw_zone {
 			@media #{$desktop} {
 				height: auto;
+				overflow: auto;
 			}
 		}
 	}
@@ -150,11 +151,10 @@
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: flex-start;
-	overflow: hidden;
-	position: relative;
 
 	@media #{$desktop} {
 		height: 0;
+		overflow: hidden;
 	}
 }
 
