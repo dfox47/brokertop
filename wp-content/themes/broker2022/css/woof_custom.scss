@@ -159,6 +159,136 @@
 	}
 }
 
+.woof_shortcode_output {
+	background-color: $c_content_bg;
+	margin: 0 auto;
+	max-width: 1373px;
+	padding: 0 30px;
+	width: 100%;
+
+	ul {
+		&.products {
+			column-gap: 24px;
+			display: grid;
+			grid-template-columns: auto auto auto auto;
+			row-gap: 24px;
+
+			li {
+				&.product {
+					margin: 0 !important;
+					width: 100% !important;
+
+					&:first-child {
+						grid-column-end: 3;
+						grid-column-start: 1;
+
+						.price {
+							font-size: 24px;
+							left: 37px;
+						}
+
+						.product_attribute {
+							&__pa_adres {
+								background: url(#{$icons}/map.svg) no-repeat left top scroll transparent;
+								font-size: 12px;
+								min-height: 26px;
+								opacity: 1;
+								padding: 0 0 0 30px;
+							}
+
+							&__pa_tip-nedvizhimosti {
+								margin: 0 0 25px;
+								opacity: .3;
+								text-transform: uppercase;
+							}
+						}
+
+						.product_cat {
+							&__title {
+								font-size: 20px;
+							}
+						}
+
+						.product_link {
+							&__content {
+								bottom: 13px;
+								max-width: 292px;
+								padding: 16px 10px 50px 37px;
+								position: absolute;
+								right: 19px;
+								width: auto;
+							}
+						}
+
+						@media #{$mobile} {
+							grid-column-end: 1;
+							grid-column-start: 1;
+
+							.price {
+								bottom: 22px;
+								color: $c_menu_bg;
+								font-size: 20px;
+								font-weight: 700;
+								left: 20px;
+								margin: 0;
+								position: absolute;
+							}
+
+							.product_attribute {
+								&__pa_adres {
+									background: none;
+									min-height: 0;
+									padding: 0;
+									font-size: 10px;
+									margin: .5em 0;
+									opacity: .5;
+								}
+
+								&__pa_tip-nedvizhimosti {
+									display: none;
+								}
+							}
+
+							.product_cat {
+								&__title {
+									font-size: 20px;
+								}
+							}
+
+							.product_link {
+								&__content {
+									bottom: 0;
+									max-width: none;
+									padding: 20px 20px 40px;
+									position: absolute;
+									right: 0;
+									width: 100%;
+								}
+							}
+						}
+					}
+				}
+			}
+
+			@media #{$desktop} {
+				grid-template-columns: auto auto auto;
+			}
+
+			@media #{$tablet} {
+				grid-template-columns: auto auto;
+			}
+
+			@media #{$mobile} {
+				grid-template-columns: auto;
+			}
+		}
+	}
+
+	@media #{$mobile} {
+		padding: 0;
+	}
+}
+
 .woof_submit_search_form_container {
 	display: none;
 }

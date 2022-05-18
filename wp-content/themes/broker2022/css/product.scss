@@ -276,7 +276,12 @@
 	display: block;
 	min-height: 340px;
 	position: relative;
+	transition: $transition;
 	width: 100%;
+
+	&:hover {
+		opacity: .7;
+	}
 
 	&__content {
 		background-color: #fff;
