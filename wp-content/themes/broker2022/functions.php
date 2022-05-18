@@ -48,5 +48,32 @@ function remove_page_from_query_string($query_string) {
 add_filter('request', 'remove_page_from_query_string');
 
 add_filter('woof_clear_all_text', function($default_text) {
-    return 'Сбросить фильтр';
+	return 'Сбросить фильтр';
 }, 99, 1);
+
+
+
+// product attributes to category page
+function categoryPageProductAttributes() {
+	global $product;
+
+	$product_attribute_taxonomies = array(
+		'pa_adres',
+		'pa_tip-nedvizhimosti'
+	);
+
+	$attr_output = array();
+
+	foreach ($product_attribute_taxonomies as $taxonomy) {
+		if (taxonomy_exists($taxonomy)) {
+			$term_names = $product->get_attribute($taxonomy);
+
+			if (!empty($term_names)) {
+				$attr_output[] = '<span class="'.$taxonomy.'">'.$term_names.'</span>';
+			}
+		}
+	}
+
+	echo '<div class="product_attr">'.implode('', $attr_output).'</div>';
+}
+add_action('woocommerce_after_shop_loop_item_title', 'categoryPageProductAttributes');
