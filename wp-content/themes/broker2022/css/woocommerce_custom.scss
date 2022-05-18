@@ -28,6 +28,11 @@
 }
 
 .woocommerce-page {
+	margin: 0 auto;
+	max-width: 1373px;
+	padding: 0 30px;
+	width: 100%;
+
 	ul {
 		&.products {
 			column-gap: 24px;
@@ -48,14 +53,6 @@
 			}
 		}
 	}
-}
-
-
-.woocommerce-page {
-	margin: 0 auto;
-	max-width: 1373px;
-	padding: 0 30px;
-	width: 100%;
 }
 
 .woocommerce-products-header {
