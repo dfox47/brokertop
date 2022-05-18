@@ -106,3 +106,15 @@ jQuery(document).ready(function($) {
 		filterAddSquareFields()
 	})
 })
+
+
+
+// show more|less button [START]
+let $woof           = document.querySelector('.woof')
+let $woofMoreBtn    = document.createElement('div')
+
+$woofMoreBtn.classList.add('js-pew-more', 'woof_more')
+$woofMoreBtn.innerHTML = '<span class="woof_more__hide">Свернуть</span><span class="woof_more__show">Больше фильтров</span>'
+
+$woof.appendChild($woofMoreBtn)
+// show more|less button [END]
