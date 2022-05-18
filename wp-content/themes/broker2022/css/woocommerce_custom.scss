@@ -4,8 +4,20 @@
 		&.products {
 			li {
 				&.product {
+					a {
+						img {
+							display: none;
+						}
+					}
+
 					.button {
 						display: none;
+					}
+
+					.price {
+						color: $c_menu_bg;
+						font-size: 20px;
+						font-weight: 700;
 					}
 				}
 			}
@@ -48,6 +60,26 @@
 					&:first-child {
 						grid-column-end: 3;
 						grid-column-start: 1;
+
+						.price {
+							font-size: 24px;
+						}
+
+						.product_cat {
+							&__title {
+								font-size: 20px;
+							}
+						}
+
+						.product_link {
+							&__content {
+								bottom: 13px;
+								padding: 16px 37px;
+								position: absolute;
+								right: 19px;
+								width: auto;
+							}
+						}
 					}
 				}
 			}
