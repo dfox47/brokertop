@@ -58,8 +58,8 @@ function categoryPageProductAttributes() {
 	global $product;
 
 	$product_attribute_taxonomies = array(
-		'pa_adres',
-		'pa_tip-nedvizhimosti'
+		'pa_tip-nedvizhimosti',
+		'pa_adres'
 	);
 
 	$attr_output = array();
@@ -69,7 +69,7 @@ function categoryPageProductAttributes() {
 			$term_names = $product -> get_attribute($taxonomy);
 
 			if (!empty($term_names)) {
-				$attr_output[] = '<li class="product_attributes__item ' . $taxonomy . '">' . $term_names . '</span>';
+				$attr_output[] = '<li class="product_attributes__item product_attribute__' . $taxonomy . '">' . $term_names . '</span>';
 			}
 		}
 	}

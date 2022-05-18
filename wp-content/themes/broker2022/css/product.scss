@@ -28,12 +28,25 @@
 	}
 }
 
+.product_attribute {
+	&__pa_adres {
+		font-size: 10px;
+		opacity: .5;
+	}
+
+	&__pa_tip-nedvizhimosti {
+		display: none;
+	}
+}
+
 .product_attributes {
 	color: $c_text;
 
 	li {
 		display: block;
 	}
+
+	&__item {}
 }
 
 .product_cat {
