@@ -1,6 +1,6 @@
 
 .woocommerce {
-	ul{
+	ul {
 		&.products {
 			li {
 				&.product {
@@ -16,13 +16,46 @@
 .woocommerce-loop-product {
 	&__title {
 		color: $c_text;
+		font-family: $font_main;
 		font-size: 20px;
+		font-weight: 600;
 		text-transform: uppercase;
 	}
 }
 
 .woocommerce-ordering {
 	display: none;
+}
+
+.woocommerce-page {
+	ul {
+		&.products {
+			column-gap: 24px;
+			display: grid;
+			grid-template-columns: auto auto auto auto;
+			row-gap: 24px;
+
+			li {
+				&.product {
+					margin: 0;
+					width: 100%;
+
+					&:first-child {
+						grid-column-end: 3;
+						grid-column-start: 1;
+					}
+				}
+			}
+		}
+	}
+}
+
+
+.woocommerce-page {
+	margin: 0 auto;
+	max-width: 1373px;
+	padding: 0 30px;
+	width: 100%;
 }
 
 .woocommerce-products-header {
