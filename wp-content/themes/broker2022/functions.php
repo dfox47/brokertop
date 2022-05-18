@@ -66,14 +66,14 @@ function categoryPageProductAttributes() {
 
 	foreach ($product_attribute_taxonomies as $taxonomy) {
 		if (taxonomy_exists($taxonomy)) {
-			$term_names = $product->get_attribute($taxonomy);
+			$term_names = $product -> get_attribute($taxonomy);
 
 			if (!empty($term_names)) {
-				$attr_output[] = '<span class="'.$taxonomy.'">'.$term_names.'</span>';
+				$attr_output[] = '<li class="product_attributes__item ' . $taxonomy . '">' . $term_names . '</span>';
 			}
 		}
 	}
 
-	echo '<div class="product_attr">'.implode('', $attr_output).'</div>';
+	echo '<ul class="product_attributes">' . implode('', $attr_output) . '</ul>';
 }
 add_action('woocommerce_after_shop_loop_item_title', 'categoryPageProductAttributes');
