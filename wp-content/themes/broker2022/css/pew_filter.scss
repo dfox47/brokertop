@@ -109,8 +109,8 @@
 		position: relative;
 
 		.woof_container {
-			margin: 0 0 30px;
-			max-width: 288px;
+			margin: 0 50px 35px 0;
+			max-width: 280px;
 			padding: 0;
 			position: relative;
 			width: 100%;
@@ -132,23 +132,23 @@
 			}
 
 			&.woof_container_pa_kolichestvo-komnat {
+				margin-right: 0;
 				max-width: 258px;
 
 				li {
 					&:first-child {
 						.woof_checkbox_label {
-							margin: 0 10px 0 0;
+							margin: 0 6px 0 0;
 						}
 					}
 				}
 			}
 
 			&.woof_container_pa_material-doma {
-				margin-right: 47px;
+				max-width: 278px;
 			}
 
 			&.woof_container_pa_obshhaya-ploshhad {
-				margin-right: 47px;
 				padding: 0 24px 0 0;
 				max-width: 278px;
 
@@ -158,21 +158,19 @@
 			}
 
 			&.woof_container_pa_rajony {
-				margin-right: 50px;
 				max-width: 284px;
 			}
 
 			&.woof_container_pa_remont {
-				padding: 0 30px 0 54px;
-				max-width: 225px;
+				padding: 0 30px 0 0;
+				max-width: 176px;
 			}
 
 			&.woof_container_pa_stancziya-metro {
-				margin-right: 54px;
+				max-width: 278px;
 			}
 
 			&.woof_container_pa_tip-nedvizhimosti {
-				margin-right: 48px;
 				max-width: 278px;
 			}
 
@@ -234,12 +232,8 @@
 			}
 
 			&.woof_container_product_tag {
-				padding: 0 0 0 40px;
-				max-width: 410px;
-
-				h4 {
-					padding: 0 0 0 10px;
-				}
+				margin-right: 0;
+				max-width: 370px;
 
 				.woof_block_html_items {
 					max-width: none;
@@ -324,6 +318,12 @@
 		li {
 			margin: 0 !important;
 			padding: 0 !important;
+
+			&:first-child {
+				label {
+					margin-left: 0;
+				}
+			}
 		}
 	}
 
