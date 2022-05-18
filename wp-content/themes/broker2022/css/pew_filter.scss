@@ -237,12 +237,33 @@
 			}
 
 			&.woof_container_product_tag {
-				padding: 0 0 0 50px;
+				padding: 0 0 0 40px;
 				max-width: 410px;
+
+				h4 {
+					padding: 0 0 0 10px;
+				}
 
 				.woof_block_html_items {
 					max-width: none;
 				}
+
+				.woof_checkbox_label {
+					height: 28px;
+					line-height: 1.2;
+					padding: 2px 6px;
+				}
+
+				.woof_list {
+					input {
+						&:checked {
+							+ label {
+								font-weight: 400;
+							}
+						}
+					}
+				}
+
 			}
 
 			h4 {
@@ -285,13 +306,15 @@
 		}
 
 		label {
+			align-items: center;
 			background: transparent;
 			border-radius: 7px;
+			display: flex;
 			height: 24px;
-			line-height: 24px;
+			justify-content: center;
+			line-height: 1;
 			min-width: 24px;
 			padding: 0;
-			text-align: center;
 
 			.woof_checkbox_count {
 				display: none;
