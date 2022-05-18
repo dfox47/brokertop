@@ -31,12 +31,11 @@
 .product_attribute {
 	&__pa_adres {
 		font-size: 10px;
+		margin: .5em 0;
 		opacity: .5;
 	}
 
-	&__pa_tip-nedvizhimosti {
-		display: none;
-	}
+	&__pa_tip-nedvizhimosti {}
 }
 
 .product_attributes {
@@ -44,6 +43,10 @@
 
 	li {
 		display: block;
+
+		&.product_attribute__pa_tip-nedvizhimosti {
+			display: none;
+		}
 	}
 
 	&__item {}
@@ -278,7 +281,7 @@
 	&__content {
 		background-color: #fff;
 		bottom: 0;
-		padding: 20px;
+		padding: 20px 20px 40px;
 		position: absolute;
 		right: 0;
 		width: 100%;
