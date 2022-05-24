@@ -17,13 +17,14 @@
 
 .header_menu {
 	display: flex;
+	flex-direction: row;
 	flex-grow: 1;
-	flex-direction: column;
 	flex-wrap: wrap;
-	font-size: 24px;
+	font-size: 11px;
 	font-weight: 500;
 	justify-content: space-between;
-	padding: 80px 0;
+	margin: 0;
+	padding: 0;
 	text-align: center;
 	text-transform: uppercase;
 
@@ -35,40 +36,70 @@
 		transition: $transition;
 
 		&:hover {
-			color: $c_main;
+			&::after {
+				width: 100%;
+			}
 		}
 
 		&::after,
 		&::before {
 			background-color: $c_main;
 			content: "";
-			height: 2px;
 			position: absolute;
 			transition: $transition;
-			top: 50%;
 			width: 0;
 		}
 
 		&::after {
-			left: 100%;
-			margin: 0 0 0 21px;
+			height: 1px;
+			left: 0;
+			margin: 4px 0 0;
+			top: 100%;
 		}
 
-		&::before {
-			right: 100%;
-			margin: 0 21px 0 0;
+		@media #{$desktop_hd} {
+			&::after,
+			&::before {
+				height: 2px;
+				top: 50%;
+				width: 0;
+			}
+
+			&::after {
+				left: 100%;
+				margin: 0 0 0 21px;
+			}
+
+			&::before {
+				right: 100%;
+				margin: 0 21px 0 0;
+			}
+
+			&:hover {
+				color: $c_main;
+			}
 		}
 	}
 
 	li {
+		padding: 0 20px;
+
 		&.current-menu-item {
 			a,
 			a:visited {
 				&::after,
 				&::before {
-					width: 77px;
+					width: 100%;
+
+					@media #{$desktop_hd} {
+						width: 77px;
+					}
 				}
 			}
+		}
+
+		@media #{$mobile} {
+			margin: 0 0 54px;
 		}
 	}
 
@@ -76,14 +107,16 @@
 		display: none;
 	}
 
+	@media #{$desktop_hd} {
+		flex-direction: column;
+		font-size: 24px;
+		padding: 80px 0;
+	}
+
 	@media #{$mobile} {
 		font-size: 16px;
 		justify-content: flex-start;
 		padding: 28px 0;
-
-		li {
-			margin: 0 0 54px;
-		}
 	}
 }
 
@@ -97,6 +130,7 @@
 .header_menu_toggle {
 	color: #fff;
 	cursor: pointer;
+	display: none;
 	font-size: 10px;
 	line-height: 14px;
 	padding: 0 0 0 34px;
@@ -146,19 +180,22 @@
 		transition: $transition;
 		width: 15px;
 	}
+
+	@media #{$desktop_hd} {
+		display: block;
+	}
 }
 
 .header_menu_wrap {
 	align-items: center;
-	display: none;
+	display: block;
 	flex-direction: column;
-	height: 100%;
-	justify-content: center;
-	left: 0;
-	padding: 50px 0 0;
-	position: fixed;
-	top: 0;
-	width: 100%;
+	height: auto;
+	left: auto;
+	padding: 0;
+	position: relative;
+	top: auto;
+	width: auto;
 	z-index: 9;
 
 	.btn_close {
@@ -170,7 +207,17 @@
 	}
 
 	@media #{$desktop_hd} {
+		align-items: center;
 		display: none;
+		flex-direction: column;
+		height: 100%;
+		justify-content: center;
+		left: 0;
+		padding: 50px 0 0;
+		position: fixed;
+		top: 0;
+		width: 100%;
+		z-index: 9;
 	}
 
 	@media #{$mobile} {
