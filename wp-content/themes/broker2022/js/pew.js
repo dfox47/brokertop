@@ -108,21 +108,32 @@ jQuery(document).ready(function($) {
 })
 
 
+// show more|less button
+let productFilterShowMore = () => {
+	let $woof = document.querySelector('.woof')
 
-// show more|less button [START]
-let $woof           = document.querySelector('.woof')
-let $woofMoreBtn    = document.createElement('div')
+	if ( !$woof) {
+		return
+	}
 
-$woofMoreBtn.classList.add('js-pew-more', 'woof_more')
-$woofMoreBtn.innerHTML = '<span class="woof_more__hide">Свернуть</span><span class="woof_more__show">Показать фильтры</span>'
+	let $woofMoreBtn = document.createElement('div')
 
-$woof.appendChild($woofMoreBtn)
+	$woofMoreBtn.classList.add('js-pew-more', 'woof_more')
+	$woofMoreBtn.innerHTML = '<span class="woof_more__hide">Свернуть</span><span class="woof_more__show">Показать фильтры</span>'
+
+	$woof.appendChild($woofMoreBtn)
 
 
 
-let $woofMore = document.querySelector('.js-pew-more')
+	let $woofMore = document.querySelector('.js-pew-more')
 
-$woofMore.addEventListener('click', () => {
-	$html.classList.toggle('woof_more__active')
-})
-// show more|less button [END]
+	if ( !$woofMore) {
+		return
+	}
+
+	$woofMore.addEventListener('click', () => {
+		$html.classList.toggle('woof_more__active')
+	})
+}
+
+productFilterShowMore()
