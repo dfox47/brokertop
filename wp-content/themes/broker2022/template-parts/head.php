@@ -21,6 +21,10 @@ else if (is_category()) {
 
 <div class="hero_block_wrap<?php echo $pageType; ?>">
 	<div class="hero_block" <?php if ($thumbUrl !== '' && is_product()) { ?>style="background-image: url(<?php echo $thumbUrl; ?>);"<?php } ?>>
+		<?php if ($_SERVER['REQUEST_URI'] == '/kontakty/') {
+			include_once "contacts_map.php";
+		} ?>
+
 		<div class="header_wrap">
 			<header class="header">
 				<div class="header_left">
