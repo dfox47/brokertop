@@ -22,6 +22,7 @@ function customOptionsSettings() {
 	register_setting( 'broker-options-admin', 'broker_footer_title' );
 	register_setting( 'broker-options-admin', 'broker_inst' );
 	register_setting( 'broker-options-admin', 'broker_phone' );
+	register_setting( 'broker-options-admin', 'broker_telegram' );
 	register_setting( 'broker-options-admin', 'broker_whatsapp' );
 }
 
@@ -51,7 +52,7 @@ function customOptionsContent() { ?>
 					<td>
 						<input id="broker_inst"
 						       name="broker_inst"
-						       placeholder="lnstameow"
+						       placeholder="topbroker.moscow"
 						       type="text"
 						       value="<?php echo esc_attr(get_option('broker_inst')); ?>"
 						/>
@@ -63,8 +64,21 @@ function customOptionsContent() { ?>
 					<td>
 						<input id="broker_whatsapp"
 						       name="broker_whatsapp"
+						       placeholder="79778021616"
 						       type="text"
 						       value="<?php echo esc_attr(get_option('broker_whatsapp')); ?>"
+						/>
+					</td>
+				</tr>
+
+				<tr>
+					<th scope="row"><label for="broker_telegram">Telagram</label></th>
+					<td>
+						<input id="broker_telegram"
+						       name="broker_telegram"
+						       placeholder="79778021616"
+						       type="text"
+						       value="<?php echo esc_attr(get_option('broker_telegram')); ?>"
 						/>
 					</td>
 				</tr>
