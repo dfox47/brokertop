@@ -18,6 +18,7 @@ function customOptions() {
 }
 
 function customOptionsSettings() {
+	register_setting( 'broker-options-admin', 'broker_address' );
 	register_setting( 'broker-options-admin', 'broker_footer_address' );
 	register_setting( 'broker-options-admin', 'broker_footer_title' );
 	register_setting( 'broker-options-admin', 'broker_inst' );
@@ -31,8 +32,8 @@ function customOptionsContent() { ?>
 		<h1>Настройки Top Broker</h1>
 
 		<form method="post" action="options.php">
-			<?php settings_fields( 'broker-options-admin' ); ?>
-			<?php do_settings_sections( 'broker-options-admin' ); ?>
+			<?php settings_fields('broker-options-admin'); ?>
+			<?php do_settings_sections('broker-options-admin'); ?>
 
 			<table class="form-table">
 				<tr>
@@ -43,6 +44,18 @@ function customOptionsContent() { ?>
 						       placeholder="+7 (495) 150 -39 -77"
 						       type="text"
 						       value="<?php echo esc_attr(get_option('broker_phone')); ?>"
+						/>
+					</td>
+				</tr>
+
+				<tr>
+					<th scope="row"><label for="broker_phone">Адрес</label></th>
+					<td>
+						<input id="broker_address"
+						       name="broker_address"
+						       placeholder="Пресненская набережная 8 стр.1, МФК “Город Столиц”"
+						       type="text"
+						       value="<?php echo esc_attr(get_option('broker_address')); ?>"
 						/>
 					</td>
 				</tr>
