@@ -1,6 +1,7 @@
 
 <div class="hero_block__slider">
-	<section class="js-splide-slider splide" data-splide='{"autoplay":"true","interval":"25000","type":"loop","perPage":1}'>
+<!--	<section class="js-splide-slider splide" data-splide='{"autoplay":"true","interval":"25000","type":"loop","perPage":1}'>-->
+	<section class="js-splide-slider splide" data-splide='{"autoplay":"false","interval":"250000","type":"loop","perPage":1}'>
 		<div class="splide__track">
 			<ul class="splide__list">
 				<li class="splide__slide">
@@ -15,8 +16,8 @@
 
 						<div class="hero_block_slide__developer">Capital towers</div>
 
-						<div class="hero_block_slide__img">
-							<img src="/wp-content/uploads/2022/04/home_slider_1.png" alt="" />
+						<div class="hero_block_slide__img_wrap">
+							<span class="hero_block_slide__img" style="background-image: url(/wp-content/uploads/2022/05/rectangle-87.png)"></span>
 						</div>
 					</div>
 				</li>
