@@ -1,9 +1,9 @@
 
 .home {
 	.hero_block {
-		background: url(#{$i}/home_bg.png) center no-repeat scroll $c_img_bg;
-		background-size: cover;
+		background: $c_img_bg;
 		height: 100%;
+		padding: 0;
 		width: 100%;
 	}
 
