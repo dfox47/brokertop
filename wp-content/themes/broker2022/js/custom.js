@@ -13,7 +13,8 @@ $(document).ready(function() {
 			enabled: 'true'
 		},
 		// effects: 'bricks3d',
-		effects: 'bulb',
+		// effects: 'bulb',
+		effects: 'blinds_h',
 		navigation : {
 			next: '.js-hero-slider-next',
 			prev: '.js-hero-slider-prev'
