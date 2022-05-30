@@ -7,7 +7,7 @@ $(document).ready(function() {
 	$('.js-hero-slider').cs3({
 		autoplay: {
 			delay: '4000',
-			enabled: 'true'
+			// enabled: 'true'
 		},
 		captions: {
 			enabled: 'true'

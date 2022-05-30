@@ -101,9 +101,13 @@
 	}
 
 	&__img {
+		height: 100%;
 		left: 0;
+		object-fit: cover;
 		position: absolute;
 		top: 0;
+		transition: $transition;
+		width: 100%;
 		z-index: 1;
 	}
 
