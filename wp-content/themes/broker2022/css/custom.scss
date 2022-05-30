@@ -131,8 +131,21 @@ h3 {
 }
 
 .page {
+	&.page-id-16 {
+		.hero_block {
+			min-height: 108px;
+			padding: 0;
+		}
+	}
+
 	.hero_block {
 		min-height: 466px;
+	}
+}
+
+.page-id-16 {
+	h1 {
+		text-align: left;
 	}
 }
 
