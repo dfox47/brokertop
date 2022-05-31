@@ -77,6 +77,11 @@
 
 			&:hover {
 				color: $c_main;
+
+				&::after,
+				&::before {
+					width: 700px;
+				}
 			}
 		}
 	}
