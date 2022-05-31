@@ -333,6 +333,7 @@
 
 			&:disabled {
 				+ label {
+					display: none!important;
 					opacity: .5;
 				}
 			}
