@@ -83,7 +83,6 @@ gulp.task('css', function () {
 gulp.task('js', function () {
 	return gulp.src([
 			localFolderJs + 'jquery-3.6.0.min.js',
-			// localFolderJs + 'jquery-1.7.2.min.js',
 			localFolderJs + 'idangerous.chopslider-3.4.min.js',
 			localFolderJs + 'splide.min.js',
 			localFolderJs + '**/*.js'
