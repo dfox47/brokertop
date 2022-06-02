@@ -35,7 +35,8 @@
 
 				if (callback) {
 					function fireCallBack() {
-						callback.call(this);
+						callback.call(this)
+
 						for (var i=0; i<events.length; i++) {
 							_this.removeEventListener(events[i], fireCallBack, false)
 						}
@@ -45,54 +46,61 @@
 					}
 				}
 			})
-		};
+		}
+
 		$.fn.csTransform = function(params) {
-			return this.each(function(){
-				var es = $(this)[0].style;
+			return this.each(function() {
+				let es = $(this)[0].style
+
 				if (params.transform) {
 					if (!cs3.support.threeD && params.transform.indexOf('translate3d')>=0) {
-						var tr = params.transform.split('translate3d(')[1].split(')')[0].split(',');
-						var before = params.transform.split('translate3d(')[0];
-						var after = params.transform.split('translate3d(')[1].split(')')[1];
-						params.transform = before+' translateX('+tr[0]+') translateY('+tr[1]+') '+after;
+						var tr = params.transform.split('translate3d(')[1].split(')')[0].split(',')
+						var before = params.transform.split('translate3d(')[0]
+						var after = params.transform.split('translate3d(')[1].split(')')[1]
+						params.transform = before+' translateX('+tr[0]+') translateY('+tr[1]+') '+after
 					}
+
 					if (cs3.support.threeD && params.transform.indexOf('translate')<0) {
 						params.transform+=' translate3d(0px,0px,0px)'
 					}
+
 					es.webkitTransform = es.MsTransform = es.MozTransform = es.OTransform = es.transform = params.transform
 				}
+
 				if (params.time||params.time===0) {
 					es.webkitTransitionDuration = es.MsTransitionDuration = es.MozTransitionDuration = es.OTransitionDuration = es.transitionDuration = params.time/1000+'s'
 				}
+
 				if (params.delay||params.delay===0) {
 					es.webkitTransitionDelay = es.MsTransitionDelay = es.MozTransitionDelay = es.OTransitionDelay = es.transitionDelay = params.delay/1000+'s'
 				}
+
 				if (params.origin) {
 					es.webkitTransformOrigin = es.MsTransformOrigin = es.MozTransformOrigin = es.OTransformOrigin = es.transformOrigin = params.origin
 				}
+
 				if (params.ease) {
 					es.webkitTransitionTimingFunction = es.MsTransitionTimingFunction = es.MozTransitionTimingFunction = es.OTransitionTimingFunction = es.transitionTimingFunction = params.ease
 				}
+
 				es.webkitTransitionProperty = es.MsTransitionTransitionProperty = es.MozTransitionTransitionProperty = es.OTransitionProperty = es.transitionProperty = 'all'
-
 			})
-		};
+		}
 
 
 
+		// Check for container
+		if (container.length === 0) return {}
 
-		//Check for container
-		if (container.length === 0) return {};
-
-		//Or check for init
-		if (container.hasClass('cs3-initialized')) return {};
+		// Or check for init
+		if (container.hasClass('cs3-initialized')) return {}
 
 		//This
-		var cs3 = {};
-		var _t = cs3 = this;
+		var cs3 = {}
+		var _t = cs3 = this
 
 		//Default Options Here
-		var params = params || {};
+		var params = params || {}
 
 		//CS3 Object
 		$.extend(cs3 , {
@@ -112,14 +120,14 @@
 				threeD : cs3.has3D(),
 				canvas : cs3.hasCanvas(),
 				fullscreen : (function(){
-					var el = document.documentElement;
-					var rfs = el.requestFullScreen || el.webkitRequestFullScreen || el.oRequestFullScreen || el.mozRequestFullScreen || el.msRequestFullScreen;
+					var el = document.documentElement
+					var rfs = el.requestFullScreen || el.webkitRequestFullScreen || el.oRequestFullScreen || el.mozRequestFullScreen || el.msRequestFullScreen
 					if (rfs) return true
 					else return false
 				})()
 			},
 			user : {}
-		});
+		})
 
 		//Path to CS3 Folder With Trailing Slash
 		cs3.path = ''
@@ -128,12 +136,12 @@
 		if (!cs3.params.callbacks) cs3.params.callbacks = {}
 
 		//Video Slides
-		let useVideoSlides = false;
-		var useYouTubeAPI = false;
-		var useVimeoAPI = false;
+		let useVideoSlides = false
+		var useYouTubeAPI = false
+		var useVimeoAPI = false
 
 		cs3.slides.each(function() {
-			useVideoSlides = true;
+			useVideoSlides = true
 			if ($(this).hasClass('cs3-video-slide')) {
 				$(this).append('<img src="'+cs3.path+'assets/video-bg.png">')
 				var frame = $(this).find('iframe')
@@ -147,16 +155,16 @@
 					frame.attr('data-videoservice','vimeo')
 				}
 			}
-		});
+		})
 
 		if (useVideoSlides) {
 			if (useYouTubeAPI) {
 				if (!window.YT) {
 					// This code loads the IFrame Player API code asynchronously.
-					var tag = document.createElement('script');
-					tag.src = "//www.youtube.com/player_api";
-					var firstScriptTag = document.getElementsByTagName('script')[0];
-					firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+					var tag = document.createElement('script')
+					tag.src = "//www.youtube.com/player_api"
+					var firstScriptTag = document.getElementsByTagName('script')[0]
+					firstScriptTag.parentNode.insertBefore(tag, firstScriptTag)
 				}
 
 				window.onYouTubeIframeAPIReady = function() {
@@ -175,62 +183,62 @@
 		}
 		//Store Images
 		cs3.slides.each(function(){
-			var src = $(this).find('img').attr('src');
+			var src = $(this).find('img').attr('src')
 			cs3.images.push( $(this).find('img').attr('src') )
-		});
+		})
 
 
 		//Add Active Classes on Initialization
-		cs3.slides.eq(0).addClass('cs3-active-slide');
-		cs3.c.addClass('cs3-initialized');
+		cs3.slides.eq(0).addClass('cs3-active-slide')
+		cs3.c.addClass('cs3-initialized')
 
 		//Add View Container
-		cs3.slides.wrapAll('<div class="cs3-view"></div>');
-		cs3.v = cs3.c.children('.cs3-view');
+		cs3.slides.wrapAll('<div class="cs3-view"></div>')
+		cs3.v = cs3.c.children('.cs3-view')
 
 		//Add CS3-Loader Container
-		cs3.v.append('<div class="cs3-loader"></div>');
-		cs3.l = cs3.v.find('.cs3-loader');
+		cs3.v.append('<div class="cs3-loader"></div>')
+		cs3.l = cs3.v.find('.cs3-loader')
 
 		//Transition Functions
 		cs3.slideNext = function() {
-			if (cs3.isAnimating) return false;
-			cs3.newSlideIndex = cs3.h.indexes().next;
-			cs3.direction = 1;
+			if (cs3.isAnimating) return false
+			cs3.newSlideIndex = cs3.h.indexes().next
+			cs3.direction = 1
 			cs3.run()
-		};
+		}
 		cs3.slidePrev = function() {
-			if (cs3.isAnimating) return false;
-			cs3.newSlideIndex = cs3.h.indexes().prev;
-			cs3.direction = -1;
+			if (cs3.isAnimating) return false
+			cs3.newSlideIndex = cs3.h.indexes().prev
+			cs3.direction = -1
 			cs3.run()
-		};
+		}
 		cs3.slideTo = function(index) {
-			if (cs3.isAnimating) return false;
-			if (index<0 || index>=cs3.slides.length) return;
-			cs3.newSlideIndex = index;
-			if (index>cs3.h.indexes().active) cs3.direction = 1;
-			else cs3.direction = -1;
+			if (cs3.isAnimating) return false
+			if (index<0 || index>=cs3.slides.length) return
+			cs3.newSlideIndex = index
+			if (index>cs3.h.indexes().active) cs3.direction = 1
+			else cs3.direction = -1
 			cs3.run()
 		}
 		cs3.switchTo = function(index) {
-			if (cs3.isAnimating) return false;
-			if (index<0 || index>=cs3.slides.length) return;
-			if (index==cs3.h.indexes().active) return;
-			cs3.newSlideIndex = index;
-			cs3._plugins.onStart(cs3);
-			cs3.updateSlides();
+			if (cs3.isAnimating) return false
+			if (index<0 || index>=cs3.slides.length) return
+			if (index==cs3.h.indexes().active) return
+			cs3.newSlideIndex = index
+			cs3._plugins.onStart(cs3)
+			cs3.updateSlides()
 		}
 
 		//Put All Plugins Functions to Array
 		;(function(){
 			for (var plug in cs3.plugins) {
-				if ('onStart' in cs3.plugins[plug]) cs3._plugins.onStartFuncs.push(cs3.plugins[plug]['onStart']);
-				if ('onEnd' in cs3.plugins[plug]) cs3._plugins.onEndFuncs.push(cs3.plugins[plug]['onEnd']);
+				if ('onStart' in cs3.plugins[plug]) cs3._plugins.onStartFuncs.push(cs3.plugins[plug]['onStart'])
+				if ('onEnd' in cs3.plugins[plug]) cs3._plugins.onEndFuncs.push(cs3.plugins[plug]['onEnd'])
 				if ('init' in cs3.plugins[plug]) cs3._plugins.initFuncs.push(cs3.plugins[plug]['init'])
-				cs3._plugins[plug] = {};
+				cs3._plugins[plug] = {}
 			}
-		})();
+		})()
 		$.extend(cs3._plugins, {
 			onStart : function(a, calledBy){
 				for (var i=0; i<cs3._plugins.onStartFuncs.length; i++) cs3._plugins.onStartFuncs[i](a, calledBy)
@@ -242,98 +250,107 @@
 				for (var i=0; i<cs3._plugins.initFuncs.length; i++) cs3._plugins.initFuncs[i](a, calledBy)
 			}
 
-		});
+		})
 		//Effects
 		cs3.calcEffects = function() {
-			var e = cs3.params.effects;
-			if (!e) e = 'random-flat';
-			var eArr = [];
-			var eArrTrim = [];
-			if (e.indexOf(',')>=0) eArr = e.split(',');
-			else eArr.push(e);
+			var e = cs3.params.effects
+			if (!e) e = 'random-flat'
+			var eArr = []
+			var eArrTrim = []
+			if (e.indexOf(',')>=0) eArr = e.split(',')
+			else eArr.push(e)
 			for (var i=0; i<eArr.length; i++) {
-				var eff = $.trim(eArr[i]);
+				var eff = $.trim(eArr[i])
 				if (eff.indexOf('random-')>=0) {
-					var group = eff.split('-')[1];
-					if (group == '2D' || group == '2d') group = 'twoD';
-					if (group == '3D' || group == '3d') group = 'threeD';
+					var group = eff.split('-')[1]
+					if (group == '2D' || group == '2d') group = 'twoD'
+					if (group == '3D' || group == '3d') group = 'threeD'
 					for (var randomEff in cs3.e[group]) {
-						if (randomEff.charAt(0)!='_') eArrTrim.push(randomEff);
+						if (randomEff.charAt(0)!='_') eArrTrim.push(randomEff)
 					}
 				}
 				else {
-					eArrTrim.push( $.trim(eArr[i]) );
+					eArrTrim.push( $.trim(eArr[i]) )
 				}
 			}
-			//Check For Support;
-			var eArrFinal = [];
+			//Check For Support
+			var eArrFinal = []
 
 			for (var i=0; i<eArrTrim.length; i++) {
-				var effect = eArrTrim[i];
+				var effect = eArrTrim[i]
+
 				//3D Support
 				if ( effect in cs3.e.threeD	&& cs3.support.threeD) {
-					eArrFinal.push('threeD-'+effect);
+					eArrFinal.push('threeD-'+effect)
 				}
+
 				//2D Support
 				if ( effect in cs3.e.twoD	&& cs3.support.css3) {
-					eArrFinal.push('twoD-'+effect);
+					eArrFinal.push('twoD-'+effect)
 				}
+
 				//Canvas Support
 				if ( effect in cs3.e.canvas	&& cs3.support.canvas) {
-					eArrFinal.push('canvas-'+effect);
+					eArrFinal.push('canvas-'+effect)
 				}
+
 				if ( effect in cs3.e.flat) {
-					eArrFinal.push('flat-'+effect);
+					eArrFinal.push('flat-'+effect)
 				}
 			}
 			if (eArrFinal.length==0) {
 				for (var eff in cs3.e.flat) {
-					eArrFinal.push('flat-'+eff);
+					eArrFinal.push('flat-'+eff)
 				}
 			}
 
 			if (cs3.params.effectsGroupLock) {
-				var eLock = cs3.params.effectsGroupLock;
-				var eArrLock=[];
+				var eLock       = cs3.params.effectsGroupLock
+				var eArrLock    = []
+
 				if (cs3.support.threeD && eLock.support3d) {
-					var allowGroups = eLock.support3d.split(',');
+					var allowGroups = eLock.support3d.split(',')
+
 					for (var i=0; i<eArrFinal.length; i++) {
 						for (var j=0; j<allowGroups.length; j++) {
-							var group = $.trim(allowGroups[j]);
-							if (eArrFinal[i].indexOf(group)>=0) eArrLock.push(eArrFinal[i]);
+							var group = $.trim(allowGroups[j])
+
+							if (eArrFinal[i].indexOf(group)>=0) eArrLock.push(eArrFinal[i])
 						}
 					}
-					eArrFinal = eArrLock;
+					eArrFinal = eArrLock
 				}
+
 				if (cs3.support.css3 && eLock.support2d && !cs3.support.threeD) {
-					var allowGroups = eLock.support2d.split(',');
+					var allowGroups = eLock.support2d.split(',')
 					for (var i=0; i<eArrFinal.length; i++) {
 						for (var j=0; j<allowGroups.length; j++) {
-							var group = $.trim(allowGroups[j]);
-							if (eArrFinal[i].indexOf(group)>=0) eArrLock.push(eArrFinal[i]);
+							var group = $.trim(allowGroups[j])
+							if (eArrFinal[i].indexOf(group)>=0) eArrLock.push(eArrFinal[i])
 						}
 					}
-					eArrFinal = eArrLock;
+					eArrFinal = eArrLock
 				}
+
 				if (!cs3.support.threeD && eLock.supportCanvasNoCSS3 && cs3.support.canvas && !cs3.support.css3) {
-					var allowGroups = eLock.supportCanvasNoCSS3.split(',');
+					var allowGroups = eLock.supportCanvasNoCSS3.split(',')
 					for (var i=0; i<eArrFinal.length; i++) {
 						for (var j=0; j<allowGroups.length; j++) {
-							var group = $.trim(allowGroups[j]);
-							if (eArrFinal[i].indexOf(group)>=0) eArrLock.push(eArrFinal[i]);
+							var group = $.trim(allowGroups[j])
+							if (eArrFinal[i].indexOf(group)>=0) eArrLock.push(eArrFinal[i])
 						}
 					}
-					eArrFinal = eArrLock;
+					eArrFinal = eArrLock
 				}
 			}
 			if (eArrFinal.length==0) {
 				for (var e in cs3.e.flat) {
-					if (e.charAt(0)!='_') eArrFinal.push('flat-'+e);
+					if (e.charAt(0)!='_') eArrFinal.push('flat-'+e)
 				}
 			}
-			cs3.effects = eArrFinal;
-		};
-		cs3.calcEffects();
+			cs3.effects = eArrFinal
+		}
+		cs3.calcEffects()
 
 		//Smart Timeout
 		cs3.set_timeout = function(func, time) {
@@ -344,70 +361,70 @@
 				webkitHidden: "webkitvisibilitychange",
 				msHidden: "msvisibilitychange",
 				oHidden: "ovisibilitychange"
-			};
+			}
 			for (var hidden in vis) {
 				if (vis.hasOwnProperty(hidden) && hidden in document) {
-					change = vis[hidden];
-					break;
+					change = vis[hidden]
+					break
 				}
 			}
 			if(!change){
 				//IE6-9
 				return setTimeout(function(){
-					func();
-				},time);
+					func()
+				},time)
 			}
-			var timeStart = (new Date()).getTime();
-			var timeLeft = false;
+			var timeStart = (new Date()).getTime()
+			var timeLeft = false
 
 			//Timeout Counter
 			function countTime() {
 				if (document[hidden]) {
-					timeLeft = time - (( new Date() ).getTime() - timeStart);
-					document.removeEventListener(change, countTime);
+					timeLeft = time - (( new Date() ).getTime() - timeStart)
+					document.removeEventListener(change, countTime)
 				}
 			}
-			document.addEventListener(change, countTime);
+			document.addEventListener(change, countTime)
 			if (!document[hidden]) {
 				return setTimeout(function(){
-					if (!document[hidden]) func();
+					if (!document[hidden]) func()
 					else {
 						function continueTimeOut() {
 							if (!document[hidden]) {
-								cs3.set_timeout(func, timeLeft);
-								document.removeEventListener(change, continueTimeOut);
+								cs3.set_timeout(func, timeLeft)
+								document.removeEventListener(change, continueTimeOut)
 							}
 						}
-						document.addEventListener(change, continueTimeOut);
+						document.addEventListener(change, continueTimeOut)
 					}
-				}, time);
+				}, time)
 			}
 			else {
 				function onChange(e) {
 					if (!document[hidden]) {
-						document.removeEventListener(change, onChange);
-						cs3.set_timeout(func,time);
+						document.removeEventListener(change, onChange)
+						cs3.set_timeout(func,time)
 					}
 				}
-				document.addEventListener(change, onChange);
+				document.addEventListener(change, onChange)
 			}
 		}
 
 		//Auto Play
-		cs3.params.autoplay = cs3.params.autoplay || {};
-		cs3.params.autoplay.delay = cs3.params.autoplay.delay || 5000;
-		cs3.autoplayTimeout = false;
+		cs3.params.autoplay = cs3.params.autoplay || {}
+		cs3.params.autoplay.delay = cs3.params.autoplay.delay || 5000
+		cs3.autoplayTimeout = false
 
 		cs3.autoplayStart = function(){
-			cs3.params.autoplay.enabled = true;
+			cs3.params.autoplay.enabled = true
 			cs3.autoplayTimeout = cs3.set_timeout(function(){
-				cs3.slideNext();
-			}, cs3.params.autoplay.delay);
-		};
+				cs3.slideNext()
+			}, cs3.params.autoplay.delay)
+		}
 		cs3.autoplayStop = function() {
-			clearTimeout(cs3.autoplayTimeout);
-			cs3.params.autoplay.enabled = false;
-		};
+			clearTimeout(cs3.autoplayTimeout)
+			cs3.params.autoplay.enabled = false
+		}
 
 		//Helper Functions
 		cs3.h = {
@@ -418,31 +435,31 @@
 					}
 					cs3.width = cs3.width || cs3.c.width()
 					cs3.height = cs3.height || cs3.c.height()
-					var oldWidth = cs3.width;
-					var oldHeight = cs3.height;
+					var oldWidth = cs3.width
+					var oldHeight = cs3.height
 					if (cs3.params.responsiveSetSize) {
 						cs3.c.width('auto')
 						cs3.c.height('auto')
 					}
-					var activeSlide = cs3.slides.eq( cs3.h.indexes().active );
+					var activeSlide = cs3.slides.eq( cs3.h.indexes().active )
 					if (activeSlide.hasClass('cs3-video-slide')) {
 						var fixBySlideIndex = false
 						cs3.slides.each(function() {
 							if (!$(this).hasClass('cs3-video-slide')) fixBySlideIndex = $(this).index()
-						});
+						})
 						if(fixBySlideIndex!==false) {
 							cs3.slides.eq( fixBySlideIndex ).show()
-							cs3.width = cs3.slides.eq( fixBySlideIndex ).find('img').width();
-							cs3.height = cs3.slides.eq( fixBySlideIndex ).find('img').height();
-							cs3.slides.eq( fixBySlideIndex ).hide();
+							cs3.width = cs3.slides.eq( fixBySlideIndex ).find('img').width()
+							cs3.height = cs3.slides.eq( fixBySlideIndex ).find('img').height()
+							cs3.slides.eq( fixBySlideIndex ).hide()
 						}
 						else {
 							cs3.width = cs3.c.width()
 						}
 					}
 					else {
-						cs3.width = cs3.slides.eq( cs3.h.indexes().active ).find('img').width();
-						cs3.height = cs3.slides.eq( cs3.h.indexes().active ).find('img').height();
+						cs3.width = cs3.slides.eq( cs3.h.indexes().active ).find('img').width()
+						cs3.height = cs3.slides.eq( cs3.h.indexes().active ).find('img').height()
 					}
 
 					if (cs3.params.responsiveSetSize) {
@@ -453,22 +470,22 @@
 						cs3.slides.eq( cs3.h.indexes().active ).hide()
 					}
 					if (cs3.width==0 || cs3.height==0) {
-						cs3.width = oldWidth;
-						cs3.height = oldHeight;
+						cs3.width = oldWidth
+						cs3.height = oldHeight
 						cs3.c.width(cs3.width)
 						cs3.c.height(cs3.height)
 					}
 				}
 				else {
-					cs3.width = cs3.c.width();
-					cs3.height = cs3.c.height();
+					cs3.width = cs3.c.width()
+					cs3.height = cs3.c.height()
 				}
 			},
 			setPerspective : function(a, target){
-				a = a || {};
-				a.value = a.value || 1200;
-				a.origin = a.origin || '50% 50%';
-				if (!target) var target = navigator.userAgent.indexOf('MSIE')>=0 ? cs3.l : cs3.c;
+				a = a || {}
+				a.value = a.value || 1200
+				a.origin = a.origin || '50% 50%'
+				if (!target) var target = navigator.userAgent.indexOf('MSIE')>=0 ? cs3.l : cs3.c
 				target.css({
 					"-webkit-perspective-origin":a.origin,
 					"-webkit-perspective":a.value,
@@ -484,51 +501,51 @@
 			},
 			triggerIndex : false,
 			getDelay : function(p) {
-				var newDelay=0;
+				var newDelay=0
 				if (p.grid.cols && p.grid.rows) {
 					var rowIndex = Math.floor(p.index/p.grid.cols),
 						colIndex = p.index - p.grid.cols*Math.floor(p.index/p.grid.cols)
 				}
 				if (!p.startIndex) {
-					p.startIndex = 0;
+					p.startIndex = 0
 				}
 				switch(p.type) {
 					case 'linear' : {
-						if (p.startIndex == 'middle') p.startIndex = Math.floor(p.grid.rows*p.grid.cols/2);
-						newDelay = Math.abs(p.delay*(p.startIndex-p.index));
+						if (p.startIndex == 'middle') p.startIndex = Math.floor(p.grid.rows*p.grid.cols/2)
+						newDelay = Math.abs(p.delay*(p.startIndex-p.index))
 						if (p.startIndex >= p.grid.cols*p.grid.rows/2) cs3.h.triggerIndex = 0
 						else cs3.h.triggerIndex = p.grid.cols*p.grid.rows-1
 					}
-						break;
+						break
 
 					case 'progressive' : {
-						newDelay = Math.abs(p.delay*( p.startIndex - (colIndex*p.grid.rows/5+rowIndex) ));
+						newDelay = Math.abs(p.delay*( p.startIndex - (colIndex*p.grid.rows/5+rowIndex) ))
 						if (p.startIndex >= p.grid.cols*p.grid.rows/2) cs3.h.triggerIndex = 0
 						else cs3.h.triggerIndex = p.grid.cols*p.grid.rows-1
 
 					}
-						break;
+						break
 
 					case 'horizontal' : {
-						newDelay = Math.abs(p.delay*(p.startIndex - colIndex));
-						if (p.startIndex >= p.grid.cols/2) cs3.h.triggerIndex = 0;
-						else cs3.h.triggerIndex = p.grid.cols-1;
+						newDelay = Math.abs(p.delay*(p.startIndex - colIndex))
+						if (p.startIndex >= p.grid.cols/2) cs3.h.triggerIndex = 0
+						else cs3.h.triggerIndex = p.grid.cols-1
 					}
-						break;
+						break
 
 					case 'vertical' : {
-						newDelay = Math.abs(p.delay*(p.startIndex-rowIndex));
-						if (p.startIndex >= p.grid.rows/2) cs3.h.triggerIndex = 0;
-						else cs3.h.triggerIndex = p.grid.rows*p.grid.cols-1;
+						newDelay = Math.abs(p.delay*(p.startIndex-rowIndex))
+						if (p.startIndex >= p.grid.rows/2) cs3.h.triggerIndex = 0
+						else cs3.h.triggerIndex = p.grid.rows*p.grid.cols-1
 					}
-						break;
+						break
 				}
 				return newDelay
 			},
 			indexes : function() {
-				var b={};
-				b.active = cs3.c.find('.cs3-active-slide').index();
-				b.next = b.active+1>=cs3.slides.length ? 0 : b.active+1;
+				var b={}
+				b.active = cs3.c.find('.cs3-active-slide').index()
+				b.next = b.active+1>=cs3.slides.length ? 0 : b.active+1
 				b.prev = b.active-1<0 ? cs3.slides.length-1 : b.active-1
 				return b
 			},
@@ -537,33 +554,33 @@
 			},
 			slice : function(a) {
 				if (a.square) {
-					if (!a.squareSize) a.squareSize = 100;
-					a.cols = Math.ceil(cs3.width/a.squareSize);
+					if (!a.squareSize) a.squareSize = 100
+					a.cols = Math.ceil(cs3.width/a.squareSize)
 					a.rows = Math.ceil(cs3.height/a.squareSize)
 				}
-				var x = a.cols, y = a.rows;
-				if(a.index2===0) a.index2='0';
+				var x = a.cols, y = a.rows
+				if(a.index2===0) a.index2='0'
 				//Widths
-				var sliceWidth = Math.floor(cs3.width / x);
-				var lastWidth = sliceWidth;
+				var sliceWidth = Math.floor(cs3.width / x)
+				var lastWidth = sliceWidth
 				if (sliceWidth*x < cs3.width) {
 					lastWidth = cs3.width - sliceWidth*(x-1)
 				}
 				//Heights
-				var sliceHeight = Math.floor(cs3.height/y);
-				var lastHeight = sliceHeight;
+				var sliceHeight = Math.floor(cs3.height/y)
+				var lastHeight = sliceHeight
 				if (sliceHeight*y < cs3.height) {
 					lastHeight = cs3.height - sliceHeight*(y-1)
 				}
 				//Generate HTML
-				var html = "";
-				var img1 = cs3.images[a.index1];
+				var html = ""
+				var img1 = cs3.images[a.index1]
 				if (a.index2) {
-					var img2 = cs3.images[a.index2];
+					var img2 = cs3.images[a.index2]
 				}
-				var html2='';
+				var html2=''
 				if (a.separate) {
-					html+= '<div class="cs3-slices-block">';
+					html+= '<div class="cs3-slices-block">'
 					html2+='<div class="cs3-slices-block">'
 
 				}
@@ -571,63 +588,63 @@
 					var vIndex = Math.floor(i/x),
 						hIndex = i - x*Math.floor(i/x),
 						lastInRow = (i+1)%x==0,
-						lastInColumn = i>x*y-1-x;
+						lastInColumn = i>x*y-1-x
 
 					var sWidth = lastInRow ? lastWidth : sliceWidth,
 						sHeight = lastInColumn ? lastHeight : sliceHeight,
 						sLeft = hIndex*(prevWidth||0),
 						sTop = vIndex*(prevHeight||0),
-						bgPos = -sLeft+'px -'+sTop+'px';
+						bgPos = -sLeft+'px -'+sTop+'px'
 
 					if (!a.make3d) {
 						var styleAttr = 'background-position:'+bgPos+'; background-image:url('+img1+'); left:'+sLeft+'px; top:'+sTop+'px; width:'+sWidth+'px; height:'+sHeight+'px;';
 						if (a.wrap) styleAttr = 'background-position:'+bgPos+'; background-image:url('+img1+'); left:0px; top:0px; width:'+sWidth+'px; height:'+sHeight+'px;';
 
 						if (a.index2&&a.wrap) {
-							html+='<div class="cs3-slices-block" style="left:'+sLeft+'px; top:'+sTop+'px; width:'+sWidth+'px; height:'+sHeight+'px;">';
-							sLeft = 0;
+							html+='<div class="cs3-slices-block" style="left:'+sLeft+'px; top:'+sTop+'px; width:'+sWidth+'px; height:'+sHeight+'px;">'
+							sLeft = 0
 							sTop = 0
 						}
 
-						html+='<div class="cs3-slice" style="'+styleAttr+'"></div>';
+						html+='<div class="cs3-slice" style="'+styleAttr+'"></div>'
 						if (a.index2) {
-							var styleAttr2 = 'background-position:'+bgPos+'; background-image:url('+img2+'); left:'+sLeft+'px; top:'+sTop+'px; width:'+sWidth+'px; height:'+sHeight+'px;';
-							var _html = '<div class="cs3-slice" style="'+styleAttr2+'"></div>';
+							var styleAttr2 = 'background-position:'+bgPos+'; background-image:url('+img2+'); left:'+sLeft+'px; top:'+sTop+'px; width:'+sWidth+'px; height:'+sHeight+'px;'
+							var _html = '<div class="cs3-slice" style="'+styleAttr2+'"></div>'
 							//Separate Blocks
-							if (!a.separate) html+= _html;
-							else html2+=_html;
+							if (!a.separate) html+= _html
+							else html2+=_html
 
 						}
 						if (a.index2&&a.wrap) {
-							html+='</div>';
+							html+='</div>'
 						}
 					}
 					else {
-						var b = a.make3d;
+						var b = a.make3d
 						var faces = $.extend({
 							left:'#555',
 							right:'#222',
 							top:'#555',
 							bottom:'#222',
 							back:'#333'
-						},b.faces);
+						},b.faces)
 
-						html+='<div class="cs3-slice" style="left:'+sLeft+'px; top:'+sTop+'px; width:'+sWidth+'px; height:'+sHeight+'px;">';
+						html+='<div class="cs3-slice" style="left:'+sLeft+'px; top:'+sTop+'px; width:'+sWidth+'px; height:'+sHeight+'px;">'
 
 						//Front Face
-						html+='<div style="background-position:'+bgPos+'; background-image:url('+img1+'); width:'+sWidth+'px; height:'+sHeight+'px" class="cs3-front-face"></div>';
+						html+='<div style="background-position:'+bgPos+'; background-image:url('+img1+'); width:'+sWidth+'px; height:'+sHeight+'px" class="cs3-front-face"></div>'
 
 						//New Face BG
-						var newFaceBG = 'background-position:'+bgPos+'; background-image:url('+img2+');';
+						var newFaceBG = 'background-position:'+bgPos+'; background-image:url('+img2+');'
 
 						//Back Face
 
-						var backBG = '';
-						var backRotate = 'rotateY(180deg)';
-						if (b.newFace=='back') backBG = newFaceBG;
-						if (b.newFace && b.newFaceRotate) backRotate = b.newFaceRotate;
+						var backBG = ''
+						var backRotate = 'rotateY(180deg)'
+						if (b.newFace=='back') backBG = newFaceBG
+						if (b.newFace && b.newFaceRotate) backRotate = b.newFaceRotate
 						if (!b.depth) b.depth = 0
-						var backTransform = backRotate+' translate3d(0,0,'+parseInt(b.depth,10)+'px)';
+						var backTransform = backRotate+' translate3d(0,0,'+parseInt(b.depth,10)+'px)'
 						html+='<div style="'+backBG+' width:'+sWidth+'px; height:'+sHeight+'px; '+cs3.h.transformString(backTransform)+'" class="cs3-back-face"></div>';
 
 						if (b.depth) {
