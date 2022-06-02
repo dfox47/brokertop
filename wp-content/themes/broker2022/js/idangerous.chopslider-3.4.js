@@ -2377,58 +2377,53 @@
 				})
 			}
 		},
-
-		/* =======================
-     Canvas Melt
-     ==========================*/
-
 		melt:function (cs3) {
 			cs3.l.html('<canvas></canvas><canvas style="display:none"></canvas>')
 
 			var canvas = cs3.l.children()[0],
-				image = new Image();
-			image.src = cs3.path + 'assets/melt.png';
-			canvas.width = cs3.width;
-			canvas.height = cs3.height;
-			var context = canvas.getContext("2d");
+				image = new Image()
+			image.src = cs3.path + 'assets/melt.png'
+			canvas.width = cs3.width
+			canvas.height = cs3.height
+			var context = canvas.getContext("2d")
 
 			//Second Canvas
 			var canvas2 = cs3.l.children()[1],
-				image2 = new Image();
-			image2.src = cs3.images[cs3.newSlideIndex];
-			canvas2.width = cs3.width;
-			canvas2.height = cs3.height;
-			var context2 = canvas2.getContext("2d");
-			context2.drawImage(image2, 0, 0, cs3.width, cs3.height);
+				image2 = new Image()
+			image2.src = cs3.images[cs3.newSlideIndex]
+			canvas2.width = cs3.width
+			canvas2.height = cs3.height
+			var context2 = canvas2.getContext("2d")
+			context2.drawImage(image2, 0, 0, cs3.width, cs3.height)
 			//--
 
-			var y = -200;
-			var drops = Math.ceil(cs3.width / 370);
+			var y = -200
+			var drops = Math.ceil(cs3.width / 370)
 
 			function draw() {
-				y += 3;
+				y += 3
 				for (var i = 0; i < drops; i++) {
-					context.drawImage(image, i * 370, y - i * 50);
+					context.drawImage(image, i * 370, y - i * 50)
 				}
 
-				var imgd = context.getImageData(0, 0, canvas.width, canvas.height);
-				var pix = imgd.data;
+				var imgd = context.getImageData(0, 0, canvas.width, canvas.height)
+				var pix = imgd.data
 
-				var imgd2 = context2.getImageData(0, 0, canvas2.width, canvas2.height);
-				var pix2 = imgd2.data;
+				var imgd2 = context2.getImageData(0, 0, canvas2.width, canvas2.height)
+				var pix2 = imgd2.data
 
 				for (var i = 0, n = pix.length; i < n; i += 4) {
-					pix[i  ] = pix2[i  ];
-					pix[i + 1] = pix2[i + 1];
-					pix[i + 2] = pix2[i + 2];
+					pix[i  ] = pix2[i  ]
+					pix[i + 1] = pix2[i + 1]
+					pix[i + 2] = pix2[i + 2]
 
 				}
-				context.putImageData(imgd, 0, 0);
-				if (y < cs3.height + (drops - 1) * 50) cs3.h.animFrame(draw);
+				context.putImageData(imgd, 0, 0)
+				if (y < cs3.height + (drops - 1) * 50) cs3.h.animFrame(draw)
 				else cs3.updateSlides()
 			}
 
-			cs3.h.animFrame(draw);
+			cs3.h.animFrame(draw)
 			cs3.prepare({l:1, active:1, 'new':0})
 		},
 
@@ -2437,163 +2432,161 @@
      ==========================*/
 
 		roll:function (cs3) {
-			var dir = cs3.direction;
-			cs3.l.html('<canvas></canvas><canvas style="display:none"></canvas>');
+			var dir = cs3.direction
+			cs3.l.html('<canvas></canvas><canvas style="display:none"></canvas>')
 
 			var canvas = cs3.l.children()[0],
-				image = new Image();
-			image.src = cs3.path + 'assets/scanner.png';
-			canvas.width = cs3.width;
-			canvas.height = cs3.height;
-			var context = canvas.getContext("2d");
+				image = new Image()
+			image.src = cs3.path + 'assets/scanner.png'
+			canvas.width = cs3.width
+			canvas.height = cs3.height
+			var context = canvas.getContext("2d")
 
 			//Second Canvas
 			var canvas2 = cs3.l.children()[1],
-				image2 = new Image();
-			image2.src = cs3.images[cs3.newSlideIndex];
-			canvas2.width = cs3.width;
-			canvas2.height = cs3.height;
-			var context2 = canvas2.getContext("2d");
-			context2.drawImage(image2, 0, 0, cs3.width, cs3.height);
+				image2 = new Image()
+			image2.src = cs3.images[cs3.newSlideIndex]
+			canvas2.width = cs3.width
+			canvas2.height = cs3.height
+			var context2 = canvas2.getContext("2d")
+			context2.drawImage(image2, 0, 0, cs3.width, cs3.height)
 			//--
 
-			var heights = Math.ceil(cs3.height / 30);
-			var x = dir === 1 ? cs3.width : -140;
+			var heights = Math.ceil(cs3.height / 30)
+			var x = dir === 1 ? cs3.width : -140
 
 			function draw() {
-				if (dir == 1)    x -= 20;
-				else x += 20;
+				if (dir === 1) x -= 20
+				else x += 20
 				for (var i = 0; i < heights; i++) {
-					context.drawImage(image, x, i * 30);
+					context.drawImage(image, x, i * 30)
 				}
 
-				var imgd = context.getImageData(0, 0, canvas.width, canvas.height);
-				var pix = imgd.data;
+				var imgd = context.getImageData(0, 0, canvas.width, canvas.height)
+				var pix = imgd.data
 
-				var imgd2 = context2.getImageData(0, 0, canvas2.width, canvas2.height);
-				var pix2 = imgd2.data;
+				var imgd2 = context2.getImageData(0, 0, canvas2.width, canvas2.height)
+				var pix2 = imgd2.data
 
 				for (var i = 0, n = pix.length; i < n; i += 4) {
-					pix[i  ] = pix2[i  ];
-					pix[i + 1] = pix2[i + 1];
+					pix[i  ] = pix2[i  ]
+					pix[i + 1] = pix2[i + 1]
 					pix[i + 2] = pix2[i + 2]
 				}
-				context.putImageData(imgd, 0, 0);
-				if (x < -140 && dir == 1) cs3.updateSlides();
-				else if (x > cs3.width + 140 && dir != 1) cs3.updateSlides();
-				else cs3.h.animFrame(draw);
+				context.putImageData(imgd, 0, 0)
+				if (x < -140 && dir == 1) cs3.updateSlides()
+				else if (x > cs3.width + 140 && dir != 1) cs3.updateSlides()
+				else cs3.h.animFrame(draw)
 
 			}
 
-			cs3.h.animFrame(draw);
+			cs3.h.animFrame(draw)
 			cs3.prepare({l:1, active:1, 'new':0})
 		},
 
-		/* =======================
-     Canvas Puzzles
-     ==========================*/
-
+		// Canvas Puzzles
 		puzzles:function (cs3) {
 			//Src Image
-			var image = new Image();
-			image.src = cs3.images[cs3.newSlideIndex];
+			var image = new Image()
+			image.src = cs3.images[cs3.newSlideIndex]
 
 			//--
-			var pSize = 64;
-			var cols = Math.ceil(cs3.width / pSize);
-			var rows = Math.ceil(cs3.height / pSize);
+			var pSize = 64
+			var cols = Math.ceil(cs3.width / pSize)
+			var rows = Math.ceil(cs3.height / pSize)
 
 			//PuzzleMask
-			var puzzleMask = new Image();
-			puzzleMask.onload = function () {
-				createPuzzles();
+			var puzzleMask = new Image()
 
-			};
-			puzzleMask.src = cs3.path + 'assets/puzzle.png';
+			puzzleMask.onload = function () {
+				createPuzzles()
+			}
+
+			puzzleMask.src = cs3.path + 'assets/puzzle.png'
 
 
 			//Create Canvases Puzzles
 			function createPuzzles() {
 
-				var canvasMask = document.createElement('canvas');
-				canvasMask.width = 108;
-				canvasMask.height = 108;
-				var ctxMask = canvasMask.getContext('2d');
-				ctxMask.drawImage(puzzleMask, 0, 0);
+				var canvasMask = document.createElement('canvas')
+				canvasMask.width = 108
+				canvasMask.height = 108
+				var ctxMask = canvasMask.getContext('2d')
+				ctxMask.drawImage(puzzleMask, 0, 0)
 
 				for (var i = 0; i < rows * cols; i++) {
-					var canvasPuzzle = document.createElement('canvas');
-					canvasPuzzle.width = 108;
-					canvasPuzzle.height = 108;
-					var ctxPuzzle = canvasPuzzle.getContext('2d');
+					var canvasPuzzle = document.createElement('canvas')
+					canvasPuzzle.width = 108
+					canvasPuzzle.height = 108
+					var ctxPuzzle = canvasPuzzle.getContext('2d')
 
-					var row = Math.floor(i / cols);
-					var yOffset = -row * 64 + 22;
+					var row = Math.floor(i / cols)
+					var yOffset = -row * 64 + 22
 
-					var column = i - row * cols;
-					var xOffset = -column * 64 + 22;
-					ctxPuzzle.drawImage(image, xOffset, yOffset, cs3.width, cs3.height);
+					var column = i - row * cols
+					var xOffset = -column * 64 + 22
+					ctxPuzzle.drawImage(image, xOffset, yOffset, cs3.width, cs3.height)
 
 					//Mask Pixels
-					var maskData = ctxMask.getImageData(0, 0, 108, 108);
-					var pixMask = maskData.data;
+					var maskData = ctxMask.getImageData(0, 0, 108, 108)
+					var pixMask = maskData.data
 					//Puzzle Pixels
-					var puzzleData = ctxPuzzle.getImageData(0, 0, 108, 108);
-					var pixPuzzle = puzzleData.data;
+					var puzzleData = ctxPuzzle.getImageData(0, 0, 108, 108)
+					var pixPuzzle = puzzleData.data
 					//Change Pixels
 					for (var j = 0; j < pixPuzzle.length; j += 4) {
 						var index = j / 4,
 							pxRow = Math.floor(index / 108),
 							pxCol = index - 108 * pxRow,
-							prevent = false;
-						if (pxCol < 22 && column == 0) prevent = true;
-						if ((column == cols - 1) && (column * 64 + pxCol) >= (cs3.width + 22)) prevent = true;
-						if ((row == rows - 1) && (row * 64 + pxRow) >= (cs3.height + 22)) prevent = true;
-						if ((row == rows - 2) && (row * 64 + pxRow) >= (cs3.height + 22)) prevent = true;
-						if (row == 0 && pxRow < 22) prevent = true;
+							prevent = false
+						if (pxCol < 22 && column == 0) prevent = true
+						if ((column == cols - 1) && (column * 64 + pxCol) >= (cs3.width + 22)) prevent = true
+						if ((row == rows - 1) && (row * 64 + pxRow) >= (cs3.height + 22)) prevent = true
+						if ((row == rows - 2) && (row * 64 + pxRow) >= (cs3.height + 22)) prevent = true
+						if (row == 0 && pxRow < 22) prevent = true
 						if (!prevent) {
-							pixMask[j] = pixPuzzle[j];
-							pixMask[j + 1] = pixPuzzle[j + 1];
-							pixMask[j + 2] = pixPuzzle[j + 2];
+							pixMask[j] = pixPuzzle[j]
+							pixMask[j + 1] = pixPuzzle[j + 1]
+							pixMask[j + 2] = pixPuzzle[j + 2]
 						}
 						else {
-							pixMask[j + 3] = 0;
+							pixMask[j + 3] = 0
 						}
 					}
-					ctxPuzzle.putImageData(maskData, 0, 0);
+					ctxPuzzle.putImageData(maskData, 0, 0)
 					//Add Shadow To Puzzles
-					ctxPuzzle.shadowColor = 'rgb(0,0,0)';
-					ctxPuzzle.shadowOffsetX = 0;
-					ctxPuzzle.shadowOffsetY = 0;
-					ctxPuzzle.shadowBlur = 1;
-					ctxPuzzle.drawImage(canvasPuzzle, 0, 0);
+					ctxPuzzle.shadowColor = 'rgb(0,0,0)'
+					ctxPuzzle.shadowOffsetX = 0
+					ctxPuzzle.shadowOffsetY = 0
+					ctxPuzzle.shadowBlur = 1
+					ctxPuzzle.drawImage(canvasPuzzle, 0, 0)
 
-					canvasPuzzle.style.left = (column * 64 - 22) + 'px';
-					canvasPuzzle.style.top = (row * 64 - 22) + 'px';
-					cs3.l.append(canvasPuzzle);
+					canvasPuzzle.style.left = (column * 64 - 22) + 'px'
+					canvasPuzzle.style.top = (row * 64 - 22) + 'px'
+					cs3.l.append(canvasPuzzle)
 
 				}
-				animatePuzzles();
+				animatePuzzles()
 			}
 
 			function animatePuzzles() {
-				cs3.prepare({l:1, active:1, 'new':1});
+				cs3.prepare({l:1, active:1, 'new':1})
 				cs3.l.children()
 					.csTransform({
 						transform:'scale(' + (cs3.support.css3 ? 1.8 : 1) + ')  translate3d(0px,' + (cs3.support.css3 ? -100 : 0) + 'px,0)'}
 					)
-					.css({opacity:0, marginTop:(cs3.support.css3 ? 0 : -100)});
+					.css({opacity:0, marginTop:(cs3.support.css3 ? 0 : -100)})
 				setTimeout(function () {
-					var delays = [];
-					var maxDelay = 0;
+					var delays = []
+					var maxDelay = 0
 					for (var i = 0; i < cols * rows; i++) {
-						var rndDelay = Math.round(Math.random() * 1500);
-						delays.push(rndDelay);
-						maxDelay = Math.max(maxDelay, rndDelay);
+						var rndDelay = Math.round(Math.random() * 1500)
+						delays.push(rndDelay)
+						maxDelay = Math.max(maxDelay, rndDelay)
 					}
 					cs3.l.find('canvas').each(function () {
-						var a = $(this);
-						var index = a.index();
+						var a = $(this)
+						var index = a.index()
 						if (cs3.support.css3) {
 							a.csTransform({
 								transform:'scale(1) translate3d(0,0,0)',
@@ -2602,7 +2595,7 @@
 								ease:'cubic-bezier(1, 0 , 0.8, 1.2)'
 							}).css({opacity:1})
 								.csTransitionEnd(function () {
-									if (delays[index] == maxDelay) showNewSlide();
+									if (delays[index] == maxDelay) showNewSlide()
 								})
 						}
 						else {
@@ -2612,17 +2605,17 @@
 									marginTop:0,
 									opacity:1
 								}, 500, function () {
-									if (delays[index] == maxDelay) showNewSlide();
+									if (delays[index] == maxDelay) showNewSlide()
 								})
 						}
 					})
-				}, 50);
+				}, 50)
 			}
 
 			function showNewSlide() {
 				cs3.l.delay(400).fadeOut(400, function () {
 					cs3.updateSlides()
-				});
+				})
 				cs3.slides.eq(cs3.h.indexes().active).fadeOut(400)
 			}
 		},
@@ -2632,60 +2625,60 @@
      ==========================*/
 
 		diamonds:function (cs3) {
-			var dir = cs3.direction;
-			cs3.l.html('<canvas></canvas><canvas style="display:none"></canvas>');
+			var dir = cs3.direction
+			cs3.l.html('<canvas></canvas><canvas style="display:none"></canvas>')
 
 			var canvas = cs3.l.children()[0],
-				image = new Image();
-			image.src = cs3.path + 'assets/diamond.png';
-			canvas.width = cs3.width;
-			canvas.height = cs3.height;
-			var context = canvas.getContext("2d");
+				image = new Image()
+			image.src = cs3.path + 'assets/diamond.png'
+			canvas.width = cs3.width
+			canvas.height = cs3.height
+			var context = canvas.getContext("2d")
 
 			//Second Canvas
 			var canvas2 = cs3.l.children()[1],
-				image2 = new Image();
-			image2.src = cs3.images[cs3.newSlideIndex];
-			canvas2.width = cs3.width;
-			canvas2.height = cs3.height;
-			var context2 = canvas2.getContext("2d");
-			context2.drawImage(image2, 0, 0, cs3.width, cs3.height);
+				image2 = new Image()
+			image2.src = cs3.images[cs3.newSlideIndex]
+			canvas2.width = cs3.width
+			canvas2.height = cs3.height
+			var context2 = canvas2.getContext("2d")
+			context2.drawImage(image2, 0, 0, cs3.width, cs3.height)
 			//--
-			var xCircles = Math.floor(cs3.width / 50);
-			var yCircles = Math.floor(cs3.height / 50);
-			var size = 0;
-			var xCirclesOffset = xCircles;
-			var yCirclesOffset = yCircles;
+			var xCircles = Math.floor(cs3.width / 50)
+			var yCircles = Math.floor(cs3.height / 50)
+			var size = 0
+			var xCirclesOffset = xCircles
+			var yCirclesOffset = yCircles
 
 			function draw() {
-				context.clearRect(0, 0, canvas.width, canvas.height);
-				xCirclesOffset--;
-				yCirclesOffset--;
-				size += 2;
-				var center = (100 - size) / 2;
+				context.clearRect(0, 0, canvas.width, canvas.height)
+				xCirclesOffset--
+				yCirclesOffset--
+				size += 2
+				var center = (100 - size) / 2
 				for (var x = 0; x < xCircles - xCirclesOffset; x++) {
 					for (var y = 0; y < yCircles - yCirclesOffset; y++) {
-						context.drawImage(image, center + x * 50 - 25, center + y * 50 - 25, size, size);
+						context.drawImage(image, center + x * 50 - 25, center + y * 50 - 25, size, size)
 					}
 				}
 
-				var imgd = context.getImageData(0, 0, canvas.width, canvas.height);
-				var pix = imgd.data;
+				var imgd = context.getImageData(0, 0, canvas.width, canvas.height)
+				var pix = imgd.data
 
-				var imgd2 = context2.getImageData(0, 0, canvas2.width, canvas2.height);
-				var pix2 = imgd2.data;
+				var imgd2 = context2.getImageData(0, 0, canvas2.width, canvas2.height)
+				var pix2 = imgd2.data
 
 				for (var i = 0, n = pix.length; i < n; i += 4) {
-					pix[i  ] = pix2[i  ];
-					pix[i + 1] = pix2[i + 1];
-					pix[i + 2] = pix2[i + 2];
+					pix[i  ] = pix2[i  ]
+					pix[i + 1] = pix2[i + 1]
+					pix[i + 2] = pix2[i + 2]
 				}
-				context.putImageData(imgd, 0, 0);
-				if (size < 100) cs3.h.animFrame(draw);
+				context.putImageData(imgd, 0, 0)
+				if (size < 100) cs3.h.animFrame(draw)
 				else cs3.updateSlides()
 			}
 
-			cs3.h.animFrame(draw);
+			cs3.h.animFrame(draw)
 			cs3.prepare({l:1, active:1, 'new':0})
 		},
 
@@ -2694,56 +2687,56 @@
      ==========================*/
 
 		circles:function (cs3) {
-			var dir = cs3.direction;
-			cs3.l.html('<canvas></canvas><canvas style="display:none"></canvas>');
+			var dir = cs3.direction
+			cs3.l.html('<canvas></canvas><canvas style="display:none"></canvas>')
 
 			var canvas = cs3.l.children()[0],
-				image = new Image();
-			image.src = cs3.path + 'assets/circle.png';
-			canvas.width = cs3.width;
-			canvas.height = cs3.height;
-			var context = canvas.getContext("2d");
+				image = new Image()
+			image.src = cs3.path + 'assets/circle.png'
+			canvas.width = cs3.width
+			canvas.height = cs3.height
+			var context = canvas.getContext("2d")
 
 			//Second Canvas
 			var canvas2 = cs3.l.children()[1],
-				image2 = new Image();
-			image2.src = cs3.images[cs3.newSlideIndex];
-			canvas2.width = cs3.width;
-			canvas2.height = cs3.height;
-			var context2 = canvas2.getContext("2d");
-			context2.drawImage(image2, 0, 0, cs3.width, cs3.height);
+				image2 = new Image()
+			image2.src = cs3.images[cs3.newSlideIndex]
+			canvas2.width = cs3.width
+			canvas2.height = cs3.height
+			var context2 = canvas2.getContext("2d")
+			context2.drawImage(image2, 0, 0, cs3.width, cs3.height)
 			//--
-			var xCircles = Math.floor(cs3.width / 50);
-			var yCircles = Math.floor(cs3.height / 50);
-			var size = 0;
+			var xCircles = Math.floor(cs3.width / 50)
+			var yCircles = Math.floor(cs3.height / 50)
+			var size = 0
 
 			function draw() {
-				context.clearRect(0, 0, canvas.width, canvas.height);
-				size += 2;
-				var center = (108 - size) / 2;
+				context.clearRect(0, 0, canvas.width, canvas.height)
+				size += 2
+				var center = (108 - size) / 2
 				for (var x = 0; x < xCircles; x++) {
 					for (var y = 0; y < yCircles; y++) {
-						context.drawImage(image, center + x * 50 - 25, center + y * 50 - 25, size, size);
+						context.drawImage(image, center + x * 50 - 25, center + y * 50 - 25, size, size)
 					}
 				}
 
-				var imgd = context.getImageData(0, 0, canvas.width, canvas.height);
-				var pix = imgd.data;
+				var imgd = context.getImageData(0, 0, canvas.width, canvas.height)
+				var pix = imgd.data
 
-				var imgd2 = context2.getImageData(0, 0, canvas2.width, canvas2.height);
-				var pix2 = imgd2.data;
+				var imgd2 = context2.getImageData(0, 0, canvas2.width, canvas2.height)
+				var pix2 = imgd2.data
 
 				for (var i = 0, n = pix.length; i < n; i += 4) {
-					pix[i  ] = pix2[i  ];
-					pix[i + 1] = pix2[i + 1];
+					pix[i  ] = pix2[i  ]
+					pix[i + 1] = pix2[i + 1]
 					pix[i + 2] = pix2[i + 2]
 				}
-				context.putImageData(imgd, 0, 0);
-				if (size < 100) cs3.h.animFrame(draw);
+				context.putImageData(imgd, 0, 0)
+				if (size < 100) cs3.h.animFrame(draw)
 				else cs3.updateSlides()
 			}
 
-			cs3.h.animFrame(draw);
+			cs3.h.animFrame(draw)
 			cs3.prepare({l:1, active:1, 'new':0})
 		},
 
@@ -2752,69 +2745,69 @@
      ==========================*/
 
 		brush:function (cs3) {
-			var dir = cs3.direction;
-			cs3.l.html('<canvas></canvas><canvas style="display:none"></canvas>');
+			var dir = cs3.direction
+			cs3.l.html('<canvas></canvas><canvas style="display:none"></canvas>')
 
 			var canvas = cs3.l.children()[0],
-				image = new Image();
-			image.src = cs3.path + 'assets/brush.png';
-			canvas.width = cs3.width;
-			canvas.height = cs3.height;
-			var context = canvas.getContext("2d");
+				image = new Image()
+			image.src = cs3.path + 'assets/brush.png'
+			canvas.width = cs3.width
+			canvas.height = cs3.height
+			var context = canvas.getContext("2d")
 
 			//Second Canvas
 			var canvas2 = cs3.l.children()[1],
-				image2 = new Image();
-			image2.src = cs3.images[cs3.newSlideIndex];
-			canvas2.width = cs3.width;
-			canvas2.height = cs3.height;
-			var context2 = canvas2.getContext("2d");
-			context2.drawImage(image2, 0, 0, cs3.width, cs3.height);
+				image2 = new Image()
+			image2.src = cs3.images[cs3.newSlideIndex]
+			canvas2.width = cs3.width
+			canvas2.height = cs3.height
+			var context2 = canvas2.getContext("2d")
+			context2.drawImage(image2, 0, 0, cs3.width, cs3.height)
 			//--
 
 
-			var x = 0, y = -15;
-			var direction = 1;
-			var changeRow = false;
+			var x = 0, y = -15
+			var direction = 1
+			var changeRow = false
 
 			function draw() {
 
-				context.drawImage(image, x, y);
-				var imgd = context.getImageData(0, 0, canvas.width, canvas.height);
-				var pix = imgd.data;
+				context.drawImage(image, x, y)
+				var imgd = context.getImageData(0, 0, canvas.width, canvas.height)
+				var pix = imgd.data
 
-				var imgd2 = context2.getImageData(0, 0, canvas2.width, canvas2.height);
-				var pix2 = imgd2.data;
+				var imgd2 = context2.getImageData(0, 0, canvas2.width, canvas2.height)
+				var pix2 = imgd2.data
 
 				for (var i = 0, n = pix.length; i < n; i += 4) {
-					pix[i  ] = pix2[i  ];
-					pix[i + 1] = pix2[i + 1];
+					pix[i  ] = pix2[i  ]
+					pix[i + 1] = pix2[i + 1]
 					pix[i + 2] = pix2[i + 2]
 				}
-				context.putImageData(imgd, 0, 0);
+				context.putImageData(imgd, 0, 0)
 
 				if (direction === 1 && (x >= (cs3.width - 190) )) {
-					direction = -1;
+					direction = -1
 					changeRow = true
 				}
 				if (direction === -1 && (x < -10)) {
-					direction = 1;
+					direction = 1
 					changeRow = true
 				}
 
-				if (direction === 1) x += 40;
-				else x -= 40;
+				if (direction === 1) x += 40
+				else x -= 40
 
 				if (changeRow === true) {
-					y += 50;
-					changeRow = false;
+					y += 50
+					changeRow = false
 				}
-				if (y < (canvas.height - 50)) cs3.h.animFrame(draw);
-				else show2slide();
+				if (y < (canvas.height - 50)) cs3.h.animFrame(draw)
+				else show2slide()
 			}
 
-			cs3.h.animFrame(draw);
-			cs3.prepare({l:1, active:1, 'new':0});
+			cs3.h.animFrame(draw)
+			cs3.prepare({l:1, active:1, 'new':0})
 
 			function show2slide() {
 				$(canvas2).fadeIn(500, function () {
@@ -2828,129 +2821,129 @@
      ==========================*/
 
 		typewriter:function (cs3) {
-			cs3.l.html('<canvas style="font-family:Georgia"></canvas>');
+			cs3.l.html('<canvas style="font-family:Georgia"></canvas>')
 			cs3.l.css({overflow:'hidden'})
-			var letters = cs3.user.typewriterLetters ? cs3.user.typewriterLetters.split(' ') : ('1 2 3 4 5 6 7 8 9 ? ! A B C D E F G H I J K L M N O P Q R S T U V W X Y Z').split(' ');
-			var size = 60;
-			var cols = Math.ceil(cs3.width/size);
-			var rows = Math.ceil(cs3.height/size);
+			var letters = cs3.user.typewriterLetters ? cs3.user.typewriterLetters.split(' ') : ('1 2 3 4 5 6 7 8 9 ? ! A B C D E F G H I J K L M N O P Q R S T U V W X Y Z').split(' ')
+			var size = 60
+			var cols = Math.ceil(cs3.width/size)
+			var rows = Math.ceil(cs3.height/size)
 
-			html = "";
+			html = ""
 			for (var i = 0; i < rows; i++) {
 				for (var j = 0; j < cols; j++) {
-					html+='<div data-col="'+j+'" data-row="'+i+'" style="width:50px; height:50px; position:absolute; left:'+(size*j)+'px; top:'+(size*i)+'px;"><canvas></canvas><canvas></canvas></div>';
+					html+='<div data-col="'+j+'" data-row="'+i+'" style="width:50px; height:50px; position:absolute; left:'+(size*j)+'px; top:'+(size*i)+'px;"><canvas></canvas><canvas></canvas></div>'
 				}
-			};
-			var imagesCount = 0;
-			var image1 = new Image();
-			var image2 = new Image();
+			}
+			var imagesCount = 0
+			var image1 = new Image()
+			var image2 = new Image()
 
 			image1.onload = function(){
-				imagesCount++;
-				checkCount();
+				imagesCount++
+				checkCount()
 			}
 			image2.onload = function(){
-				imagesCount++;
-				checkCount();
+				imagesCount++
+				checkCount()
 			}
-			image1.src = cs3.images[ cs3.h.indexes().active ];
-			image2.src = cs3.images[cs3.newSlideIndex];
+			image1.src = cs3.images[ cs3.h.indexes().active ]
+			image2.src = cs3.images[cs3.newSlideIndex]
 			function checkCount() {
-				if (imagesCount==2) anim();
+				if (imagesCount==2) anim()
 			}
 
-			cs3.l[0].innerHTML = html;
+			cs3.l[0].innerHTML = html
 
 			function anim(){
 				//Canvas with active image
-				var c1 = document.createElement('canvas');
-				c1.width = cs3.width;
-				c1.height = cs3.height;
-				var ctx1 = c1.getContext('2d');
-				ctx1.drawImage(image1,0,0, cs3.width, cs3.height);
-				var image1Pix = (ctx1.getImageData(0, 0, cs3.width, cs3.height)).data;
+				var c1 = document.createElement('canvas')
+				c1.width = cs3.width
+				c1.height = cs3.height
+				var ctx1 = c1.getContext('2d')
+				ctx1.drawImage(image1,0,0, cs3.width, cs3.height)
+				var image1Pix = (ctx1.getImageData(0, 0, cs3.width, cs3.height)).data
 				//Canvas with new image
-				var c2 = document.createElement('canvas');
-				c2.width = cs3.width;
-				c2.height = cs3.height;
-				var ctx2 = c2.getContext('2d');
-				ctx2.drawImage(image2,0,0, cs3.width, cs3.height);
-				var image2Pix = (ctx2.getImageData(0, 0, cs3.width, cs3.height)).data;
+				var c2 = document.createElement('canvas')
+				c2.width = cs3.width
+				c2.height = cs3.height
+				var ctx2 = c2.getContext('2d')
+				ctx2.drawImage(image2,0,0, cs3.width, cs3.height)
+				var image2Pix = (ctx2.getImageData(0, 0, cs3.width, cs3.height)).data
 
 				//Add Letters
 				cs3.l.children().each(function(){
-					var a = $(this);
-					var canvas1 = a.children('canvas').eq(0)[0];
-					var canvas2 = a.children('canvas').eq(1)[0];
-					canvas1.style.display= 'none';
-					canvas2.style.opacity= '0';
+					var a = $(this)
+					var canvas1 = a.children('canvas').eq(0)[0]
+					var canvas2 = a.children('canvas').eq(1)[0]
+					canvas1.style.display= 'none'
+					canvas2.style.opacity= '0'
 					canvas2.style.zIndex= '10'
-					var letter = letters[ Math.floor(Math.random()*letters.length) ];
-					//Letters 1;
-					canvas1.width = size;
-					canvas1.height = size;
-					var ctx1 = canvas1.getContext('2d');
-					ctx1.fillStyle    = '#000';
-					ctx1.font         = 'bold '+size+'px "Arial"';
-					ctx1.textBaseline = 'top';
-					ctx1.fillText  (letter, 0, 0);
-					var l1PixData = ctx1.getImageData(0, 0, size, size);
-					var l1Pix = l1PixData.data;
+					var letter = letters[ Math.floor(Math.random()*letters.length) ]
+					//Letters 1
+					canvas1.width = size
+					canvas1.height = size
+					var ctx1 = canvas1.getContext('2d')
+					ctx1.fillStyle    = '#000'
+					ctx1.font         = 'bold '+size+'px "Arial"'
+					ctx1.textBaseline = 'top'
+					ctx1.fillText  (letter, 0, 0)
+					var l1PixData = ctx1.getImageData(0, 0, size, size)
+					var l1Pix = l1PixData.data
 
 					//Letters 2
-					canvas2.width = size;
-					canvas2.height = size;
-					var ctx2 = canvas2.getContext('2d');
-					ctx2.fillStyle    = '#000';
-					ctx2.font         = 'bold '+size+'px "Arial"';
-					ctx2.textBaseline = 'top';
-					ctx2.fillText  (letter, 0, 0);
-					var l2PixData = ctx2.getImageData(0, 0, size, size);
-					var l2Pix = l2PixData.data;
+					canvas2.width = size
+					canvas2.height = size
+					var ctx2 = canvas2.getContext('2d')
+					ctx2.fillStyle    = '#000'
+					ctx2.font         = 'bold '+size+'px "Arial"'
+					ctx2.textBaseline = 'top'
+					ctx2.fillText  (letter, 0, 0)
+					var l2PixData = ctx2.getImageData(0, 0, size, size)
+					var l2Pix = l2PixData.data
 
 
 					//Merge Canvas and letters
-					var letterOffsetX = parseInt(a.attr('data-col'),10) * size;
-					var letterOffsetY = parseInt(a.attr('data-row'),10) * size;
+					var letterOffsetX = parseInt(a.attr('data-col'),10) * size
+					var letterOffsetY = parseInt(a.attr('data-row'),10) * size
 
 
 					for (var i = 0, n = l1Pix.length; i < n; i += 4) {
-						var index = i/4;
-						var pixRow = Math.floor(index/size);
-						var pixCol = index - pixRow*size;
+						var index = i/4
+						var pixRow = Math.floor(index/size)
+						var pixCol = index - pixRow*size
 
-						var imageCol = pixCol + letterOffsetX;
-						var imageRow = pixRow + letterOffsetY;
+						var imageCol = pixCol + letterOffsetX
+						var imageRow = pixRow + letterOffsetY
 
-						var imagePix = (imageRow*cs3.width+imageCol)*4;
+						var imagePix = (imageRow*cs3.width+imageCol)*4
 
 						if (l1Pix[i]===0) {
-							l1Pix[i  ] = image1Pix[ imagePix  ]/1.2;
-							l1Pix[i + 1] = image1Pix[ imagePix + 1]/1.2;
-							l1Pix[i + 2] = image1Pix[ imagePix + 2]/1.2;
+							l1Pix[i  ] = image1Pix[ imagePix  ]/1.2
+							l1Pix[i + 1] = image1Pix[ imagePix + 1]/1.2
+							l1Pix[i + 2] = image1Pix[ imagePix + 2]/1.2
 
-							l2Pix[i  ] = image2Pix[ imagePix  ];
-							l2Pix[i + 1] = image2Pix[ imagePix + 1];
-							l2Pix[i + 2] = image2Pix[ imagePix + 2];
+							l2Pix[i  ] = image2Pix[ imagePix  ]
+							l2Pix[i + 1] = image2Pix[ imagePix + 1]
+							l2Pix[i + 2] = image2Pix[ imagePix + 2]
 						}
 					}
-					ctx1.putImageData(l1PixData, 0, 0);
-					ctx2.putImageData(l2PixData, 0, 0);
+					ctx1.putImageData(l1PixData, 0, 0)
+					ctx2.putImageData(l2PixData, 0, 0)
 
 				})
 
-				var slideActive = cs3.slides.eq( cs3.h.indexes().active );
-				var slideNew = cs3.slides.eq( cs3.newSlideIndex );
+				var slideActive = cs3.slides.eq( cs3.h.indexes().active )
+				var slideNew = cs3.slides.eq( cs3.newSlideIndex )
 
 				//Start Animation
-				cs3.prepare({l:1, active:1, 'new':1});
+				cs3.prepare({l:1, active:1, 'new':1})
 				//slideActive.fadeOut(1000)
-				var letters1 = cs3.l.find('canvas:first-child');
-				var letters2 = cs3.l.find('canvas:last-child');
-				var lastIndex = cs3.l.children().length-1;
+				var letters1 = cs3.l.find('canvas:first-child')
+				var letters2 = cs3.l.find('canvas:last-child')
+				var lastIndex = cs3.l.children().length-1
 				letters2.each(function(){
 					var a = $(this)
-					var index = a.parent().index();
+					var index = a.parent().index()
 					if (cs3.support.css3) {
 						$(this).csTransform({
 							transform:'scale(2)',
@@ -2973,7 +2966,7 @@
 													slideActive.fadeOut(500, function(){ cs3.updateSlides() })
 												}
 											})
-									},50);
+									},50)
 								})
 						},50)
 					}
@@ -2993,31 +2986,31 @@
      ==========================*/
 
 		lines:function (cs3) {
-			var dir = cs3.direction;
-			cs3.l.html('<canvas></canvas>');
-			var canvas = cs3.l.children()[0];
-			canvas.width = cs3.width;
-			canvas.height = cs3.height;
-			var ctx = canvas.getContext("2d");
+			var dir = cs3.direction
+			cs3.l.html('<canvas></canvas>')
+			var canvas = cs3.l.children()[0]
+			canvas.width = cs3.width
+			canvas.height = cs3.height
+			var ctx = canvas.getContext("2d")
 
 			$(canvas).csTransform({transform:'translate3d(0,0,0)'})
 
-			var canvas2 = document.createElement('canvas');
-			canvas2.width = cs3.width;
-			canvas2.height = cs3.height;
-			var ctx2 = canvas2.getContext("2d");
-			var image = new Image();
-			image.src = cs3.images[cs3.newSlideIndex];
-			ctx2.drawImage(image,0,0,cs3.width,cs3.height);
+			var canvas2 = document.createElement('canvas')
+			canvas2.width = cs3.width
+			canvas2.height = cs3.height
+			var ctx2 = canvas2.getContext("2d")
+			var image = new Image()
+			image.src = cs3.images[cs3.newSlideIndex]
+			ctx2.drawImage(image,0,0,cs3.width,cs3.height)
 
-			var activeSlide = cs3.slides.eq(cs3.h.indexes().active)[0];
+			var activeSlide = cs3.slides.eq(cs3.h.indexes().active)[0]
 
-			cs3.prepare({l:1, active:1, 'new':1});
+			cs3.prepare({l:1, active:1, 'new':1})
 
-			var i = 0;
+			var i = 0
 			function draw(){
 
-				var opacity = (cs3.height*10-i)/cs3.height*10/100;
+				var opacity = (cs3.height*10-i)/cs3.height*10/100;;
 				activeSlide.style.opacity = opacity
 
 
