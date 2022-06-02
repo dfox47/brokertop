@@ -1,6 +1,4 @@
 
-<link rel="stylesheet" href="cs3/idangerous.chopslider-3.4.css">
-
 <div class="hero_block_slider">
 	<div class="cs3-wrap">
 		<div class="cs3 js-hero-slider">
