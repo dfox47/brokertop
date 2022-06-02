@@ -645,7 +645,7 @@
 						if (b.newFace && b.newFaceRotate) backRotate = b.newFaceRotate
 						if (!b.depth) b.depth = 0
 						var backTransform = backRotate+' translate3d(0,0,'+parseInt(b.depth,10)+'px)'
-						html+='<div style="'+backBG+' width:'+sWidth+'px; height:'+sHeight+'px; '+cs3.h.transformString(backTransform)+'" class="cs3-back-face"></div>';
+						html+='<div style="'+backBG+' width:'+sWidth+'px; height:'+sHeight+'px; '+cs3.h.transformString(backTransform)+'" class="cs3-back-face"></div>'
 
 						if (b.depth) {
 							//Make Right, Left, Top and Bottom faces
