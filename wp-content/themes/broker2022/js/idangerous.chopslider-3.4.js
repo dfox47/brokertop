@@ -651,51 +651,51 @@
 							//Make Right, Left, Top and Bottom faces
 
 							//Right Face
-							var rightBG = '';
-							var rightTransform = 'rotateY(90deg) translate3d('+b.depth/2+'px,0,'+(sWidth - b.depth/2)+'px)';
-							if (b.newFace=='right') rightBG = newFaceBG;
-							html+='<div style="'+rightBG+' width:'+b.depth+'px; height:'+sHeight+'px; '+cs3.h.transformString(rightTransform)+'" class="cs3-right-face"></div>';
+							var rightBG = ''
+							var rightTransform = 'rotateY(90deg) translate3d('+b.depth/2+'px,0,'+(sWidth - b.depth/2)+'px)'
+							if (b.newFace=='right') rightBG = newFaceBG
+							html+='<div style="'+rightBG+' width:'+b.depth+'px; height:'+sHeight+'px; '+cs3.h.transformString(rightTransform)+'" class="cs3-right-face"></div>'
 
 							//Left Face
-							var leftBG = '';
-							var leftTransform = 'rotateY(-90deg) translate3d('+(-b.depth/2)+'px,0,'+(b.depth/2)+'px)';
-							if (b.newFace=='left') leftBG = newFaceBG;
-							html+='<div style="'+leftBG+' width:'+b.depth+'px; height:'+sHeight+'px; '+cs3.h.transformString(leftTransform)+'" class="cs3-left-face"></div>';
+							var leftBG = ''
+							var leftTransform = 'rotateY(-90deg) translate3d('+(-b.depth/2)+'px,0,'+(b.depth/2)+'px)'
+							if (b.newFace=='left') leftBG = newFaceBG
+							html+='<div style="'+leftBG+' width:'+b.depth+'px; height:'+sHeight+'px; '+cs3.h.transformString(leftTransform)+'" class="cs3-left-face"></div>'
 
 							//Bottom Face
-							var bottomBG = '';
-							var bottomTransform = 'rotateX(-90deg) translate3d(0px,'+(b.depth/2)+'px,'+(sHeight-b.depth/2)+'px)';
-							if (b.newFace=='bottom') bottomBG = newFaceBG;
-							html+='<div style="'+bottomBG+' width:'+sWidth+'px; height:'+b.depth+'px; '+cs3.h.transformString(bottomTransform)+'" class="cs3-bot-face"></div>';
+							var bottomBG = ''
+							var bottomTransform = 'rotateX(-90deg) translate3d(0px,'+(b.depth/2)+'px,'+(sHeight-b.depth/2)+'px)'
+							if (b.newFace=='bottom') bottomBG = newFaceBG
+							html+='<div style="'+bottomBG+' width:'+sWidth+'px; height:'+b.depth+'px; '+cs3.h.transformString(bottomTransform)+'" class="cs3-bot-face"></div>'
 
 							//Top Face
-							var topBG = '';
-							var topTransform = 'rotateX(90deg) translate3d(0px,'+(-b.depth/2)+'px,'+(b.depth/2)+'px)';
-							if (b.newFace=='top') topBG = newFaceBG;
-							html+='<div style="'+topBG+' width:'+sWidth+'px; height:'+b.depth+'px; '+cs3.h.transformString(topTransform)+'" class="cs3-top-face"></div>';
+							var topBG = ''
+							var topTransform = 'rotateX(90deg) translate3d(0px,'+(-b.depth/2)+'px,'+(b.depth/2)+'px)'
+							if (b.newFace=='top') topBG = newFaceBG
+							html+='<div style="'+topBG+' width:'+sWidth+'px; height:'+b.depth+'px; '+cs3.h.transformString(topTransform)+'" class="cs3-top-face"></div>'
 
 						}
 
-						html+='</div>';
+						html+='</div>'
 					}
 					if (!lastInColumn) {
-						var prevHeight = sHeight;
+						var prevHeight = sHeight
 					}
 					if (!lastInRow) {
-						var prevWidth = sWidth;
+						var prevWidth = sWidth
 					}
-				};
+				}
 				if (a.separate) {
-					html+= '</div>';
-					html2+='</div>';
-					html = html+html2;
+					html+= '</div>'
+					html2+='</div>'
+					html = html+html2
 
 				}
 				return {
 					html : html,
 					cols : x,
 					rows : y
-				};
+				}
 
 			},
 			animFrame : function(c){
@@ -705,35 +705,35 @@
 				else if (window.oRequestAnimationFrame) return window.oRequestAnimationFrame(c)
 				else if (window.msRequestAnimationFrame) return window.msRequestAnimationFrame(c)
 				else if (window.MSRequestAnimationFrame) return window.MSRequestAnimationFrame(c)
-				else return window.setTimeout(c, 1000 / 60);
+				else return window.setTimeout(c, 1000 / 60)
 
 			}
-		};
+		}
 
 		//Responsive Resizes
 		if (cs3.params.responsive) {
 			//--  Update Dimension
 			$(window).on('resize', function(){
-				cs3.h.updateDimension();
+				cs3.h.updateDimension()
 			})
 			//--  Update Touch Plugin
 			if (cs3.params.touch && cs3.params.touch.enabled && cs3.support.touch && ('touch' in cs3.plugins) ) {
 				$(window).on('orientationchange', function(){
-					cs3.h.updateDimension();
-					cs3.slides.eq(cs3.h.indexes().active).show();
-					cs3.plugins.touch.init(cs3);
+					cs3.h.updateDimension()
+					cs3.slides.eq(cs3.h.indexes().active).show()
+					cs3.plugins.touch.init(cs3)
 				})
 			}
 			//--  Update Ambilight Plugin
 			if (cs3.params.ambilight > 0 && ('ambilight' in cs3.plugins) ) {
 				if (cs3.support.touch) {
 					$(window).on('orientationchange', function(){
-						cs3.plugins.ambilight.init(cs3);
+						cs3.plugins.ambilight.init(cs3)
 					})
 				}
 				else {
 					$(window).on('resize', function(){
-						cs3.plugins.ambilight.init(cs3);
+						cs3.plugins.ambilight.init(cs3)
 					})
 				}
 			}
@@ -758,7 +758,7 @@
 				cs3.l.find('*').css({
 					backgroundSize : cs3.width+'px '+cs3.height+'px',
 					'-webkit-background-size' : cs3.width+'px '+cs3.height+'px'
-				});
+				})
 			}
 			else {
 				var activeSlide = $(cs3.slides[cs3.h.indexes().active])
@@ -767,15 +767,15 @@
 					cs3.l.find('*').css({
 						backgroundSize : cs3.width+'px '+cs3.height+'px',
 						'-webkit-background-size' : cs3.width+'px '+cs3.height+'px'
-					});
+					})
 				}
 			}
 		}
 		//Run Animation
 		cs3.run = function(){
-			if (cs3.isAnimating) return;
+			if (cs3.isAnimating) return
 
-			cs3.h.updateDimension();
+			cs3.h.updateDimension()
 
 			//Plugins onStart
 			cs3._plugins.onStart(cs3)
@@ -784,8 +784,8 @@
 			if (cs3.params.callbacks.onTransitionStart) cs3.params.callbacks.onTransitionStart(cs3)
 
 			//Triggers
-			if (cs3.e.preventedByPlugin) return;
-			cs3.isAnimating = true;
+			if (cs3.e.preventedByPlugin) return
+			cs3.isAnimating = true
 
 			//Update Video Slide
 			if (cs3.slides.eq( cs3.h.indexes().active ).hasClass('cs3-video-slide')) {
@@ -806,29 +806,29 @@
 
 			//Run Effect
 			function runEffect() {
-				var eIndex = Math.floor( Math.random()*cs3.effects.length );
-				var effect = cs3.effects[eIndex].split('-');
+				var eIndex = Math.floor( Math.random()*cs3.effects.length )
+				var effect = cs3.effects[eIndex].split('-')
 				cs3.e[effect[0]][effect[1]](cs3)
 			}
 
-		};
+		}
 
 		//Update Slides after Animation
 		cs3.updateSlides = function(){
-			if(cs3.newSlideIndex===false) return;
+			if(cs3.newSlideIndex===false) return
 
-			cs3.slides.eq( cs3.h.indexes().active ).removeClass('cs3-active-slide')[0].style.display = 'none';
-			cs3.slides.eq( cs3.newSlideIndex ).addClass('cs3-active-slide')[0].style.display = 'block';
-			cs3.l.removeAttr('style')[0].innerHTML='';
-			cs3.l[0].style.display = 'none';
-			cs3.isAnimating = cs3.direction = cs3.newSlideIndex = false;
+			cs3.slides.eq( cs3.h.indexes().active ).removeClass('cs3-active-slide')[0].style.display = 'none'
+			cs3.slides.eq( cs3.newSlideIndex ).addClass('cs3-active-slide')[0].style.display = 'block'
+			cs3.l.removeAttr('style')[0].innerHTML=''
+			cs3.l[0].style.display = 'none'
+			cs3.isAnimating = cs3.direction = cs3.newSlideIndex = false
 
 			//Plugins onEnd
-			cs3._plugins.onEnd(cs3);
+			cs3._plugins.onEnd(cs3)
 
 			//Continue Auto Play
 			if (cs3.params.autoplay.enabled) {
-				cs3.autoplayStart();
+				cs3.autoplayStart()
 			}
 
 			//Callback
@@ -842,63 +842,63 @@
 				slide.find('.cs3-video')//.fadeIn(300)
 
 			}
-		};
+		}
 		//Init Function
 		cs3.init = function(){
 			//Update Slider Dimension
-			cs3.h.updateDimension();
+			cs3.h.updateDimension()
 			//Init Plugins
 			cs3._plugins.init(cs3)
 			//Start Autoplay
 			if (cs3.params.autoplay.enabled) {
-				cs3.autoplayStart();
+				cs3.autoplayStart()
 			}
 			//Run Callback
 			if (cs3.params.callbacks.onInit) cs3.params.callbacks.onInit(cs3)
-		};
+		}
 
 		//Pre-Loader
 		if (cs3.params.preloader != false) {
-			cs3.c.append('<div class="cs3-preloader"><div class="cs3-preloader-in"></div></div>');
-			var isOldIE = navigator.userAgent.indexOf('MSIE 6')>=0 || navigator.userAgent.indexOf('MSIE 7')>=0 || navigator.userAgent.indexOf('MSIE 8')>=0 || navigator.userAgent.indexOf('MSIE 9')>=0;
+			cs3.c.append('<div class="cs3-preloader"><div class="cs3-preloader-in"></div></div>')
+			var isOldIE = navigator.userAgent.indexOf('MSIE 6')>=0 || navigator.userAgent.indexOf('MSIE 7')>=0 || navigator.userAgent.indexOf('MSIE 8')>=0 || navigator.userAgent.indexOf('MSIE 9')>=0
 
-			var counter = 0;
-			var imagesAreLoaded = false;
-			var imagesToLoad = cs3.params.preloadOnlyFirst ? 1 : cs3.images.length;
+			var counter = 0
+			var imagesAreLoaded = false
+			var imagesToLoad = cs3.params.preloadOnlyFirst ? 1 : cs3.images.length
 			for (var i=0; i<imagesToLoad; i++) {
-				var img = new Image();
+				var img = new Image()
 				img.onload = function(){
-					counter++;
+					counter++
 					if (counter==imagesToLoad) {
-						if(imagesAreLoaded) return;
-						imagesAreLoaded = true;
-						cs3.c.find('.cs3-preloader').remove();
-						cs3.slides.eq(0).fadeIn(300);
-						cs3.init();
+						if(imagesAreLoaded) return
+						imagesAreLoaded = true
+						cs3.c.find('.cs3-preloader').remove()
+						cs3.slides.eq(0).fadeIn(300)
+						cs3.init()
 					}
-				};
-				img.src = cs3.images[i];
+				}
+				img.src = cs3.images[i]
 			}
 
 			if (isOldIE)  {
 				setTimeout(function(){
-					if(imagesAreLoaded) return;
-					imagesAreLoaded = true;
-					cs3.c.find('.cs3-preloader').remove();
-					cs3.slides.eq(0).fadeIn(300);
-					cs3.init();
+					if(imagesAreLoaded) return
+					imagesAreLoaded = true
+					cs3.c.find('.cs3-preloader').remove()
+					cs3.slides.eq(0).fadeIn(300)
+					cs3.init()
 				},3000)
 			}
 		}
 		else {
-			cs3.slides.eq(0).show();
+			cs3.slides.eq(0).show()
 			cs3.init()
 		}
 
 		//Return cs3
-		return cs3;
+		return cs3
 
-	};
+	}
 
 	ChopSlider3.prototype = {
 		e : {
@@ -913,32 +913,32 @@
 
 		//CSS3 Detection
 		hasCSS3 : function() {
-			$("body").append('<div class="cs3-css3Test"></div>');
+			$("body").append('<div class="cs3-css3Test"></div>')
 			var test = $(".cs3-css3Test")[0].style,
-				s = test.transition !== undefined || test.WebkitTransition !== undefined || test.MozTransition !== undefined || test.MsTransition !== undefined || test.OTransition !== undefined;
-			$(".cs3-css3Test").remove();
+				s = test.transition !== undefined || test.WebkitTransition !== undefined || test.MozTransition !== undefined || test.MsTransition !== undefined || test.OTransition !== undefined
+			$(".cs3-css3Test").remove()
 			return s
 
 		},
 		//3D Detection
 		has3D : function() {
 			if(this.hasCSS3()) {
-				var s3d=false, webkit=false;
-				$("body").append('<div class="cs3-css3Test"></div>');
-				var test = $(".cs3-css3Test")[0].style;
+				var s3d=false, webkit=false
+				$("body").append('<div class="cs3-css3Test"></div>')
+				var test = $(".cs3-css3Test")[0].style
 				if("webkitPerspective" in test || "MozPerspective" in test || "OPerspective" in test || "MsPerspective" in test || "perspective" in test) s3d=true
-				if("webkitPerspective" in test) webkit = true;
+				if("webkitPerspective" in test) webkit = true
 				if(s3d&&webkit) {
-					var _query = $('<style media="(transform-3d), (-moz-transform-3d), (-webkit-transform-3d), (-o-transform-3d), (-ms-transform-3d)">div.cs3-css3Test { overflow: hidden }</style>');
-					$('head').append(_query);
-					s3d=false;
+					var _query = $('<style media="(transform-3d), (-moz-transform-3d), (-webkit-transform-3d), (-o-transform-3d), (-ms-transform-3d)">div.cs3-css3Test { overflow: hidden }</style>')
+					$('head').append(_query)
+					s3d=false
 					if($(".cs3-css3Test").css("overflow")=="hidden") {
-						s3d=true;
+						s3d=true
 					}
-					_query.remove();
+					_query.remove()
 				}
-				$(".cs3-css3Test").remove();
-				return s3d;
+				$(".cs3-css3Test").remove()
+				return s3d
 			}
 			else {
 				return false
@@ -947,10 +947,10 @@
 		},
 		//Canvas Detection
 		hasCanvas : function(){
-			var elem = document.createElement('canvas');
-			return !!(elem.getContext && elem.getContext('2d'));
+			var elem = document.createElement('canvas')
+			return !!(elem.getContext && elem.getContext('2d'))
 		}
-	};
+	}
 
 
 
@@ -966,7 +966,7 @@
 		fade : function(cs3) {
 			cs3.prepare({l:0, active:1, 'new':1})
 			cs3.slides.eq(cs3.h.indexes().active).fadeOut(300, function(){
-				cs3.updateSlides();
+				cs3.updateSlides()
 			})
 		},
 		bricks : function(cs3) {
@@ -1055,7 +1055,7 @@
 					})
 			})
 		} // <- End Zip
-	};
+	}
 
 	/*
 	=================================
@@ -1070,9 +1070,9 @@
 			cs3.prepare({ l:1, active : 0, 'new' : 1 })
 			setTimeout(function(){
 				cs3.l.children().each(function(){
-					var tX = cs3.direction ==1 ? 100 : -100;
-					var r = cs3.direction ==1 ? 5 : -5;
-					var start = cs3.direction == 1 ? 0 : sliced.cols;
+					var tX = cs3.direction ==1 ? 100 : -100
+					var r = cs3.direction ==1 ? 5 : -5
+					var start = cs3.direction == 1 ? 0 : sliced.cols
 					$(this).csTransform({
 						time:1000,
 						transform: 'scale(2,1.5) rotate('+r+'deg) translate3d('+tX+'px,0,0)',
@@ -1088,19 +1088,19 @@
 		},// <!- End Smear
 		__bars : function(cs3, p) {
 			p = p || {}
-			p.cols = p.cols || 1;
-			p.rows = p.rows || 6;
-			p.type = p.type || 'h';
-			var dir = cs3.direction;
+			p.cols = p.cols || 1
+			p.rows = p.rows || 6
+			p.type = p.type || 'h'
+			var dir = cs3.direction
 			var sliced = cs3.h.slice({index1:cs3.h.indexes().active, index2: cs3.newSlideIndex, cols:p.cols, rows:p.rows, wrap:true})
 			cs3.l[0].innerHTML = sliced.html
 			cs3.l.find('.cs3-slice').each(function(){
 				var a = $(this)
 				var index = a.index()
-				var translateX = p.type=='h' ? ( index%2==0 ? 0 : (a.parent().index()%2==0 ? cs3.width : -cs3.width) ) : 0;
-				var translateY = p.type=='h' ? 0 : (  index%2==0 ? 0 : (a.parent().index()%2==0 ? cs3.height : -cs3.height)  );
-				translateX = translateX * dir;
-				translateY = translateY * dir;
+				var translateX = p.type=='h' ? ( index%2==0 ? 0 : (a.parent().index()%2==0 ? cs3.width : -cs3.width) ) : 0
+				var translateY = p.type=='h' ? 0 : (  index%2==0 ? 0 : (a.parent().index()%2==0 ? cs3.height : -cs3.height)  )
+				translateX = translateX * dir
+				translateY = translateY * dir
 				a.csTransform({
 					transform:'translate3d('+translateX+'px, '+translateY+'px, 0px)'
 				})
@@ -1110,10 +1110,10 @@
 			setTimeout(function(){
 				cs3.l.children().each(function(){
 					var a = $(this)
-					var translateX = p.type=='h' ? (a.index()%2!=0 ? cs3.width : -cs3.width) : 0;
-					translateX = translateX * dir;
-					var translateY = p.type=='h' ? 0 : (a.index()%2!=0 ? cs3.height : -cs3.height);
-					translateY = translateY * dir;
+					var translateX = p.type=='h' ? (a.index()%2!=0 ? cs3.width : -cs3.width) : 0
+					translateX = translateX * dir
+					var translateY = p.type=='h' ? 0 : (a.index()%2!=0 ? cs3.height : -cs3.height)
+					translateY = translateY * dir
 					a.csTransform({
 						transform: 'translate3d('+translateX+'px, '+translateY+'px, 0px)',
 						time:1000,
@@ -1142,9 +1142,9 @@
 
 		gravity : function(cs3, p) {
 			p = p || {}
-			p.cols = p.cols || 10;
-			p.rows = p.rows || 10;
-			p.type = p.type || 'v';
+			p.cols = p.cols || 10
+			p.rows = p.rows || 10
+			p.type = p.type || 'v'
 			var sliced = cs3.h.slice({index1:cs3.h.indexes().active, cols:p.cols, rows:p.rows, square:true})
 			cs3.l[0].innerHTML = sliced.html
 			cs3.prepare({l:1, active:0, 'new':1})
@@ -1173,18 +1173,18 @@
 			var rows = sliced.rows
 
 			var block1 = $('.cs3-slices-block:eq(0)', cs3.l)
-			var block2 = $('.cs3-slices-block:eq(1)', cs3.l);
+			var block2 = $('.cs3-slices-block:eq(1)', cs3.l)
 			block1.children().csTransform({time:800})
 			block2.children().each(function(){
 				var rotate = Math.random()*10
 				var a = $(this)
 				var index = a.index()
 				var rowIndex = Math.floor(index/cols),
-					colIndex = index - cols*Math.floor(index/cols);
+					colIndex = index - cols*Math.floor(index/cols)
 				var offsetX = -10
 				var offsetY = -20
-				var x = offsetX*colIndex-offsetX*(cols-colIndex);
-				var y = offsetY*rowIndex-offsetY*(rows-rowIndex);
+				var x = offsetX*colIndex-offsetX*(cols-colIndex)
+				var y = offsetY*rowIndex-offsetY*(rows-rowIndex)
 				$(this).csTransform({time:1200, transform:'scale(0) rotate('+rotate+'deg) translate3d('+x+'px,'+y+'px,0px)'})
 			})
 
@@ -1219,22 +1219,22 @@
 
 		},
 		morpher : function(cs3) {
-			var size = Math.min(cs3.width , cs3.height);
-			var type = cs3.width>cs3.height ? 'h' : 'v';
-			var html = '';
+			var size = Math.min(cs3.width , cs3.height)
+			var type = cs3.width>cs3.height ? 'h' : 'v'
+			var html = ''
 			var activeIndex = cs3.h.indexes().active
 			for (var i = size, j=0; i>50; i-=20,j++) {
-				var position = type=='h' ? {left:cs3.width-i-10*j, top:size - i-10*j} : {left: size - i-10*j, top:cs3.height-i-10*j};
+				var position = type=='h' ? {left:cs3.width-i-10*j, top:size - i-10*j} : {left: size - i-10*j, top:cs3.height-i-10*j}
 				var br = '; border-radius:50px'
-				var bg1 = 'background-image :url('+cs3.images[activeIndex]+'); background-position: -'+position.left+'px -'+position.top+'px; ';
-				var bg2 = 'background-image :url('+cs3.images[cs3.newSlideIndex]+'); background-position: -'+j*10+'px -'+position.top+'px; ';
-				html+='<div class="cs3-slices-block" style="width:'+i+'px; height:'+i+'px; left:'+position.left+'px; top:'+position.top+'px">';
-				html+='<div class="cs3-slice" style="'+bg1+' width:'+i+'px; height:'+i+'px; '+br+'"></div>';
-				html+='<div class="cs3-slice" style="'+bg2+' width:'+i+'px; height:'+i+'px; opacity:0; '+br+'"></div>';
+				var bg1 = 'background-image :url('+cs3.images[activeIndex]+'); background-position: -'+position.left+'px -'+position.top+'px; '
+				var bg2 = 'background-image :url('+cs3.images[cs3.newSlideIndex]+'); background-position: -'+j*10+'px -'+position.top+'px; '
+				html+='<div class="cs3-slices-block" style="width:'+i+'px; height:'+i+'px; left:'+position.left+'px; top:'+position.top+'px">'
+				html+='<div class="cs3-slice" style="'+bg1+' width:'+i+'px; height:'+i+'px; '+br+'"></div>'
+				html+='<div class="cs3-slice" style="'+bg2+' width:'+i+'px; height:'+i+'px; opacity:0; '+br+'"></div>'
 				html+='</div>'
 			}
 
-			cs3.l[0].innerHTML = '<div class="cs3-dummy"></div><div class="cs3-dummy">'+html+'</div>';
+			cs3.l[0].innerHTML = '<div class="cs3-dummy"></div><div class="cs3-dummy">'+html+'</div>'
 
 			cs3.l.children().eq(0).css({
 				width:cs3.width,
@@ -1242,16 +1242,16 @@
 				opacity:0,
 				backgroundImage:'url('+cs3.images[cs3.newSlideIndex]+')',
 				position:'absolute'
-			});
+			})
 			cs3.l.find('.cs3-slices-block').csTransform({transform:'rotate(0deg) translate3d(0px,0,0)'})
 			cs3.prepare({l:1, active:1})
 			setTimeout(function(){
 				cs3.l.find('.cs3-slices-block').each(function(){
-					var a = $(this);
-					var index = a.index();
-					var left = parseInt(a.css('left'),10);
-					var top = parseInt(a.css('top'),10);
-					var delay = (j-index-1) * 50;
+					var a = $(this)
+					var index = a.index()
+					var left = parseInt(a.css('left'),10)
+					var top = parseInt(a.css('top'),10)
+					var delay = (j-index-1) * 50
 					var ease = 'ease-in-out'
 					a.csTransform({
 						delay: delay,
@@ -1259,9 +1259,9 @@
 						time:2000,
 						ease: ease
 					})
-						.css({left: left-(cs3.width-size)-30 , top: top-(cs3.height-size)});
-					a.children().eq(0).csTransform({time:500, delay: delay+1500, ease: ease}).css({opacity:0});
-					a.children().eq(1).csTransform({time:1000, delay: delay+1000, ease: ease}).css({opacity:1});
+						.css({left: left-(cs3.width-size)-30 , top: top-(cs3.height-size)})
+					a.children().eq(0).csTransform({time:500, delay: delay+1500, ease: ease}).css({opacity:0})
+					a.children().eq(1).csTransform({time:1000, delay: delay+1000, ease: ease}).css({opacity:1})
 					if (index==0) {
 						cs3.l.children().eq(0).csTransform({time:2000, delay:delay, ease: ease}).css({opacity:1})
 							.csTransitionEnd(function(){ cs3.updateSlides() })
@@ -1274,7 +1274,7 @@
 			var sliced = cs3.h.slice({index1:cs3.h.indexes().active, cols:1, rows:2})
 			cs3.l[0].innerHTML = sliced.html
 			cs3.l.css({overflow:'hidden'})
-			cs3.l[0].innerHTML+='<div style="background-image:url('+cs3.images[cs3.newSlideIndex]+'); width:'+cs3.width+'px; height:'+cs3.height+'px; position:absolute; z-index:0; left:0; top:0"></div>';
+			cs3.l[0].innerHTML+='<div style="background-image:url('+cs3.images[cs3.newSlideIndex]+'); width:'+cs3.width+'px; height:'+cs3.height+'px; position:absolute; z-index:0; left:0; top:0"></div>'
 			cs3.prepare({ l:1, active : 0, 'new' : 0 })
 			var top = cs3.l.children().eq(0).css({position:'absolute', zIndex:10})
 			var bot = cs3.l.children().eq(1).css({position:'absolute', zIndex:10})
@@ -1307,7 +1307,7 @@
 					})
 			},1000/30)
 		}
-	};
+	}
 
 	/*
 	=================================
@@ -1322,40 +1322,40 @@
 	==========================*/
 
 		turn: function(cs3) {
-			var dir = cs3.direction;
-			var sliced = cs3.h.slice({index1:cs3.h.indexes().active, cols:2, rows:1});
-			cs3.l[0].innerHTML = sliced.html;
-			var dummy = cs3.l.append('<div class="cs3-dummy"></div>').find('.cs3-dummy');
+			var dir = cs3.direction
+			var sliced = cs3.h.slice({index1:cs3.h.indexes().active, cols:2, rows:1})
+			cs3.l[0].innerHTML = sliced.html
+			var dummy = cs3.l.append('<div class="cs3-dummy"></div>').find('.cs3-dummy')
 			if (dir===1) {
-				cs3.l.children().eq(1).appendTo(dummy);
-				dummy.children().clone().appendTo(dummy);
+				cs3.l.children().eq(1).appendTo(dummy)
+				dummy.children().clone().appendTo(dummy)
 				dummy.children().eq(1).css({
 					backgroundImage : 'url('+cs3.images[cs3.newSlideIndex]+')',
 					backgroundPosition: '0px 0px'
 				})
-					.csTransform({transform:'rotateY(-180deg) translate3d(0,0,2px)'});
+					.csTransform({transform:'rotateY(-180deg) translate3d(0,0,2px)'})
 			}
 			else {
-				cs3.l.children().eq(0).appendTo(dummy);
+				cs3.l.children().eq(0).appendTo(dummy)
 
-				dummy.children().clone().appendTo(dummy);
+				dummy.children().clone().appendTo(dummy)
 				dummy.children().eq(1).css({
 					backgroundImage : 'url('+cs3.images[cs3.newSlideIndex]+')',
 					backgroundPosition: cs3.l.children().eq(0).css('background-position')
 				})
-					.csTransform({transform:'rotateY(-180deg) translate3d(0,0,2px)'});
+					.csTransform({transform:'rotateY(-180deg) translate3d(0,0,2px)'})
 			}
-			cs3.l.find('.cs3-slice:eq(0)').clone().insertAfter(cs3.l.children().eq(0)).addClass('cs3-fade-black').csTransform({time:500, delay:200});
-			cs3.prepare({l:1, 'new' : 1, active:0, p: true});
+			cs3.l.find('.cs3-slice:eq(0)').clone().insertAfter(cs3.l.children().eq(0)).addClass('cs3-fade-black').csTransform({time:500, delay:200})
+			cs3.prepare({l:1, 'new' : 1, active:0, p: true})
 			//cs3.h.setPerspective({value:1200}, dummy)
 			setTimeout(function(){
-				cs3.l.find('.cs3-fade-black').css({opacity:0.3});
+				cs3.l.find('.cs3-fade-black').css({opacity:0.3})
 				dummy.csTransform({
 					transform: dir===1 ? 'rotateY(-179.9deg)' : 'rotateY(179.9deg)',
 					time:700
 				})
-					.csTransitionEnd(function(){ cs3.updateSlides() });
-			},50);
+					.csTransitionEnd(function(){ cs3.updateSlides() })
+			},50)
 
 		}, // <- End Turn
 
@@ -1365,16 +1365,16 @@
 
 		_flip : function(cs3, p) {
 			p = p || {}
-			p.cols = p.cols || 1;
-			p.rows = p.rows || 6;
-			p.type = p.type || 'h';
-			var newFaceRotate;
-			var dir = cs3.direction;
+			p.cols = p.cols || 1
+			p.rows = p.rows || 6
+			p.type = p.type || 'h'
+			var newFaceRotate
+			var dir = cs3.direction
 			if (dir==1) {
-				newFaceRotate = p.type=='h' ? 'rotateY(180deg)' : 'rotateX(180deg)';
+				newFaceRotate = p.type=='h' ? 'rotateY(180deg)' : 'rotateX(180deg)'
 			}
 			else {
-				newFaceRotate = p.type=='h' ? 'rotateY(-180deg)' : 'rotateX(-180deg)';
+				newFaceRotate = p.type=='h' ? 'rotateY(-180deg)' : 'rotateX(-180deg)'
 			}
 			var make3d = {
 				newFace : 'back',
@@ -1423,27 +1423,27 @@
 				newFaceRotate : 'rotateY(180deg)'
 			}
 			var sliced = cs3.h.slice({index1:cs3.h.indexes().active, index2: cs3.newSlideIndex, square: true, wrap:true, make3d:make3d })
-			var cols = sliced.cols;
-			var rows = sliced.rows;
+			var cols = sliced.cols
+			var rows = sliced.rows
 			cs3.l[0].innerHTML = sliced.html
 			cs3.prepare({l:1, active:0, p:true})
 			//Random Delays
-			var delays = [];
-			var maxDelay = 0;
+			var delays = []
+			var maxDelay = 0
 			for (var i=0; i <  cols*rows; i++) {
-				var rndDelay = Math.round(Math.random()*500);
-				delays.push( rndDelay );
-				maxDelay = Math.max( maxDelay , rndDelay );
+				var rndDelay = Math.round(Math.random()*500)
+				delays.push( rndDelay )
+				maxDelay = Math.max( maxDelay , rndDelay )
 			}
-			var lastIndex =  sliced.rows-1;
+			var lastIndex =  sliced.rows-1
 
 			setTimeout(function(){
 
 				cs3.l.children().each(function(){
 					var a = $(this)
 					var index = a.index()
-					var rotateY = index%2==0 ? 180 : 0;
-					var rotateX = index%2==0 ? 0 : 180;
+					var rotateY = index%2==0 ? 180 : 0
+					var rotateX = index%2==0 ? 0 : 180
 					a.find('.cs3-back-face').csTransform({transform:'rotateX('+rotateX+'deg) rotateY('+rotateY+'deg)'})
 					a.csTransform({
 						transform: 'rotateX('+rotateX+'deg) rotateY('+rotateY+'deg)',
@@ -1461,7 +1461,7 @@
 	==========================*/
 
 		_blocks_v : function(cs3, p) {
-			var dir = cs3.direction;
+			var dir = cs3.direction
 			var cols = p.cols
 			var depth = p.depth
 			var make3d = {
@@ -1483,11 +1483,11 @@
 					var a = $(this)
 					var index = a.index()
 					var delay = p.delay*(cols-index)
-					var rotate = dir === 1 ? -p.rotate : p.rotate;
-					var translateY = dir === 1 ? depth/2 : -depth/2;
+					var rotate = dir === 1 ? -p.rotate : p.rotate
+					var translateY = dir === 1 ? depth/2 : -depth/2
 					var translateZ = depth/2
 					if (make3d.newFace=='back') {
-						translateY = 0;
+						translateY = 0
 						translateZ = depth
 					}
 					a.csTransform({
@@ -1515,8 +1515,8 @@
 			})
 		},
 		blocks_v_2 : function(cs3) {
-			var dir = cs3.direction;
-			var cols = Math.floor(cs3.width/50);
+			var dir = cs3.direction
+			var cols = Math.floor(cs3.width/50)
 			var depth = cs3.height
 			var make3d = {
 				newFace : dir==1 ? 'top' : 'bottom',
@@ -1532,11 +1532,11 @@
 			var lastIndex =  dir==1 ? 0 : sliced.cols-1
 			setTimeout(function(){
 				cs3.l.children().each(function(){
-					var a = $(this);
-					var index = a.index();
-					var delay = dir === 1 ? 50*(cols-index) : 50*index;
-					var rotate = dir === 1 ? -90 : 90;
-					var translateY = dir === 1 ? depth/2 : -depth/2;
+					var a = $(this)
+					var index = a.index()
+					var delay = dir === 1 ? 50*(cols-index) : 50*index
+					var rotate = dir === 1 ? -90 : 90
+					var translateY = dir === 1 ? depth/2 : -depth/2
 					a.csTransform({
 						transform: 'translate3d(0,0px,'+-200+'px)',
 						time: 500,
@@ -1549,8 +1549,8 @@
 								delay: 0
 							})
 								.csTransitionEnd(function(){
-									if (a.index()==lastIndex) cs3.updateSlides();
-								});
+									if (a.index() === lastIndex) cs3.updateSlides()
+								})
 						})
 				})
 			},50)
@@ -1613,7 +1613,7 @@
 			},50)
 		},
 		blocks_v_5 : function(cs3, p) {
-			var dir = cs3.direction;
+			var dir = cs3.direction
 			var cols = Math.floor(cs3.width/50)
 			var depth = 10
 			var make3d = {
@@ -1626,12 +1626,12 @@
 			cs3.l[0].innerHTML = sliced.html
 			cs3.prepare({l:1, active:0, p:true})
 
-			var lastIndex = dir==1 ? 0 : sliced.cols-1;
+			var lastIndex = dir==1 ? 0 : sliced.cols-1
 			setTimeout(function(){
 				cs3.l.children().each(function(){
-					var a = $(this);
-					var index = a.index();
-					var delay = 50* (dir==1 ? (cols-index) : index);
+					var a = $(this)
+					var index = a.index()
+					var delay = 50* (dir==1 ? (cols-index) : index)
 					a.csTransform({
 						transform: 'rotateX(-120deg) translateZ('+depth+'px)',
 						time:600,
@@ -1657,10 +1657,10 @@
 			},50)
 		},
 		blocks_v_6 : function(cs3, p) {
-			var dir = cs3.direction;
-			var cols = Math.floor(cs3.width/50);
+			var dir = cs3.direction
+			var cols = Math.floor(cs3.width/50)
 
-			var depth = 5;
+			var depth = 5
 			var make3d = {
 				newFace : 'back',
 				newFaceRotate : 'rotateY(180deg)',
@@ -1671,14 +1671,14 @@
 			cs3.l[0].innerHTML = sliced.html
 			cs3.prepare({l:1, active:0, p:true})
 
-			var lastIndex = dir==1 ? 0 : sliced.cols-1;
+			var lastIndex = dir==1 ? 0 : sliced.cols-1
 			setTimeout(function(){
 				cs3.l.children().each(function(){
-					var a = $(this);
-					var index = a.index();
-					var delay = 30* (dir==1 ? (cols-index) : index);
-					var rotateDiff = dir==1 ? -90 : 90;
-					var rotateX = -(-rotateDiff+rotateDiff*2*(index)/(cols-1) );
+					var a = $(this)
+					var index = a.index()
+					var delay = 30* (dir==1 ? (cols-index) : index)
+					var rotateDiff = dir==1 ? -90 : 90
+					var rotateX = -(-rotateDiff+rotateDiff*2*(index)/(cols-1) )
 					a.csTransform({
 						transform: 'rotateX('+rotateX+'deg) rotateY(-90deg) translate3d(50px,0,'+depth+'px)',
 						time:900,
@@ -1710,10 +1710,10 @@
 			},50)
 		},
 		blocks_v_7 : function(cs3, p) {
-			var dir = cs3.direction;
-			var rows = Math.floor(cs3.height/30);
-			var cols = 2;
-			var depth = 5;
+			var dir = cs3.direction
+			var rows = Math.floor(cs3.height/30)
+			var cols = 2
+			var depth = 5
 			var make3d = {
 				newFace : 'back',
 				newFaceRotate : 'rotateX(180deg)',
@@ -1724,14 +1724,14 @@
 			cs3.l[0].innerHTML = sliced.html
 			cs3.prepare({l:1, active:0, p:true})
 
-			var lastIndex = dir==1 ? 0 : sliced.cols-1;
+			var lastIndex = dir==1 ? 0 : sliced.cols-1
 			setTimeout(function(){
 				cs3.l.children().each(function(){
-					var a = $(this);
-					var index = a.index();
-					var delay = 30* (dir==1 ? (cols-index) : index);
-					var rotateY = index%2==0 ? -50 : 50;
-					if (dir!=1) rotateY = -rotateY;
+					var a = $(this)
+					var index = a.index()
+					var delay = 30* (dir==1 ? (cols-index) : index)
+					var rotateY = index%2==0 ? -50 : 50
+					if (dir!=1) rotateY = -rotateY
 					a.csTransform({
 						transform: 'rotateX('+0+'deg) rotateY('+rotateY+'deg) translate3d(0px,0,'+depth+'px)',
 						time:1000,
@@ -1786,7 +1786,7 @@
 						index = a.index(),
 						delay = p.delay*(rows-index),
 						rotate = dir===1 ? -p.rotate : p.rotate,
-						translateX = dir===1 ? -depth/2 : depth/2;
+						translateX = dir===1 ? -depth/2 : depth/2
 					a.csTransform({
 						transform: 'rotateY('+rotate+'deg) translate3d('+translateX+'px, 0, '+depth/2+'px)',
 						time:p.time,
@@ -1861,9 +1861,9 @@
 					var a = $(this)
 					var index = a.index()
 					var delay = 70*(rows-index)
-					var rotate1 = dir === 1 ? 30 : -30;
-					var rotate2 = dir === 1 ? -180 : 180;
-					var translateX = dir === 1 ? 100 : -100;
+					var rotate1 = dir === 1 ? 30 : -30
+					var rotate2 = dir === 1 ? -180 : 180
+					var translateX = dir === 1 ? 100 : -100
 					a.csTransform({
 						transform: 'rotateY('+rotate1+'deg) translate3d('+translateX+'px, 0, 0px)',
 						time:800,
@@ -1888,8 +1888,8 @@
 
 		_paper : function(cs3, p) {
 			p = p || {}
-			p.cols = p.cols || 1;
-			p.rows = p.rows || 6;
+			p.cols = p.cols || 1
+			p.rows = p.rows || 6
 			var make3d = {
 				newFace : 'back',
 				newFaceRotate : 'rotateY(0deg) rotateZ(0deg)'
@@ -1913,7 +1913,7 @@
 					var a = $(this)
 					var index = a.index()
 					var delay = 0*index
-					var isEven = index%2==0;
+					var isEven = index%2==0
 					var rotate = isEven ? angle : -angle
 
 					var aHeight = parseInt(a[0].style.height)
@@ -2037,35 +2037,35 @@
 				newFace : 'back',
 				depth:false
 			}
-			var sliced1 = cs3.h.slice({index1:cs3.h.indexes().active, square:true});
-			var sliced2 = cs3.h.slice({index1:cs3.newSlideIndex, square:true});
-			cs3.l[0].innerHTML = '<div class="cs3-dummy">'+sliced1.html+'</div>'+'<div class="cs3-dummy">'+sliced2.html+'</div>';
-			var cols = sliced1.cols;
-			var rows = sliced1.rows;
-			cs3.l.csTransform({transform:'rotateY(0deg)', time:0, delay:0});
+			var sliced1 = cs3.h.slice({index1:cs3.h.indexes().active, square:true})
+			var sliced2 = cs3.h.slice({index1:cs3.newSlideIndex, square:true})
+			cs3.l[0].innerHTML = '<div class="cs3-dummy">'+sliced1.html+'</div>'+'<div class="cs3-dummy">'+sliced2.html+'</div>'
+			var cols = sliced1.cols
+			var rows = sliced1.rows
+			cs3.l.csTransform({transform:'rotateY(0deg)', time:0, delay:0})
 			var dummy1 = cs3.l.children().eq(0),
-				dummy2 = cs3.l.children().eq(1);
+				dummy2 = cs3.l.children().eq(1)
 
 			dummy2.children().each(function(){
 				var rotateX = Math.random()*20 - 10,
 					rotateY = Math.random()*60 - 30,
-					rotateZ = Math.random()*60 - 30;
+					rotateZ = Math.random()*60 - 30
 
 				$(this).csTransform({
 					transform:'rotateX('+180+'deg) rotateY('+0+'deg) rotateZ('+0+'deg) scale3d(1, 1, 1) translate3d(0,0px, 0px)'
 				})
 			})
 
-			cs3.prepare({l:1, active:0, p:true, 'new':0});
+			cs3.prepare({l:1, active:0, p:true, 'new':0})
 
 			setTimeout(function(){
 				dummy1.children().each(function(){
 					var a = $(this),
-						index = a.index();
+						index = a.index()
 
 					var rotateX = Math.random()*20 - 10,
 						rotateY = Math.random()*60 - 30,
-						rotateZ = Math.random()*60 - 30;
+						rotateZ = Math.random()*60 - 30
 
 					a.csTransform({
 						time:1000,
@@ -2078,7 +2078,7 @@
 			},50)
 			setTimeout(function(){
 				dummy2.children().each(function(){
-					var a = $(this);
+					var a = $(this)
 					a.csTransform({
 						delay: Math.random()*500,
 						time:1500,
@@ -2094,7 +2094,7 @@
 		Polaroid
 	==========================*/
 		polaroid : function(cs3) {
-			cs3.l.html('<div><div class="cs3pl-image"></div><div class="cs3pl-left"></div><div class="cs3pl-top"></div><div class="cs3pl-right"></div><div class="cs3pl-bottom"></div></div><div class="cs3pl-light"></div>');
+			cs3.l.html('<div><div class="cs3pl-image"></div><div class="cs3pl-left"></div><div class="cs3pl-top"></div><div class="cs3pl-right"></div><div class="cs3pl-bottom"></div></div><div class="cs3pl-light"></div>')
 			cs3.l.find('div').css({position:'absolute'})
 			cs3.l.children().eq(0)
 				.css({
@@ -2150,9 +2150,9 @@
 				height:cs3.height,
 				background:"#fff"
 			})
-			cs3.prepare({active:1, 'new':1, l:1, p:true});
+			cs3.prepare({active:1, 'new':1, l:1, p:true})
 			light.fadeTo(200,1,function(){
-				cs3.prepare({active:0});
+				cs3.prepare({active:0})
 				cs3.l.children().eq(0).show()
 					.csTransform({
 						transform:'rotateZ(30deg) rotateX(50deg) rotateY(-90deg) scale(0) translate3d(500px,0,800px)',
@@ -2176,8 +2176,8 @@
 				depth:30
 			}
 			var sliced = cs3.h.slice({index1:cs3.h.indexes().active, index2: cs3.newSlideIndex, square: true, wrap:true, make3d:make3d })
-			var cols = sliced.cols;
-			var rows = sliced.rows;
+			var cols = sliced.cols
+			var rows = sliced.rows
 			cs3.l[0].innerHTML = sliced.html
 			cs3.prepare({l:1, active:0, p:true})
 			setTimeout(function(){
@@ -2221,8 +2221,8 @@
 				depth:5
 			}
 			var sliced = cs3.h.slice({index1:cs3.h.indexes().active, index2: cs3.newSlideIndex, square: true, squareSize:50, wrap:true, make3d:make3d })
-			var cols = sliced.cols;
-			var rows = sliced.rows;
+			var cols = sliced.cols
+			var rows = sliced.rows
 			cs3.l[0].innerHTML = sliced.html
 			cs3.prepare({l:1, active:0, p:true})
 			setTimeout(function(){
@@ -2254,12 +2254,12 @@
 	==========================*/
 		panels_h : function(cs3) {
 			var p = p || {}
-			var newHTML = '';
+			var newHTML = ''
 			newHTML+='<div class="cs3-slice" style="width:'+cs3.width+'px; height:'+cs3.height+'px; background-image:url('+cs3.images[cs3.h.indexes().active]+'); left:0; top:0"></div>'
 			newHTML+='<div class="cs3-slice" style="z-index:30; width:'+cs3.width+'px; height:'+cs3.height+'px; background-image:url('+cs3.images[cs3.newSlideIndex]+'); left:0; top:0"></div>'
 			cs3.h.setPerspective({value:1200, origin:'50% 50%'}, cs3.l)
 			cs3.l.css({overflow:'hidden'})
-			cs3.l[0].innerHTML = newHTML;
+			cs3.l[0].innerHTML = newHTML
 			var transformToRight = 'translate3d('+cs3.width+'px,0,-'+cs3.width/2+'px) rotateY(-90deg)'
 			var transformToLeft = 'translate3d(-'+cs3.width+'px,0,-'+cs3.width/2+'px) rotateY(90deg)'
 			var oldPanel = cs3.l.children().eq(0)
@@ -2286,12 +2286,12 @@
 		},
 		panels_v : function(cs3) {
 			var p = p || {}
-			var newHTML = '';
+			var newHTML = ''
 			newHTML+='<div class="cs3-slice" style="width:'+cs3.width+'px; height:'+cs3.height+'px; background-image:url('+cs3.images[cs3.h.indexes().active]+'); left:0; top:0"></div>'
 			newHTML+='<div class="cs3-slice" style="z-index:30; width:'+cs3.width+'px; height:'+cs3.height+'px; background-image:url('+cs3.images[cs3.newSlideIndex]+'); left:0; top:0"></div>'
 			cs3.h.setPerspective({value:1200, origin:'50% 50%'}, cs3.l)
 			cs3.l.css({overflow:'hidden'})
-			cs3.l[0].innerHTML = newHTML;
+			cs3.l[0].innerHTML = newHTML
 			var transformToTop = 'translate3d(0px,'+cs3.height+'px,-'+cs3.height/2+'px) rotateX(90deg)'
 			var transformToBottom = 'translate3d(0px,-'+cs3.height+'px,-'+cs3.height/2+'px) rotateX(-90deg)'
 			var oldPanel = cs3.l.children().eq(0)
@@ -2316,7 +2316,7 @@
 
 			},50)
 		}
-	};
+	}
 
 	/*
 	=================================
@@ -2331,44 +2331,44 @@
      ==========================*/
 
 		burn:function (cs3) {
-			cs3.l.html('<canvas></canvas>');
+			cs3.l.html('<canvas></canvas>')
 
 			var canvas = cs3.l.children()[0],
-				image = new Image();
-			image.src = cs3.images[cs3.h.indexes().active];
-			canvas.width = cs3.width;
-			canvas.height = cs3.height;
-			var context = canvas.getContext("2d");
-			context.drawImage(image, 0, 0, cs3.width, cs3.height);
-			var opacity = 1, colorMod = 0;
+				image = new Image()
+			image.src = cs3.images[cs3.h.indexes().active]
+			canvas.width = cs3.width
+			canvas.height = cs3.height
+			var context = canvas.getContext("2d")
+			context.drawImage(image, 0, 0, cs3.width, cs3.height)
+			var opacity = 1, colorMod = 0
 
 
 			function render() {
-				opacity -= 0.05;
-				context.globalAlpha = opacity;
-				var i, x;
-				for (x = -10; x <= 10; x += 5) context.drawImage(canvas, x, 0);
+				opacity -= 0.05
+				context.globalAlpha = opacity
+				var i, x
+				for (x = -10; x <= 10; x += 5) context.drawImage(canvas, x, 0)
 
-				var imgd = context.getImageData(0, 0, canvas.width, canvas.height);
-				var pix = imgd.data;
+				var imgd = context.getImageData(0, 0, canvas.width, canvas.height)
+				var pix = imgd.data
 				for (var i = 0, n = pix.length; i < n; i += 4) {
-					pix[i  ] = pix[i  ] + colorMod * pix[i  ] > 255 ? 255 : pix[i  ] + colorMod * pix[i  ];
-					pix[i + 1] = pix[i + 1] + colorMod * pix[i + 1 ] > 255 ? 255 : pix[i + 1  ] + colorMod * pix[i + 1 ];
-					pix[i + 2] = pix[i + 2] + colorMod * pix[i + 2 ] > 255 ? 255 : pix[i + 2  ] + colorMod * pix[i + 2  ];
+					pix[i  ] = pix[i  ] + colorMod * pix[i  ] > 255 ? 255 : pix[i  ] + colorMod * pix[i  ]
+					pix[i + 1] = pix[i + 1] + colorMod * pix[i + 1 ] > 255 ? 255 : pix[i + 1  ] + colorMod * pix[i + 1 ]
+					pix[i + 2] = pix[i + 2] + colorMod * pix[i + 2 ] > 255 ? 255 : pix[i + 2  ] + colorMod * pix[i + 2  ]
 				}
 				colorMod += 0.005
-				context.putImageData(imgd, 0, 0);
+				context.putImageData(imgd, 0, 0)
 
 				if (colorMod < 0.25) {
-					cs3.h.animFrame(render);
+					cs3.h.animFrame(render)
 				}
 				else {
 					show2slide()
 				}
 			}
 
-			cs3.h.animFrame(render);
-			context.globalAlpha = 1.0;
+			cs3.h.animFrame(render)
+			context.globalAlpha = 1.0
 			cs3.prepare({l:1, active:0, 'new':1 })
 
 			function show2slide() {
@@ -2383,7 +2383,7 @@
      ==========================*/
 
 		melt:function (cs3) {
-			cs3.l.html('<canvas></canvas><canvas style="display:none"></canvas>');
+			cs3.l.html('<canvas></canvas><canvas style="display:none"></canvas>')
 
 			var canvas = cs3.l.children()[0],
 				image = new Image();
