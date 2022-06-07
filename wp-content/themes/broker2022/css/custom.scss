@@ -211,8 +211,9 @@ h3 {
 
 		&:hover {
 			&::after {
+				height: 150%;
 				opacity: 1;
-				top: 50%;
+				width: 150%;
 			}
 		}
 
@@ -220,15 +221,14 @@ h3 {
 			background-color: #fff;
 			border-radius: 50%;
 			content: "";
-			//filter: blur(3px);
-			height: 150%;
+			height: 0;
 			left: 50%;
 			opacity: 0;
 			position: absolute;
-			top: 100%;
+			top: 50%;
 			transform: translate(-50%,-50%);
 			transition: $transition;
-			width: 150%;
+			width: 0;
 			z-index: -1;
 		}
 
