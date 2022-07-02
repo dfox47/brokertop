@@ -475,53 +475,67 @@
 			}
 
 			@media #{$desktop_hd} {
-				width: 60px;
+				bottom: -20px;
+				height: 36px;
+				margin: 0;
+				top: auto;
+				transform: none;
+				width: 36px;
 
 				&::after {
 					display: none;
 				}
 
-				&--next {
-					margin: 0;
+				&::before {
+					margin-left: -15px;
 				}
 
-				&--prev {
-					margin: 0;
-				}
-			}
-
-			@media #{$mobile} {
 				&--next {
 					&::before {
-						left: 50%;
-						margin-left: -15px;
+						margin: -5px 0 0;
 					}
 				}
 
 				&--prev {
 					&::before {
-						margin-right: -12px;
-						right: 50%;
+						margin: -5px 0 0;
 					}
+				}
+			}
+
+			@media #{$tablet} {
+				&::before {
+					height: 12px;
+					width: 12px;
+				}
+
+				&--next {
+					&::before {
+						left: 10px;
+					}
+				}
+
+				&--prev {
+					&::before {
+						right: 10px;
+					}
+				}
+			}
+
+			@media #{$mobile} {
+				bottom: -43px;
+
+				&--next {
+					right: -8px;
+				}
+
+				&--prev {
+					left: -8px;
 				}
 			}
 		}
 
-		&__arrows {
-			@media #{$desktop_hd} {
-				bottom: 34px;
-				height: 50px;
-				position: absolute;
-				right: 30px;
-				width: 120px;
-				z-index: 7;
-			}
-
-			@media #{$mobile} {
-				bottom: -30px;
-				right: 0;
-			}
-		}
+		&__arrows {}
 
 		&__list {
 			align-items: center;
