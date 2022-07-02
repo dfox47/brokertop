@@ -396,35 +396,50 @@
 .product_slider {
 	height: 100%;
 
+	&__img {
+		display: block;
+		height: 100%;
+		object-fit: contain;
+		width: 100%;
+	}
+
 	.splide {
 		height: 100%;
 
 		&__arrow {
-			background: none;
+			background-color: #000;
 			border-radius: 0;
-			height: 100%;
-			width: 600px;
+			height: 56px;
+			opacity: 1;
+			width: 56px;
 
 			&::after,
 			&::before {
 				content: "";
 				position: absolute;
 				top: 48%;
+				transition: $transition;
 			}
 
 			&::after {
 				background-color: $c_main;
 				height: 2px;
-				margin: 4px 0 0;
-				width: 500px;
+				margin: 0;
+				width: 0;
 			}
 
 			&::before {
 				border-left: 2px solid $c_main;
 				border-top: 2px solid $c_main;
 				height: 20px;
-				margin: -4px 0 0;
+				margin: -9px 0 0;
 				width: 20px;
+			}
+
+			&:hover {
+				&::after {
+					width: 200px;
+				}
 			}
 
 			svg {
@@ -432,31 +447,29 @@
 			}
 
 			&--next {
-				left: 50%;
-				margin: 0 0 0 600px;
-				right: auto;
+				left: auto;
+				right: -20px;
 
 				&::after {
-					left: 41px;
+					left: 46px;
 				}
 
 				&::before {
-					left: 7px;
+					left: 14px;
 					transform: rotate(135deg);
 				}
 			}
 
 			&--prev {
-				left: auto;
-				margin: 0 600px 0 0;
-				right: 50%;
+				left: -20px;
+				right: auto;
 
 				&::after {
-					right: 41px;
+					right: 46px;
 				}
 
 				&::before {
-					right: 7px;
+					right: 14px;
 					transform: rotate(-45deg);
 				}
 			}
@@ -516,6 +529,7 @@
 
 		&__pagination {
 			bottom: -30px;
+			display: none;
 			justify-content: center;
 			left: 50%;
 			max-width: 1238px;
@@ -580,5 +594,3 @@
 		}
 	}
 }
-
-

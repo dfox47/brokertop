@@ -19,11 +19,33 @@
 		content: "";
 		height: 100%;
 		left: 0;
-		opacity: .5;
+		opacity: .8;
 		position: absolute;
 		top: 0;
 		width: 100%;
 		z-index: 1;
+	}
+
+	&--product {
+		.popup {
+			&__content {
+				height: 100%;
+				max-height: 800px;
+				max-width: 1200px;
+				padding: 20px;
+				width: 100%;
+
+				@media #{$tablet} {
+					max-height: 600px;
+					max-width: 1000px;
+				}
+
+				@media #{$mobile} {
+					max-height: 300px;
+					max-width: 400px;
+				}
+			}
+		}
 	}
 
 	&__bg {
@@ -38,11 +60,11 @@
 	&__close {
 		background-color: #000;
 		cursor: pointer;
-		height: 50px;
+		height: 56px;
 		position: absolute;
 		right: 0;
 		top: 0;
-		width: 50px;
+		width: 56px;
 		z-index: 5;
 
 		&:hover {
@@ -54,13 +76,13 @@
 
 		&::after,
 		&::before {
-			background-color: #fff;
+			background-color: $c_main;
 			content: "";
 			height: 1px;
-			left: 10px;
+			left: 14px;
 			position: absolute;
 			transition: $transition;
-			top: 24px;
+			top: 28px;
 			width: 30px;
 		}
 
@@ -70,6 +92,19 @@
 
 		&::before {
 			transform: rotate(-45deg);
+		}
+
+		@media #{$tablet} {
+			height: 36px;
+			top: -36px;
+			width: 36px;
+
+			&::after,
+			&::before {
+				left: 7px;
+				top: 18px;
+				width: 22px;
+			}
 		}
 	}
 

@@ -163,7 +163,7 @@ $productAttributes = [
 	</ul>
 </main>
 
-<div class="popup js-popup" data-popup="product_gallery">
+<div class="popup popup--product js-popup" data-popup="product_gallery">
 	<div class="popup__bg js-popup-close"></div>
 
 	<div class="popup__content">
