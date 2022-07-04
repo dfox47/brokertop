@@ -116,6 +116,28 @@
 	}
 }
 
+.woocommerce-info {
+	background-color: #fff;
+	border: 0 none;
+	font-size: 20px;
+	font-weight: 600;
+	margin: 0 auto;
+	max-width: 1373px;
+	min-height: 80px;
+	padding: 15px 30px 100px 120px;
+	width: 100%;
+
+	&::before {
+		background: url(#{$icons}/search_error.svg) 0 0 no-repeat scroll transparent;
+		background-size: cover;
+		content: "";
+		height: 60px;
+		left: 30px;
+		top: 0;
+		width: 60px;
+	}
+}
+
 .woocommerce-loop-product {
 	&__title {
 		color: $c_text;
