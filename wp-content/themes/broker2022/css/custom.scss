@@ -422,7 +422,7 @@ h3 {
 .cs3-right-face { background: #888; }
 .cs3-left-face { background: #444; }
 
-/* Helpers */
+// Helpers
 .cs3-fade-black {
 	background: #000 !important;
 	background-image: none !important;
@@ -433,9 +433,12 @@ h3 {
 	width: 100%;
 	height: 100%;
 }
-.cs3-ambilight { opacity: 1; }
 
-/* Imageless Pre Loader */
+.cs3-ambilight {
+	opacity: 1;
+}
+
+// Imageless Pre Loader
 .cs3-preloader {
 	//background: rgba(0,0,0,0.8) url(assets/pre-loader.gif) no-repeat center;
 	background: rgba(0,0,0,0.7);
