@@ -334,47 +334,59 @@
 			if (cs3.params.effectsGroupLock) {
 				var eLock = cs3.params.effectsGroupLock
 				var eArrLock=[]
+
 				if (cs3.support.threeD && eLock.support3d) {
 					var allowGroups = eLock.support3d.split(',')
+
 					for (var i=0; i<eArrFinal.length; i++) {
 						for (var j=0; j<allowGroups.length; j++) {
 							var group = $.trim(allowGroups[j])
 							if (eArrFinal[i].indexOf(group)>=0) eArrLock.push(eArrFinal[i])
 						}
 					}
+
 					eArrFinal = eArrLock
 				}
+
 				if (cs3.support.css3 && eLock.support2d && !cs3.support.threeD) {
 					var allowGroups = eLock.support2d.split(',')
+
 					for (var i=0; i<eArrFinal.length; i++) {
 						for (var j=0; j<allowGroups.length; j++) {
 							var group = $.trim(allowGroups[j])
 							if (eArrFinal[i].indexOf(group)>=0) eArrLock.push(eArrFinal[i])
 						}
 					}
+
 					eArrFinal = eArrLock
 				}
+
 				if (!cs3.support.threeD && eLock.supportCanvasNoCSS3 && cs3.support.canvas && !cs3.support.css3) {
 					var allowGroups = eLock.supportCanvasNoCSS3.split(',')
+
 					for (var i=0; i<eArrFinal.length; i++) {
 						for (var j=0; j<allowGroups.length; j++) {
 							var group = $.trim(allowGroups[j])
 							if (eArrFinal[i].indexOf(group)>=0) eArrLock.push(eArrFinal[i])
 						}
 					}
+
 					eArrFinal = eArrLock
 				}
 			}
-			if (eArrFinal.length==0) {
+
+			if (eArrFinal.length === 0) {
 				for (var e in cs3.e.flat) {
 					if (e.charAt(0)!='_') eArrFinal.push('flat-'+e)
 				}
 			}
+
 			cs3.effects = eArrFinal
 		}
+
 		cs3.calcEffects()
 
-		//Smart Timeout
+		// Smart Timeout
 		cs3.set_timeout = function(func, time) {
 			//Get Document State
 			var hidden, change, vis = {
@@ -384,18 +396,21 @@
 				msHidden: "msvisibilitychange",
 				oHidden: "ovisibilitychange"
 			}
+
 			for (var hidden in vis) {
 				if (vis.hasOwnProperty(hidden) && hidden in document) {
 					change = vis[hidden]
 					break
 				}
 			}
+
 			if(!change){
 				//IE6-9
 				return setTimeout(function(){
 					func()
 				},time)
 			}
+
 			var timeStart = (new Date()).getTime()
 			var timeLeft = false
 
@@ -406,7 +421,9 @@
 					document.removeEventListener(change, countTime)
 				}
 			}
+
 			document.addEventListener(change, countTime)
+
 			if (!document[hidden]) {
 				return setTimeout(function(){
 					if (!document[hidden]) func()
@@ -428,70 +445,81 @@
 						cs3.set_timeout(func,time)
 					}
 				}
+
 				document.addEventListener(change, onChange)
 			}
 		}
 
-		//Auto Play
-		cs3.params.autoplay = cs3.params.autoplay || {}
-		cs3.params.autoplay.delay = cs3.params.autoplay.delay || 5000
-		cs3.autoplayTimeout = false
+		// Auto Play
+		cs3.params.autoplay         = cs3.params.autoplay || {}
+		cs3.params.autoplay.delay   = cs3.params.autoplay.delay || 5000
+		cs3.autoplayTimeout         = false
 
-		cs3.autoplayStart = function(){
+		cs3.autoplayStart = function() {
 			cs3.params.autoplay.enabled = true
-			cs3.autoplayTimeout = cs3.set_timeout(function(){
+			cs3.autoplayTimeout = cs3.set_timeout(function() {
 				cs3.slideNext()
 			}, cs3.params.autoplay.delay)
 		}
+
 		cs3.autoplayStop = function() {
 			clearTimeout(cs3.autoplayTimeout)
 			cs3.params.autoplay.enabled = false
 		}
 
-		//Helper Functions
+		// Helper Functions
 		cs3.h = {
 			updateDimension : function() {
 				if (cs3.params.responsive) {
 					if (cs3.params.touch && cs3.params.touch.enabled && cs3.support.touch && ('touch' in cs3.plugins) ) {
 						cs3.slides.eq( cs3.h.indexes().active ).show()
 					}
+
 					cs3.width = cs3.width || cs3.c.width()
 					cs3.height = cs3.height || cs3.c.height()
+
 					var oldWidth = cs3.width
 					var oldHeight = cs3.height
+
 					if (cs3.params.responsiveSetSize) {
 						cs3.c.width('auto')
 						cs3.c.height('auto')
 					}
+
 					var activeSlide = cs3.slides.eq( cs3.h.indexes().active )
+
 					if (activeSlide.hasClass('cs3-video-slide')) {
 						var fixBySlideIndex = false
+
 						cs3.slides.each(function() {
 							if (!$(this).hasClass('cs3-video-slide')) fixBySlideIndex = $(this).index()
 						})
-						if(fixBySlideIndex!==false) {
+
+						if (fixBySlideIndex !== false) {
 							cs3.slides.eq( fixBySlideIndex ).show()
-							cs3.width = cs3.slides.eq( fixBySlideIndex ).find('img').width()
-							cs3.height = cs3.slides.eq( fixBySlideIndex ).find('img').height()
-							cs3.slides.eq( fixBySlideIndex ).hide()
+							cs3.width = cs3.slides.eq(fixBySlideIndex).find('img').width()
+							cs3.height = cs3.slides.eq(fixBySlideIndex).find('img').height()
+							cs3.slides.eq(fixBySlideIndex).hide()
 						}
 						else {
 							cs3.width = cs3.c.width()
 						}
 					}
 					else {
-						cs3.width = cs3.slides.eq( cs3.h.indexes().active ).find('img').width()
-						cs3.height = cs3.slides.eq( cs3.h.indexes().active ).find('img').height()
+						cs3.width   = cs3.slides.eq( cs3.h.indexes().active ).find('img').width()
+						cs3.height  = cs3.slides.eq( cs3.h.indexes().active ).find('img').height()
 					}
 
 					if (cs3.params.responsiveSetSize) {
 						cs3.c.width(cs3.width)
 						cs3.c.height(cs3.height)
 					}
+
 					if (cs3.params.touch && cs3.params.touch.enabled && cs3.support.touch && ('touch' in cs3.plugins) ) {
 						cs3.slides.eq( cs3.h.indexes().active ).hide()
 					}
-					if (cs3.width==0 || cs3.height==0) {
+
+					if (cs3.width === 0 || cs3.height === 0) {
 						cs3.width = oldWidth
 						cs3.height = oldHeight
 						cs3.c.width(cs3.width)
@@ -507,7 +535,9 @@
 				a = a || {}
 				a.value = a.value || 1200
 				a.origin = a.origin || '50% 50%'
+
 				if (!target) var target = navigator.userAgent.indexOf('MSIE')>=0 ? cs3.l : cs3.c
+
 				target.css({
 					"-webkit-perspective-origin":a.origin,
 					"-webkit-perspective":a.value,
@@ -524,13 +554,16 @@
 			triggerIndex : false,
 			getDelay : function(p) {
 				var newDelay=0
+
 				if (p.grid.cols && p.grid.rows) {
 					var rowIndex = Math.floor(p.index/p.grid.cols),
 						colIndex = p.index - p.grid.cols*Math.floor(p.index/p.grid.cols)
 				}
+
 				if (!p.startIndex) {
 					p.startIndex = 0
 				}
+
 				switch(p.type) {
 					case 'linear' : {
 						if (p.startIndex == 'middle') p.startIndex = Math.floor(p.grid.rows*p.grid.cols/2)
@@ -566,9 +599,11 @@
 			},
 			indexes : function() {
 				var b={}
+
 				b.active = cs3.c.find('.cs3-active-slide').index()
 				b.next = b.active+1>=cs3.slides.length ? 0 : b.active+1
 				b.prev = b.active-1<0 ? cs3.slides.length-1 : b.active-1
+
 				return b
 			},
 			transformString : function(transform){
@@ -580,36 +615,46 @@
 					a.cols = Math.ceil(cs3.width/a.squareSize)
 					a.rows = Math.ceil(cs3.height/a.squareSize)
 				}
+
 				var x = a.cols, y = a.rows
-				if(a.index2===0) a.index2='0'
-				//Widths
+
+				if (a.index2 === 0) a.index2='0'
+
+				// Widths
 				var sliceWidth = Math.floor(cs3.width / x)
 				var lastWidth = sliceWidth
+
 				if (sliceWidth*x < cs3.width) {
 					lastWidth = cs3.width - sliceWidth*(x-1)
 				}
-				//Heights
+
+				// Heights
 				var sliceHeight = Math.floor(cs3.height/y)
 				var lastHeight = sliceHeight
+
 				if (sliceHeight*y < cs3.height) {
 					lastHeight = cs3.height - sliceHeight*(y-1)
 				}
-				//Generate HTML
+
+				// Generate HTML
 				var html = ""
 				var img1 = cs3.images[a.index1]
+
 				if (a.index2) {
 					var img2 = cs3.images[a.index2]
 				}
+
 				var html2=''
+
 				if (a.separate) {
 					html+= '<div class="cs3-slices-block">'
 					html2+='<div class="cs3-slices-block">'
-
 				}
+
 				for (var i = 0; i<x*y; i++) {
 					var vIndex = Math.floor(i/x),
 						hIndex = i - x*Math.floor(i/x),
-						lastInRow = (i+1)%x==0,
+						lastInRow = (i+1)%x === 0,
 						lastInColumn = i>x*y-1-x
 
 					var sWidth = lastInRow ? lastWidth : sliceWidth,
@@ -634,10 +679,10 @@
 						if (a.index2) {
 							var styleAttr2 = 'background-position:'+bgPos+'; background-image:url('+img2+'); left:'+sLeft+'px; top:'+sTop+'px; width:'+sWidth+'px; height:'+sHeight+'px;'
 							var _html = '<div class="cs3-slice" style="'+styleAttr2+'"></div>'
+
 							//Separate Blocks
 							if (!a.separate) html+= _html
 							else html2+=_html
-
 						}
 						if (a.index2&&a.wrap) {
 							html+='</div>'
@@ -655,72 +700,84 @@
 
 						html+='<div class="cs3-slice" style="left:'+sLeft+'px; top:'+sTop+'px; width:'+sWidth+'px; height:'+sHeight+'px;">'
 
-						//Front Face
+						// Front Face
 						html+='<div style="background-position:'+bgPos+'; background-image:url('+img1+'); width:'+sWidth+'px; height:'+sHeight+'px" class="cs3-front-face"></div>'
 
-						//New Face BG
+						// New Face BG
 						var newFaceBG = 'background-position:'+bgPos+'; background-image:url('+img2+');'
 
-						//Back Face
-
+						// Back Face
 						var backBG = ''
 						var backRotate = 'rotateY(180deg)'
+
 						if (b.newFace=='back') backBG = newFaceBG
+
 						if (b.newFace && b.newFaceRotate) backRotate = b.newFaceRotate
+
 						if (!b.depth) b.depth = 0
+
 						var backTransform = backRotate+' translate3d(0,0,'+parseInt(b.depth,10)+'px)'
 						html+='<div style="'+backBG+' width:'+sWidth+'px; height:'+sHeight+'px; '+cs3.h.transformString(backTransform)+'" class="cs3-back-face"></div>'
 
 						if (b.depth) {
-							//Make Right, Left, Top and Bottom faces
+							// Make Right, Left, Top and Bottom faces
 
-							//Right Face
+							// Right Face
 							var rightBG = ''
 							var rightTransform = 'rotateY(90deg) translate3d('+b.depth/2+'px,0,'+(sWidth - b.depth/2)+'px)'
+
 							if (b.newFace=='right') rightBG = newFaceBG
+
 							html+='<div style="'+rightBG+' width:'+b.depth+'px; height:'+sHeight+'px; '+cs3.h.transformString(rightTransform)+'" class="cs3-right-face"></div>'
 
-							//Left Face
+							// Left Face
 							var leftBG = ''
 							var leftTransform = 'rotateY(-90deg) translate3d('+(-b.depth/2)+'px,0,'+(b.depth/2)+'px)'
+
 							if (b.newFace=='left') leftBG = newFaceBG
+
 							html+='<div style="'+leftBG+' width:'+b.depth+'px; height:'+sHeight+'px; '+cs3.h.transformString(leftTransform)+'" class="cs3-left-face"></div>'
 
-							//Bottom Face
+							// Bottom Face
 							var bottomBG = ''
 							var bottomTransform = 'rotateX(-90deg) translate3d(0px,'+(b.depth/2)+'px,'+(sHeight-b.depth/2)+'px)'
+
 							if (b.newFace=='bottom') bottomBG = newFaceBG
+
 							html+='<div style="'+bottomBG+' width:'+sWidth+'px; height:'+b.depth+'px; '+cs3.h.transformString(bottomTransform)+'" class="cs3-bot-face"></div>'
 
-							//Top Face
+							// Top Face
 							var topBG = ''
 							var topTransform = 'rotateX(90deg) translate3d(0px,'+(-b.depth/2)+'px,'+(b.depth/2)+'px)'
-							if (b.newFace=='top') topBG = newFaceBG
-							html+='<div style="'+topBG+' width:'+sWidth+'px; height:'+b.depth+'px; '+cs3.h.transformString(topTransform)+'" class="cs3-top-face"></div>'
 
+							if (b.newFace=='top') topBG = newFaceBG
+
+							html+='<div style="'+topBG+' width:'+sWidth+'px; height:'+b.depth+'px; '+cs3.h.transformString(topTransform)+'" class="cs3-top-face"></div>'
 						}
 
 						html+='</div>'
 					}
+
 					if (!lastInColumn) {
 						var prevHeight = sHeight
 					}
+
 					if (!lastInRow) {
 						var prevWidth = sWidth
 					}
 				}
+
 				if (a.separate) {
 					html+= '</div>'
 					html2+='</div>'
 					html = html+html2
-
 				}
+
 				return {
 					html : html,
 					cols : x,
 					rows : y
 				}
-
 			},
 			animFrame : function(c){
 				if (window.requestAnimationFrame) return window.requestAnimationFrame(c)
@@ -730,16 +787,16 @@
 				else if (window.msRequestAnimationFrame) return window.msRequestAnimationFrame(c)
 				else if (window.MSRequestAnimationFrame) return window.MSRequestAnimationFrame(c)
 				else return window.setTimeout(c, 1000 / 60)
-
 			}
 		}
 
-		//Responsive Resizes
+		// Responsive Resizes
 		if (cs3.params.responsive) {
 			//--  Update Dimension
 			$(window).on('resize', function(){
 				cs3.h.updateDimension()
 			})
+
 			//--  Update Touch Plugin
 			if (cs3.params.touch && cs3.params.touch.enabled && cs3.support.touch && ('touch' in cs3.plugins) ) {
 				$(window).on('orientationchange', function(){
@@ -748,6 +805,7 @@
 					cs3.plugins.touch.init(cs3)
 				})
 			}
+
 			//--  Update Ambilight Plugin
 			if (cs3.params.ambilight > 0 && ('ambilight' in cs3.plugins) ) {
 				if (cs3.support.touch) {
@@ -763,8 +821,7 @@
 			}
 		}
 
-
-		//Prepare, used in effects
+		// Prepare, used in effects
 		cs3.prepare = function(a) {
 			if (a.l||a.l===0) {
 				cs3.l[0].style.display = a.l===1 ? 'block' : 'none'
