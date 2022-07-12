@@ -2030,30 +2030,33 @@
 
 			setTimeout(function() {
 				cs3.l.children().each(function() {
-					var a = $(this)
-					var index = a.index()
-					var delay = 0*index
-					var isEven = index%2 === 0
-					var rotate = isEven ? angle : -angle
+					var a           = $(this)
+					var index       = a.index()
+					var delay       = 0 * index
+					var isEven      = index%2 === 0
+					var rotate      = isEven ? angle : -angle
+					var aHeight     = parseInt(a[0].style.height)
+					var aWidth      = parseInt(a[0].style.width)
+					var offset      = p.type === 'h' ? Math.sin(2*Math.PI / 360 * (90 - angle)) * aHeight : Math.sin(2 * Math.PI / 360 * (90 - angle)) * aWidth
+					var aTop        = parseInt(a[0].style.top)
+					var aLeft       = parseInt(a[0].style.left)
 
-					var aHeight = parseInt(a[0].style.height)
-					var aWidth = parseInt(a[0].style.width)
-					var offset = p.type=='h' ? Math.sin(2*Math.PI/360*(90 - angle))*aHeight : Math.sin(2*Math.PI/360*(90 - angle))*aWidth
-					var aTop = parseInt(a[0].style.top)
-					var aLeft = parseInt(a[0].style.left)
 					$(this).attr('data-cs3top',aTop)
 					$(this).attr('data-cs3left',aLeft)
-					//Add Shadow
+
+					// Add Shadow
 					if (!isEven) {
 						a.append('<div class="cs3-fade-black"></div>')
 						a.find('.cs3-fade-black').csTransform({time:500, ease: 'cubic-bezier(1, 0 , 0.8, 1)'})
 					}
+
 					setTimeout(function(){ a.find('.cs3-fade-black').css({opacity:0.3}) },50)
-					//Animation
-					var angleType = p.type=='h' ? 'rotateX('+rotate+'deg)' : 'rotateY('+rotate+'deg)'
-					var offsetRule = p.type=='h'
-						? {top: aTop * offset / aHeight + (cs3.height - Math.sin(2*Math.PI/360*(90 - angle))*cs3.height  )/2 }
-						: {left: aLeft * offset / aWidth + (cs3.width - Math.sin(2*Math.PI/360*(90 - angle))*cs3.width  )/2 }
+
+					// Animation
+					var angleType = p.type === 'h' ? 'rotateX('+rotate+'deg)' : 'rotateY('+rotate+'deg)'
+					var offsetRule = p.type === 'h'
+						? {top: aTop * offset / aHeight + (cs3.height - Math.sin(2 * Math.PI / 360 * (90 - angle))*cs3.height  ) / 2 }
+						: {left: aLeft * offset / aWidth + (cs3.width - Math.sin(2 * Math.PI / 360 * (90 - angle))*cs3.width  ) / 2 }
 					a.csTransform({
 						transform: angleType+' translate3d(0,0px,0px)',
 						time:500,
@@ -2061,14 +2064,15 @@
 						ease: 'cubic-bezier(1, 0 , 0.8, 1)'
 					})
 						.css(offsetRule)
-						.csTransitionEnd(function(){
-							a.find('.cs3-back-face').each(function(){
+						.csTransitionEnd(function() {
+							a.find('.cs3-back-face').each(function() {
 								$(this).csTransform({transform : 'translate3d(0,0,0)', time:500, ease: 'ease-in-out', delay:index*50})
-									.csTransitionEnd(function(){
-										if (a.index()==lastIndex) {
-											cs3.l.children().each(function(){
+									.csTransitionEnd(function() {
+										if (a.index() === lastIndex) {
+											cs3.l.children().each(function() {
 												var a = $(this)
-												setTimeout(function(){
+
+												setTimeout(function() {
 													a.css({top: a.attr('data-cs3top')*1, left: a.attr('data-cs3left')*1})
 														.csTransform({transform: 'rotateX('+0+'deg) translate3d(0,0px,0px)'})
 														.csTransitionEnd(function(){ cs3.updateSlides() })
@@ -2088,13 +2092,7 @@
 		paper_v : function(cs3) {
 			cs3.e.threeD._paper(cs3,{cols:10, rows:1, type:'v'})
 		},
-
-
-
-		/* =======================
-		3D Galaxy
-	==========================*/
-
+		// 3D Galaxy
 		galaxy : function(cs3) {
 			var make3d = {
 				newFace : 'back',
@@ -2107,51 +2105,49 @@
 			cs3.l.csTransform({transform:'rotateY(0deg)', time:0, delay:0})
 			cs3.prepare({l:1, active:0})
 
-			setTimeout(function(){
-				cs3.l.children().each(function(){
+			setTimeout(function() {
+				cs3.l.children().each(function() {
 					var a = $(this)
-					//change back bg
-					var bf = $('.cs3-back-face',a)
-					var backBGLeft = bf.css('background-position').split(' ')[0]
-					var backBGTop = bf.css('background-position').split(' ')[1]
+					// change back bg
+					var bf              = $('.cs3-back-face',a)
+					var backBGLeft      = bf.css('background-position').split(' ')[0]
+					var backBGTop       = bf.css('background-position').split(' ')[1]
+
 					backBGLeft = cs3.width - parseInt(backBGLeft) + bf.width()
 					bf.css({ backgroundPosition : backBGLeft+'px '+backBGTop })
-					//--
-					var index = a.index()
-					var rotateX = Math.random()*60-30
-					var rotateY = Math.random()*60-30
-					var rotateZ = Math.random()*60-30
-					var tX = Math.random()*50
-					var tY = Math.random()*60*(-1)
-					var tZ = Math.random()*400-200
-					var scale = Math.random()*0.5 + 0.5
+
+					var index       = a.index()
+					var rotateX     = Math.random()*60-30
+					var rotateY     = Math.random()*60-30
+					var rotateZ     = Math.random()*60-30
+					var tX          = Math.random()*50
+					var tY          = Math.random()*60*(-1)
+					var tZ          = Math.random()*400-200
+					var scale       = Math.random()*0.5 + 0.5
+
 					a.csTransform({
 						transform:' rotateX('+rotateX+'deg) rotateY('+rotateY+'deg) rotateZ('+rotateZ+'deg) scale('+scale+') translate3d('+tX+'px,'+tY+'px,'+tZ+'px)',
 						time:400,
 						delay:0,
 						ease: 'linear'
 					})
-						.csTransitionEnd(function(){
-							setTimeout(function(){
+						.csTransitionEnd(function() {
+							setTimeout(function() {
 								a.csTransform({
 									transform:' rotateX('+0+'deg) rotateY('+0+'deg) rotateZ('+0+'deg) scale('+1+') translate3d('+0+'px,'+0+'px,'+0+'px)',
 									time:400,
 									delay:1000,
 									ease: 'linear'
 								})
-									.csTransitionEnd(function(){ if(index==0) {cs3.updateSlides()} })
+									.csTransitionEnd(function(){ if(index === 0) {cs3.updateSlides()} })
 							},50)
 						})
 				})
+
 				cs3.l.csTransform({transform:'rotateY(180deg)', time:1800, delay:0, ease:'linear'})
-
-
 			},50)
 		},
-		/* =======================
-		Explosion
-	==========================*/
-
+		// Explosion
 		explosion : function(cs3) {
 			var make3d = {
 				newFace : 'back',
@@ -2159,14 +2155,18 @@
 			}
 			var sliced1 = cs3.h.slice({index1:cs3.h.indexes().active, square:true})
 			var sliced2 = cs3.h.slice({index1:cs3.newSlideIndex, square:true})
+
 			cs3.l[0].innerHTML = '<div class="cs3-dummy">'+sliced1.html+'</div>'+'<div class="cs3-dummy">'+sliced2.html+'</div>'
+
 			var cols = sliced1.cols
 			var rows = sliced1.rows
+
 			cs3.l.csTransform({transform:'rotateY(0deg)', time:0, delay:0})
+
 			var dummy1 = cs3.l.children().eq(0),
 				dummy2 = cs3.l.children().eq(1)
 
-			dummy2.children().each(function(){
+			dummy2.children().each(function() {
 				var rotateX = Math.random()*20 - 10,
 					rotateY = Math.random()*60 - 30,
 					rotateZ = Math.random()*60 - 30
@@ -2178,8 +2178,8 @@
 
 			cs3.prepare({l:1, active:0, p:true, 'new':0})
 
-			setTimeout(function(){
-				dummy1.children().each(function(){
+			setTimeout(function() {
+				dummy1.children().each(function() {
 					var a = $(this),
 						index = a.index()
 
@@ -2196,8 +2196,9 @@
 						.css({opacity:0})
 				})
 			},50)
-			setTimeout(function(){
-				dummy2.children().each(function(){
+
+			setTimeout(function() {
+				dummy2.children().each(function() {
 					var a = $(this)
 					a.csTransform({
 						delay: Math.random()*500,
@@ -2206,13 +2207,11 @@
 						ease: 'cubic-bezier(1, 1 , 0, 1.2)'
 					})
 				})
+
 				setTimeout(function(){ cs3.updateSlides() },2000)
 			},1000)
 		},
-
-		/* =======================
-		Polaroid
-	==========================*/
+		// Polaroid
 		polaroid : function(cs3) {
 			cs3.l.html('<div><div class="cs3pl-image"></div><div class="cs3pl-left"></div><div class="cs3pl-top"></div><div class="cs3pl-right"></div><div class="cs3pl-bottom"></div></div><div class="cs3pl-light"></div>')
 			cs3.l.find('div').css({position:'absolute'})
@@ -2271,7 +2270,7 @@
 				background:"#fff"
 			})
 			cs3.prepare({active:1, 'new':1, l:1, p:true})
-			light.fadeTo(200,1,function(){
+			light.fadeTo(200,1,function() {
 				cs3.prepare({active:0})
 				cs3.l.children().eq(0).show()
 					.csTransform({
@@ -2279,15 +2278,12 @@
 						time:1800,
 						ease:'ease-in'
 					})
-					.csTransitionEnd(function(){
+					.csTransitionEnd(function() {
 						cs3.updateSlides()
 					})
 			}).fadeTo(200,0)
 		},
-
-		/* =======================
-		Bricks
-	==========================*/
+		// Bricks
 		bricks3d : function(cs3) {
 			var p = p || {}
 			var make3d = {
@@ -2298,11 +2294,12 @@
 			var sliced = cs3.h.slice({index1:cs3.h.indexes().active, index2: cs3.newSlideIndex, square: true, wrap:true, make3d:make3d })
 			var cols = sliced.cols
 			var rows = sliced.rows
+
 			cs3.l[0].innerHTML = sliced.html
 			cs3.prepare({l:1, active:0, p:true})
-			setTimeout(function(){
 
-				cs3.l.children().each(function(){
+			setTimeout(function() {
+				cs3.l.children().each(function() {
 					var a = $(this)
 					var index = a.index()
 					var delay = cs3.h.getDelay({
@@ -2311,28 +2308,26 @@
 						index: index,
 						delay:300
 					})
+
 					a.csTransform({
 						transform: 'rotateX('+0+'deg) translate3d(0,-50px,-100px)',
 						time:300,
 						delay: delay,
 						ease:'ease-in'
-					}).csTransitionEnd(function(){
+					}).csTransitionEnd(function() {
 						a.csTransform({
 							transform: 'rotateX('+180+'deg) translate3d(0,0,30px)',
 							time:600,
 							delay: 0,
 							ease:'ease-out'
-						}).csTransitionEnd(function(){
-							if (index==cs3.h.triggerIndex) cs3.updateSlides()
+						}).csTransitionEnd(function() {
+							if (index === cs3.h.triggerIndex) cs3.updateSlides()
 						})
 					})
 				})
 			},50)
 		},
-
-		/* =======================
-		Tiles 3D
-	==========================*/
+		// Tiles 3D
 		tiles3d : function(cs3) {
 			var p = p || {}
 			var make3d = {
@@ -2343,6 +2338,7 @@
 			var sliced = cs3.h.slice({index1:cs3.h.indexes().active, index2: cs3.newSlideIndex, square: true, squareSize:50, wrap:true, make3d:make3d })
 			var cols = sliced.cols
 			var rows = sliced.rows
+
 			cs3.l[0].innerHTML = sliced.html
 			cs3.prepare({l:1, active:0, p:true})
 			setTimeout(function(){
@@ -2356,7 +2352,7 @@
 						delay:100,
 						startIndex : 0
 					})
-					//return
+					// return
 					a.csTransform({
 						transform: 'rotateY('+540+'deg) translate3d(-'+a.width()+'px,0px,5px)',
 						time:1500,
@@ -2364,92 +2360,91 @@
 						ease:'ease',
 						origin: 0+'px 0'
 					}).csTransitionEnd(function(){
-						if (index==cs3.h.triggerIndex) cs3.updateSlides()
+						if (index === cs3.h.triggerIndex) cs3.updateSlides()
 					})
 				})
 			},50)
 		},
-		/* =======================
-		Panels
-	==========================*/
+		// Panels
 		panels_h : function(cs3) {
 			var p = p || {}
 			var newHTML = ''
+
 			newHTML+='<div class="cs3-slice" style="width:'+cs3.width+'px; height:'+cs3.height+'px; background-image:url('+cs3.images[cs3.h.indexes().active]+'); left:0; top:0"></div>'
 			newHTML+='<div class="cs3-slice" style="z-index:30; width:'+cs3.width+'px; height:'+cs3.height+'px; background-image:url('+cs3.images[cs3.newSlideIndex]+'); left:0; top:0"></div>'
 			cs3.h.setPerspective({value:1200, origin:'50% 50%'}, cs3.l)
 			cs3.l.css({overflow:'hidden'})
 			cs3.l[0].innerHTML = newHTML
-			var transformToRight = 'translate3d('+cs3.width+'px,0,-'+cs3.width/2+'px) rotateY(-90deg)'
-			var transformToLeft = 'translate3d(-'+cs3.width+'px,0,-'+cs3.width/2+'px) rotateY(90deg)'
+
+			var transformToRight = 'translate3d('+cs3.width+'px,0,-'+cs3.width / 2+'px) rotateY(-90deg)'
+			var transformToLeft = 'translate3d(-'+cs3.width+'px,0,-'+cs3.width / 2+'px) rotateY(90deg)'
 			var oldPanel = cs3.l.children().eq(0)
 			var newPanel = cs3.l.children().eq(1).csTransform({
 				time:0,
 				transform: cs3.direction ==1 ? transformToRight : transformToLeft
 			})
+
 			cs3.prepare({l:1, active:0, p:false})
-			setTimeout(function(){
+
+			setTimeout(function() {
 				newPanel.csTransform({
 					time:1200,
 					ease: 'cubic-bezier(1, 0 , 0, 1)',
 					transform:'translate3d(0,0,0) rotateY(0deg)'
 				})
+
 				oldPanel.csTransform({
 					time:1200,
 					ease: 'cubic-bezier(1, 0 , 0, 1)',
-					transform:cs3.direction ==1 ? transformToLeft : transformToRight
+					transform: cs3.direction === 1 ? transformToLeft : transformToRight
 				}).csTransitionEnd(function () {
 					cs3.updateSlides()
 				})
-
 			},50)
 		},
 		panels_v : function(cs3) {
 			var p = p || {}
 			var newHTML = ''
+
 			newHTML+='<div class="cs3-slice" style="width:'+cs3.width+'px; height:'+cs3.height+'px; background-image:url('+cs3.images[cs3.h.indexes().active]+'); left:0; top:0"></div>'
 			newHTML+='<div class="cs3-slice" style="z-index:30; width:'+cs3.width+'px; height:'+cs3.height+'px; background-image:url('+cs3.images[cs3.newSlideIndex]+'); left:0; top:0"></div>'
+
 			cs3.h.setPerspective({value:1200, origin:'50% 50%'}, cs3.l)
 			cs3.l.css({overflow:'hidden'})
 			cs3.l[0].innerHTML = newHTML
+
 			var transformToTop = 'translate3d(0px,'+cs3.height+'px,-'+cs3.height/2+'px) rotateX(90deg)'
 			var transformToBottom = 'translate3d(0px,-'+cs3.height+'px,-'+cs3.height/2+'px) rotateX(-90deg)'
 			var oldPanel = cs3.l.children().eq(0)
 			var newPanel = cs3.l.children().eq(1).csTransform({
 				time:0,
-				transform: cs3.direction ==1 ? transformToTop : transformToBottom
+				transform: cs3.direction === 1 ? transformToTop : transformToBottom
 			})
+
 			cs3.prepare({l:1, active:0, p:false})
-			setTimeout(function(){
+
+			setTimeout(function() {
 				newPanel.csTransform({
 					time:1200,
 					ease: 'cubic-bezier(1, 0 , 0, 1)',
 					transform:'translate3d(0,0,0) rotateX(0deg)'
 				})
+
 				oldPanel.csTransform({
 					time:1200,
 					ease: 'cubic-bezier(1, 0 , 0, 1)',
-					transform:cs3.direction ==1 ? transformToBottom : transformToTop
+					transform:cs3.direction === 1 ? transformToBottom : transformToTop
 				}).csTransitionEnd(function () {
 					cs3.updateSlides()
 				})
-
 			},50)
 		}
 	}
 
-	/*
-	=================================
-	Chop Slider 3 - Canvas Effects
-	=================================
-*/
-
+	// Chop Slider 3 - Canvas Effects
 	ChopSlider3.prototype.e.canvas = {
 
-		/* =======================
-     Canvas Burn
-     ==========================*/
-
+		// Canvas Burn
 		burn:function (cs3) {
 			cs3.l.html('<canvas></canvas>')
 
