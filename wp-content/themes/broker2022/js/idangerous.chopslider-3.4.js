@@ -1201,10 +1201,12 @@
 					transform:'translate3d('+translateX+'px, '+translateY+'px, 0px)'
 				})
 			})
+
 			cs3.l.css({overflow:'hidden'})
 			cs3.prepare({ l:1, active : 0, 'new' : 1 })
-			setTimeout(function(){
-				cs3.l.children().each(function(){
+
+			setTimeout(function() {
+				cs3.l.children().each(function() {
 					var a = $(this)
 					var translateX = p.type === 'h' ? (a.index()%2 !== 0 ? cs3.width : -cs3.width) : 0
 
@@ -1219,13 +1221,13 @@
 						delay: 0,
 						ease: 'cubic-bezier(1,0,0.8,0.2)'
 					})
-						.csTransitionEnd(function(){
-							if (a.index()==p.cols-1) cs3.updateSlides()
+						.csTransitionEnd(function() {
+							if (a.index() === p.cols-1) cs3.updateSlides()
 						})
 				})
 			},50)
 		},
-		//Bars Difference
+		// Bars Difference
 		slide_h : function(cs3) {
 			cs3.e.twoD.__bars(cs3,{type:'h', cols:1, rows:1})
 		},
@@ -1238,34 +1240,36 @@
 		zip_v : function(cs3) {
 			cs3.e.twoD.__bars(cs3,{type:'v', cols:10, rows:1})
 		},
-
 		gravity : function(cs3, p) {
 			p = p || {}
 			p.cols = p.cols || 10
 			p.rows = p.rows || 10
 			p.type = p.type || 'v'
+
 			var sliced = cs3.h.slice({index1:cs3.h.indexes().active, cols:p.cols, rows:p.rows, square:true})
+
 			cs3.l[0].innerHTML = sliced.html
 			cs3.prepare({l:1, active:0, 'new':1})
 
-			cs3.l.children().each(function(){
+			cs3.l.children().each(function() {
 				var a = $(this)
-				setTimeout(function(){
+
+				setTimeout(function() {
 					a.csTransform({
 						delay:cs3.h.getDelay({type:'progressive', index: a.index() , delay : 220, grid : sliced, startIndex : 0}),
 						time:800,
 						transform: 'scaleY(1) scaleX(1) translate3d(0, -1500px,0)',
 						ease: 'ease-in'
 					})
-						.csTransitionEnd(function(){
-							if (a.index()==cs3.h.triggerIndex) cs3.updateSlides()
+						.csTransitionEnd(function() {
+							if (a.index() === cs3.h.triggerIndex) cs3.updateSlides()
 						})
 				},50)
-
 			})
 		},
-		bulb : function(cs3,p){
+		bulb : function(cs3,p) {
 			var sliced = cs3.h.slice({index1:cs3.h.indexes().active, index2: cs3.newSlideIndex, separate : true, square:true})
+
 			cs3.l[0].innerHTML = sliced.html
 
 			var cols = sliced.cols
@@ -1273,8 +1277,9 @@
 
 			var block1 = $('.cs3-slices-block:eq(0)', cs3.l)
 			var block2 = $('.cs3-slices-block:eq(1)', cs3.l)
+
 			block1.children().csTransform({time:800})
-			block2.children().each(function(){
+			block2.children().each(function() {
 				var rotate = Math.random()*10
 				var a = $(this)
 				var index = a.index()
@@ -1284,6 +1289,7 @@
 				var offsetY = -20
 				var x = offsetX*colIndex-offsetX*(cols-colIndex)
 				var y = offsetY*rowIndex-offsetY*(rows-rowIndex)
+
 				$(this).csTransform({time:1200, transform:'scale(0) rotate('+rotate+'deg) translate3d('+x+'px,'+y+'px,0px)'})
 			})
 
@@ -1291,10 +1297,12 @@
 
 			var offsetX = 20
 			var offsetY = 50
-			setTimeout(function(){
-				block1.children().each(function(){
+
+			setTimeout(function() {
+				block1.children().each(function() {
 					var a = $(this)
 					var index = a.index()
+
 					a.csTransform({
 						transform:' scale(0) translate3d(0,0,0px)',
 						time:600,
@@ -1302,7 +1310,7 @@
 						ease: 'cubic-bezier(1, -1, 0, 0.1)'
 					})
 				})
-				block2.children().each(function(){
+				block2.children().each(function() {
 					$(this)
 						.csTransform({
 							transform:'scale(1) rotate(0deg) translate3d(0,0,0)',
@@ -1310,20 +1318,20 @@
 							delay:(600)+cs3.h.getDelay({index: $(this).index(), delay:80, grid: sliced, type: 'progressive'}),
 							ease: 'cubic-bezier(0, 1, 0, 1.3)'
 						})
-						.csTransitionEnd(function(){
-							if ($(this).index() == cs3.h.triggerIndex) cs3.updateSlides()
+						.csTransitionEnd(function() {
+							if ($(this).index() === cs3.h.triggerIndex) cs3.updateSlides()
 						})
 				})
 			},50)
-
 		},
 		morpher : function(cs3) {
 			var size = Math.min(cs3.width , cs3.height)
 			var type = cs3.width>cs3.height ? 'h' : 'v'
 			var html = ''
 			var activeIndex = cs3.h.indexes().active
+
 			for (var i = size, j=0; i>50; i-=20,j++) {
-				var position = type=='h' ? {left:cs3.width-i-10*j, top:size - i-10*j} : {left: size - i-10*j, top:cs3.height-i-10*j}
+				var position = type === 'h' ? {left:cs3.width-i-10*j, top:size - i-10*j} : {left: size - i-10*j, top:cs3.height-i-10*j}
 				var br = '; border-radius:50px'
 				var bg1 = 'background-image :url('+cs3.images[activeIndex]+'); background-position: -'+position.left+'px -'+position.top+'px; '
 				var bg2 = 'background-image :url('+cs3.images[cs3.newSlideIndex]+'); background-position: -'+j*10+'px -'+position.top+'px; '
