@@ -3445,12 +3445,12 @@
 			}
 		},
 		onEnd : function(cs3) {
-			if (!cs3.support.canvas) return;
-			if (!cs3.params.ambilight) return;
-			if (!cs3.params.ambilight.enabled) return;
+			if (!cs3.support.canvas) return
+			if (!cs3.params.ambilight) return
+			if (!cs3.params.ambilight.enabled) return
 			cs3.plugins.ambilight.init(cs3)
 		}
-	};
+	}
 
 	/*
 	=================================
@@ -3464,65 +3464,65 @@
 
 	ChopSlider3.prototype.plugins.captions = {
 		init:function (cs3) {
-			var params = cs3.params.captions;
-			if (!params || !params.enabled) return;
-			params.type = params.type || 'horizontal';
-			params.multiDelay = params.multiDelay || 100;
-			params.duration = params.duration || 500;
-			var captionsC = cs3.c.find('.cs3-captions');
+			var params = cs3.params.captions
+			if (!params || !params.enabled) return
+			params.type = params.type || 'horizontal'
+			params.multiDelay = params.multiDelay || 100
+			params.duration = params.duration || 500
+			var captionsC = cs3.c.find('.cs3-captions')
 			var captions = captionsC.find('.cs3-caption')
-			cs3._plugins.captions = captions;
-			cs3._plugins.captions.active = 0;
-			var firstCaption = captions.eq(0);
+			cs3._plugins.captions = captions
+			cs3._plugins.captions.active = 0
+			var firstCaption = captions.eq(0)
 			if (!params.multi) {
-				captions.csTransform({time:params.duration});
+				captions.csTransform({time:params.duration})
 				firstCaption.addClass('cs3-active-caption')
 					.css({
 						marginLeft:params.type == 'horizontal' ? -20 : 0,
 						marginTop:params.type == 'vertical' ? -20 : 0,
 						display:'block'
-					});
+					})
 				if (cs3.support.css3) {
 					setTimeout(function () {
-						firstCaption.css({opacity:1, marginLeft:0, marginTop:0}).csTransform({time:params.duration});
+						firstCaption.css({opacity:1, marginLeft:0, marginTop:0}).csTransform({time:params.duration})
 					}, 300)
 				}
 				else {
-					firstCaption.animate({opacity:1, marginLeft:0, marginTop:0}, params.duration);
+					firstCaption.animate({opacity:1, marginLeft:0, marginTop:0}, params.duration)
 				}
 			}
 			else {
-				captionsC.addClass('cs3-multi-captions').find('.cs3-caption').css({opacity:1});
+				captionsC.addClass('cs3-multi-captions').find('.cs3-caption').css({opacity:1})
 				captions.children().each(function(){
-					var t = $(this);
-					var margin = t.index() % 2 == 0 ? -20 : 20;
+					var t = $(this)
+					var margin = t.index() % 2 == 0 ? -20 : 20
 					t.css({
 						marginLeft:params.type == 'horizontal' ? margin : 0,
 						marginTop:params.type == 'vertical' ? margin : 0,
 						display:'block',
 						opacity:0
 					})
-						.csTransform({time:params.duration, delay:t.index() * params.multiDelay});
+						.csTransform({time:params.duration, delay:t.index() * params.multiDelay})
 				})
-				firstCaption.css('display','block');
+				firstCaption.css('display','block')
 				firstCaption.children().each(function(){
-					var t = $(this);
+					var t = $(this)
 					if (cs3.support.css3) {
 						setTimeout(function () {
-							t.css({opacity:1, marginLeft:0, marginTop:0}).csTransform({time:params.duration});
+							t.css({opacity:1, marginLeft:0, marginTop:0}).csTransform({time:params.duration})
 						}, 300)
 					}
 					else {
-						t.animate({opacity:1, marginLeft:0, marginTop:0}, params.duration);
+						t.animate({opacity:1, marginLeft:0, marginTop:0}, params.duration)
 					}
-				});
+				})
 			}
 
 		},
 		onStart:function (cs3) {
-			var params = cs3.params.captions;
-			if (!params || !params.enabled) return;
-			var activeCaption = cs3._plugins.captions.eq(cs3.h.indexes().active);
+			var params = cs3.params.captions
+			if (!params || !params.enabled) return
+			var activeCaption = cs3._plugins.captions.eq(cs3.h.indexes().active)
 			if (!params.multi) {
 				if (cs3.support.css3) {
 					setTimeout(function(){
@@ -3532,9 +3532,9 @@
 							marginTop:params.type == 'vertical' ? -20 : 0
 						})
 							.csTransitionEnd(function () {
-								$(this).css({display:'none'}).removeClass('cs3-active-caption');
-							});
-					},50);
+								$(this).css({display:'none'}).removeClass('cs3-active-caption')
+							})
+					},50)
 				}
 				else {
 					activeCaption.animate({
@@ -3542,14 +3542,14 @@
 						marginLeft:params.type == 'horizontal' ? -20 : 0,
 						marginTop:params.type == 'vertical' ? -20 : 0
 					}, params.duration, function () {
-						$(this).css({display:'none'}).removeClass('cs3-active-caption');
+						$(this).css({display:'none'}).removeClass('cs3-active-caption')
 					})
 				}
 			}
 			else {
 				activeCaption.children().each(function () {
-					var t = $(this);
-					var margin = t.index() % 2 == 0 ? -20 : 20;
+					var t = $(this)
+					var margin = t.index() % 2 == 0 ? -20 : 20
 					if (cs3.support.css3) {
 						t.css({
 							opacity:0,
@@ -3563,7 +3563,7 @@
 							marginLeft:params.type == 'horizontal' ? margin : 0,
 							marginTop:params.type == 'vertical' ? margin : 0
 						}, params.duration, function () {
-							activeCaption.css({display:'none'}).removeClass('cs3-active-caption');
+							activeCaption.css({display:'none'}).removeClass('cs3-active-caption')
 						})
 					}
 				})
@@ -3571,65 +3571,65 @@
 			}
 		},
 		onEnd:function (cs3) {
-			var params = cs3.params.captions;
-			if (!params || !params.enabled) return;
+			var params = cs3.params.captions
+			if (!params || !params.enabled) return
 
-			var newCaption = cs3._plugins.captions.eq(cs3.h.indexes().active).css({display:'block'}).addClass('active-caption');
+			var newCaption = cs3._plugins.captions.eq(cs3.h.indexes().active).css({display:'block'}).addClass('active-caption')
 			if (params.multi) {
 				newCaption.children().each(function () {
-					var t = $(this);
-					var margin = t.index() % 2 == 0 ? -20 : 20;
+					var t = $(this)
+					var margin = t.index() % 2 == 0 ? -20 : 20
 					t.css({
 						marginLeft:params.type == 'horizontal' ? margin : 0,
 						marginTop:params.type == 'vertical' ? margin : 0,
 						opacity:0
-					}).csTransform({time:params.duration, delay:t.index() * params.multiDelay});
+					}).csTransform({time:params.duration, delay:t.index() * params.multiDelay})
 					if (cs3.support.css3) {
 						setTimeout(function () {
 							t.css({opacity:1, marginLeft:0, marginTop:0})
 								.csTransitionEnd(function () {
 									if (t.index() == 0) {
-										cs3.c.find('.cs3-captions .active-caption').css({display:'none'}).removeClass('cs3-active-caption');
+										cs3.c.find('.cs3-captions .active-caption').css({display:'none'}).removeClass('cs3-active-caption')
 										cs3._plugins.captions.eq(cs3.h.indexes().active).css({display:'block'}).addClass('cs3-active-caption')
 									}
 								})
-						}, 50);
+						}, 50)
 					}
 					else {
 						t.animate({opacity:1, marginLeft:0, marginTop:0}, params.duration, function () {
 							if (t.index() == 0) {
-								cs3.c.find('.cs3-captions .active-caption').css({display:'none'}).removeClass('cs3-active-caption');
-								cs3._plugins.captions.eq(cs3.h.indexes().active).css({display:'block'}).addClass('cs3-active-caption');
+								cs3.c.find('.cs3-captions .active-caption').css({display:'none'}).removeClass('cs3-active-caption')
+								cs3._plugins.captions.eq(cs3.h.indexes().active).css({display:'block'}).addClass('cs3-active-caption')
 							}
 						})
 					}
 				})
 			}
 			else {
-				var margin = -20;
+				var margin = -20
 				newCaption.css({
 					marginLeft:params.type == 'horizontal' ? margin : 0,
 					marginTop:params.type == 'vertical' ? margin : 0,
 					opacity:0
-				}).csTransform({time:params.duration});
+				}).csTransform({time:params.duration})
 				if (cs3.support.css3) {
 					setTimeout(function () {
 						newCaption.css({opacity:1, marginLeft:0, marginTop:0})
 							.csTransitionEnd(function () {
-								newCaption.css({display:'block'}).addClass('cs3-active-caption');
+								newCaption.css({display:'block'}).addClass('cs3-active-caption')
 							})
-					}, 50);
+					}, 50)
 				}
 				else {
 					newCaption.animate({opacity:1, marginLeft:0, marginTop:0}, params.duration, function () {
-						newCaption.css({display:'block'}).addClass('cs3-active-caption');
+						newCaption.css({display:'block'}).addClass('cs3-active-caption')
 					})
 				}
 
 			}
 
 		}
-	};
+	}
 
 	/*
 	======================================
@@ -3643,41 +3643,41 @@
 
 	ChopSlider3.prototype.plugins.navigation = {
 		init : function(cs3) {
-			var nav = cs3.params.navigation;
-			var stopAutoplay = true;
-			if (cs3.params.autoplay.disableOnInteraction===false) stopAutoplay = false;
+			var nav = cs3.params.navigation
+			var stopAutoplay = true
+			if (cs3.params.autoplay.disableOnInteraction===false) stopAutoplay = false
 			if (nav) {
-				var next = $(nav.next);
-				var prev = $(nav.prev);
+				var next = $(nav.next)
+				var prev = $(nav.prev)
 				function nextClick(e) {
-					e.preventDefault();
-					cs3.slideNext();
-					if (cs3.params.autoplay.enabled && stopAutoplay) cs3.autoplayStop();
-					return false;
+					e.preventDefault()
+					cs3.slideNext()
+					if (cs3.params.autoplay.enabled && stopAutoplay) cs3.autoplayStop()
+					return false
 				}
 				function prevClick(e) {
-					e.preventDefault();
-					cs3.slidePrev();
-					if (cs3.params.autoplay.enabled && stopAutoplay) cs3.autoplayStop();
-					return false;
+					e.preventDefault()
+					cs3.slidePrev()
+					if (cs3.params.autoplay.enabled && stopAutoplay) cs3.autoplayStop()
+					return false
 				}
-				if (next.length>0) next.click(function(e){nextClick(e)});
+				if (next.length>0) next.click(function(e){nextClick(e)})
 
-				if (prev.length>0) prev.click(function(e){prevClick(e)});
+				if (prev.length>0) prev.click(function(e){prevClick(e)})
 
 				if (nav.showOnlyOnHover) {
-					next.hide();
-					prev.hide();
+					next.hide()
+					prev.hide()
 					cs3.c.hover(
 						function(){
-							if (cs3.isAnimating) return false;
-							next.fadeIn(300);
-							prev.fadeIn(300);
+							if (cs3.isAnimating) return false
+							next.fadeIn(300)
+							prev.fadeIn(300)
 						},
 						function(){
-							if (cs3.isAnimating) return false;
-							next.fadeOut(300);
-							prev.fadeOut(300);
+							if (cs3.isAnimating) return false
+							next.fadeOut(300)
+							prev.fadeOut(300)
 						}
 					)
 				}
@@ -3686,18 +3686,18 @@
 		onStart : function(cs3) {
 			var nav = cs3.params.navigation
 			if (nav && (nav.hideOnStart || nav.showOnlyOnHover)) {
-				$(nav.next).fadeOut(200);
-				$(nav.prev).fadeOut(200);
+				$(nav.next).fadeOut(200)
+				$(nav.prev).fadeOut(200)
 			}
 		},
 		onEnd : function(cs3) {
 			var nav = cs3.params.navigation
 			if (nav && (nav.hideOnStart && !nav.showOnlyOnHover)) {
-				$(nav.next).fadeIn(200);
-				$(nav.prev).fadeIn(200);
+				$(nav.next).fadeIn(200)
+				$(nav.prev).fadeIn(200)
 			}
 		}
-	};
+	}
 
 	/*
 	======================================
@@ -3712,24 +3712,24 @@
 	ChopSlider3.prototype.plugins.pagination = {
 		init : function(cs3) {
 			if (cs3.params.pagination && cs3.params.pagination.container) {
-				var nav = cs3.params.navigation;
-				var stopAutoplay = true;
+				var nav = cs3.params.navigation
+				var stopAutoplay = true
 
 				var pag = cs3.params.pagination
-				var container = pag.container;
-				if ( $(container).length==0 ) return false;
+				var container = pag.container
+				if ( $(container).length==0 ) return false
 
-				var html = '';
+				var html = ''
 				for (var i = 0; i< cs3.slides.length; i++) {
-					var addClass = i==0 ? ' cs3-active-switch': '';
+					var addClass = i==0 ? ' cs3-active-switch': ''
 					html+='<div class="cs3-pagination-switch'+addClass+'"></div>'
 				}
 				$(container)[0].innerHTML = html
 
 				$(container).find('.cs3-pagination-switch').click(function(e){
-					var el = $(this);
-					if (el.hasClass('cs3-active-switch')) return false;
-					if (cs3.params.autoplay.enabled && stopAutoplay) cs3.autoplayStop();
+					var el = $(this)
+					if (el.hasClass('cs3-active-switch')) return false
+					if (cs3.params.autoplay.enabled && stopAutoplay) cs3.autoplayStop()
 					cs3.slideTo(el.index())
 				})
 
@@ -3737,11 +3737,11 @@
 					$(container).css({display:'none'})
 					cs3.c.hover(
 						function(){
-							if (cs3.isAnimating) return false;
-							$(container).fadeIn(300);
+							if (cs3.isAnimating) return false
+							$(container).fadeIn(300)
 						},
 						function(){
-							if (cs3.isAnimating) return false;
+							if (cs3.isAnimating) return false
 							$(container).fadeOut(300)
 						}
 					)
@@ -3751,13 +3751,13 @@
 		onStart : function(cs3) {
 			var pag = cs3.params.pagination
 			if (pag && pag.container) {
-				var container = pag.container;
-				if ( $(container).length==0 ) return false;
-				$(container).find('.cs3-active-switch').removeClass('cs3-active-switch');
-				$(container).find('.cs3-pagination-switch:eq('+cs3.newSlideIndex+')').addClass('cs3-active-switch');
+				var container = pag.container
+				if ( $(container).length==0 ) return false
+				$(container).find('.cs3-active-switch').removeClass('cs3-active-switch')
+				$(container).find('.cs3-pagination-switch:eq('+cs3.newSlideIndex+')').addClass('cs3-active-switch')
 
 				if (pag.hideOnStart || pag.showOnlyOnHover) {
-					$(container).fadeOut(200);
+					$(container).fadeOut(200)
 				}
 			}
 
@@ -3766,17 +3766,17 @@
 		onEnd : function(cs3) {
 			var pag = cs3.params.pagination
 			if (pag && pag.container) {
-				var container = pag.container;
-				if ( $(container).length==0 ) return false;
-				$(container).find('.cs3-active-switch').removeClass('cs3-active-switch');
-				$(container).find('.cs3-pagination-switch:eq('+cs3.h.indexes().active+')').addClass('cs3-active-switch');
+				var container = pag.container
+				if ( $(container).length==0 ) return false
+				$(container).find('.cs3-active-switch').removeClass('cs3-active-switch')
+				$(container).find('.cs3-pagination-switch:eq('+cs3.h.indexes().active+')').addClass('cs3-active-switch')
 
 				if (pag.hideOnStart && !pag.showOnlyOnHover) {
-					$(container).fadeIn(200);
+					$(container).fadeIn(200)
 				}
 			}
 		}
-	};
+	}
 
 
 	/*
@@ -3795,31 +3795,31 @@
 	  Initialization
 	  ====*/
 		init : function(cs3) {
-			if (!cs3.params.touch || !cs3.support.touch || !cs3.support.css3) return;
-			if (cs3.params.touch && cs3.params.touch.enabled !== true) return;
+			if (!cs3.params.touch || !cs3.support.touch || !cs3.support.css3) return
+			if (cs3.params.touch && cs3.params.touch.enabled !== true) return
 			var plugin = cs3.plugins.touch
-			cs3.params.touch.effect = cs3.params.touch.effect || 'flip-s';
-			if (cs3.params.responsive)	cs3.h.updateDimension();
+			cs3.params.touch.effect = cs3.params.touch.effect || 'flip-s'
+			if (cs3.params.responsive)	cs3.h.updateDimension()
 			//FallBack to 2D Effect
 			if (cs3.params.touch.effect.indexOf('flip')>=0 && !cs3.support.threeD) {
-				cs3.params.touch.effect = cs3.params.touch.effect.replace('flip','slide');
+				cs3.params.touch.effect = cs3.params.touch.effect.replace('flip','slide')
 			}
 			if (cs3.params.touch.effect === 'cube' && !cs3.support.threeD) {
-				cs3.params.touch.effect = 'slide';
+				cs3.params.touch.effect = 'slide'
 			}
-			var effect = cs3.params.touch.effect;
-			var t = cs3._plugins.touch;
-			t.params = cs3.params.touch;
-			t.isTouched = false;
-			t.isAnimating = false;
+			var effect = cs3.params.touch.effect
+			var t = cs3._plugins.touch
+			t.params = cs3.params.touch
+			t.isTouched = false
+			t.isAnimating = false
 
 			t.make3d = {
 				newFace : effect == 'cube' ? 'right' : 'back',
 				depth: effect == 'cube' ? cs3.width : false
 			}
-			var rows = 1;
-			if (effect == 'flip-m') rows = Math.floor(cs3.height/100);
-			if (effect == 'slide-m') rows = 5;
+			var rows = 1
+			if (effect == 'flip-m') rows = Math.floor(cs3.height/100)
+			if (effect == 'slide-m') rows = 5
 
 			var sliced = {
 				index1 : cs3.h.indexes().active,
@@ -3829,24 +3829,24 @@
 				wrap : (effect == 'slide-m' || effect == 'slide-s') ? true : false,
 				make3d : (effect == 'flip-m' || effect == 'flip-s' || effect == 'cube') ? t.make3d : false
 
-			};
+			}
 
 			t.sliced = cs3.h.slice(sliced)
-			cs3.l[0].innerHTML = t.sliced.html;
+			cs3.l[0].innerHTML = t.sliced.html
 
 			//Click trigger
-			var allowClick = true;
+			var allowClick = true
 
 
 			//Append Slide Slices
 			if (effect == 'slide-m' || effect == 'slide-s') {
 				cs3.l.find('.cs3-slice:nth-child(2)').each(function(){
-					var a = $(this);
+					var a = $(this)
 					a.clone().appendTo(a.parent())
 				})
 				cs3.l.find('.cs3-slice').each(function(){
-					var a = $(this);
-					var index = a.index();
+					var a = $(this)
+					var index = a.index()
 					if (index==2) {
 						a.css({'background-image'  : 'url('+cs3.images[ cs3.h.indexes().next ]+')'	})
 						a.csTransform({transform:'translate3d('+cs3.width+'px,0,0)'})
@@ -3867,23 +3867,23 @@
 
 
 			cs3.prepare({active:0, l:1, p:true})
-			var moveStart = false;
-			var isScrolling = undefined;
+			var moveStart = false
+			var isScrolling = undefined
 			cs3.l.children().each(function(){
 				this.addEventListener('touchstart', function(e){
-					if (t.isTouched==true) return;
+					if (t.isTouched==true) return
 					e.preventDefault()
-					t.isAnimating = false;
-					t.startIndex = $(this).index();
-					t.isTouched = true;
-					t.isMoved = false;
-					t.startX = e.targetTouches[0].pageX;
-					t.startY = e.targetTouches[0].pageY;
-					t.currX = e.targetTouches[0].pageX;
-					t.diff = 0;
-					t.angle = 0;
-					handleTouch(this);
-					isScrolling = undefined;
+					t.isAnimating = false
+					t.startIndex = $(this).index()
+					t.isTouched = true
+					t.isMoved = false
+					t.startX = e.targetTouches[0].pageX
+					t.startY = e.targetTouches[0].pageY
+					t.currX = e.targetTouches[0].pageX
+					t.diff = 0
+					t.angle = 0
+					handleTouch(this)
+					isScrolling = undefined
 					//Callback
 					if (cs3.params.callbacks.onTouchStart) cs3.params.callbacks.onTouchStart(cs3)
 				})
@@ -3891,29 +3891,29 @@
 
 			function handleTouch (el) {
 				el.addEventListener('touchmove', function(e){
-					if (!t.isTouched || t.isAnimating || cs3.isAnimating) return;
+					if (!t.isTouched || t.isAnimating || cs3.isAnimating) return
 
-					t.currX = e.targetTouches[0].pageX;
-					t.diff = t.currX - t.startX;
+					t.currX = e.targetTouches[0].pageX
+					t.diff = t.currX - t.startX
 
 					isScrolling = !!( isScrolling || Math.abs(e.targetTouches[0].pageY - t.startY) > Math.abs( e.targetTouches[0].pageX - t.startX ) )
-					//if (isScrolling) return;
+					//if (isScrolling) return
 					e.preventDefault()
 					if (!moveStart) {
 						//Animation Start, run callback for all other plugins
-						cs3._plugins.onStart(cs3, 'touch');
+						cs3._plugins.onStart(cs3, 'touch')
 						//Disable Auto Play
-						if (cs3.params.autoplay.enabled && cs3.params.autoplay.disableOnInteraction) cs3.autoplayStop();
+						if (cs3.params.autoplay.enabled && cs3.params.autoplay.disableOnInteraction) cs3.autoplayStop()
 					}
-					moveStart = true;
+					moveStart = true
 
 					//Disallow Clicks:
-					allowClick = false;
+					allowClick = false
 
 					//---
 					if (effect == 'flip-m' || effect == 'flip-s') {
-						t.angle = t.diff*180/cs3.width;
-						if ( Math.abs(t.angle)>180) return;
+						t.angle = t.diff*180/cs3.width
+						if ( Math.abs(t.angle)>180) return
 						if (t.angle > 0) {
 							cs3.l.find('.cs3-back-face').css({
 								'background-image'  : 'url('+cs3.images[ cs3.h.indexes().prev ]+')'
@@ -3924,23 +3924,23 @@
 								'background-image' : 'url('+cs3.images[ cs3.h.indexes().next ]+')'
 							})
 						}
-						plugin.rotateSlices(cs3,t.angle,0);
+						plugin.rotateSlices(cs3,t.angle,0)
 					}
 					else if (effect == 'cube') {
-						t.angle = t.diff*90/cs3.width;
-						if ( Math.abs(t.angle)>90) return;
-						plugin.rotateCube (cs3, t.angle,0);
+						t.angle = t.diff*90/cs3.width
+						if ( Math.abs(t.angle)>90) return
+						plugin.rotateCube (cs3, t.angle,0)
 					}
 					else {
 
-						plugin.slideSlices(cs3,t.diff,0);
+						plugin.slideSlices(cs3,t.diff,0)
 
 					}
 
 					//Callback
 					if (cs3.params.callbacks.onTouchMove) cs3.params.callbacks.onTouchMove(cs3)
 
-				});
+				})
 				el.addEventListener('touchend', function(e){
 					//Click Links
 					var link = cs3.slides.eq(cs3.h.indexes().active).find('img').parent('a')
@@ -3952,102 +3952,102 @@
 						allowClick = true
 					},50)
 
-					moveStart = false;
+					moveStart = false
 
 					if ( (effect == 'slide-s' || effect == 'slide-m') && t.diff==0 ) {
-						t.currX = t.startX;
-						t.isTouched = false;
-						return;
+						t.currX = t.startX
+						t.isTouched = false
+						return
 					}
 					if ( (effect == 'flip-s' || effect == 'flip-m' || effect == 'cube') && t.angle==0 ) {
-						t.currX = t.startX;
-						t.isTouched = false;
-						return;
+						t.currX = t.startX
+						t.isTouched = false
+						return
 					}
 
 					//----
 					if (effect == 'flip-s' || effect == 'flip-m') {
-						t.isAnimating = cs3.isAnimating = true;
-						if (t.angle > 30) plugin.rotateSlices(cs3, 180, 400, 1);
+						t.isAnimating = cs3.isAnimating = true
+						if (t.angle > 30) plugin.rotateSlices(cs3, 180, 400, 1)
 						if (t.angle < -30) plugin.rotateSlices(cs3, -180, 400, -1)
 						if (t.angle>=-30 && t.angle<=30)  plugin.rotateSlices(cs3, 0,400, 0)
 					}
 					else if (effect == 'cube') {
-						t.isAnimating = cs3.isAnimating = true;
-						if (t.angle > 30) plugin.rotateCube(cs3, 90, 300, 1);
+						t.isAnimating = cs3.isAnimating = true
+						if (t.angle > 30) plugin.rotateCube(cs3, 90, 300, 1)
 						if (t.angle < -30) plugin.rotateCube(cs3, -90, 300, -1)
 						if (t.angle>=-30 && t.angle<=30)  plugin.rotateCube(cs3, 0, 300, 0)
 					}
 					else {
-						t.isAnimating  = cs3.isAnimating = true;
-						if (t.diff > cs3.width/5) plugin.slideSlices(cs3, cs3.width, 300, 1);
+						t.isAnimating  = cs3.isAnimating = true
+						if (t.diff > cs3.width/5) plugin.slideSlices(cs3, cs3.width, 300, 1)
 						if (t.diff < -cs3.width/5) plugin.slideSlices(cs3, -cs3.width, 300, -1)
 						if (t.diff <= cs3.width/5 && t.diff >= -cs3.width/5)  plugin.slideSlices(cs3, 0, 300, 0)
 					}
 					//Callback
 					if (cs3.params.callbacks.onTouchEnd) cs3.params.callbacks.onTouchEnd(cs3)
-				});
+				})
 			}
 
 			// Calc Max Index
-			t.maxDelay = 0;
+			t.maxDelay = 0
 			cs3.l.children().each(function(){
-				var delay = cs3.h.getDelay({index: $(this).index(), grid:t.sliced, delay:-0.8, type:'linear', startIndex: t.startIndex});
-				if (delay>t.maxDelay) t.maxDelay = delay;
-			});
+				var delay = cs3.h.getDelay({index: $(this).index(), grid:t.sliced, delay:-0.8, type:'linear', startIndex: t.startIndex})
+				if (delay>t.maxDelay) t.maxDelay = delay
+			})
 		},
 
 		/*====
 	  onStart Interception
 	  ====*/
 		onStart : function(cs3, calledBy) {
-			if (calledBy == 'touch') return;
-			if (!cs3.params.touch || !cs3.support.touch || !cs3.support.css3) return;
-			if (cs3.params.touch && cs3.params.touch.enabled!=true) return;
-			cs3.e.preventedByPlugin = true;
-			var dir = cs3.direction;
+			if (calledBy == 'touch') return
+			if (!cs3.params.touch || !cs3.support.touch || !cs3.support.css3) return
+			if (cs3.params.touch && cs3.params.touch.enabled!=true) return
+			cs3.e.preventedByPlugin = true
+			var dir = cs3.direction
 
 
-			var effect = cs3.params.touch.effect;
+			var effect = cs3.params.touch.effect
 			if (cs3.params.responsive) {
-				cs3.slides.eq( cs3.h.indexes().active).show();
-				cs3.h.updateDimension();
-				cs3.slides.eq( cs3.h.indexes().active).hide();
+				cs3.slides.eq( cs3.h.indexes().active).show()
+				cs3.h.updateDimension()
+				cs3.slides.eq( cs3.h.indexes().active).hide()
 			}
 			if ( effect.indexOf('flip')>=0) {
-				cs3.l.find('.cs3-back-face').css({ 'background-image'  : 'url('+cs3.images[ cs3.newSlideIndex ]+')' });
-				if (dir===1) cs3.plugins.touch.rotateSlices(cs3, -180, 400, -1, true);
-				else cs3.plugins.touch.rotateSlices(cs3, 180, 400, 1, true);
+				cs3.l.find('.cs3-back-face').css({ 'background-image'  : 'url('+cs3.images[ cs3.newSlideIndex ]+')' })
+				if (dir===1) cs3.plugins.touch.rotateSlices(cs3, -180, 400, -1, true)
+				else cs3.plugins.touch.rotateSlices(cs3, 180, 400, 1, true)
 			}
 			else if (effect == 'cube') {
 
 				if (dir===1) {
-					cs3.l.find('.cs3-right-face').css({ 'background-image'  : 'url('+cs3.images[ cs3.newSlideIndex ]+')' });
-					cs3.plugins.touch.rotateCube(cs3, -90, 400, -1, true);
+					cs3.l.find('.cs3-right-face').css({ 'background-image'  : 'url('+cs3.images[ cs3.newSlideIndex ]+')' })
+					cs3.plugins.touch.rotateCube(cs3, -90, 400, -1, true)
 				}
 				else {
-					cs3.l.find('.cs3-left-face').css({ 'background-image'  : 'url('+cs3.images[ cs3.newSlideIndex ]+')' });
-					cs3.plugins.touch.rotateCube(cs3, 90, 400, 1, true);
+					cs3.l.find('.cs3-left-face').css({ 'background-image'  : 'url('+cs3.images[ cs3.newSlideIndex ]+')' })
+					cs3.plugins.touch.rotateCube(cs3, 90, 400, 1, true)
 				}
 			}
 			else {
 				if (dir===1) {
 					cs3.l.find('.cs3-slice').each(function(){
-						var a = $(this);
+						var a = $(this)
 						if ( a.index() == 2 ) {
 							a.css({'background-image'  : 'url('+cs3.images[ cs3.newSlideIndex ]+')'	})
 						}
 					})
-					cs3.plugins.touch.slideSlices(cs3, -cs3.width, 400, -1, true);
+					cs3.plugins.touch.slideSlices(cs3, -cs3.width, 400, -1, true)
 				}
 				else {
 					cs3.l.find('.cs3-slice').each(function(){
-						var a = $(this);
+						var a = $(this)
 						if ( a.index() == 1 ) {
 							a.css({'background-image'  : 'url('+cs3.images[ cs3.newSlideIndex ]+')'	})
 						}
 					})
-					cs3.plugins.touch.slideSlices(cs3, cs3.width, 400, 1, true);
+					cs3.plugins.touch.slideSlices(cs3, cs3.width, 400, 1, true)
 				}
 			}
 
@@ -4057,28 +4057,28 @@
 	  onEnd Callbacks and Updates
 	  ====*/
 		onEnd : function(cs3, calledBy) {
-			if (calledBy == 'touch') return;
-			if (!cs3.params.touch || !cs3.support.touch || !cs3.support.css3) return;
-			if (cs3.params.touch && cs3.params.touch.enabled!=true) return;
-			cs3.plugins.touch.init(cs3);
-			cs3.e.preventedByPlugin = false;
+			if (calledBy == 'touch') return
+			if (!cs3.params.touch || !cs3.support.touch || !cs3.support.css3) return
+			if (cs3.params.touch && cs3.params.touch.enabled!=true) return
+			cs3.plugins.touch.init(cs3)
+			cs3.e.preventedByPlugin = false
 		},
 
 		/*====
 	  Flip Function
 	  ====*/
 		rotateSlices : function (cs3, angle, time, update, external) {
-			var t = cs3._plugins.touch;
-			var time = time || 0;
+			var t = cs3._plugins.touch
+			var time = time || 0
 			cs3.l.children().each(function(){
 				var a = $(this)
 				var index = a.index()
 				if (time===0 && t.params.effect == 'flip-m') {
-					var delay = cs3.h.getDelay({index:index, grid:t.sliced, delay:-0.8, type:'linear', startIndex: t.startIndex});
+					var delay = cs3.h.getDelay({index:index, grid:t.sliced, delay:-0.8, type:'linear', startIndex: t.startIndex})
 					var angle2 = angle  - delay/t.maxDelay*angle/2
 				}
 				else {
-					var angle2 = angle;
+					var angle2 = angle
 				}
 				a.csTransform({
 					transform: 'rotateY('+angle2+'deg) translate3d(0,0,0)',
@@ -4088,16 +4088,16 @@
 				})
 			})
 			if (update===1 || update===-1 || update === 0) {
-				if (update === -1 && !external) cs3.newSlideIndex = cs3.h.indexes().next;
-				if (update ===  1 && !external) cs3.newSlideIndex = cs3.h.indexes().prev;
+				if (update === -1 && !external) cs3.newSlideIndex = cs3.h.indexes().next
+				if (update ===  1 && !external) cs3.newSlideIndex = cs3.h.indexes().prev
 				cs3.l.children().eq(0).csTransitionEnd(function(){
-					t.isTouched = false;
-					t.isAnimating = cs3.isAnimating = false;
+					t.isTouched = false
+					t.isAnimating = cs3.isAnimating = false
 
 					//Animation End, run callback for all other plugins
-					if (update===0) cs3._plugins.onEnd(cs3, 'touch');
-					if (update===1 || update===-1) cs3.updateSlides();
-					cs3.plugins.touch.init(cs3);
+					if (update===0) cs3._plugins.onEnd(cs3, 'touch')
+					if (update===1 || update===-1) cs3.updateSlides()
+					cs3.plugins.touch.init(cs3)
 				})
 
 			}
@@ -4107,16 +4107,16 @@
 	  Cube Function
 	  ====*/
 		rotateCube : function (cs3, angle, time, update, external) {
-			var t = cs3._plugins.touch;
-			var time = time || 0;
+			var t = cs3._plugins.touch
+			var time = time || 0
 			cs3.l.children().each(function(){
 				var a = $(this)
 				var index = a.index()
 
 				//Translates
-				var translateX =   cs3.width * Math.sin( angle * 2 * Math.PI/360 ) / 2;
-				var translateZ =   - cs3.width * Math.cos( angle * 2 * Math.PI/360 ) / 2 + cs3.width /2;
-				translateX = Math.round(translateX);
+				var translateX =   cs3.width * Math.sin( angle * 2 * Math.PI/360 ) / 2
+				var translateZ =   - cs3.width * Math.cos( angle * 2 * Math.PI/360 ) / 2 + cs3.width /2
+				translateX = Math.round(translateX)
 				a.csTransform({
 					transform: 'rotateY('+angle+'deg) translate3d('+translateX+'px,0,'+translateZ+'px)',
 					time: time,
@@ -4125,16 +4125,16 @@
 				})
 			})
 			if (update===1 || update===-1 || update === 0) {
-				if (update === -1 && !external) cs3.newSlideIndex = cs3.h.indexes().next;
-				if (update ===  1 && !external) cs3.newSlideIndex = cs3.h.indexes().prev;
+				if (update === -1 && !external) cs3.newSlideIndex = cs3.h.indexes().next
+				if (update ===  1 && !external) cs3.newSlideIndex = cs3.h.indexes().prev
 				cs3.l.children().eq(0).csTransitionEnd(function(){
-					t.isTouched = false;
-					t.isAnimating = cs3.isAnimating = false;
+					t.isTouched = false
+					t.isAnimating = cs3.isAnimating = false
 
 					//Animation End, run callback for all other plugins
-					if (update===0) cs3._plugins.onEnd(cs3, 'touch');
-					if (update===1 || update===-1) cs3.updateSlides();
-					cs3.plugins.touch.init(cs3);
+					if (update===0) cs3._plugins.onEnd(cs3, 'touch')
+					if (update===1 || update===-1) cs3.updateSlides()
+					cs3.plugins.touch.init(cs3)
 				})
 
 			}
@@ -4145,13 +4145,13 @@
 	  ====*/
 		slideSlices : function (cs3, size, time, update, external) {
 
-			var time = time || 0;
-			var t = cs3._plugins.touch;
+			var time = time || 0
+			var t = cs3._plugins.touch
 			cs3.l.children().each(function(){
 				var a = $(this)
 				var index = a.index()
 				if (time===0 && t.params.effect == 'slide-m') {
-					var delay = cs3.h.getDelay({index:index, grid:t.sliced, delay:0.5, type:'linear', startIndex: t.startIndex});
+					var delay = cs3.h.getDelay({index:index, grid:t.sliced, delay:0.5, type:'linear', startIndex: t.startIndex})
 					var size2 = (t.maxDelay-delay/3)/t.maxDelay * size
 				}
 				else var size2 = size
@@ -4165,20 +4165,20 @@
 				})
 			})
 			if (update===1 || update===-1 || update === 0) {
-				if (update === -1 && !external) cs3.newSlideIndex = cs3.h.indexes().next;
-				if (update ===  1 && !external) cs3.newSlideIndex = cs3.h.indexes().prev;
+				if (update === -1 && !external) cs3.newSlideIndex = cs3.h.indexes().next
+				if (update ===  1 && !external) cs3.newSlideIndex = cs3.h.indexes().prev
 				cs3.l.children().eq(0).csTransitionEnd(function(){
-					t.isTouched = false;
-					t.isAnimating = cs3.isAnimating = false;
+					t.isTouched = false
+					t.isAnimating = cs3.isAnimating = false
 					//Animation End, run callback for all other plugins
-					if (update===0) cs3._plugins.onEnd(cs3, 'touch');
-					if (update===1 || update===-1) cs3.updateSlides();
-					cs3.plugins.touch.init(cs3);
+					if (update===0) cs3._plugins.onEnd(cs3, 'touch')
+					if (update===1 || update===-1) cs3.updateSlides()
+					cs3.plugins.touch.init(cs3)
 				})
 			}
 		}
 
-	};
+	}
 
 
 	/*
@@ -4193,13 +4193,13 @@
 
 	ChopSlider3.prototype.plugins.gallery = {
 		init : function(cs3) {
-			if (!cs3.params.gallery) return;
-			if (cs3.params.gallery && cs3.params.gallery.enabled!=true) return;
-			if (!cs3.params.gallery.trigger) return;
-			var params = cs3.params.gallery;
+			if (!cs3.params.gallery) return
+			if (cs3.params.gallery && cs3.params.gallery.enabled!=true) return
+			if (!cs3.params.gallery.trigger) return
+			var params = cs3.params.gallery
 
 			if ($('.cs3-gallery').length==0) {
-				$('body').append('<div class="cs3-gallery"></div>');
+				$('body').append('<div class="cs3-gallery"></div>')
 			}
 			var gallery = $('.cs3-gallery')
 
@@ -4218,76 +4218,76 @@
 				$(params.trigger).css({display:'none'})
 				cs3.c.hover(
 					function(){
-						if (cs3.isAnimating) return false;
-						$(params.trigger).fadeIn(300);
+						if (cs3.isAnimating) return false
+						$(params.trigger).fadeIn(300)
 					},
 					function(){
-						if (cs3.isAnimating) return false;
+						if (cs3.isAnimating) return false
 						$(params.trigger).fadeOut(300)
 					}
 				)
 			}
 		},
 		onStart : function(cs3) {
-			if (!cs3.params.gallery) return;
-			if (cs3.params.gallery && cs3.params.gallery.enabled!=true) return;
-			if (!cs3.params.gallery.trigger) return;
+			if (!cs3.params.gallery) return
+			if (cs3.params.gallery && cs3.params.gallery.enabled!=true) return
+			if (!cs3.params.gallery.trigger) return
 
 			var params = cs3.params.gallery
 
 			if (params.hideOnStart || params.showOnlyOnHover) {
-				$(params.trigger).fadeOut(200);
+				$(params.trigger).fadeOut(200)
 			}
 
 
 		},
 		onEnd : function(cs3) {
-			if (!cs3.params.gallery) return;
-			if (cs3.params.gallery && cs3.params.gallery.enabled!=true) return;
-			if (!cs3.params.gallery.trigger) return;
+			if (!cs3.params.gallery) return
+			if (cs3.params.gallery && cs3.params.gallery.enabled!=true) return
+			if (!cs3.params.gallery.trigger) return
 
 			var params = cs3.params.gallery
 
 			if (params.hideOnStart || params.showOnlyOnHover) {
-				$(params.trigger).fadeIn(200);
+				$(params.trigger).fadeIn(200)
 			}
 		},
 		start : function(cs3) {
-			if (!cs3.params.gallery) return;
-			if (cs3.params.gallery && cs3.params.gallery.enabled!=true) return;
-			if (!cs3.params.gallery.trigger) return;
+			if (!cs3.params.gallery) return
+			if (cs3.params.gallery && cs3.params.gallery.enabled!=true) return
+			if (!cs3.params.gallery.trigger) return
 
-			cs3.autoplayStop();
+			cs3.autoplayStop()
 
 			//FS Classes
 			$('body').addClass('cs3-gallery-enabled')
 			$('body').children().not('.cs3-gallery').each(function(index, element) {
 				$(this).addClass('cs3-gallery-hidden')
-			});
+			})
 
 			//FullScreen Open
-			var el = document.documentElement;
-			var rfs = el.requestFullScreen || el.webkitRequestFullScreen || el.oRequestFullScreen || el.mozRequestFullScreen || el.msRequestFullScreen;
-			if (rfs) rfs.call(el);
+			var el = document.documentElement
+			var rfs = el.requestFullScreen || el.webkitRequestFullScreen || el.oRequestFullScreen || el.mozRequestFullScreen || el.msRequestFullScreen
+			if (rfs) rfs.call(el)
 
 			//Gallery
-			var gallery = $('.cs3-gallery').html('').append('<div class="cs3-gt-left"></div><div class="cs3-gt-right"></div>');
-			gallery.append('<div class="cs3-gallery-thumbs"><div class="cs3-gallery-thumbs-inner"></div></div>');
+			var gallery = $('.cs3-gallery').html('').append('<div class="cs3-gt-left"></div><div class="cs3-gt-right"></div>')
+			gallery.append('<div class="cs3-gallery-thumbs"><div class="cs3-gallery-thumbs-inner"></div></div>')
 			gallery.append('<div class="cs3-gallery-close"></div><div class="cs3-gallery-right"></div><div class="cs3-gallery-left"></div>')
 
 			//Wrapper and Inner
 			$('.cs3-gallery').append('<div class="cs3-gallery-wrapper"><div class="cs3-gallery-inner"></div></div>')
-			var innerHTML = '';
+			var innerHTML = ''
 			for(var i=0; i<cs3.images.length; i++) {
 				if (!cs3.slides.eq(i).hasClass('cs3-video-slide'))
-					innerHTML+='<div class="cs3-gallery-slide"><img src="'+cs3.images[i]+'"></div>';
+					innerHTML+='<div class="cs3-gallery-slide"><img src="'+cs3.images[i]+'"></div>'
 				else {
 					var frame = cs3.slides.eq(i).find('iframe')
 					if (frame.data('videoservice')=='youtube' && 'stopVideo' in cs3.slides.eq(i).data('player')) cs3.slides.eq(i).data('player').stopVideo()
 					if (frame.data('videoservice')=='vimeo' && window.$f) $f(frame[0]).api('pause')
 
-					var videoClass = frame.length>0?'cs3-gallery-video-slide':'';
-					innerHTML+='<div class="'+videoClass+' cs3-gallery-slide">'+cs3.slides.eq(i).find('.cs3-video').html()+'</div>';
+					var videoClass = frame.length>0?'cs3-gallery-video-slide':''
+					innerHTML+='<div class="'+videoClass+' cs3-gallery-slide">'+cs3.slides.eq(i).find('.cs3-video').html()+'</div>'
 				}
 			}
 			$('.cs3-gallery-inner').html(innerHTML)
@@ -4316,13 +4316,13 @@
 				onSlideChangeEnd : function () {
 					$('.cs3-gallery iframe').each(function(index, val) {
 						var src = $(this).attr('src')
-						if (!src) return;
+						if (!src) return
 						var frame = $(this)
 						frame.attr('src','')
 						setTimeout(function () {
 							frame.attr('src',src)
 						},100)
-					});
+					})
 				}
 
 			},cs3)
@@ -4347,58 +4347,58 @@
 
 			//Clicks
 			$('.cs3-gallery-thumb').click(function(e) {
-				e.preventDefault();
+				e.preventDefault()
 				cs3._plugins.gallery.swiper.swipeTo($(this).index())
-			});
+			})
 			$('.cs3-gallery-right').click(function(e) {
 				if (!$(this).hasClass('cs3-hidden-control'))
 					cs3._plugins.gallery.swiper.swipeNext()
-			});
+			})
 			$('.cs3-gallery-left').click(function(e) {
 				if (!$(this).hasClass('cs3-hidden-control'))
 					cs3._plugins.gallery.swiper.swipePrev()
-			});
+			})
 			$('.cs3-gallery-close').click(function(e) {
-				if ($(this).hasClass('cs3-hidden-control')) return;
+				if ($(this).hasClass('cs3-hidden-control')) return
 				if (!cs3.support.fullscreen) {
 					cs3.plugins.gallery.exit(cs3)
 					return
 				}
 				if (document.exitFullscreen) {
-					document.exitFullscreen();
+					document.exitFullscreen()
 				}
 				else if (document.mozCancelFullScreen) {
-					document.mozCancelFullScreen();
+					document.mozCancelFullScreen()
 				}
 				else if (document.webkitCancelFullScreen) {
-					document.webkitCancelFullScreen();
+					document.webkitCancelFullScreen()
 				}
 				else if (document.oCancelFullScreen) {
-					document.oCancelFullScreen();
+					document.oCancelFullScreen()
 				}
 				else if (document.msCancelFullScreen) {
-					document.msCancelFullScreen();
+					document.msCancelFullScreen()
 				}
 
-			});
+			})
 
 			//Toggle Controls
 			var startPos
 			var endPos
 			$('.cs3-gallery-slide').mousedown(function(e) {
-				startPos = e.pageX;
+				startPos = e.pageX
 			})
 			$('.cs3-gallery-slide').mouseup(function(e) {
-				endPos = e.pageX;
+				endPos = e.pageX
 			})
 			$('.cs3-gallery-slide').click(function(e) {
 				if (cs3.support.touch) {
 					toggleControls()
-					return;
+					return
 				}
 				var diff = Math.abs(endPos - startPos)
 				if (diff<10) toggleControls()
-			});
+			})
 			function toggleControls() {
 				$('.cs3-gallery-left, .cs3-gallery-right, .cs3-gallery-close').csTransform({time:300}).toggleClass('cs3-hidden-control')
 				if (cs3.params.captions && cs3.params.captions.enabled) {
@@ -4412,21 +4412,21 @@
 				e.preventDefault()
 				var maxPos = -($('.cs3-gallery-thumbs-inner').width() - $('.cs3-gallery-thumbs').width())
 				var newPos = $('.cs3-gallery-thumbs-inner').position().left-54
-				if (newPos<maxPos) newPos=maxPos;
+				if (newPos<maxPos) newPos=maxPos
 				$('.cs3-gallery-thumbs-inner').css({left:newPos})
-			});
+			})
 			$('.cs3-gt-left').click(function(e) {
 				e.preventDefault()
 				var newPos = $('.cs3-gallery-thumbs-inner').position().left+54
-				if (newPos>0) newPos=0;
+				if (newPos>0) newPos=0
 				$('.cs3-gallery-thumbs-inner').css({left:newPos})
-			});
+			})
 			function updateThumbs() {
 				if ($('.cs3-gt-arrows').length>0)
 					var newIndex = cs3._plugins.gallery.swiper.activeSlide
 				var newPos = -newIndex*54
 				var maxPos = -($('.cs3-gallery-thumbs-inner').width() - $('.cs3-gallery-thumbs').width())
-				if (newPos<maxPos) newPos=maxPos;
+				if (newPos<maxPos) newPos=maxPos
 				$('.cs3-gallery-thumbs-inner').css({left:newPos})
 			}
 
@@ -4457,7 +4457,7 @@
 				}
 				updateThumbs()
 			}
-			resize();
+			resize()
 			$(window).resize(resize)
 
 
@@ -4466,24 +4466,24 @@
 			//Detect FullScreen Exit
 			if (cs3.support.fullscreen) {
 				document.addEventListener("fullscreenchange", function () {
-					checkFS(document.fullscreen);
-				}, false);
+					checkFS(document.fullscreen)
+				}, false)
 
 				document.addEventListener("ofullscreenchange", function () {
-					checkFS(document.fullscreen);
-				}, false);
+					checkFS(document.fullscreen)
+				}, false)
 
 				document.addEventListener("msfullscreenchange", function () {
-					checkFS(document.fullscreen);
-				}, false);
+					checkFS(document.fullscreen)
+				}, false)
 
 				document.addEventListener("mozfullscreenchange", function () {
-					checkFS (document.mozFullScreen);
-				}, false);
+					checkFS (document.mozFullScreen)
+				}, false)
 
 				document.addEventListener("webkitfullscreenchange", function () {
-					checkFS (document.webkitIsFullScreen);
-				}, false);
+					checkFS (document.webkitIsFullScreen)
+				}, false)
 			}
 
 			function checkFS(state) {
@@ -4495,9 +4495,9 @@
 		},
 
 		exit : function (cs3) {
-			if (!cs3.params.gallery) return;
-			if (cs3.params.gallery && cs3.params.gallery.enabled!=true) return;
-			if (!cs3.params.gallery.trigger) return;
+			if (!cs3.params.gallery) return
+			if (cs3.params.gallery && cs3.params.gallery.enabled!=true) return
+			if (!cs3.params.gallery.trigger) return
 
 			$('body').removeClass('cs3-gallery-enabled')
 			$('.cs3-gallery-hidden').removeClass('cs3-gallery-hidden')
@@ -4509,6 +4509,6 @@
 
 	//Chop Slider 3 jQuery Plugin
 	$.fn.cs3 = function(a) {
-		return new ChopSlider3( $(this), a);
+		return new ChopSlider3( $(this), a)
 	}
 })(jQuery)
