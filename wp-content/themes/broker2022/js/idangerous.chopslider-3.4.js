@@ -1352,14 +1352,16 @@
 			})
 			cs3.l.find('.cs3-slices-block').csTransform({transform:'rotate(0deg) translate3d(0px,0,0)'})
 			cs3.prepare({l:1, active:1})
-			setTimeout(function(){
-				cs3.l.find('.cs3-slices-block').each(function(){
+
+			setTimeout(function() {
+				cs3.l.find('.cs3-slices-block').each(function() {
 					var a = $(this)
 					var index = a.index()
 					var left = parseInt(a.css('left'),10)
 					var top = parseInt(a.css('top'),10)
 					var delay = (j-index-1) * 50
 					var ease = 'ease-in-out'
+
 					a.csTransform({
 						delay: delay,
 						transform: 'rotate(-360deg) translate3d(30px,0,0)',
@@ -1369,26 +1371,29 @@
 						.css({left: left-(cs3.width-size)-30 , top: top-(cs3.height-size)})
 					a.children().eq(0).csTransform({time:500, delay: delay+1500, ease: ease}).css({opacity:0})
 					a.children().eq(1).csTransform({time:1000, delay: delay+1000, ease: ease}).css({opacity:1})
-					if (index==0) {
+
+					if (index === 0) {
 						cs3.l.children().eq(0).csTransform({time:2000, delay:delay, ease: ease}).css({opacity:1})
 							.csTransitionEnd(function(){ cs3.updateSlides() })
 					}
 				})
-
 			},50)
 		},
 		reveal : function (cs3) {
 			var sliced = cs3.h.slice({index1:cs3.h.indexes().active, cols:1, rows:2})
+
 			cs3.l[0].innerHTML = sliced.html
 			cs3.l.css({overflow:'hidden'})
 			cs3.l[0].innerHTML+='<div style="background-image:url('+cs3.images[cs3.newSlideIndex]+'); width:'+cs3.width+'px; height:'+cs3.height+'px; position:absolute; z-index:0; left:0; top:0"></div>'
 			cs3.prepare({ l:1, active : 0, 'new' : 0 })
+
 			var top = cs3.l.children().eq(0).css({position:'absolute', zIndex:10})
 			var bot = cs3.l.children().eq(1).css({position:'absolute', zIndex:10})
 			var back = cs3.l.children().eq(2)
 				.csTransform({
 					transform:'scale(0.8) translate3d('+(Math.random()*200-100)+'px,0,0) rotate('+(Math.random()*10-5)+'deg)'
 				})
+
 			setTimeout(function () {
 				top
 					.css({opacity:1})
@@ -1416,24 +1421,18 @@
 		}
 	}
 
-	/*
-	=================================
-	Chop Slider 3 - 3D Effects
-	=================================
-*/
-
+	// Chop Slider 3 - 3D Effects
 	ChopSlider3.prototype.e.threeD = {
-
-		/* =======================
-		3D Turn
-	==========================*/
-
+		// 3D Turn
 		turn: function(cs3) {
 			var dir = cs3.direction
 			var sliced = cs3.h.slice({index1:cs3.h.indexes().active, cols:2, rows:1})
+
 			cs3.l[0].innerHTML = sliced.html
+
 			var dummy = cs3.l.append('<div class="cs3-dummy"></div>').find('.cs3-dummy')
-			if (dir===1) {
+
+			if (dir === 1) {
 				cs3.l.children().eq(1).appendTo(dummy)
 				dummy.children().clone().appendTo(dummy)
 				dummy.children().eq(1).css({
@@ -1452,60 +1451,62 @@
 				})
 					.csTransform({transform:'rotateY(-180deg) translate3d(0,0,2px)'})
 			}
+
 			cs3.l.find('.cs3-slice:eq(0)').clone().insertAfter(cs3.l.children().eq(0)).addClass('cs3-fade-black').csTransform({time:500, delay:200})
 			cs3.prepare({l:1, 'new' : 1, active:0, p: true})
-			//cs3.h.setPerspective({value:1200}, dummy)
+
 			setTimeout(function(){
 				cs3.l.find('.cs3-fade-black').css({opacity:0.3})
 				dummy.csTransform({
-					transform: dir===1 ? 'rotateY(-179.9deg)' : 'rotateY(179.9deg)',
+					transform: dir === 1 ? 'rotateY(-179.9deg)' : 'rotateY(179.9deg)',
 					time:700
 				})
 					.csTransitionEnd(function(){ cs3.updateSlides() })
 			},50)
-
 		}, // <- End Turn
-
-		/* =======================
-		3D Bars
-	==========================*/
-
+		// 3D Bars
 		_flip : function(cs3, p) {
 			p = p || {}
 			p.cols = p.cols || 1
 			p.rows = p.rows || 6
 			p.type = p.type || 'h'
+
 			var newFaceRotate
 			var dir = cs3.direction
-			if (dir==1) {
+
+			if (dir === 1) {
 				newFaceRotate = p.type=='h' ? 'rotateY(180deg)' : 'rotateX(180deg)'
 			}
 			else {
-				newFaceRotate = p.type=='h' ? 'rotateY(-180deg)' : 'rotateX(-180deg)'
+				newFaceRotate = p.type === 'h' ? 'rotateY(-180deg)' : 'rotateX(-180deg)'
 			}
+
 			var make3d = {
 				newFace : 'back',
 				newFaceRotate : newFaceRotate
 			}
+
 			var sliced = cs3.h.slice({index1:cs3.h.indexes().active, index2: cs3.newSlideIndex, cols:p.cols, rows:p.rows, wrap:true, make3d:make3d })
 
 			cs3.l[0].innerHTML = sliced.html
 			cs3.prepare({l:1, active:0, p:true})
 
-			var lastIndex = p.type=='h' ? p.rows-1 : 0
-			setTimeout(function(){
-				cs3.l.children().each(function(){
+			var lastIndex = p.type === 'h' ? p.rows-1 : 0
+
+			setTimeout(function() {
+				cs3.l.children().each(function() {
 					var a = $(this)
 					var index = a.index()
-					var delay = p.type == 'h' ? 50*index : 50*(p.cols-index)
+					var delay = p.type === 'h' ? 50 * index : 50 * (p.cols-index)
+
 					a.csTransform({
 						transform: make3d.newFaceRotate,
 						time:1000,
 						delay: delay,
 						ease: 'cubic-bezier(1, 0 , 0.8, 1.2)'
 					})
-						.csTransitionEnd(function(){
-							if (a.index()==lastIndex) cs3.updateSlides()
+						.csTransitionEnd(function() {
+							if (a.index() === lastIndex) cs3.updateSlides()
 						})
 				})
 			},50)
@@ -1529,28 +1530,33 @@
 				newFace : 'back',
 				newFaceRotate : 'rotateY(180deg)'
 			}
+
 			var sliced = cs3.h.slice({index1:cs3.h.indexes().active, index2: cs3.newSlideIndex, square: true, wrap:true, make3d:make3d })
 			var cols = sliced.cols
 			var rows = sliced.rows
+
 			cs3.l[0].innerHTML = sliced.html
 			cs3.prepare({l:1, active:0, p:true})
+
 			//Random Delays
 			var delays = []
 			var maxDelay = 0
+
 			for (var i=0; i <  cols*rows; i++) {
 				var rndDelay = Math.round(Math.random()*500)
 				delays.push( rndDelay )
 				maxDelay = Math.max( maxDelay , rndDelay )
 			}
+
 			var lastIndex =  sliced.rows-1
 
-			setTimeout(function(){
-
-				cs3.l.children().each(function(){
+			setTimeout(function() {
+				cs3.l.children().each(function() {
 					var a = $(this)
 					var index = a.index()
 					var rotateY = index%2==0 ? 180 : 0
 					var rotateX = index%2==0 ? 0 : 180
+
 					a.find('.cs3-back-face').csTransform({transform:'rotateX('+rotateX+'deg) rotateY('+rotateY+'deg)'})
 					a.csTransform({
 						transform: 'rotateX('+rotateX+'deg) rotateY('+rotateY+'deg)',
@@ -1558,15 +1564,12 @@
 						delay: delays[index]
 					})
 						.csTransitionEnd(function(){
-							if (delays[index]==maxDelay) cs3.updateSlides()
+							if (delays[index] === maxDelay) cs3.updateSlides()
 						})
 				})
 			},50)
 		},
-		/* =======================
-		3D Blocks V
-	==========================*/
-
+		// 3D Blocks V
 		_blocks_v : function(cs3, p) {
 			var dir = cs3.direction
 			var cols = p.cols
@@ -1575,28 +1578,33 @@
 				newFace : dir === 1 ? 'top' : 'bottom',
 				depth: depth
 			}
+
 			if (p.newFace) {
 				make3d.newFace = p.newFace
 				make3d.newFaceRotate = p.newFaceRotate
 			}
+
 			var sliced = cs3.h.slice({index1:cs3.h.indexes().active, index2: cs3.newSlideIndex, cols:cols, rows:1, wrap:true, make3d:make3d })
 
 			cs3.l[0].innerHTML = sliced.html
 			cs3.prepare({l:1, active:0, p:true})
 
 			var lastIndex =  0
-			setTimeout(function(){
-				cs3.l.children().each(function(){
-					var a = $(this)
-					var index = a.index()
-					var delay = p.delay*(cols-index)
-					var rotate = dir === 1 ? -p.rotate : p.rotate
-					var translateY = dir === 1 ? depth/2 : -depth/2
-					var translateZ = depth/2
-					if (make3d.newFace=='back') {
+
+			setTimeout(function() {
+				cs3.l.children().each(function() {
+					var a               = $(this)
+					var index           = a.index()
+					var delay           = p.delay * (cols-index)
+					var rotate          = dir === 1 ? -p.rotate : p.rotate
+					var translateY      = dir === 1 ? depth / 2 : -depth / 2
+					var translateZ      = depth / 2
+
+					if (make3d.newFace === 'back') {
 						translateY = 0
 						translateZ = depth
 					}
+
 					a.csTransform({
 						transform: 'rotateX('+rotate+'deg) translate3d(0,'+translateY+'px,'+translateZ+'px)',
 						time: p.time,
@@ -1604,13 +1612,11 @@
 						ease: p.ease
 					})
 						.csTransitionEnd(function(){
-							if (a.index()==lastIndex) cs3.updateSlides()
+							if (a.index() === lastIndex) cs3.updateSlides()
 						})
 				})
 			},50)
-
 		},
-
 		blocks_v_1 : function(cs3) {
 			cs3.e.threeD._blocks_v (cs3, {
 				cols:6,
@@ -1626,7 +1632,7 @@
 			var cols = Math.floor(cs3.width/50)
 			var depth = cs3.height
 			var make3d = {
-				newFace : dir==1 ? 'top' : 'bottom',
+				newFace : dir === 1 ? 'top' : 'bottom',
 				depth: depth,
 				newFaceRotate : 'rotateX(180deg)'
 			}
@@ -1636,27 +1642,29 @@
 			cs3.l[0].innerHTML = sliced.html
 			cs3.prepare({l:1, active:0, p:true})
 
-			var lastIndex =  dir==1 ? 0 : sliced.cols-1
-			setTimeout(function(){
-				cs3.l.children().each(function(){
+			var lastIndex =  dir === 1 ? 0 : sliced.cols-1
+
+			setTimeout(function() {
+				cs3.l.children().each(function() {
 					var a = $(this)
 					var index = a.index()
 					var delay = dir === 1 ? 50*(cols-index) : 50*index
 					var rotate = dir === 1 ? -90 : 90
-					var translateY = dir === 1 ? depth/2 : -depth/2
+					var translateY = dir === 1 ? depth / 2 : -depth / 2
+
 					a.csTransform({
 						transform: 'translate3d(0,0px,'+-200+'px)',
 						time: 500,
 						delay: delay,
 						ease: 'ease-in-out'
 					})
-						.csTransitionEnd(function(){
+						.csTransitionEnd(function() {
 							a.csTransform({
 								transform: 'rotateX('+rotate+'deg) translate3d(0,'+translateY+'px,'+depth/2+'px)',
 								delay: 0
 							})
-								.csTransitionEnd(function(){
-									if (a.index()==lastIndex) cs3.updateSlides()
+								.csTransitionEnd(function() {
+									if (a.index() === lastIndex) cs3.updateSlides()
 								})
 						})
 				})
@@ -1674,7 +1682,6 @@
 				newFaceRotate : 'rotateX(180deg)'
 			})
 		},
-
 		blocks_v_4 : function(cs3, p) {
 			var cols = Math.floor(cs3.width/100)*3
 			var depth = 10
@@ -1689,11 +1696,13 @@
 			cs3.prepare({l:1, active:0, p:true})
 
 			var lastIndex =  0
-			setTimeout(function(){
-				cs3.l.children().each(function(){
+
+			setTimeout(function() {
+				cs3.l.children().each(function() {
 					var a = $(this)
 					var index = a.index()
 					var delay = 70*(cols-index)
+
 					a.csTransform({
 						transform: 'rotateX(30deg) translateZ('+depth+'px)',
 						time:800,
@@ -1701,8 +1710,8 @@
 						ease: 'ease-out',
 						origin: '50% 0%'
 					})
-						.csTransitionEnd(function(){
-							setTimeout(function(){
+						.csTransitionEnd(function() {
+							setTimeout(function() {
 								a.csTransform({
 									transform: 'rotateX(-180deg) translateZ('+depth+'px)',
 									time:800,
@@ -1710,9 +1719,8 @@
 									ease: 'cubic-bezier(1, 0 , 0.8, 1)',
 									origin: '50% 50%'
 								})
-									.csTransitionEnd(function(){
-
-										if ($(this).index()==lastIndex) cs3.updateSlides()
+									.csTransitionEnd(function() {
+										if ($(this).index() === lastIndex) cs3.updateSlides()
 									})
 							},50)
 						})
@@ -1733,12 +1741,14 @@
 			cs3.l[0].innerHTML = sliced.html
 			cs3.prepare({l:1, active:0, p:true})
 
-			var lastIndex = dir==1 ? 0 : sliced.cols-1
-			setTimeout(function(){
-				cs3.l.children().each(function(){
-					var a = $(this)
-					var index = a.index()
-					var delay = 50* (dir==1 ? (cols-index) : index)
+			var lastIndex = dir === 1 ? 0 : sliced.cols-1
+
+			setTimeout(function() {
+				cs3.l.children().each(function() {
+					var a       = $(this)
+					var index   = a.index()
+					var delay   = 50* (dir === 1 ? (cols-index) : index)
+
 					a.csTransform({
 						transform: 'rotateX(-120deg) translateZ('+depth+'px)',
 						time:600,
@@ -1746,8 +1756,8 @@
 						ease: 'ease-in-out',
 						origin: '50% 60%'
 					})
-						.csTransitionEnd(function(){
-							setTimeout(function(){
+						.csTransitionEnd(function() {
+							setTimeout(function() {
 								a.csTransform({
 									transform: 'rotateX(180deg) translateZ('+depth+'px)',
 									time:1200,
@@ -1755,8 +1765,8 @@
 									ease: 'ease-in-out',
 									origin: '50% 50%'
 								})
-									.csTransitionEnd(function(){
-										if ($(this).index()==lastIndex) cs3.updateSlides()
+									.csTransitionEnd(function() {
+										if ($(this).index() === lastIndex) cs3.updateSlides()
 									})
 							},50)
 						})
