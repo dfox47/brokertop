@@ -1159,35 +1159,38 @@
 	ChopSlider3.prototype.e.twoD = {
 		smear : function(cs3) {
 			var sliced = cs3.h.slice({index1:cs3.h.indexes().active , square: true})
+
 			cs3.l[0].innerHTML = sliced.html
 			cs3.prepare({ l:1, active : 0, 'new' : 1 })
-			setTimeout(function(){
-				cs3.l.children().each(function(){
+			setTimeout(function() {
+				cs3.l.children().each(function() {
 					var tX = cs3.direction ==1 ? 100 : -100
 					var r = cs3.direction ==1 ? 5 : -5
 					var start = cs3.direction == 1 ? 0 : sliced.cols
+
 					$(this).csTransform({
 						time:1000,
 						transform: 'scale(2,1.5) rotate('+r+'deg) translate3d('+tX+'px,0,0)',
 						delay:cs3.h.getDelay({type:'horizontal', index: $(this).index() , delay : 50, grid : sliced, startIndex : start})
 					})
 						.csTransitionEnd(function(){
-							if ($(this).index()==cs3.h.triggerIndex) cs3.updateSlides()
+							if ($(this).index() === cs3.h.triggerIndex) cs3.updateSlides()
 						})
 						.css({opacity:0})
 				})
 			},50)
-
 		},// <!- End Smear
 		__bars : function(cs3, p) {
 			p = p || {}
 			p.cols = p.cols || 1
 			p.rows = p.rows || 6
 			p.type = p.type || 'h'
+
 			var dir = cs3.direction
 			var sliced = cs3.h.slice({index1:cs3.h.indexes().active, index2: cs3.newSlideIndex, cols:p.cols, rows:p.rows, wrap:true})
+
 			cs3.l[0].innerHTML = sliced.html
-			cs3.l.find('.cs3-slice').each(function(){
+			cs3.l.find('.cs3-slice').each(function() {
 				var a = $(this)
 				var index = a.index()
 				var translateX = p.type=='h' ? ( index%2==0 ? 0 : (a.parent().index()%2==0 ? cs3.width : -cs3.width) ) : 0
@@ -1203,9 +1206,12 @@
 			setTimeout(function(){
 				cs3.l.children().each(function(){
 					var a = $(this)
-					var translateX = p.type=='h' ? (a.index()%2!=0 ? cs3.width : -cs3.width) : 0
+					var translateX = p.type === 'h' ? (a.index()%2 !== 0 ? cs3.width : -cs3.width) : 0
+
 					translateX = translateX * dir
-					var translateY = p.type=='h' ? 0 : (a.index()%2!=0 ? cs3.height : -cs3.height)
+
+					var translateY = p.type === 'h' ? 0 : (a.index()%2 !== 0 ? cs3.height : -cs3.height)
+
 					translateY = translateY * dir
 					a.csTransform({
 						transform: 'translate3d('+translateX+'px, '+translateY+'px, 0px)',
