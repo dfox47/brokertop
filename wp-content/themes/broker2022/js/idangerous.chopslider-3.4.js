@@ -2443,7 +2443,6 @@
 
 	// Chop Slider 3 - Canvas Effects
 	ChopSlider3.prototype.e.canvas = {
-
 		// Canvas Burn
 		burn:function (cs3) {
 			cs3.l.html('<canvas></canvas>')
@@ -2453,24 +2452,29 @@
 			image.src = cs3.images[cs3.h.indexes().active]
 			canvas.width = cs3.width
 			canvas.height = cs3.height
-			var context = canvas.getContext("2d")
-			context.drawImage(image, 0, 0, cs3.width, cs3.height)
-			var opacity = 1, colorMod = 0
 
+			var context = canvas.getContext("2d")
+
+			context.drawImage(image, 0, 0, cs3.width, cs3.height)
+
+			var opacity = 1, colorMod = 0
 
 			function render() {
 				opacity -= 0.05
 				context.globalAlpha = opacity
+
 				var i, x
 				for (x = -10; x <= 10; x += 5) context.drawImage(canvas, x, 0)
 
 				var imgd = context.getImageData(0, 0, canvas.width, canvas.height)
 				var pix = imgd.data
+
 				for (var i = 0, n = pix.length; i < n; i += 4) {
 					pix[i  ] = pix[i  ] + colorMod * pix[i  ] > 255 ? 255 : pix[i  ] + colorMod * pix[i  ]
 					pix[i + 1] = pix[i + 1] + colorMod * pix[i + 1 ] > 255 ? 255 : pix[i + 1  ] + colorMod * pix[i + 1 ]
 					pix[i + 2] = pix[i + 2] + colorMod * pix[i + 2 ] > 255 ? 255 : pix[i + 2  ] + colorMod * pix[i + 2  ]
 				}
+
 				colorMod += 0.005
 				context.putImageData(imgd, 0, 0)
 
@@ -2492,11 +2496,7 @@
 				})
 			}
 		},
-
-		/* =======================
-     Canvas Melt
-     ==========================*/
-
+		// Canvas Melt
 		melt:function (cs3) {
 			cs3.l.html('<canvas></canvas><canvas style="display:none"></canvas>')
 
@@ -2505,23 +2505,25 @@
 			image.src = cs3.path + 'assets/melt.png'
 			canvas.width = cs3.width
 			canvas.height = cs3.height
+
 			var context = canvas.getContext("2d")
 
-			//Second Canvas
-			var canvas2 = cs3.l.children()[1],
-				image2 = new Image()
-			image2.src = cs3.images[cs3.newSlideIndex]
-			canvas2.width = cs3.width
-			canvas2.height = cs3.height
+			// Second Canvas
+			var canvas2         = cs3.l.children()[1],
+				image2          = new Image()
+			image2.src          = cs3.images[cs3.newSlideIndex]
+			canvas2.width       = cs3.width
+			canvas2.height      = cs3.height
+
 			var context2 = canvas2.getContext("2d")
 			context2.drawImage(image2, 0, 0, cs3.width, cs3.height)
-			//--
 
 			var y = -200
 			var drops = Math.ceil(cs3.width / 370)
 
 			function draw() {
 				y += 3
+
 				for (var i = 0; i < drops; i++) {
 					context.drawImage(image, i * 370, y - i * 50)
 				}
@@ -2536,9 +2538,10 @@
 					pix[i  ] = pix2[i  ]
 					pix[i + 1] = pix2[i + 1]
 					pix[i + 2] = pix2[i + 2]
-
 				}
+
 				context.putImageData(imgd, 0, 0)
+
 				if (y < cs3.height + (drops - 1) * 50) cs3.h.animFrame(draw)
 				else cs3.updateSlides()
 			}
@@ -2546,13 +2549,10 @@
 			cs3.h.animFrame(draw)
 			cs3.prepare({l:1, active:1, 'new':0})
 		},
-
-		/* =======================
-     Canvas Scanner
-     ==========================*/
-
+		// Canvas Scanner
 		roll:function (cs3) {
 			var dir = cs3.direction
+
 			cs3.l.html('<canvas></canvas><canvas style="display:none"></canvas>')
 
 			var canvas = cs3.l.children()[0],
@@ -2562,7 +2562,7 @@
 			canvas.height = cs3.height
 			var context = canvas.getContext("2d")
 
-			//Second Canvas
+			// Second Canvas
 			var canvas2 = cs3.l.children()[1],
 				image2 = new Image()
 			image2.src = cs3.images[cs3.newSlideIndex]
@@ -2570,15 +2570,14 @@
 			canvas2.height = cs3.height
 			var context2 = canvas2.getContext("2d")
 			context2.drawImage(image2, 0, 0, cs3.width, cs3.height)
-			//--
 
 			var heights = Math.ceil(cs3.height / 30)
 			var x = dir === 1 ? cs3.width : -140
 
 			function draw() {
-				if (dir == 1)    x -= 20
+				if (dir === 1)    x -= 20
 				else x += 20
-				for (var i = 0; i < heights; i++) {
+				for (var i=0; i<heights; i++) {
 					context.drawImage(image, x, i * 30)
 				}
 
@@ -2593,47 +2592,46 @@
 					pix[i + 1] = pix2[i + 1]
 					pix[i + 2] = pix2[i + 2]
 				}
-				context.putImageData(imgd, 0, 0)
-				if (x < -140 && dir == 1) cs3.updateSlides()
-				else if (x > cs3.width + 140 && dir != 1) cs3.updateSlides()
-				else cs3.h.animFrame(draw)
 
+				context.putImageData(imgd, 0, 0)
+
+				if (x < -140 && dir === 1) cs3.updateSlides()
+				else if (x > cs3.width + 140 && dir !== 1) cs3.updateSlides()
+				else cs3.h.animFrame(draw)
 			}
 
 			cs3.h.animFrame(draw)
 			cs3.prepare({l:1, active:1, 'new':0})
 		},
-
-		/* =======================
-     Canvas Puzzles
-     ==========================*/
-
+		// Canvas Puzzles
 		puzzles:function (cs3) {
-			//Src Image
+			// Src Image
 			var image = new Image()
+
 			image.src = cs3.images[cs3.newSlideIndex]
 
-			//--
 			var pSize = 64
 			var cols = Math.ceil(cs3.width / pSize)
 			var rows = Math.ceil(cs3.height / pSize)
 
-			//PuzzleMask
+			// PuzzleMask
 			var puzzleMask = new Image()
+
 			puzzleMask.onload = function () {
 				createPuzzles()
-
 			}
+
 			puzzleMask.src = cs3.path + 'assets/puzzle.png'
 
-
-			//Create Canvases Puzzles
+			// Create Canvases Puzzles
 			function createPuzzles() {
-
 				var canvasMask = document.createElement('canvas')
+
 				canvasMask.width = 108
 				canvasMask.height = 108
+
 				var ctxMask = canvasMask.getContext('2d')
+
 				ctxMask.drawImage(puzzleMask, 0, 0)
 
 				for (var i = 0; i < rows * cols; i++) {
@@ -2649,23 +2647,30 @@
 					var xOffset = -column * 64 + 22
 					ctxPuzzle.drawImage(image, xOffset, yOffset, cs3.width, cs3.height)
 
-					//Mask Pixels
+					// Mask Pixels
 					var maskData = ctxMask.getImageData(0, 0, 108, 108)
 					var pixMask = maskData.data
-					//Puzzle Pixels
+
+					// Puzzle Pixels
 					var puzzleData = ctxPuzzle.getImageData(0, 0, 108, 108)
 					var pixPuzzle = puzzleData.data
-					//Change Pixels
+
+					// Change Pixels
 					for (var j = 0; j < pixPuzzle.length; j += 4) {
 						var index = j / 4,
 							pxRow = Math.floor(index / 108),
 							pxCol = index - 108 * pxRow,
 							prevent = false
-						if (pxCol < 22 && column == 0) prevent = true
-						if ((column == cols - 1) && (column * 64 + pxCol) >= (cs3.width + 22)) prevent = true
-						if ((row == rows - 1) && (row * 64 + pxRow) >= (cs3.height + 22)) prevent = true
-						if ((row == rows - 2) && (row * 64 + pxRow) >= (cs3.height + 22)) prevent = true
-						if (row == 0 && pxRow < 22) prevent = true
+						if (pxCol < 22 && column === 0) prevent = true
+
+						if ((column === cols - 1) && (column * 64 + pxCol) >= (cs3.width + 22)) prevent = true
+
+						if ((row === rows - 1) && (row * 64 + pxRow) >= (cs3.height + 22)) prevent = true
+
+						if ((row === rows - 2) && (row * 64 + pxRow) >= (cs3.height + 22)) prevent = true
+
+						if (row === 0 && pxRow < 22) prevent = true
+
 						if (!prevent) {
 							pixMask[j] = pixPuzzle[j]
 							pixMask[j + 1] = pixPuzzle[j + 1]
@@ -2675,8 +2680,10 @@
 							pixMask[j + 3] = 0
 						}
 					}
+
 					ctxPuzzle.putImageData(maskData, 0, 0)
-					//Add Shadow To Puzzles
+
+					// Add Shadow To Puzzles
 					ctxPuzzle.shadowColor = 'rgb(0,0,0)'
 					ctxPuzzle.shadowOffsetX = 0
 					ctxPuzzle.shadowOffsetY = 0
@@ -2686,8 +2693,8 @@
 					canvasPuzzle.style.left = (column * 64 - 22) + 'px'
 					canvasPuzzle.style.top = (row * 64 - 22) + 'px'
 					cs3.l.append(canvasPuzzle)
-
 				}
+
 				animatePuzzles()
 			}
 
@@ -2698,9 +2705,11 @@
 						transform:'scale(' + (cs3.support.css3 ? 1.8 : 1) + ')  translate3d(0px,' + (cs3.support.css3 ? -100 : 0) + 'px,0)'}
 					)
 					.css({opacity:0, marginTop:(cs3.support.css3 ? 0 : -100)})
+
 				setTimeout(function () {
 					var delays = []
 					var maxDelay = 0
+
 					for (var i = 0; i < cols * rows; i++) {
 						var rndDelay = Math.round(Math.random() * 1500)
 						delays.push(rndDelay)
@@ -2709,6 +2718,7 @@
 					cs3.l.find('canvas').each(function () {
 						var a = $(this)
 						var index = a.index()
+
 						if (cs3.support.css3) {
 							a.csTransform({
 								transform:'scale(1) translate3d(0,0,0)',
@@ -2717,7 +2727,7 @@
 								ease:'cubic-bezier(1, 0 , 0.8, 1.2)'
 							}).css({opacity:1})
 								.csTransitionEnd(function () {
-									if (delays[index] == maxDelay) showNewSlide()
+									if (delays[index] === maxDelay) showNewSlide()
 								})
 						}
 						else {
@@ -2727,7 +2737,7 @@
 									marginTop:0,
 									opacity:1
 								}, 500, function () {
-									if (delays[index] == maxDelay) showNewSlide()
+									if (delays[index] === maxDelay) showNewSlide()
 								})
 						}
 					})
