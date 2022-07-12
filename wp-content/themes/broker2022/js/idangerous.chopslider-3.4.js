@@ -2748,14 +2748,11 @@
 				cs3.l.delay(400).fadeOut(400, function () {
 					cs3.updateSlides()
 				})
+
 				cs3.slides.eq(cs3.h.indexes().active).fadeOut(400)
 			}
 		},
-
-		/* =======================
-     Canvas Diamonds
-     ==========================*/
-
+		// Canvas Diamonds
 		diamonds:function (cs3) {
 			var dir = cs3.direction
 			cs3.l.html('<canvas></canvas><canvas style="display:none"></canvas>')
@@ -2775,7 +2772,6 @@
 			canvas2.height = cs3.height
 			var context2 = canvas2.getContext("2d")
 			context2.drawImage(image2, 0, 0, cs3.width, cs3.height)
-			//--
 			var xCircles = Math.floor(cs3.width / 50)
 			var yCircles = Math.floor(cs3.height / 50)
 			var size = 0
@@ -2787,7 +2783,9 @@
 				xCirclesOffset--
 				yCirclesOffset--
 				size += 2
+
 				var center = (100 - size) / 2
+
 				for (var x = 0; x < xCircles - xCirclesOffset; x++) {
 					for (var y = 0; y < yCircles - yCirclesOffset; y++) {
 						context.drawImage(image, center + x * 50 - 25, center + y * 50 - 25, size, size)
@@ -2813,11 +2811,7 @@
 			cs3.h.animFrame(draw)
 			cs3.prepare({l:1, active:1, 'new':0})
 		},
-
-		/* =======================
-     Canvas Circles
-     ==========================*/
-
+		// Canvas Circles
 		circles:function (cs3) {
 			var dir = cs3.direction
 			cs3.l.html('<canvas></canvas><canvas style="display:none"></canvas>')
@@ -2871,11 +2865,7 @@
 			cs3.h.animFrame(draw)
 			cs3.prepare({l:1, active:1, 'new':0})
 		},
-
-		/* =======================
-     Canvas Brush
-     ==========================*/
-
+		// Canvas Brush
 		brush:function (cs3) {
 			var dir = cs3.direction
 			cs3.l.html('<canvas></canvas><canvas style="display:none"></canvas>')
@@ -2895,15 +2885,12 @@
 			canvas2.height = cs3.height
 			var context2 = canvas2.getContext("2d")
 			context2.drawImage(image2, 0, 0, cs3.width, cs3.height)
-			//--
-
 
 			var x = 0, y = -15
 			var direction = 1
 			var changeRow = false
 
 			function draw() {
-
 				context.drawImage(image, x, y)
 				var imgd = context.getImageData(0, 0, canvas.width, canvas.height)
 				var pix = imgd.data
@@ -2916,12 +2903,14 @@
 					pix[i + 1] = pix2[i + 1]
 					pix[i + 2] = pix2[i + 2]
 				}
+
 				context.putImageData(imgd, 0, 0)
 
 				if (direction === 1 && (x >= (cs3.width - 190) )) {
 					direction = -1
 					changeRow = true
 				}
+
 				if (direction === -1 && (x < -10)) {
 					direction = 1
 					changeRow = true
@@ -2934,6 +2923,7 @@
 					y += 50
 					changeRow = false
 				}
+
 				if (y < (canvas.height - 50)) cs3.h.animFrame(draw)
 				else show2slide()
 			}
@@ -2947,11 +2937,7 @@
 				})
 			}
 		},
-
-		/* =======================
-     Canvas Typewriter
-     ==========================*/
-
+		// Canvas Typewriter
 		typewriter:function (cs3) {
 			cs3.l.html('<canvas style="font-family:Georgia"></canvas>')
 			cs3.l.css({overflow:'hidden'})
@@ -2980,21 +2966,23 @@
 			}
 			image1.src = cs3.images[ cs3.h.indexes().active ]
 			image2.src = cs3.images[cs3.newSlideIndex]
+
 			function checkCount() {
-				if (imagesCount==2) anim()
+				if (imagesCount === 2) anim()
 			}
 
 			cs3.l[0].innerHTML = html
 
-			function anim(){
-				//Canvas with active image
+			function anim() {
+				// Canvas with active image
 				var c1 = document.createElement('canvas')
 				c1.width = cs3.width
 				c1.height = cs3.height
 				var ctx1 = c1.getContext('2d')
 				ctx1.drawImage(image1,0,0, cs3.width, cs3.height)
 				var image1Pix = (ctx1.getImageData(0, 0, cs3.width, cs3.height)).data
-				//Canvas with new image
+
+				// Canvas with new image
 				var c2 = document.createElement('canvas')
 				c2.width = cs3.width
 				c2.height = cs3.height
@@ -3002,7 +2990,7 @@
 				ctx2.drawImage(image2,0,0, cs3.width, cs3.height)
 				var image2Pix = (ctx2.getImageData(0, 0, cs3.width, cs3.height)).data
 
-				//Add Letters
+				// Add Letters
 				cs3.l.children().each(function(){
 					var a = $(this)
 					var canvas1 = a.children('canvas').eq(0)[0]
@@ -3011,7 +2999,8 @@
 					canvas2.style.opacity= '0'
 					canvas2.style.zIndex= '10'
 					var letter = letters[ Math.floor(Math.random()*letters.length) ]
-					//Letters 1
+
+					// Letters 1
 					canvas1.width = size
 					canvas1.height = size
 					var ctx1 = canvas1.getContext('2d')
@@ -3022,7 +3011,7 @@
 					var l1PixData = ctx1.getImageData(0, 0, size, size)
 					var l1Pix = l1PixData.data
 
-					//Letters 2
+					// Letters 2
 					canvas2.width = size
 					canvas2.height = size
 					var ctx2 = canvas2.getContext('2d')
@@ -3033,11 +3022,9 @@
 					var l2PixData = ctx2.getImageData(0, 0, size, size)
 					var l2Pix = l2PixData.data
 
-
-					//Merge Canvas and letters
+					// Merge Canvas and letters
 					var letterOffsetX = parseInt(a.attr('data-col'),10) * size
 					var letterOffsetY = parseInt(a.attr('data-row'),10) * size
-
 
 					for (var i = 0, n = l1Pix.length; i < n; i += 4) {
 						var index = i/4
@@ -3059,23 +3046,26 @@
 							l2Pix[i + 2] = image2Pix[ imagePix + 2]
 						}
 					}
+
 					ctx1.putImageData(l1PixData, 0, 0)
 					ctx2.putImageData(l2PixData, 0, 0)
-
 				})
 
 				var slideActive = cs3.slides.eq( cs3.h.indexes().active )
-				var slideNew = cs3.slides.eq( cs3.newSlideIndex )
+				var slideNew    = cs3.slides.eq( cs3.newSlideIndex )
 
-				//Start Animation
+				// Start Animation
 				cs3.prepare({l:1, active:1, 'new':1})
-				//slideActive.fadeOut(1000)
-				var letters1 = cs3.l.find('canvas:first-child')
-				var letters2 = cs3.l.find('canvas:last-child')
-				var lastIndex = cs3.l.children().length-1
+
+				// slideActive.fadeOut(1000)
+				var letters1    = cs3.l.find('canvas:first-child')
+				var letters2    = cs3.l.find('canvas:last-child')
+				var lastIndex   = cs3.l.children().length-1
+
 				letters2.each(function(){
 					var a = $(this)
 					var index = a.parent().index()
+
 					if (cs3.support.css3) {
 						$(this).csTransform({
 							transform:'scale(2)',
@@ -3083,18 +3073,19 @@
 							delay:40* index,
 							ease:'ease-in'
 						})
-						setTimeout(function(){
+
+						setTimeout(function() {
 							a.css({opacity:1}).csTransform({
 								transform:'scale(1)'
 							})
-								.csTransitionEnd(function(){
+								.csTransitionEnd(function() {
 									a.prev()
 										.css({display: 'block'})
-									setTimeout(function(){
+									setTimeout(function() {
 										a.prev()
 											.csTransform({transform:'scale(1.5)', time:200}).css({opacity:0})
-											.csTransitionEnd(function(){
-												if (index == lastIndex) {
+											.csTransitionEnd(function() {
+												if (index === lastIndex) {
 													slideActive.fadeOut(500, function(){ cs3.updateSlides() })
 												}
 											})
@@ -3103,27 +3094,25 @@
 						},50)
 					}
 					else {
-						a.delay(40*index).fadeTo(40,1, function(){
-							if (index == lastIndex) {
-								slideActive.fadeOut(500, function(){ cs3.updateSlides() })
+						a.delay(40*index).fadeTo(40,1, function() {
+							if (index === lastIndex) {
+								slideActive.fadeOut(500, function() {
+									cs3.updateSlides()
+								})
 							}
 						})
 					}
 				})
 			}
 		},
-
-		/* =======================
-     Canvas Lines
-     ==========================*/
-
+		// Canvas Lines
 		lines:function (cs3) {
 			var dir = cs3.direction
 			cs3.l.html('<canvas></canvas>')
-			var canvas = cs3.l.children()[0]
-			canvas.width = cs3.width
-			canvas.height = cs3.height
-			var ctx = canvas.getContext("2d")
+			var canvas      = cs3.l.children()[0]
+			canvas.width    = cs3.width
+			canvas.height   = cs3.height
+			var ctx         = canvas.getContext("2d")
 
 			$(canvas).csTransform({transform:'translate3d(0,0,0)'})
 
@@ -3140,24 +3129,21 @@
 			cs3.prepare({l:1, active:1, 'new':1})
 
 			var i = 0
-			function draw(){
-
+			function draw() {
 				var opacity = (cs3.height*10-i)/cs3.height*10/100
 				activeSlide.style.opacity = opacity
-
 
 				ctx.fillStyle = "#000"
 				ctx.beginPath()
 				ctx.moveTo(0, 0)
 				ctx.bezierCurveTo(0+i, i, cs3.width, cs3.height-i, cs3.width-i/2, cs3.height)
 
-
 				ctx.moveTo(cs3.width, 0)
 				ctx.bezierCurveTo(cs3.width-i, 0+i, 0, cs3.height-i, 0+i/2, cs3.height)
 				ctx.lineWidth = 0.5
 				ctx.stroke()
 
-				//Replace Pixels
+				// Replace Pixels
 				var imgd = ctx.getImageData(0, 0, canvas.width, canvas.height)
 				var pix = imgd.data
 
@@ -3169,9 +3155,11 @@
 					pix[j + 1] = pix2[j + 1]
 					pix[j + 2] = pix2[j + 2]
 				}
+
 				ctx.putImageData(imgd, 0, 0)
 
 				i = i+15
+
 				if (i<cs3.height*10) {
 					cs3.h.animFrame(draw)
 				}
@@ -3183,38 +3171,32 @@
 
 			cs3.h.animFrame(draw)
 		},
-
-		/* =======================
-     Canvas Aquarium
-     ==========================*/
-
+		// Canvas Aquarium
 		aquarium:function (cs3) {
-
 			cs3.l.html('<canvas></canvas>')
-			var canvas = cs3.l.children()[0]
-			canvas.width = cs3.width
-			canvas.height = cs3.height
-			var ctx = canvas.getContext("2d")
+			var canvas          = cs3.l.children()[0]
+			canvas.width        = cs3.width
+			canvas.height       = cs3.height
+			var ctx             = canvas.getContext("2d")
 
 			$(canvas).csTransform({transform:'translate3d(0,0,0)'})
 
-			var canvas2 = document.createElement('canvas')
-			canvas2.width = cs3.width
-			canvas2.height = cs3.height
-			var ctx2 = canvas2.getContext("2d")
-			var image = new Image()
-			image.src = cs3.images[cs3.h.indexes().active]
-			var image2 = new Image()
-			image2.src = cs3.images[cs3.newSlideIndex]
+			var canvas2         = document.createElement('canvas')
+			canvas2.width       = cs3.width
+			canvas2.height      = cs3.height
+			var ctx2            = canvas2.getContext("2d")
+			var image           = new Image()
+			image.src           = cs3.images[cs3.h.indexes().active]
+			var image2          = new Image()
+			image2.src          = cs3.images[cs3.newSlideIndex]
 			ctx2.drawImage(image,0,0,cs3.width,cs3.height)
 
 			var activeSlide = cs3.slides.eq(cs3.h.indexes().active)[0]
 
-			//cs3.prepare({l:1, active:0, 'new':0})
 			var i = 0
 			var direction = 1
-			function draw(){
 
+			function draw() {
 				ctx.clearRect(0,0,cs3.width, cs3.height)
 				ctx.beginPath()
 				ctx.moveTo(0, i)
@@ -3228,8 +3210,8 @@
 				ctx.lineTo(0, cs3.height)
 				ctx.lineTo(0, i)
 				ctx.fill()
-				//Replace Pixels
 
+				// Replace Pixels
 				var imgd = ctx.getImageData(0, 0, canvas.width, canvas.height)
 				var pix = imgd.data
 
@@ -3241,30 +3223,27 @@
 					pix[j + 1] = pix2[j + 1]
 					pix[j + 2] = pix2[j + 2]
 				}
+
 				ctx.putImageData(imgd, 0, 0)
 
+				if (i === 0 && direction === 1) cs3.prepare({l:1, active:0, 'new':0})
 
-				if (i==0 && direction===1) cs3.prepare({l:1, active:0, 'new':0})
-
-				if (direction===1) i+=5
+				if (direction === 1) i+=5
 				else i-=5
 
 				if ( i >= (cs3.height) ) {
 					direction=-1
 					ctx2.drawImage(image2,0,0,cs3.width,cs3.height)
 				}
-				if (i>0) cs3.h.animFrame(draw)
-				if (i==0) cs3.updateSlides()
 
+				if (i > 0) cs3.h.animFrame(draw)
+
+				if (i === 0) cs3.updateSlides()
 			}
 
 			cs3.h.animFrame(draw)
 		},
-
-		/* =======================
-     Canvas Razor
-     ==========================*/
-
+		// Canvas Razor
 		razor:function (cs3) {
 			cs3.l.html('<div><canvas></canvas><canvas></canvas></div>')
 			var canvas = cs3.l.find('canvas')[0]
@@ -3354,9 +3333,7 @@
 				cs3.updateSlides()
 			})
 		},
-		/* =======================
-     Canvas Black & White
-     ==========================*/
+		// Canvas Black & White
 		circle_reveal : function (cs3) {
 			cs3.l.html('<canvas></canvas><canvas></canvas>')
 			var canvas = cs3.l.children().eq(0).hide()[0],
@@ -3397,7 +3374,8 @@
 
 			var maxRadius=Math.max(cs3.width/2, cs3.height/2)+Math.min(cs3.width/2,cs3.height/2)
 			var radius = 0
-			var step = maxRadius/100
+			var step = maxRadius / 100
+
 			function render () {
 				radius+=step
 				canvas.style.opacity=radius*2/maxRadius
@@ -3410,17 +3388,19 @@
 				var pix3 = imgd3.data
 
 				for (var i = 0, n = pix2.length; i < n; i += 4) {
-					if(pix3[i]==0) {
+					if (pix3[i] === 0) {
 						pix3[i  ] = pix2[i]
 						pix3[i + 1] = pix2[i+1]
 						pix3[i + 2] = pix2[i+2]
 					}
-
 				}
+
 				circtx.putImageData(imgd3, 0, 0)
+
 				if(radius<maxRadius) cs3.h.animFrame(render)
 				else show2slide()
 			}
+
 			cs3.h.animFrame(render)
 
 			function show2slide() {
@@ -3442,12 +3422,17 @@
 	ChopSlider3.prototype.plugins.ambilight = {
 		init : function(cs3) {
 			if (!cs3.support.canvas) return
+
 			if (!cs3.params.ambilight) return
+
 			if (!cs3.params.ambilight.enabled) return
-			if (cs3.c.find('.cs3-ambilight').length==0) {
+
+			if (cs3.c.find('.cs3-ambilight').length === 0) {
 				cs3.c.append('<canvas class="cs3-ambilight cs3-ambilight-top"></canvas><canvas class="cs3-ambilight cs3-ambilight-bottom"></canvas>')
 			}
+
 			cs3.h.updateDimension()
+
 			var alTop = cs3.c.find('.cs3-ambilight-top'),
 				alBot = cs3.c.find('.cs3-ambilight-bottom'),
 
@@ -3497,10 +3482,12 @@
 
 				// Blur Layers
 				var opacity = 1
+
 				function blur() {
 					opacity-=0.2
 					ctxTop.globalAlpha = ctxBot.globalAlpha = opacity
 					var x, y
+
 					for (y = -10; y <= 10; y += 5) {
 						for (x = -10; x <= 10; x += 5) {
 							ctxTop.drawImage(canvasTop, x, y, width, height)
@@ -3518,7 +3505,6 @@
 					pixTop = imgTop.data,
 					pixBot = imgBot.data
 
-
 				for (var i = 0, n = pixTop.length; i < n; i += 4) {
 					var redTop = pixTop[i], greenTop = pixTop[i+1], blueTop=pixTop[i+2], alphaTop = 255,
 						redBot = pixBot[i], greenBot = pixBot[i+1], blueBot=pixBot[i+2], alphaBot = 255,
@@ -3527,7 +3513,6 @@
 						col = index - width*row
 
 					//Top
-
 					alphaTop = 255 - (50-row/fadeIndex)/50*255
 					var diff = width/2
 					alphaTop = alphaTop * (1-Math.abs(diff-col)/diff)/fadeIndex
@@ -3536,7 +3521,6 @@
 					alphaBot = 255*(1- row/50)/fadeIndex
 					var diff = width/2
 					alphaBot = alphaBot * (1-Math.abs(diff-col)/diff)/fadeIndex
-
 
 					pixTop[i] = redTop * colorIndex > 255 ? 255 : redTop * colorIndex
 					pixTop[i+1] = greenTop * colorIndex > 255 ? 255 : greenTop * colorIndex
@@ -3548,8 +3532,10 @@
 					pixBot[i+2] = blueBot * colorIndex > 255 ? 255 : blueBot * colorIndex
 					pixBot[i+3] = alphaBot
 				}
+
 				ctxTop.putImageData(imgTop, 0, 0)
 				ctxBot.putImageData(imgBot, 0, 0)
+
 				if (cs3.support.css3) {
 					alTop.css({opacity:1})
 					alBot.css({opacity:1})
@@ -3558,19 +3544,19 @@
 					alTop.animate({opacity:1},1000)
 					alBot.animate({opacity:1},1000)
 				}
-
 			}
 
-			image.onload = function(){
+			image.onload = function() {
 				ambilight()
 			}
+
 			image.src = cs3.images[ cs3.h.indexes().active ]
-
-
 		},
 		onStart : function(cs3) {
 			if (!cs3.support.canvas) return
+
 			if (!cs3.params.ambilight) return
+
 			if (!cs3.params.ambilight.enabled) return
 
 			if (cs3.support.css3) {
@@ -3583,8 +3569,11 @@
 		},
 		onEnd : function(cs3) {
 			if (!cs3.support.canvas) return
+
 			if (!cs3.params.ambilight) return
+
 			if (!cs3.params.ambilight.enabled) return
+
 			cs3.plugins.ambilight.init(cs3)
 		}
 	}
@@ -3602,7 +3591,9 @@
 	ChopSlider3.prototype.plugins.captions = {
 		init:function (cs3) {
 			var params = cs3.params.captions
+
 			if (!params || !params.enabled) return
+
 			params.type = params.type || 'horizontal'
 			params.multiDelay = params.multiDelay || 100
 			params.duration = params.duration || 500
@@ -3611,14 +3602,16 @@
 			cs3._plugins.captions = captions
 			cs3._plugins.captions.active = 0
 			var firstCaption = captions.eq(0)
+
 			if (!params.multi) {
 				captions.csTransform({time:params.duration})
 				firstCaption.addClass('cs3-active-caption')
 					.css({
-						marginLeft:params.type == 'horizontal' ? -20 : 0,
-						marginTop:params.type == 'vertical' ? -20 : 0,
+						marginLeft:params.type === 'horizontal' ? -20 : 0,
+						marginTop:params.type === 'vertical' ? -20 : 0,
 						display:'block'
 					})
+
 				if (cs3.support.css3) {
 					setTimeout(function () {
 						firstCaption.css({opacity:1, marginLeft:0, marginTop:0}).csTransform({time:params.duration})
@@ -3632,18 +3625,21 @@
 				captionsC.addClass('cs3-multi-captions').find('.cs3-caption').css({opacity:1})
 				captions.children().each(function(){
 					var t = $(this)
-					var margin = t.index() % 2 == 0 ? -20 : 20
+					var margin = t.index() % 2 === 0 ? -20 : 20
+
 					t.css({
-						marginLeft:params.type == 'horizontal' ? margin : 0,
-						marginTop:params.type == 'vertical' ? margin : 0,
+						marginLeft:params.type === 'horizontal' ? margin : 0,
+						marginTop:params.type === 'vertical' ? margin : 0,
 						display:'block',
 						opacity:0
 					})
 						.csTransform({time:params.duration, delay:t.index() * params.multiDelay})
 				})
+
 				firstCaption.css('display','block')
-				firstCaption.children().each(function(){
+				firstCaption.children().each(function() {
 					var t = $(this)
+
 					if (cs3.support.css3) {
 						setTimeout(function () {
 							t.css({opacity:1, marginLeft:0, marginTop:0}).csTransform({time:params.duration})
@@ -3654,19 +3650,21 @@
 					}
 				})
 			}
-
 		},
 		onStart:function (cs3) {
 			var params = cs3.params.captions
+
 			if (!params || !params.enabled) return
+
 			var activeCaption = cs3._plugins.captions.eq(cs3.h.indexes().active)
+
 			if (!params.multi) {
 				if (cs3.support.css3) {
-					setTimeout(function(){
+					setTimeout(function() {
 						activeCaption.css({
 							opacity:0,
-							marginLeft:params.type == 'horizontal' ? -20 : 0,
-							marginTop:params.type == 'vertical' ? -20 : 0
+							marginLeft:params.type === 'horizontal' ? -20 : 0,
+							marginTop:params.type === 'vertical' ? -20 : 0
 						})
 							.csTransitionEnd(function () {
 								$(this).css({display:'none'}).removeClass('cs3-active-caption')
@@ -3676,8 +3674,8 @@
 				else {
 					activeCaption.animate({
 						opacity:0,
-						marginLeft:params.type == 'horizontal' ? -20 : 0,
-						marginTop:params.type == 'vertical' ? -20 : 0
+						marginLeft:params.type === 'horizontal' ? -20 : 0,
+						marginTop:params.type === 'vertical' ? -20 : 0
 					}, params.duration, function () {
 						$(this).css({display:'none'}).removeClass('cs3-active-caption')
 					})
@@ -3686,19 +3684,20 @@
 			else {
 				activeCaption.children().each(function () {
 					var t = $(this)
-					var margin = t.index() % 2 == 0 ? -20 : 20
+					var margin = t.index() % 2 === 0 ? -20 : 20
+
 					if (cs3.support.css3) {
 						t.css({
 							opacity:0,
-							marginLeft:params.type == 'horizontal' ? margin : 0,
-							marginTop:params.type == 'vertical' ? margin : 0
+							marginLeft:params.type === 'horizontal' ? margin : 0,
+							marginTop:params.type === 'vertical' ? margin : 0
 						})
 					}
 					else {
 						t.animate({
 							opacity:0,
-							marginLeft:params.type == 'horizontal' ? margin : 0,
-							marginTop:params.type == 'vertical' ? margin : 0
+							marginLeft:params.type === 'horizontal' ? margin : 0,
+							marginTop:params.type === 'vertical' ? margin : 0
 						}, params.duration, function () {
 							activeCaption.css({display:'none'}).removeClass('cs3-active-caption')
 						})
@@ -3709,23 +3708,27 @@
 		},
 		onEnd:function (cs3) {
 			var params = cs3.params.captions
+
 			if (!params || !params.enabled) return
 
 			var newCaption = cs3._plugins.captions.eq(cs3.h.indexes().active).css({display:'block'}).addClass('active-caption')
+
 			if (params.multi) {
 				newCaption.children().each(function () {
 					var t = $(this)
-					var margin = t.index() % 2 == 0 ? -20 : 20
+					var margin = t.index() % 2 === 0 ? -20 : 20
+
 					t.css({
-						marginLeft:params.type == 'horizontal' ? margin : 0,
-						marginTop:params.type == 'vertical' ? margin : 0,
+						marginLeft:params.type === 'horizontal' ? margin : 0,
+						marginTop:params.type === 'vertical' ? margin : 0,
 						opacity:0
 					}).csTransform({time:params.duration, delay:t.index() * params.multiDelay})
+
 					if (cs3.support.css3) {
 						setTimeout(function () {
 							t.css({opacity:1, marginLeft:0, marginTop:0})
 								.csTransitionEnd(function () {
-									if (t.index() == 0) {
+									if (t.index() === 0) {
 										cs3.c.find('.cs3-captions .active-caption').css({display:'none'}).removeClass('cs3-active-caption')
 										cs3._plugins.captions.eq(cs3.h.indexes().active).css({display:'block'}).addClass('cs3-active-caption')
 									}
@@ -3734,7 +3737,7 @@
 					}
 					else {
 						t.animate({opacity:1, marginLeft:0, marginTop:0}, params.duration, function () {
-							if (t.index() == 0) {
+							if (t.index() === 0) {
 								cs3.c.find('.cs3-captions .active-caption').css({display:'none'}).removeClass('cs3-active-caption')
 								cs3._plugins.captions.eq(cs3.h.indexes().active).css({display:'block'}).addClass('cs3-active-caption')
 							}
@@ -3745,8 +3748,8 @@
 			else {
 				var margin = -20
 				newCaption.css({
-					marginLeft:params.type == 'horizontal' ? margin : 0,
-					marginTop:params.type == 'vertical' ? margin : 0,
+					marginLeft:params.type === 'horizontal' ? margin : 0,
+					marginTop:params.type === 'vertical' ? margin : 0,
 					opacity:0
 				}).csTransform({time:params.duration})
 				if (cs3.support.css3) {
@@ -3762,9 +3765,7 @@
 						newCaption.css({display:'block'}).addClass('cs3-active-caption')
 					})
 				}
-
 			}
-
 		}
 	}
 
@@ -3782,37 +3783,48 @@
 		init : function(cs3) {
 			var nav = cs3.params.navigation
 			var stopAutoplay = true
-			if (cs3.params.autoplay.disableOnInteraction===false) stopAutoplay = false
+
+			if (cs3.params.autoplay.disableOnInteraction === false) stopAutoplay = false
+
 			if (nav) {
 				var next = $(nav.next)
 				var prev = $(nav.prev)
+
 				function nextClick(e) {
 					e.preventDefault()
 					cs3.slideNext()
+
 					if (cs3.params.autoplay.enabled && stopAutoplay) cs3.autoplayStop()
+
 					return false
 				}
+
 				function prevClick(e) {
 					e.preventDefault()
 					cs3.slidePrev()
+
 					if (cs3.params.autoplay.enabled && stopAutoplay) cs3.autoplayStop()
+
 					return false
 				}
-				if (next.length>0) next.click(function(e){nextClick(e)})
 
-				if (prev.length>0) prev.click(function(e){prevClick(e)})
+				if (next.length > 0) next.click(function(e){nextClick(e)})
+
+				if (prev.length > 0) prev.click(function(e){prevClick(e)})
 
 				if (nav.showOnlyOnHover) {
 					next.hide()
 					prev.hide()
 					cs3.c.hover(
-						function(){
+						function() {
 							if (cs3.isAnimating) return false
+
 							next.fadeIn(300)
 							prev.fadeIn(300)
 						},
-						function(){
+						function() {
 							if (cs3.isAnimating) return false
+
 							next.fadeOut(300)
 							prev.fadeOut(300)
 						}
@@ -3822,6 +3834,7 @@
 		},
 		onStart : function(cs3) {
 			var nav = cs3.params.navigation
+
 			if (nav && (nav.hideOnStart || nav.showOnlyOnHover)) {
 				$(nav.next).fadeOut(200)
 				$(nav.prev).fadeOut(200)
@@ -3829,6 +3842,7 @@
 		},
 		onEnd : function(cs3) {
 			var nav = cs3.params.navigation
+
 			if (nav && (nav.hideOnStart && !nav.showOnlyOnHover)) {
 				$(nav.next).fadeIn(200)
 				$(nav.prev).fadeIn(200)
@@ -3854,31 +3868,39 @@
 
 				var pag = cs3.params.pagination
 				var container = pag.container
-				if ( $(container).length==0 ) return false
+
+				if ( $(container).length === 0 ) return false
 
 				var html = ''
+
 				for (var i = 0; i< cs3.slides.length; i++) {
-					var addClass = i==0 ? ' cs3-active-switch': ''
+					var addClass = i === 0 ? ' cs3-active-switch': ''
 					html+='<div class="cs3-pagination-switch'+addClass+'"></div>'
 				}
+
 				$(container)[0].innerHTML = html
 
-				$(container).find('.cs3-pagination-switch').click(function(e){
+				$(container).find('.cs3-pagination-switch').click(function(e) {
 					var el = $(this)
+
 					if (el.hasClass('cs3-active-switch')) return false
+
 					if (cs3.params.autoplay.enabled && stopAutoplay) cs3.autoplayStop()
+
 					cs3.slideTo(el.index())
 				})
 
 				if (pag.showOnlyOnHover) {
 					$(container).css({display:'none'})
 					cs3.c.hover(
-						function(){
+						function() {
 							if (cs3.isAnimating) return false
+
 							$(container).fadeIn(300)
 						},
-						function(){
+						function() {
 							if (cs3.isAnimating) return false
+
 							$(container).fadeOut(300)
 						}
 					)
@@ -3887,9 +3909,12 @@
 		},
 		onStart : function(cs3) {
 			var pag = cs3.params.pagination
+
 			if (pag && pag.container) {
 				var container = pag.container
-				if ( $(container).length==0 ) return false
+
+				if ( $(container).length === 0 ) return false
+
 				$(container).find('.cs3-active-switch').removeClass('cs3-active-switch')
 				$(container).find('.cs3-pagination-switch:eq('+cs3.newSlideIndex+')').addClass('cs3-active-switch')
 
@@ -3897,15 +3922,17 @@
 					$(container).fadeOut(200)
 				}
 			}
-
-
 		},
 		onEnd : function(cs3) {
 			var pag = cs3.params.pagination
+
 			if (pag && pag.container) {
 				var container = pag.container
-				if ( $(container).length==0 ) return false
+
+				if ($(container).length === 0) return false
+
 				$(container).find('.cs3-active-switch').removeClass('cs3-active-switch')
+
 				$(container).find('.cs3-pagination-switch:eq('+cs3.h.indexes().active+')').addClass('cs3-active-switch')
 
 				if (pag.hideOnStart && !pag.showOnlyOnHover) {
@@ -3914,7 +3941,6 @@
 			}
 		}
 	}
-
 
 	/*
 	=================================
@@ -3927,88 +3953,101 @@
 */
 
 	ChopSlider3.prototype.plugins.touch = {
-
-		/*====
-	  Initialization
-	  ====*/
+		// Initialization
 		init : function(cs3) {
 			if (!cs3.params.touch || !cs3.support.touch || !cs3.support.css3) return
+
 			if (cs3.params.touch && cs3.params.touch.enabled !== true) return
+
 			var plugin = cs3.plugins.touch
+
 			cs3.params.touch.effect = cs3.params.touch.effect || 'flip-s'
-			if (cs3.params.responsive)	cs3.h.updateDimension()
-			//FallBack to 2D Effect
+
+			if (cs3.params.responsive) cs3.h.updateDimension()
+
+			// FallBack to 2D Effect
 			if (cs3.params.touch.effect.indexOf('flip')>=0 && !cs3.support.threeD) {
 				cs3.params.touch.effect = cs3.params.touch.effect.replace('flip','slide')
 			}
+
 			if (cs3.params.touch.effect === 'cube' && !cs3.support.threeD) {
 				cs3.params.touch.effect = 'slide'
 			}
-			var effect = cs3.params.touch.effect
-			var t = cs3._plugins.touch
-			t.params = cs3.params.touch
-			t.isTouched = false
-			t.isAnimating = false
+
+			var effect      = cs3.params.touch.effect
+			var t           = cs3._plugins.touch
+
+			t.params        = cs3.params.touch
+			t.isTouched     = false
+			t.isAnimating   = false
 
 			t.make3d = {
-				newFace : effect == 'cube' ? 'right' : 'back',
-				depth: effect == 'cube' ? cs3.width : false
+				newFace : effect === 'cube' ? 'right' : 'back',
+				depth: effect === 'cube' ? cs3.width : false
 			}
+
 			var rows = 1
-			if (effect == 'flip-m') rows = Math.floor(cs3.height/100)
-			if (effect == 'slide-m') rows = 5
+
+			if (effect === 'flip-m') rows = Math.floor(cs3.height / 100)
+
+			if (effect === 'slide-m') rows = 5
 
 			var sliced = {
 				index1 : cs3.h.indexes().active,
 				index2 : cs3.h.indexes().next,
-				cols: (effect == 'flip-m') ? Math.floor(cs3.width/200) : 1,
+				cols: (effect === 'flip-m') ? Math.floor(cs3.width/200) : 1,
 				rows: rows,
-				wrap : (effect == 'slide-m' || effect == 'slide-s') ? true : false,
-				make3d : (effect == 'flip-m' || effect == 'flip-s' || effect == 'cube') ? t.make3d : false
-
+				wrap : (effect === 'slide-m' || effect === 'slide-s') ? true : false,
+				make3d : (effect === 'flip-m' || effect === 'flip-s' || effect === 'cube') ? t.make3d : false
 			}
 
 			t.sliced = cs3.h.slice(sliced)
 			cs3.l[0].innerHTML = t.sliced.html
 
-			//Click trigger
+			// Click trigger
 			var allowClick = true
 
-
-			//Append Slide Slices
-			if (effect == 'slide-m' || effect == 'slide-s') {
-				cs3.l.find('.cs3-slice:nth-child(2)').each(function(){
+			// Append Slide Slices
+			if (effect === 'slide-m' || effect === 'slide-s') {
+				cs3.l.find('.cs3-slice:nth-child(2)').each(function() {
 					var a = $(this)
+
 					a.clone().appendTo(a.parent())
 				})
-				cs3.l.find('.cs3-slice').each(function(){
-					var a = $(this)
-					var index = a.index()
-					if (index==2) {
-						a.css({'background-image'  : 'url('+cs3.images[ cs3.h.indexes().next ]+')'	})
+
+				cs3.l.find('.cs3-slice').each(function() {
+					var a       = $(this)
+					var index   = a.index()
+
+					if (index === 2) {
+						a.css({'background-image'  : 'url('+cs3.images[ cs3.h.indexes().next ]+')'})
 						a.csTransform({transform:'translate3d('+cs3.width+'px,0,0)'})
 					}
-					if (index==1) {
-						a.css({'background-image'  : 'url('+cs3.images[ cs3.h.indexes().prev ]+')'	})
+
+					if (index === 1) {
+						a.css({'background-image'  : 'url('+cs3.images[ cs3.h.indexes().prev ]+')'})
 						a.csTransform({transform:'translate3d(-'+cs3.width+'px,0,0)'})
 					}
 				})
+
 				cs3.l.css({overflow:'hidden'})
 			}
-			if (effect == 'cube') {
+
+			if (effect === 'cube') {
 				cs3.l.find('.cs3-left-face').css({
-					backgroundImage : 'url('+cs3.images[ cs3.h.indexes().prev ]+')'
+					backgroundImage : 'url(' + cs3.images[ cs3.h.indexes().prev ] + ')'
 				})
 			}
-			//--
-
 
 			cs3.prepare({active:0, l:1, p:true})
-			var moveStart = false
+
+			var moveStart   = false
 			var isScrolling = undefined
+
 			cs3.l.children().each(function(){
-				this.addEventListener('touchstart', function(e){
-					if (t.isTouched==true) return
+				this.addEventListener('touchstart', function(e) {
+					if (t.isTouched === true) return
+
 					e.preventDefault()
 					t.isAnimating = false
 					t.startIndex = $(this).index()
@@ -4021,36 +4060,42 @@
 					t.angle = 0
 					handleTouch(this)
 					isScrolling = undefined
-					//Callback
+
+					// Callback
 					if (cs3.params.callbacks.onTouchStart) cs3.params.callbacks.onTouchStart(cs3)
 				})
 			})
 
 			function handleTouch (el) {
-				el.addEventListener('touchmove', function(e){
+				el.addEventListener('touchmove', function(e) {
 					if (!t.isTouched || t.isAnimating || cs3.isAnimating) return
 
 					t.currX = e.targetTouches[0].pageX
 					t.diff = t.currX - t.startX
 
 					isScrolling = !!( isScrolling || Math.abs(e.targetTouches[0].pageY - t.startY) > Math.abs( e.targetTouches[0].pageX - t.startX ) )
-					//if (isScrolling) return
+
+					// if (isScrolling) return
 					e.preventDefault()
+
 					if (!moveStart) {
-						//Animation Start, run callback for all other plugins
+						// Animation Start, run callback for all other plugins
 						cs3._plugins.onStart(cs3, 'touch')
-						//Disable Auto Play
+
+						// Disable Auto Play
 						if (cs3.params.autoplay.enabled && cs3.params.autoplay.disableOnInteraction) cs3.autoplayStop()
 					}
+
 					moveStart = true
 
-					//Disallow Clicks:
+					// Disallow Clicks:
 					allowClick = false
 
-					//---
-					if (effect == 'flip-m' || effect == 'flip-s') {
-						t.angle = t.diff*180/cs3.width
-						if ( Math.abs(t.angle)>180) return
+					if (effect === 'flip-m' || effect === 'flip-s') {
+						t.angle = t.diff * 180 / cs3.width
+
+						if ( Math.abs(t.angle) > 180) return
+
 						if (t.angle > 0) {
 							cs3.l.find('.cs3-back-face').css({
 								'background-image'  : 'url('+cs3.images[ cs3.h.indexes().prev ]+')'
@@ -4063,160 +4108,170 @@
 						}
 						plugin.rotateSlices(cs3,t.angle,0)
 					}
-					else if (effect == 'cube') {
+					else if (effect === 'cube') {
 						t.angle = t.diff*90/cs3.width
+
 						if ( Math.abs(t.angle)>90) return
+
 						plugin.rotateCube (cs3, t.angle,0)
 					}
 					else {
-
 						plugin.slideSlices(cs3,t.diff,0)
-
 					}
 
-					//Callback
+					// Callback
 					if (cs3.params.callbacks.onTouchMove) cs3.params.callbacks.onTouchMove(cs3)
-
 				})
-				el.addEventListener('touchend', function(e){
-					//Click Links
+
+				el.addEventListener('touchend', function(e) {
+					// Click Links
 					var link = cs3.slides.eq(cs3.h.indexes().active).find('img').parent('a')
-					if(link.length>0) {
+
+					if(link.length > 0) {
 						if (allowClick)
 							document.location = link.attr('href')
 					}
-					setTimeout(function(){
+
+					setTimeout(function() {
 						allowClick = true
 					},50)
 
 					moveStart = false
 
-					if ( (effect == 'slide-s' || effect == 'slide-m') && t.diff==0 ) {
-						t.currX = t.startX
-						t.isTouched = false
-						return
-					}
-					if ( (effect == 'flip-s' || effect == 'flip-m' || effect == 'cube') && t.angle==0 ) {
+					if ( (effect === 'slide-s' || effect === 'slide-m') && t.diff === 0 ) {
 						t.currX = t.startX
 						t.isTouched = false
 						return
 					}
 
-					//----
-					if (effect == 'flip-s' || effect == 'flip-m') {
+					if ( (effect === 'flip-s' || effect === 'flip-m' || effect === 'cube') && t.angle === 0 ) {
+						t.currX = t.startX
+						t.isTouched = false
+						return
+					}
+
+					if (effect === 'flip-s' || effect === 'flip-m') {
 						t.isAnimating = cs3.isAnimating = true
 						if (t.angle > 30) plugin.rotateSlices(cs3, 180, 400, 1)
 						if (t.angle < -30) plugin.rotateSlices(cs3, -180, 400, -1)
 						if (t.angle>=-30 && t.angle<=30)  plugin.rotateSlices(cs3, 0,400, 0)
 					}
-					else if (effect == 'cube') {
+					else if (effect === 'cube') {
 						t.isAnimating = cs3.isAnimating = true
 						if (t.angle > 30) plugin.rotateCube(cs3, 90, 300, 1)
 						if (t.angle < -30) plugin.rotateCube(cs3, -90, 300, -1)
 						if (t.angle>=-30 && t.angle<=30)  plugin.rotateCube(cs3, 0, 300, 0)
 					}
 					else {
-						t.isAnimating  = cs3.isAnimating = true
+						t.isAnimating = cs3.isAnimating = true
 						if (t.diff > cs3.width/5) plugin.slideSlices(cs3, cs3.width, 300, 1)
 						if (t.diff < -cs3.width/5) plugin.slideSlices(cs3, -cs3.width, 300, -1)
 						if (t.diff <= cs3.width/5 && t.diff >= -cs3.width/5)  plugin.slideSlices(cs3, 0, 300, 0)
 					}
-					//Callback
+
+					// Callback
 					if (cs3.params.callbacks.onTouchEnd) cs3.params.callbacks.onTouchEnd(cs3)
 				})
 			}
 
 			// Calc Max Index
 			t.maxDelay = 0
-			cs3.l.children().each(function(){
+
+			cs3.l.children().each(function() {
 				var delay = cs3.h.getDelay({index: $(this).index(), grid:t.sliced, delay:-0.8, type:'linear', startIndex: t.startIndex})
-				if (delay>t.maxDelay) t.maxDelay = delay
+
+				if (delay > t.maxDelay) t.maxDelay = delay
 			})
 		},
-
-		/*====
-	  onStart Interception
-	  ====*/
+		// onStart Interception
 		onStart : function(cs3, calledBy) {
 			if (calledBy == 'touch') return
+
 			if (!cs3.params.touch || !cs3.support.touch || !cs3.support.css3) return
-			if (cs3.params.touch && cs3.params.touch.enabled!=true) return
+
+			if (cs3.params.touch && cs3.params.touch.enabled !== true) return
+
 			cs3.e.preventedByPlugin = true
+
 			var dir = cs3.direction
 
-
 			var effect = cs3.params.touch.effect
+
 			if (cs3.params.responsive) {
 				cs3.slides.eq( cs3.h.indexes().active).show()
 				cs3.h.updateDimension()
 				cs3.slides.eq( cs3.h.indexes().active).hide()
 			}
-			if ( effect.indexOf('flip')>=0) {
+
+			if ( effect.indexOf('flip') >= 0) {
 				cs3.l.find('.cs3-back-face').css({ 'background-image'  : 'url('+cs3.images[ cs3.newSlideIndex ]+')' })
-				if (dir===1) cs3.plugins.touch.rotateSlices(cs3, -180, 400, -1, true)
+
+				if (dir === 1) cs3.plugins.touch.rotateSlices(cs3, -180, 400, -1, true)
 				else cs3.plugins.touch.rotateSlices(cs3, 180, 400, 1, true)
 			}
-			else if (effect == 'cube') {
-
-				if (dir===1) {
-					cs3.l.find('.cs3-right-face').css({ 'background-image'  : 'url('+cs3.images[ cs3.newSlideIndex ]+')' })
+			else if (effect === 'cube') {
+				if (dir === 1) {
+					cs3.l.find('.cs3-right-face').css({ 'background-image' : 'url('+cs3.images[ cs3.newSlideIndex ]+')' })
 					cs3.plugins.touch.rotateCube(cs3, -90, 400, -1, true)
 				}
 				else {
-					cs3.l.find('.cs3-left-face').css({ 'background-image'  : 'url('+cs3.images[ cs3.newSlideIndex ]+')' })
+					cs3.l.find('.cs3-left-face').css({ 'background-image' : 'url('+cs3.images[ cs3.newSlideIndex ]+')' })
 					cs3.plugins.touch.rotateCube(cs3, 90, 400, 1, true)
 				}
 			}
 			else {
-				if (dir===1) {
-					cs3.l.find('.cs3-slice').each(function(){
+				if (dir === 1) {
+					cs3.l.find('.cs3-slice').each(function() {
 						var a = $(this)
-						if ( a.index() == 2 ) {
-							a.css({'background-image'  : 'url('+cs3.images[ cs3.newSlideIndex ]+')'	})
+
+						if (a.index() === 2) {
+							a.css({'background-image': 'url(' + cs3.images[ cs3.newSlideIndex ] + ')'})
 						}
 					})
+
 					cs3.plugins.touch.slideSlices(cs3, -cs3.width, 400, -1, true)
 				}
 				else {
 					cs3.l.find('.cs3-slice').each(function(){
 						var a = $(this)
-						if ( a.index() == 1 ) {
-							a.css({'background-image'  : 'url('+cs3.images[ cs3.newSlideIndex ]+')'	})
+
+						if (a.index() === 1) {
+							a.css({'background-image': 'url(' + cs3.images[ cs3.newSlideIndex ] + ')'})
 						}
 					})
+
 					cs3.plugins.touch.slideSlices(cs3, cs3.width, 400, 1, true)
 				}
 			}
-
-
 		},
-		/*====
-	  onEnd Callbacks and Updates
-	  ====*/
+		// onEnd Callbacks and Updates
 		onEnd : function(cs3, calledBy) {
-			if (calledBy == 'touch') return
+			if (calledBy === 'touch') return
+
 			if (!cs3.params.touch || !cs3.support.touch || !cs3.support.css3) return
-			if (cs3.params.touch && cs3.params.touch.enabled!=true) return
+
+			if (cs3.params.touch && cs3.params.touch.enabled !== true) return
+
 			cs3.plugins.touch.init(cs3)
 			cs3.e.preventedByPlugin = false
 		},
-
-		/*====
-	  Flip Function
-	  ====*/
+		// Flip Function
 		rotateSlices : function (cs3, angle, time, update, external) {
 			var t = cs3._plugins.touch
 			var time = time || 0
-			cs3.l.children().each(function(){
+
+			cs3.l.children().each(function() {
 				var a = $(this)
 				var index = a.index()
-				if (time===0 && t.params.effect == 'flip-m') {
+
+				if (time === 0 && t.params.effect === 'flip-m') {
 					var delay = cs3.h.getDelay({index:index, grid:t.sliced, delay:-0.8, type:'linear', startIndex: t.startIndex})
-					var angle2 = angle  - delay/t.maxDelay*angle/2
+					var angle2 = angle  - delay / t.maxDelay * angle / 2
 				}
 				else {
 					var angle2 = angle
 				}
+
 				a.csTransform({
 					transform: 'rotateY('+angle2+'deg) translate3d(0,0,0)',
 					time: time,
@@ -4224,36 +4279,40 @@
 					ease: 'linear'
 				})
 			})
-			if (update===1 || update===-1 || update === 0) {
+
+			if (update === 1 || update === -1 || update === 0) {
 				if (update === -1 && !external) cs3.newSlideIndex = cs3.h.indexes().next
+
 				if (update ===  1 && !external) cs3.newSlideIndex = cs3.h.indexes().prev
-				cs3.l.children().eq(0).csTransitionEnd(function(){
+
+				cs3.l.children().eq(0).csTransitionEnd(function() {
 					t.isTouched = false
 					t.isAnimating = cs3.isAnimating = false
 
-					//Animation End, run callback for all other plugins
-					if (update===0) cs3._plugins.onEnd(cs3, 'touch')
-					if (update===1 || update===-1) cs3.updateSlides()
+					// Animation End, run callback for all other plugins
+					if (update === 0) cs3._plugins.onEnd(cs3, 'touch')
+
+					if (update === 1 || update === -1) cs3.updateSlides()
+
 					cs3.plugins.touch.init(cs3)
 				})
-
 			}
 		},
-
-		/*====
-	  Cube Function
-	  ====*/
+		// Cube Function
 		rotateCube : function (cs3, angle, time, update, external) {
 			var t = cs3._plugins.touch
 			var time = time || 0
-			cs3.l.children().each(function(){
+
+			cs3.l.children().each(function() {
 				var a = $(this)
 				var index = a.index()
 
-				//Translates
+				// Translates
 				var translateX =   cs3.width * Math.sin( angle * 2 * Math.PI/360 ) / 2
 				var translateZ =   - cs3.width * Math.cos( angle * 2 * Math.PI/360 ) / 2 + cs3.width /2
+
 				translateX = Math.round(translateX)
+
 				a.csTransform({
 					transform: 'rotateY('+angle+'deg) translate3d('+translateX+'px,0,'+translateZ+'px)',
 					time: time,
@@ -4261,60 +4320,68 @@
 					ease: 'linear'
 				})
 			})
-			if (update===1 || update===-1 || update === 0) {
+
+			if (update === 1 || update === -1 || update === 0) {
 				if (update === -1 && !external) cs3.newSlideIndex = cs3.h.indexes().next
+
 				if (update ===  1 && !external) cs3.newSlideIndex = cs3.h.indexes().prev
-				cs3.l.children().eq(0).csTransitionEnd(function(){
+
+				cs3.l.children().eq(0).csTransitionEnd(function() {
 					t.isTouched = false
 					t.isAnimating = cs3.isAnimating = false
 
-					//Animation End, run callback for all other plugins
-					if (update===0) cs3._plugins.onEnd(cs3, 'touch')
-					if (update===1 || update===-1) cs3.updateSlides()
+					// Animation End, run callback for all other plugins
+					if (update === 0) cs3._plugins.onEnd(cs3, 'touch')
+
+					if (update === 1 || update === -1) cs3.updateSlides()
+
 					cs3.plugins.touch.init(cs3)
 				})
-
 			}
 		},
-
-		/*====
-	  Slide Function
-	  ====*/
+		// Slide Function
 		slideSlices : function (cs3, size, time, update, external) {
-
 			var time = time || 0
 			var t = cs3._plugins.touch
-			cs3.l.children().each(function(){
+
+			cs3.l.children().each(function() {
 				var a = $(this)
 				var index = a.index()
-				if (time===0 && t.params.effect == 'slide-m') {
+
+				if (time === 0 && t.params.effect === 'slide-m') {
 					var delay = cs3.h.getDelay({index:index, grid:t.sliced, delay:0.5, type:'linear', startIndex: t.startIndex})
-					var size2 = (t.maxDelay-delay/3)/t.maxDelay * size
+					var size2 = (t.maxDelay - delay / 3) / t.maxDelay * size
 				}
 				else var size2 = size
-				if (time!==0) size2 = size
+
+				if (time !== 0) size2 = size
+
 				a.csTransform({
 					transform: 'translate3d('+size2+'px,0,0)',
 					ease: 'linear',
 					delay:0,
 					time:time
-
 				})
 			})
-			if (update===1 || update===-1 || update === 0) {
+
+			if (update === 1 || update === -1 || update === 0) {
 				if (update === -1 && !external) cs3.newSlideIndex = cs3.h.indexes().next
+
 				if (update ===  1 && !external) cs3.newSlideIndex = cs3.h.indexes().prev
-				cs3.l.children().eq(0).csTransitionEnd(function(){
+
+				cs3.l.children().eq(0).csTransitionEnd(function() {
 					t.isTouched = false
 					t.isAnimating = cs3.isAnimating = false
-					//Animation End, run callback for all other plugins
-					if (update===0) cs3._plugins.onEnd(cs3, 'touch')
-					if (update===1 || update===-1) cs3.updateSlides()
+
+					// Animation End, run callback for all other plugins
+					if (update === 0) cs3._plugins.onEnd(cs3, 'touch')
+
+					if (update === 1 || update === -1) cs3.updateSlides()
+
 					cs3.plugins.touch.init(cs3)
 				})
 			}
 		}
-
 	}
 
 
@@ -4331,35 +4398,42 @@
 	ChopSlider3.prototype.plugins.gallery = {
 		init : function(cs3) {
 			if (!cs3.params.gallery) return
-			if (cs3.params.gallery && cs3.params.gallery.enabled!=true) return
+
+			if (cs3.params.gallery && cs3.params.gallery.enabled !== true) return
+
 			if (!cs3.params.gallery.trigger) return
+
 			var params = cs3.params.gallery
 
-			if ($('.cs3-gallery').length==0) {
+			if ($('.cs3-gallery').length === 0) {
 				$('body').append('<div class="cs3-gallery"></div>')
 			}
+
 			var gallery = $('.cs3-gallery')
 
 			if (!window.Swiper)
-				$.getScript(cs3.path+'assets/idangerous.swiper.min.js',function(){
-					$(params.trigger).click(function(e){
+				$.getScript(cs3.path+'assets/idangerous.swiper.min.js',function() {
+					$(params.trigger).click(function(e) {
 						if (!cs3.isAnimating) cs3.plugins.gallery.start(cs3)
 					})
 				})
 			else
-				$(params.trigger).click(function(e){
+				$(params.trigger).click(function(e) {
 					if (!cs3.isAnimating) cs3.plugins.gallery.start(cs3)
 				})
 
 			if (params.showOnlyOnHover) {
 				$(params.trigger).css({display:'none'})
+
 				cs3.c.hover(
-					function(){
+					function() {
 						if (cs3.isAnimating) return false
+
 						$(params.trigger).fadeIn(300)
 					},
-					function(){
+					function() {
 						if (cs3.isAnimating) return false
+
 						$(params.trigger).fadeOut(300)
 					}
 				)
@@ -4367,7 +4441,9 @@
 		},
 		onStart : function(cs3) {
 			if (!cs3.params.gallery) return
-			if (cs3.params.gallery && cs3.params.gallery.enabled!=true) return
+
+			if (cs3.params.gallery && cs3.params.gallery.enabled !== true) return
+
 			if (!cs3.params.gallery.trigger) return
 
 			var params = cs3.params.gallery
@@ -4375,12 +4451,12 @@
 			if (params.hideOnStart || params.showOnlyOnHover) {
 				$(params.trigger).fadeOut(200)
 			}
-
-
 		},
 		onEnd : function(cs3) {
 			if (!cs3.params.gallery) return
-			if (cs3.params.gallery && cs3.params.gallery.enabled!=true) return
+
+			if (cs3.params.gallery && cs3.params.gallery.enabled !== true) return
+
 			if (!cs3.params.gallery.trigger) return
 
 			var params = cs3.params.gallery
@@ -4391,13 +4467,16 @@
 		},
 		start : function(cs3) {
 			if (!cs3.params.gallery) return
-			if (cs3.params.gallery && cs3.params.gallery.enabled!=true) return
+
+			if (cs3.params.gallery && cs3.params.gallery.enabled !== true) return
+
 			if (!cs3.params.gallery.trigger) return
 
 			cs3.autoplayStop()
 
-			//FS Classes
+			// FS Classes
 			$('body').addClass('cs3-gallery-enabled')
+
 			$('body').children().not('.cs3-gallery').each(function(index, element) {
 				$(this).addClass('cs3-gallery-hidden')
 			})
@@ -4405,14 +4484,15 @@
 			//FullScreen Open
 			var el = document.documentElement
 			var rfs = el.requestFullScreen || el.webkitRequestFullScreen || el.oRequestFullScreen || el.mozRequestFullScreen || el.msRequestFullScreen
+
 			if (rfs) rfs.call(el)
 
-			//Gallery
+			// Gallery
 			var gallery = $('.cs3-gallery').html('').append('<div class="cs3-gt-left"></div><div class="cs3-gt-right"></div>')
 			gallery.append('<div class="cs3-gallery-thumbs"><div class="cs3-gallery-thumbs-inner"></div></div>')
 			gallery.append('<div class="cs3-gallery-close"></div><div class="cs3-gallery-right"></div><div class="cs3-gallery-left"></div>')
 
-			//Wrapper and Inner
+			// Wrapper and Inner
 			$('.cs3-gallery').append('<div class="cs3-gallery-wrapper"><div class="cs3-gallery-inner"></div></div>')
 			var innerHTML = ''
 			for(var i=0; i<cs3.images.length; i++) {
