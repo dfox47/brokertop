@@ -4494,55 +4494,64 @@
 
 			// Wrapper and Inner
 			$('.cs3-gallery').append('<div class="cs3-gallery-wrapper"><div class="cs3-gallery-inner"></div></div>')
+
 			var innerHTML = ''
-			for(var i=0; i<cs3.images.length; i++) {
+
+			for (var i=0; i<cs3.images.length; i++) {
 				if (!cs3.slides.eq(i).hasClass('cs3-video-slide'))
 					innerHTML+='<div class="cs3-gallery-slide"><img src="'+cs3.images[i]+'"></div>'
 				else {
 					var frame = cs3.slides.eq(i).find('iframe')
-					if (frame.data('videoservice')=='youtube' && 'stopVideo' in cs3.slides.eq(i).data('player')) cs3.slides.eq(i).data('player').stopVideo()
-					if (frame.data('videoservice')=='vimeo' && window.$f) $f(frame[0]).api('pause')
+
+					if (frame.data('videoservice') === 'youtube' && 'stopVideo' in cs3.slides.eq(i).data('player')) cs3.slides.eq(i).data('player').stopVideo()
+
+					if (frame.data('videoservice') === 'vimeo' && window.$f) $f(frame[0]).api('pause')
 
 					var videoClass = frame.length>0?'cs3-gallery-video-slide':''
+
 					innerHTML+='<div class="'+videoClass+' cs3-gallery-slide">'+cs3.slides.eq(i).find('.cs3-video').html()+'</div>'
 				}
 			}
+
 			$('.cs3-gallery-inner').html(innerHTML)
 
-
-
-			//Captions
+			// Captions
 			if (cs3.params.captions && cs3.params.captions.enabled && cs3.params.gallery.showCaptions) {
-				$('.cs3-gallery-slide').each(function(){
+				$('.cs3-gallery-slide').each(function() {
 					var caption = cs3.c.find('.cs3-captions .cs3-caption').eq($(this).index()).clone().removeAttr('style').appendTo($(this))
-					caption.find('.cs3-caption-text, .cs3-caption-title').removeAttr('style')
 
+					caption.find('.cs3-caption-text, .cs3-caption-title').removeAttr('style')
 				})
 			}
 
-			//Init Swiper
+			// Init Swiper
 			var image = $('.cs3-gallery-slide img')
+
 			cs3._plugins.gallery.swiper = $('.cs3-gallery-wrapper').swiper({
-				wrapperClass : 'cs3-gallery-inner',
-				slideClass : 'cs3-gallery-slide',
-				loop:true,
-				pagination : '.cs3-gallery-thumbs-inner',
-				paginationClass: 'cs3-gallery-thumb',
+				wrapperClass:       'cs3-gallery-inner',
+				slideClass:         'cs3-gallery-slide',
+				loop:               true,
+				pagination:         '.cs3-gallery-thumbs-inner',
+				paginationClass:    'cs3-gallery-thumb',
 				paginationActiveClass : 'cs3-gallery-active-thumb',
-				onSlideChangeStart : function(){updateThumbs()},
-				onSlideChangeEnd : function () {
+				onSlideChangeStart: function(){updateThumbs()},
+				onSlideChangeEnd: function () {
 					$('.cs3-gallery iframe').each(function(index, val) {
 						var src = $(this).attr('src')
+
 						if (!src) return
+
 						var frame = $(this)
+
 						frame.attr('src','')
+
 						setTimeout(function () {
 							frame.attr('src',src)
 						},100)
 					})
 				}
-
 			},cs3)
+
 			$('.cs3-gallery-thumb').each(function(index, element) {
 				if(cs3.slides.eq(index).hasClass('cs3-video-slide')) {
 					$(this).css({backgroundImage:'url('+cs3.path+'assets/gallery-video.png)'})
@@ -4552,35 +4561,39 @@
 				}
 			}).csTransform({time:400})
 
-
 			cs3._plugins.gallery.swiper.swipeTo(cs3.h.indexes().active,0, false)
+
 			setTimeout(function(){
 				cs3._plugins.gallery.swiper.swipeTo(cs3.h.indexes().active,0, false)
 			},0)
 
-			//Init Thumbs Inner
+			// Init Thumbs Inner
 			$('.cs3-gallery-thumbs-inner').css({width: $('.cs3-gallery-thumb').length*(44+10)})
 
-
-			//Clicks
+			// Clicks
 			$('.cs3-gallery-thumb').click(function(e) {
 				e.preventDefault()
 				cs3._plugins.gallery.swiper.swipeTo($(this).index())
 			})
+
 			$('.cs3-gallery-right').click(function(e) {
 				if (!$(this).hasClass('cs3-hidden-control'))
 					cs3._plugins.gallery.swiper.swipeNext()
 			})
+
 			$('.cs3-gallery-left').click(function(e) {
 				if (!$(this).hasClass('cs3-hidden-control'))
 					cs3._plugins.gallery.swiper.swipePrev()
 			})
+
 			$('.cs3-gallery-close').click(function(e) {
 				if ($(this).hasClass('cs3-hidden-control')) return
+
 				if (!cs3.support.fullscreen) {
 					cs3.plugins.gallery.exit(cs3)
 					return
 				}
+
 				if (document.exitFullscreen) {
 					document.exitFullscreen()
 				}
@@ -4596,72 +4609,94 @@
 				else if (document.msCancelFullScreen) {
 					document.msCancelFullScreen()
 				}
-
 			})
 
-			//Toggle Controls
+			// Toggle Controls
 			var startPos
 			var endPos
+
 			$('.cs3-gallery-slide').mousedown(function(e) {
 				startPos = e.pageX
 			})
+
 			$('.cs3-gallery-slide').mouseup(function(e) {
 				endPos = e.pageX
 			})
+
 			$('.cs3-gallery-slide').click(function(e) {
 				if (cs3.support.touch) {
 					toggleControls()
 					return
 				}
+
 				var diff = Math.abs(endPos - startPos)
-				if (diff<10) toggleControls()
+
+				if (diff < 10) toggleControls()
 			})
+
 			function toggleControls() {
 				$('.cs3-gallery-left, .cs3-gallery-right, .cs3-gallery-close').csTransform({time:300}).toggleClass('cs3-hidden-control')
+
 				if (cs3.params.captions && cs3.params.captions.enabled) {
 					$('.cs3-gallery .cs3-caption').csTransform({time:300}).toggleClass('cs3-hidden-control')
 				}
 			}
 
-			//Thumbs Animation
+			// Thumbs Animation
 			$('.cs3-gallery-thumbs-inner').css({left:0}).csTransform({time:300})
+
 			$('.cs3-gt-right').click(function(e) {
 				e.preventDefault()
+
 				var maxPos = -($('.cs3-gallery-thumbs-inner').width() - $('.cs3-gallery-thumbs').width())
 				var newPos = $('.cs3-gallery-thumbs-inner').position().left-54
-				if (newPos<maxPos) newPos=maxPos
+
+				if (newPos < maxPos) newPos = maxPos
+
 				$('.cs3-gallery-thumbs-inner').css({left:newPos})
 			})
+
 			$('.cs3-gt-left').click(function(e) {
 				e.preventDefault()
+
 				var newPos = $('.cs3-gallery-thumbs-inner').position().left+54
+
 				if (newPos>0) newPos=0
+
 				$('.cs3-gallery-thumbs-inner').css({left:newPos})
 			})
+
 			function updateThumbs() {
-				if ($('.cs3-gt-arrows').length>0)
+				if ($('.cs3-gt-arrows').length > 0)
 					var newIndex = cs3._plugins.gallery.swiper.activeSlide
 				var newPos = -newIndex*54
 				var maxPos = -($('.cs3-gallery-thumbs-inner').width() - $('.cs3-gallery-thumbs').width())
-				if (newPos<maxPos) newPos=maxPos
+
+				if (newPos < maxPos) newPos = maxPos
+
 				$('.cs3-gallery-thumbs-inner').css({left:newPos})
 			}
 
-			//Resize
+			// Resize
 			function resize() {
 				var h = $(window).height() - $('.cs3-gallery-thumbs').height()
+
 				$('.cs3-gallery-wrapper').css({
 					height:h
 				})
+
 				$('.cs3-gallery-wrapper .cs3-gallery-slide').css({
 					lineHeight : h+'px'
 				})
+
 				$('.cs3-gallery-thumbs').css({width:$(window).width()})
-				if ($('.cs3-gallery-thumbs-inner').width()>$('.cs3-gallery-thumbs').width()) {
+
+				if ($('.cs3-gallery-thumbs-inner').width() > $('.cs3-gallery-thumbs').width()) {
 					$('.cs3-gallery-thumbs').css({
 						width:$('.cs3-gallery').width()-50,
 						margin:'0 25px'
 					})
+
 					gallery.addClass('cs3-gt-arrows')
 				}
 				else {
@@ -4669,18 +4704,20 @@
 						width:$('.cs3-gallery').width(),
 						margin:'0'
 					})
+
 					$('.cs3-gallery-thumbs-inner').css({left:0})
+
 					gallery.removeClass('cs3-gt-arrows')
 				}
+
 				updateThumbs()
 			}
+
 			resize()
+
 			$(window).resize(resize)
 
-
-
-
-			//Detect FullScreen Exit
+			// Detect FullScreen Exit
 			if (cs3.support.fullscreen) {
 				document.addEventListener("fullscreenchange", function () {
 					checkFS(document.fullscreen)
@@ -4713,7 +4750,9 @@
 
 		exit : function (cs3) {
 			if (!cs3.params.gallery) return
+
 			if (cs3.params.gallery && cs3.params.gallery.enabled!=true) return
+
 			if (!cs3.params.gallery.trigger) return
 
 			$('body').removeClass('cs3-gallery-enabled')
