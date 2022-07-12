@@ -823,18 +823,22 @@
 
 		// Prepare, used in effects
 		cs3.prepare = function(a) {
-			if (a.l||a.l===0) {
+			if (a.l||a.l === 0) {
 				cs3.l[0].style.display = a.l===1 ? 'block' : 'none'
 			}
-			if (a['new']||a['new']===0) {
-				cs3.slides.eq( cs3.newSlideIndex )[0].style.display = a['new']===1 ? 'block' : 'none'
+
+			if (a['new']||a['new'] === 0) {
+				cs3.slides.eq( cs3.newSlideIndex )[0].style.display = a['new'] === 1 ? 'block' : 'none'
 			}
-			if (a.active||a.active===0) {
-				cs3.slides.eq( cs3.h.indexes().active )[0].style.display = a.active===1 ? 'block' : 'none'
+
+			if (a.active||a.active === 0) {
+				cs3.slides.eq( cs3.h.indexes().active )[0].style.display = a.active === 1 ? 'block' : 'none'
 			}
+
 			if (a.p) {
 				cs3.h.setPerspective({value:1200})
 			}
+
 			if (cs3.params.responsive) {
 				cs3.l.find('*').css({
 					backgroundSize : cs3.width+'px '+cs3.height+'px',
@@ -842,8 +846,9 @@
 				})
 			}
 			else {
-				var activeSlide = $(cs3.slides[cs3.h.indexes().active])
-				var newSlide = $(cs3.slides[cs3.newSlideIndex])
+				var activeSlide     = $(cs3.slides[cs3.h.indexes().active])
+				var newSlide        = $(cs3.slides[cs3.newSlideIndex])
+
 				if (activeSlide.hasClass('cs3-video-slide') || newSlide.hasClass('cs3-video-slide')) {
 					cs3.l.find('*').css({
 						backgroundSize : cs3.width+'px '+cs3.height+'px',
@@ -852,31 +857,33 @@
 				}
 			}
 		}
-		//Run Animation
+
+		// Run Animation
 		cs3.run = function(){
 			if (cs3.isAnimating) return
 
 			cs3.h.updateDimension()
 
-			//Plugins onStart
+			// Plugins onStart
 			cs3._plugins.onStart(cs3)
 
-			//Callback
+			// Callback
 			if (cs3.params.callbacks.onTransitionStart) cs3.params.callbacks.onTransitionStart(cs3)
 
-			//Triggers
+			// Triggers
 			if (cs3.e.preventedByPlugin) return
 			cs3.isAnimating = true
 
-			//Update Video Slide
+			// Update Video Slide
 			if (cs3.slides.eq( cs3.h.indexes().active ).hasClass('cs3-video-slide')) {
 				//Hide Video and show Picture
 				var slide = cs3.slides.eq( cs3.h.indexes().active )
-				if (slide.find('iframe').data('videoservice')=='youtube'){
-					if( (typeof slide.data('player')!=='undefined') && (typeof slide.data('player').pauseVideo!=='undefined') ) slide.data('player').pauseVideo()
+
+				if (slide.find('iframe').data('videoservice') === 'youtube') {
+					if( (typeof slide.data('player') !== 'undefined') && (typeof slide.data('player').pauseVideo !== 'undefined') ) slide.data('player').pauseVideo()
 				}
 
-				if (slide.find('iframe').data('videoservice')=='vimeo')
+				if (slide.find('iframe').data('videoservice') === 'vimeo')
 					if (window.$f) $f(slide.find('iframe')[0]).api('pause')
 
 				slide.find('img').fadeIn(300, function () {
@@ -889,14 +896,14 @@
 			function runEffect() {
 				var eIndex = Math.floor( Math.random()*cs3.effects.length )
 				var effect = cs3.effects[eIndex].split('-')
+
 				cs3.e[effect[0]][effect[1]](cs3)
 			}
-
 		}
 
-		//Update Slides after Animation
+		// Update Slides after Animation
 		cs3.updateSlides = function(){
-			if(cs3.newSlideIndex===false) return
+			if (cs3.newSlideIndex === false) return
 
 			cs3.slides.eq( cs3.h.indexes().active ).removeClass('cs3-active-slide')[0].style.display = 'none'
 			cs3.slides.eq( cs3.newSlideIndex ).addClass('cs3-active-slide')[0].style.display = 'block'
@@ -904,37 +911,41 @@
 			cs3.l[0].style.display = 'none'
 			cs3.isAnimating = cs3.direction = cs3.newSlideIndex = false
 
-			//Plugins onEnd
+			// Plugins onEnd
 			cs3._plugins.onEnd(cs3)
 
-			//Continue Auto Play
+			// Continue Auto Play
 			if (cs3.params.autoplay.enabled) {
 				cs3.autoplayStart()
 			}
 
-			//Callback
+			// Callback
 			if (cs3.params.callbacks.onTransitionEnd) cs3.params.callbacks.onTransitionEnd(cs3)
 
-			//Update Video Slide
+			// Update Video Slide
 			if (cs3.slides.eq( cs3.h.indexes().active ).hasClass('cs3-video-slide')) {
-				//Hide Picture and show Video
+				// Hide Picture and show Video
 				var slide = cs3.slides.eq( cs3.h.indexes().active )
+
 				slide.find('img').fadeOut(300)
 				slide.find('.cs3-video')//.fadeIn(300)
-
 			}
 		}
-		//Init Function
-		cs3.init = function(){
-			//Update Slider Dimension
+
+		// Init Function
+		cs3.init = function() {
+			// Update Slider Dimension
 			cs3.h.updateDimension()
-			//Init Plugins
+
+			// Init Plugins
 			cs3._plugins.init(cs3)
-			//Start Autoplay
+
+			// Start Autoplay
 			if (cs3.params.autoplay.enabled) {
 				cs3.autoplayStart()
 			}
-			//Run Callback
+
+			// Run Callback
 			if (cs3.params.callbacks.onInit) cs3.params.callbacks.onInit(cs3)
 		}
 
@@ -946,24 +957,30 @@
 			var counter = 0
 			var imagesAreLoaded = false
 			var imagesToLoad = cs3.params.preloadOnlyFirst ? 1 : cs3.images.length
+
 			for (var i=0; i<imagesToLoad; i++) {
 				var img = new Image()
-				img.onload = function(){
+
+				img.onload = function() {
 					counter++
-					if (counter==imagesToLoad) {
+
+					if (counter === imagesToLoad) {
 						if(imagesAreLoaded) return
+
 						imagesAreLoaded = true
 						cs3.c.find('.cs3-preloader').remove()
 						cs3.slides.eq(0).fadeIn(300)
 						cs3.init()
 					}
 				}
+
 				img.src = cs3.images[i]
 			}
 
 			if (isOldIE)  {
 				setTimeout(function(){
 					if(imagesAreLoaded) return
+
 					imagesAreLoaded = true
 					cs3.c.find('.cs3-preloader').remove()
 					cs3.slides.eq(0).fadeIn(300)
@@ -976,9 +993,8 @@
 			cs3.init()
 		}
 
-		//Return cs3
+		// Return cs3
 		return cs3
-
 	}
 
 	ChopSlider3.prototype = {
@@ -992,57 +1008,51 @@
 
 		plugins : {},
 
-		//CSS3 Detection
+		// CSS3 Detection
 		hasCSS3 : function() {
 			$("body").append('<div class="cs3-css3Test"></div>')
 			var test = $(".cs3-css3Test")[0].style,
 				s = test.transition !== undefined || test.WebkitTransition !== undefined || test.MozTransition !== undefined || test.MsTransition !== undefined || test.OTransition !== undefined
 			$(".cs3-css3Test").remove()
 			return s
-
 		},
-		//3D Detection
+		// 3D Detection
 		has3D : function() {
-			if(this.hasCSS3()) {
+			if (this.hasCSS3()) {
 				var s3d=false, webkit=false
 				$("body").append('<div class="cs3-css3Test"></div>')
 				var test = $(".cs3-css3Test")[0].style
-				if("webkitPerspective" in test || "MozPerspective" in test || "OPerspective" in test || "MsPerspective" in test || "perspective" in test) s3d=true
-				if("webkitPerspective" in test) webkit = true
-				if(s3d&&webkit) {
+
+				if ("webkitPerspective" in test || "MozPerspective" in test || "OPerspective" in test || "MsPerspective" in test || "perspective" in test) s3d=true
+				if ("webkitPerspective" in test) webkit = true
+				if (s3d&&webkit) {
 					var _query = $('<style media="(transform-3d), (-moz-transform-3d), (-webkit-transform-3d), (-o-transform-3d), (-ms-transform-3d)">div.cs3-css3Test { overflow: hidden }</style>')
 					$('head').append(_query)
 					s3d=false
-					if($(".cs3-css3Test").css("overflow")=="hidden") {
+
+					if ($(".cs3-css3Test").css("overflow")=="hidden") {
 						s3d=true
 					}
+
 					_query.remove()
 				}
+
 				$(".cs3-css3Test").remove()
 				return s3d
 			}
 			else {
 				return false
 			}
-
 		},
 		//Canvas Detection
-		hasCanvas : function(){
+		hasCanvas : function() {
 			var elem = document.createElement('canvas')
+
 			return !!(elem.getContext && elem.getContext('2d'))
 		}
 	}
 
-
-
-
-
-	/*
-	=================================
-	Chop Slider 3 - Flat Effects
-	=================================
-*/
-
+	// Chop Slider 3 - Flat Effects
 	ChopSlider3.prototype.e.flat = {
 		fade : function(cs3) {
 			cs3.prepare({l:0, active:1, 'new':1})
@@ -1052,14 +1062,16 @@
 		},
 		bricks : function(cs3) {
 			var sliced = cs3.h.slice({index1:cs3.newSlideIndex, square: true})
+
 			cs3.l[0].innerHTML = sliced.html
 			cs3.prepare({l:1})
 
-			cs3.l.children().each(function(){
+			cs3.l.children().each(function() {
 				var a = $(this)
 				var index = a.index()
 				var aWidth = a.width()
 				var aHeight = a.height()
+
 				a.css({
 					width:0,
 					height:0,
@@ -1083,6 +1095,7 @@
 				var index = a.index()
 				var aWidth = a.width()
 				var aLeft = a.position().left
+
 				a.css({
 					width:0,
 					opacity:0,
@@ -1098,12 +1111,14 @@
 		}, // <- End Blinds
 		blinds_v : function(cs3) {
 			var sliced = cs3.h.slice({index1:cs3.newSlideIndex, cols: Math.floor(cs3.width/50), rows:1})
+
 			cs3.l[0].innerHTML = sliced.html
 			cs3.prepare({l:1})
 			cs3.l.css({overflow: 'hidden'})
 			cs3.l.children().each(function(){
 				var a = $(this)
 				var index = a.index()
+
 				a.css({
 					top:-cs3.height,
 					opacity:0
@@ -1118,19 +1133,21 @@
 		}, // <- End Blinds
 		zip : function(cs3) {
 			var sliced = cs3.h.slice({index1:cs3.newSlideIndex, cols: Math.floor(cs3.width/50), rows:1})
+
 			cs3.l[0].innerHTML = sliced.html
 			cs3.prepare({l:1})
 			cs3.l.css({overflow: 'hidden'})
-			cs3.l.children().each(function(){
+			cs3.l.children().each(function() {
 				var a = $(this)
 				var index = a.index()
+
 				a.css({
-					top: a.index()%2==0 ? -cs3.height : cs3.height,
+					top: a.index()%2 === 0 ? -cs3.height : cs3.height,
 					opacity:0
 				})
-					.delay( cs3.h.getDelay({ type:'linear', index: index, delay : 50, grid:sliced, startIndex: cs3.direction===1 ? 0 : sliced.cols} ) )
-					.animate({top: 0, opacity:1}, 400, function(){
-						if ( index == cs3.h.triggerIndex ) {
+					.delay( cs3.h.getDelay({ type:'linear', index: index, delay : 50, grid:sliced, startIndex: cs3.direction === 1 ? 0 : sliced.cols} ) )
+					.animate({top: 0, opacity:1}, 400, function() {
+						if (index === cs3.h.triggerIndex) {
 							cs3.updateSlides()
 						}
 					})
@@ -1138,12 +1155,7 @@
 		} // <- End Zip
 	}
 
-	/*
-	===============================
-	Chop Slider 3 - 2D Effects
-	=================================
-*/
-
+	// Chop Slider 3 - 2D Effects
 	ChopSlider3.prototype.e.twoD = {
 		smear : function(cs3) {
 			var sliced = cs3.h.slice({index1:cs3.h.indexes().active , square: true})
