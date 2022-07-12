@@ -51,16 +51,20 @@
 		$.fn.csTransform = function(params) {
 			return this.each(function(){
 				var es = $(this)[0].style
+
 				if (params.transform) {
 					if (!cs3.support.threeD && params.transform.indexOf('translate3d')>=0) {
-						var tr = params.transform.split('translate3d(')[1].split(')')[0].split(',')
-						var before = params.transform.split('translate3d(')[0]
-						var after = params.transform.split('translate3d(')[1].split(')')[1]
+						var tr      = params.transform.split('translate3d(')[1].split(')')[0].split(',')
+						var before  = params.transform.split('translate3d(')[0]
+						var after   = params.transform.split('translate3d(')[1].split(')')[1]
+
 						params.transform = before+' translateX('+tr[0]+') translateY('+tr[1]+') '+after
 					}
+
 					if (cs3.support.threeD && params.transform.indexOf('translate')<0) {
-						params.transform+=' translate3d(0px,0px,0px)'
+						params.transform += ' translate3d(0px,0px,0px)'
 					}
+
 					es.webkitTransform = es.MsTransform = es.MozTransform = es.OTransform = es.transform = params.transform
 				}
 
@@ -84,10 +88,8 @@
 			})
 		}
 
-
-
 		// Check for container
-		if (container.length == 0) return {}
+		if (container.length === 0) return {}
 
 		// Or check for init
 		if (container.hasClass('cs3-initialized')) return {}
@@ -101,8 +103,8 @@
 
 		//CS3 Object
 		$.extend(cs3 , {
-			params: params,
-			c:		    container,
+			params:     params,
+			c:          container,
 			slides :    container.find('.cs3-slide'),
 			_plugins : {
 				onStartFuncs : [],
@@ -134,25 +136,32 @@
 		if (!cs3.params.callbacks) cs3.params.callbacks = {}
 
 		//Video Slides
-		var useVideoSlides = false
-		var useYouTubeAPI = false
-		var useVimeoAPI = false
+		var useVideoSlides  = false
+		var useYouTubeAPI   = false
+		var useVimeoAPI     = false
+
 		cs3.slides.each(function() {
 			useVideoSlides = true
+
 			if ($(this).hasClass('cs3-video-slide')) {
 				$(this).append('<img src="'+cs3.path+'assets/video-bg.png">')
+
 				var frame = $(this).find('iframe')
-				frame.attr('id', 'cs3-video-'+(new Date()).getTime()+$(this).index())
+
+				frame.attr('id', 'cs3-video-'+(new Date()).getTime() + $(this).index())
+
 				if ( frame.attr('src').indexOf('youtube')>=0 ) {
 					frame.attr('data-videoservice','youtube')
 					useYouTubeAPI = true
 				}
+
 				if (frame.attr('src').indexOf('vimeo')>=0) {
 					useVimeoAPI = true
 					frame.attr('data-videoservice','vimeo')
 				}
 			}
 		})
+
 		if (useVideoSlides) {
 			if (useYouTubeAPI) {
 				if (!window.YT) {
@@ -165,69 +174,81 @@
 
 				window.onYouTubeIframeAPIReady = function() {
 					cs3.slides.each(function() {
-						if ($(this).hasClass('cs3-video-slide') && $(this).find('iframe').data('videoservice')=='youtube') {
+						if ($(this).hasClass('cs3-video-slide') && $(this).find('iframe').data('videoservice') === 'youtube') {
 							var videoID = $(this).find('iframe').attr('id')
+
 							$(this).data('player',new YT.Player(videoID))
 						}
 					})
 				}
 			}
+
 			if (useVimeoAPI) {
 				$.getScript('http://a.vimeocdn.com/js/froogaloop2.min.js')
 			}
-
 		}
-		//Store Images
-		cs3.slides.each(function(){
-			var src = $(this).find('img').attr('src')
-			cs3.images.push( $(this).find('img').attr('src') )
+
+		// Store Images
+		cs3.slides.each(function() {
+			cs3.images.push($(this).find('img').attr('src'))
 		})
 
-
-		//Add Active Classes on Initialization
+		// Add Active Classes on Initialization
 		cs3.slides.eq(0).addClass('cs3-active-slide')
 		cs3.c.addClass('cs3-initialized')
 
-		//Add View Container
+		// Add View Container
 		cs3.slides.wrapAll('<div class="cs3-view"></div>')
 		cs3.v = cs3.c.children('.cs3-view')
 
-		//Add CS3-Loader Container
+		// Add CS3-Loader Container
 		cs3.v.append('<div class="cs3-loader"></div>')
 		cs3.l = cs3.v.find('.cs3-loader')
 
-		//Transition Functions
+		// Transition Functions
 		cs3.slideNext = function() {
 			if (cs3.isAnimating) return false
+
 			cs3.newSlideIndex = cs3.h.indexes().next
 			cs3.direction = 1
 			cs3.run()
 		}
+
 		cs3.slidePrev = function() {
 			if (cs3.isAnimating) return false
+
 			cs3.newSlideIndex = cs3.h.indexes().prev
 			cs3.direction = -1
 			cs3.run()
 		}
+
 		cs3.slideTo = function(index) {
 			if (cs3.isAnimating) return false
+
 			if (index<0 || index>=cs3.slides.length) return
+
 			cs3.newSlideIndex = index
+
 			if (index>cs3.h.indexes().active) cs3.direction = 1
 			else cs3.direction = -1
+
 			cs3.run()
 		}
+
 		cs3.switchTo = function(index) {
 			if (cs3.isAnimating) return false
-			if (index<0 || index>=cs3.slides.length) return
-			if (index==cs3.h.indexes().active) return
+
+			if (index < 0 || index >= cs3.slides.length) return
+
+			if (index === cs3.h.indexes().active) return
+
 			cs3.newSlideIndex = index
 			cs3._plugins.onStart(cs3)
 			cs3.updateSlides()
 		}
 
 		//Put All Plugins Functions to Array
-		;(function(){
+		;(function() {
 			for (var plug in cs3.plugins) {
 				if ('onStart' in cs3.plugins[plug]) cs3._plugins.onStartFuncs.push(cs3.plugins[plug]['onStart'])
 				if ('onEnd' in cs3.plugins[plug]) cs3._plugins.onEndFuncs.push(cs3.plugins[plug]['onEnd'])
@@ -235,6 +256,7 @@
 				cs3._plugins[plug] = {}
 			}
 		})()
+
 		$.extend(cs3._plugins, {
 			onStart : function(a, calledBy){
 				for (var i=0; i<cs3._plugins.onStartFuncs.length; i++) cs3._plugins.onStartFuncs[i](a, calledBy)
@@ -246,20 +268,28 @@
 				for (var i=0; i<cs3._plugins.initFuncs.length; i++) cs3._plugins.initFuncs[i](a, calledBy)
 			}
 		})
+
 		//Effects
 		cs3.calcEffects = function() {
 			var e = cs3.params.effects
+
 			if (!e) e = 'random-flat'
+
 			var eArr = []
 			var eArrTrim = []
+
 			if (e.indexOf(',')>=0) eArr = e.split(',')
 			else eArr.push(e)
+
 			for (var i=0; i<eArr.length; i++) {
 				var eff = $.trim(eArr[i])
+
 				if (eff.indexOf('random-')>=0) {
 					var group = eff.split('-')[1]
+
 					if (group == '2D' || group == '2d') group = 'twoD'
 					if (group == '3D' || group == '3d') group = 'threeD'
+
 					for (var randomEff in cs3.e[group]) {
 						if (randomEff.charAt(0)!='_') eArrTrim.push(randomEff)
 					}
@@ -268,28 +298,34 @@
 					eArrTrim.push( $.trim(eArr[i]) )
 				}
 			}
-			//Check For Support
+
+			// Check For Support
 			var eArrFinal = []
 
 			for (var i=0; i<eArrTrim.length; i++) {
 				var effect = eArrTrim[i]
-				//3D Support
+
+				// 3D Support
 				if ( effect in cs3.e.threeD	&& cs3.support.threeD) {
 					eArrFinal.push('threeD-'+effect)
 				}
-				//2D Support
+
+				// 2D Support
 				if ( effect in cs3.e.twoD	&& cs3.support.css3) {
 					eArrFinal.push('twoD-'+effect)
 				}
-				//Canvas Support
+
+				// Canvas Support
 				if ( effect in cs3.e.canvas	&& cs3.support.canvas) {
 					eArrFinal.push('canvas-'+effect)
 				}
+
 				if ( effect in cs3.e.flat) {
 					eArrFinal.push('flat-'+effect)
 				}
 			}
-			if (eArrFinal.length==0) {
+
+			if (eArrFinal.length === 0) {
 				for (var eff in cs3.e.flat) {
 					eArrFinal.push('flat-'+eff)
 				}
