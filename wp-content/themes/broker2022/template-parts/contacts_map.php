@@ -3,17 +3,45 @@
 $mapX = '55.7470937';
 $mapY = '37.5372205'; ?>
 
-<div class="contacts_map"></div>
+<div id="contacts_map" class="contacts_map"></div>
+
+<script src="//api-maps.yandex.ru/2.1/?apikey=eed2b879-5209-4581-8167-71583aa7db36&lang=ru_RU"></script>
 
 <script>
+	ymaps.ready(function () {
+		var map = new ymaps.Map('contacts_map', {
+			center: [<?=$mapX;?>, <?=$mapY;?>],
+			'stylers': {
+				"hue": "#ddb472",
+				'lightness': 1
+			},
+			zoom: 13
+		});
+
+		map.geoObjects.add(new ymaps.Placemark([<?=$mapX;?>, <?=$mapY;?>], {
+				hintContent: "<?=$googleAdress;?>"
+			},{
+				iconLayout: 'default#imageWithContent',
+				iconImageHref: '/wp-content/themes/broker2022/i/icons/map.svg',
+				iconImageSize: [30, 42],
+				iconImageOffset: [-15, -42]
+			})
+		);
+	});
+
 	function initMapContacts() {
+		let mapDiv = document.querySelector('.contacts_mapX')
+
+		if (!mapDiv) return
+
 		// coordinates
 		let myLatLng = {
 			lat: <?php echo $mapX ?>,
 			lng: <?php echo $mapY ?>
 		};
 
-		let map = new google.maps.Map(document.querySelector('.contacts_map'), {
+		// edit class for a map
+		let map = new google.maps.Map(document.querySelector('.contacts_mapX'), {
 			center:     myLatLng,
 			zoom:       15
 		});
