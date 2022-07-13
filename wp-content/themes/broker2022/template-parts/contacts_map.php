@@ -1,7 +1,7 @@
 
 <?php // map
-$googleMapsX = '55.7470937';
-$googleMapsY = '37.5372205'; ?>
+$mapX = '55.7470937';
+$mapY = '37.5372205'; ?>
 
 <div class="contacts_map"></div>
 
@@ -9,8 +9,8 @@ $googleMapsY = '37.5372205'; ?>
 	function initMapContacts() {
 		// coordinates
 		let myLatLng = {
-			lat: <?php echo $googleMapsX ?>,
-			lng: <?php echo $googleMapsY ?>
+			lat: <?php echo $mapX ?>,
+			lng: <?php echo $mapY ?>
 		};
 
 		let map = new google.maps.Map(document.querySelector('.contacts_map'), {
