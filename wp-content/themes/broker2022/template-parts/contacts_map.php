@@ -19,7 +19,7 @@ $mapY = '37.5372205'; ?>
 		});
 
 		map.geoObjects.add(new ymaps.Placemark([<?=$mapX;?>, <?=$mapY;?>], {
-				hintContent: "<?=$googleAdress;?>"
+				//hintContent: "<?//=$googleAdress;?>//"
 			},{
 				iconLayout: 'default#imageWithContent',
 				iconImageHref: '/wp-content/themes/broker2022/i/icons/map.svg',
