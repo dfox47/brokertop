@@ -33,16 +33,17 @@ if ( $total <= 1 ) {
 		apply_filters(
 			'woocommerce_pagination_args',
 			array( // WPCS: XSS ok.
-				'base'      => $base,
-				'format'    => $format,
 				'add_args'  => false,
+				'base'      => $base,
 				'current'   => max( 1, $current ),
-				'total'     => $total,
-				'prev_text' => is_rtl() ? '&rarr;' : '&larr;',
-				'next_text' => is_rtl() ? '&larr;' : '&rarr;',
-				'type'      => 'list',
 				'end_size'  => 3,
+				'format'    => $format,
 				'mid_size'  => 3,
+				'next_text' => is_rtl() ? '&larr;' : '&rarr;',
+				'prev_next' => true,
+				'prev_text' => is_rtl() ? '&rarr;' : '&larr;',
+				'total'     => $total,
+				'type'      => 'list'
 			)
 		)
 	); ?>
