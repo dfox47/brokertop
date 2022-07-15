@@ -73,9 +73,37 @@
 						}
 
 						&.page-numbers {
+							font-size: 0;
+
 							&.next,
 							&.prev {
-								display: none;
+								display: flex;
+								align-items: flex-end;
+
+								&::after {
+									background: none;
+									color: $c_main;
+									font-size: 14px;
+									left: 0;
+									position: relative;
+									width: auto;
+								}
+							}
+
+							&.next {
+								padding: 0 0 0 20px;
+
+								&::after {
+									content: "далее →";
+								}
+							}
+
+							&.prev {
+								padding: 0 20px 0 0;
+
+								&::after {
+									content: "← назад";
+								}
 							}
 						}
 					}
