@@ -175,4 +175,4 @@ $mapY = '37.5372205'; ?>
 	}
 </script>
 
-<script async src="//maps.googleapis.com/maps/api/js?key=<?php echo googleMapsApi; ?>&callback=initMapContacts"></script>
+<!--<script async src="//maps.googleapis.com/maps/api/js?key=--><?php //echo googleMapsApi; ?><!--&callback=initMapContacts"></script>-->
