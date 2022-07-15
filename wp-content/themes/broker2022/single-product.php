@@ -17,6 +17,11 @@ $productAttributes = [
 <!--	--><?php //dynamic_sidebar('woocommerce_filter'); ?>
 <?php //} ?>
 
+<?php
+$objectType     = $product->get_attribute('pa_tip-nedvizhimosti');
+$objectClass    = $product->get_attribute('pa_klass');
+?>
+
 <main class="main_content_wrap">
 	<div class="main_content">
 		<div class="wrap3">
@@ -27,7 +32,21 @@ $productAttributes = [
 						if ($product -> get_attribute('pa_tip-nedvizhimosti')) { ?>
 							<div class="product_info__item product_info__item--full-width-mobile">
 								<div class="product_info__title"><?php echo wc_attribute_label('pa_tip-nedvizhimosti'); ?></div>
-								<div class="product_info__value"><?php echo $product -> get_attribute('pa_tip-nedvizhimosti'); ?></div>
+
+								<div class="product_info__value">
+									<?php if ($objectType == 'flat_and_room') { ?>
+										Жилая
+									<?php }
+									else if ($objectType == 'commerce') { ?>
+										Коммерческая
+									<?php }
+									else if ($objectType == 'house_dacha_cottage') { ?>
+										Дом
+									<?php }
+									else {
+										echo $objectType;
+									} ?>
+								</div>
 							</div>
 						<?php } ?>
 
@@ -72,7 +91,15 @@ $productAttributes = [
 						if ($product -> get_attribute('pa_klass')) { ?>
 							<div class="product_info__item product_info__item--start">
 								<div class="product_info__title"><?php echo wc_attribute_label('pa_klass'); ?></div>
-								<div class="product_info__value"><?php echo $product -> get_attribute('pa_klass'); ?></div>
+
+								<div class="product_info__value">
+									<?php if ($objectClass == 'flat') { ?>
+										Апартамент
+									<?php }
+									else {
+										echo $objectClass;
+									} ?>
+								</div>
 							</div>
 						<?php } ?>
 
@@ -153,11 +180,11 @@ $productAttributes = [
 
 	<ul class="product_gallery">
 		<?php // gallery images
-		foreach ($gallery_images as $gallery_image) {
+		foreach ($gallery_images as $key=>$gallery_image) {
 			$image_link = str_replace('https://' . $_SERVER['SERVER_NAME'], '', wp_get_attachment_url($gallery_image)); ?>
 
 			<li class="product_gallery__item">
-				<a class="product_gallery__link js-popup-show" href="javascript:void(0);" data-popup="product_gallery"><img class="product_gallery__img" src="<?php echo $image_link; ?>" alt="" /></a>
+				<a class="product_gallery__link js-popup-show js-go-to-slide" href="javascript:void(0);" data-popup="product_gallery" data-slide="<?php echo $key; ?>"><img class="product_gallery__img" src="<?php echo $image_link; ?>" alt="" /></a>
 			</li>
 		<?php } ?>
 	</ul>
