@@ -17,10 +17,9 @@ $productAttributes = [
 <!--	--><?php //dynamic_sidebar('woocommerce_filter'); ?>
 <?php //} ?>
 
-<?php
+<?php // object attribites
 $objectType     = $product->get_attribute('pa_tip-nedvizhimosti');
-$objectClass    = $product->get_attribute('pa_klass');
-?>
+$objectClass    = $product->get_attribute('pa_klass'); ?>
 
 <main class="main_content_wrap">
 	<div class="main_content">
