@@ -1,4 +1,33 @@
 
+blockquote {
+	font-style: italic;
+	font-size: 20px;
+	margin: 50px 0 0;
+	padding: 40px 80px 80px;
+	position: relative;
+
+	&::after,
+	&::before {
+		color: $c_main;
+		font-size: 100px;
+		line-height: 1;
+		position: absolute;
+		z-index: 1;
+	}
+
+	&::after {
+		bottom: 0;
+		content: "”";
+		right: 0;
+	}
+
+	&::before {
+		content: "“";
+		left: 0;
+		top: 0;
+	}
+}
+
 body {
 	background-color: #fff;
 	font-size: 14px;
@@ -46,6 +75,35 @@ h3 {
 
 
 
+.brokers_list {
+	display: grid;
+	grid-template-columns: 250px 250px 250px 250px;
+	grid-gap: 30px;
+	margin: 30px 0 100px;
+
+	&__desc {
+		display: block;
+	}
+
+	&__img {
+		display: block;
+		margin: 0 0 10px;
+		width: 100%;
+	}
+
+	&__item {
+		display: block;
+		width: 100%;
+	}
+
+	&__name {
+		display: block;
+		font-size: 16px;
+		font-weight: 700;
+		margin: .5em 0;
+	}
+}
+
 .copyright {
 	color: #fff;
 	font-size: 12px;
@@ -56,6 +114,27 @@ h3 {
 	@media #{$mobile} {
 		color: $c_menu_bg;
 		margin: 14px 0 0;
+	}
+}
+
+.list_type_1 {
+	font-size: 16px;
+	margin: 1em 0 2em;
+
+	li {
+		padding: 0 0 .5em 2em;
+		position: relative;
+
+		&::before {
+			background-color: $c_main;
+			border-radius: 50%;
+			content: "";
+			height: 8px;
+			left: 18px;
+			position: absolute;
+			top: 6px;
+			width: 8px;
+		}
 	}
 }
 
@@ -94,6 +173,10 @@ h3 {
 	@media #{$mobile} {
 		padding: 0;
 	}
+}
+
+.nobr {
+	white-space: nowrap;
 }
 
 .page {
@@ -197,6 +280,23 @@ h3 {
 .thumb_img {
 	display: block;
 	margin: 0 auto 15px;
+}
+
+.wp-block-button {
+	&__link {
+		background-color: $c_text;
+		transition: $transition;
+
+		&:hover {
+			background-color: $c_main;
+		}
+	}
+}
+
+.wp-block-buttons {
+	> .wp-block-button {
+		margin: 20px 0;
+	}
 }
 
 .wp-block-columns {
