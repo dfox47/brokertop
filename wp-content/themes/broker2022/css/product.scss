@@ -475,7 +475,6 @@
 			}
 
 			@media #{$desktop_hd} {
-				bottom: -20px;
 				height: 36px;
 				margin: 0;
 				top: auto;
@@ -606,5 +605,25 @@
 		&__track {
 			height: 100%;
 		}
+	}
+
+	.owl-carousel {
+		height: 100%;
+	}
+
+	.owl-item {
+		height: 100%;
+
+		img {
+			height: 100%;
+		}
+	}
+
+	.owl-stage {
+		height: 100%;
+	}
+
+	.owl-stage-outer {
+		height: 100%;
 	}
 }

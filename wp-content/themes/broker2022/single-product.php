@@ -189,13 +189,14 @@ $objectClass    = $product->get_attribute('pa_klass'); ?>
 	</ul>
 </main>
 
-<div class="popup popup--product js-popup" data-popup="product_gallery">
+<div class="popup popup--product js-popup active" data-popup="product_gallery">
 	<div class="popup__bg js-popup-close"></div>
 
 	<div class="popup__content">
 		<div class="popup__close js-popup-close"></div>
 
 		<div class="product_slider">
+			<div class="hidden">
 			<div class="js-splide-slider splide" data-splide='{"keyboard":"global","type":"loop","perPage":1}'>
 				<div class="splide__track">
 					<ul class="splide__list">
@@ -209,6 +210,17 @@ $objectClass    = $product->get_attribute('pa_klass'); ?>
 					</ul>
 				</div>
 			</div>
+			</div>
+
+<!--			<div class="hiddenX">-->
+			<div class="owl-carousel js-owl-carousel">
+				<?php // gallery images
+				foreach ($gallery_images as $gallery_image) {
+					$image_link = str_replace('https://' . $_SERVER['SERVER_NAME'], '', wp_get_attachment_url($gallery_image)); ?>
+					<img class="product_slider__img" src="<?php echo $image_link; ?>" alt="" />
+				<?php } ?>
+			</div>
+<!--			</div>-->
 		</div>
 	</div>
 </div>
