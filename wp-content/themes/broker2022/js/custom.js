@@ -13,6 +13,7 @@ let x = () => {
 x()
 
 $(document).ready(function() {
+	// owl carousel at product page
 	$('.js-owl-carousel').owlCarousel({
 		dots:       false,
 		items:      1,
