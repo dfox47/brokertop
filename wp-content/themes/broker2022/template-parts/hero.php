@@ -6,7 +6,8 @@
 				'orderby'           => 'rand',
 				'post_type'         => 'product',
 				'posts_per_page'    => -1,
-				'product_cat'       => 'kupit'
+				'product_cat'       => 'kupit',
+				'product_cat'       => 'arendovat'
 			);
 
 			$loop = new WP_Query( $args );
