@@ -120,27 +120,22 @@
 .owl-prev,
 .owl-next,
 .owl-dot {
-	cursor: pointer;
-	-webkit-user-select: none;
-	-khtml-user-select: none;
 	-moz-user-select: none;
-	-ms-user-select: none;
+	-webkit-user-select: none;
+	background: none;
+	border: none;
+	color: inherit;
+	cursor: pointer;
+	font: inherit;
+	padding: 0 !important;
 	user-select: none;
 }
 
-.owl-prev,
-.owl-next,
-.owl-dot {
-	background: none;
-	color: inherit;
-	border: none;
-	padding: 0 !important;
-	font: inherit;
-}
-
 // No Js
-.no-js .owl-carousel {
-	display: block;
+.no-js {
+	.owl-carousel {
+		display: block;
+	}
 }
 
 // Animate Plugin
