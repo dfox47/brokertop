@@ -79,8 +79,7 @@ gulp.task('js', function () {
 			localFolderJs + 'jquery-3.6.0.min.js',
 			localFolderJs + 'owl.carousel.min.js',
 			localFolderJs + 'idangerous.chopslider-3.4.js',
-			localFolderJs + 'splideSlider.js',
-			// localFolderJs + 'jspdf.min.js',
+			localFolderJs + 'splide.min.js',
 			localFolderJs + '**/*.js'
 		])
 		.pipe(concat('all.js'))
