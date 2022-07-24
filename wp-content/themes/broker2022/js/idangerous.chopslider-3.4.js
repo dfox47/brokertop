@@ -150,12 +150,12 @@
 
 				frame.attr('id', 'cs3-video-'+(new Date()).getTime() + $(this).index())
 
-				if ( frame.attr('src').indexOf('youtube')>=0 ) {
+				if ( frame.attr('src').indexOf('youtube') >= 0 ) {
 					frame.attr('data-videoservice','youtube')
 					useYouTubeAPI = true
 				}
 
-				if (frame.attr('src').indexOf('vimeo')>=0) {
+				if (frame.attr('src').indexOf('vimeo') >= 0) {
 					useVimeoAPI = true
 					frame.attr('data-videoservice','vimeo')
 				}
@@ -167,8 +167,11 @@
 				if (!window.YT) {
 					// This code loads the IFrame Player API code asynchronously.
 					var tag = document.createElement('script')
+
 					tag.src = "//www.youtube.com/player_api"
+
 					var firstScriptTag = document.getElementsByTagName('script')[0]
+
 					firstScriptTag.parentNode.insertBefore(tag, firstScriptTag)
 				}
 
@@ -225,11 +228,11 @@
 		cs3.slideTo = function(index) {
 			if (cs3.isAnimating) return false
 
-			if (index<0 || index>=cs3.slides.length) return
+			if (index < 0 || index >= cs3.slides.length) return
 
 			cs3.newSlideIndex = index
 
-			if (index>cs3.h.indexes().active) cs3.direction = 1
+			if (index > cs3.h.indexes().active) cs3.direction = 1
 			else cs3.direction = -1
 
 			cs3.run()
@@ -247,51 +250,54 @@
 			cs3.updateSlides()
 		}
 
-		//Put All Plugins Functions to Array
+		// Put All Plugins Functions to Array
 		;(function() {
 			for (var plug in cs3.plugins) {
 				if ('onStart' in cs3.plugins[plug]) cs3._plugins.onStartFuncs.push(cs3.plugins[plug]['onStart'])
+
 				if ('onEnd' in cs3.plugins[plug]) cs3._plugins.onEndFuncs.push(cs3.plugins[plug]['onEnd'])
+
 				if ('init' in cs3.plugins[plug]) cs3._plugins.initFuncs.push(cs3.plugins[plug]['init'])
 				cs3._plugins[plug] = {}
+
 			}
 		})()
 
 		$.extend(cs3._plugins, {
-			onStart : function(a, calledBy){
+			onStart : function(a, calledBy) {
 				for (var i=0; i<cs3._plugins.onStartFuncs.length; i++) cs3._plugins.onStartFuncs[i](a, calledBy)
 			},
-			onEnd : function(a, calledBy){
+			onEnd : function(a, calledBy) {
 				for (var i=0; i<cs3._plugins.onEndFuncs.length; i++) cs3._plugins.onEndFuncs[i](a, calledBy)
 			},
-			init : function(a, calledBy){
+			init : function(a, calledBy) {
 				for (var i=0; i<cs3._plugins.initFuncs.length; i++) cs3._plugins.initFuncs[i](a, calledBy)
 			}
 		})
 
-		//Effects
+		// Effects
 		cs3.calcEffects = function() {
 			var e = cs3.params.effects
 
 			if (!e) e = 'random-flat'
 
-			var eArr = []
-			var eArrTrim = []
+			var eArr        = []
+			var eArrTrim    = []
 
 			if (e.indexOf(',')>=0) eArr = e.split(',')
 			else eArr.push(e)
 
-			for (var i=0; i<eArr.length; i++) {
+			for (var i = 0; i < eArr.length; i++) {
 				var eff = $.trim(eArr[i])
 
-				if (eff.indexOf('random-')>=0) {
+				if (eff.indexOf('random-') >= 0) {
 					var group = eff.split('-')[1]
 
-					if (group == '2D' || group == '2d') group = 'twoD'
-					if (group == '3D' || group == '3d') group = 'threeD'
+					if (group === '2D' || group === '2d') group = 'twoD'
+					if (group === '3D' || group === '3d') group = 'threeD'
 
 					for (var randomEff in cs3.e[group]) {
-						if (randomEff.charAt(0)!='_') eArrTrim.push(randomEff)
+						if (randomEff.charAt(0) !== '_') eArrTrim.push(randomEff)
 					}
 				}
 				else {
@@ -302,46 +308,47 @@
 			// Check For Support
 			var eArrFinal = []
 
-			for (var i=0; i<eArrTrim.length; i++) {
+			for (var i = 0; i < eArrTrim.length; i++) {
 				var effect = eArrTrim[i]
 
 				// 3D Support
-				if ( effect in cs3.e.threeD	&& cs3.support.threeD) {
-					eArrFinal.push('threeD-'+effect)
+				if ( effect in cs3.e.threeD && cs3.support.threeD) {
+					eArrFinal.push('threeD-' + effect)
 				}
 
 				// 2D Support
-				if ( effect in cs3.e.twoD	&& cs3.support.css3) {
-					eArrFinal.push('twoD-'+effect)
+				if ( effect in cs3.e.twoD && cs3.support.css3) {
+					eArrFinal.push('twoD-' + effect)
 				}
 
 				// Canvas Support
 				if ( effect in cs3.e.canvas	&& cs3.support.canvas) {
-					eArrFinal.push('canvas-'+effect)
+					eArrFinal.push('canvas-' + effect)
 				}
 
 				if ( effect in cs3.e.flat) {
-					eArrFinal.push('flat-'+effect)
+					eArrFinal.push('flat-' + effect)
 				}
 			}
 
 			if (eArrFinal.length === 0) {
 				for (var eff in cs3.e.flat) {
-					eArrFinal.push('flat-'+eff)
+					eArrFinal.push('flat-' + eff)
 				}
 			}
 
 			if (cs3.params.effectsGroupLock) {
-				var eLock = cs3.params.effectsGroupLock
-				var eArrLock=[]
+				var eLock       = cs3.params.effectsGroupLock
+				var eArrLock    = []
 
 				if (cs3.support.threeD && eLock.support3d) {
 					var allowGroups = eLock.support3d.split(',')
 
-					for (var i=0; i<eArrFinal.length; i++) {
-						for (var j=0; j<allowGroups.length; j++) {
+					for (var i = 0; i < eArrFinal.length; i++) {
+						for (var j = 0; j < allowGroups.length; j++) {
 							var group = $.trim(allowGroups[j])
-							if (eArrFinal[i].indexOf(group)>=0) eArrLock.push(eArrFinal[i])
+
+							if (eArrFinal[i].indexOf(group) >= 0) eArrLock.push(eArrFinal[i])
 						}
 					}
 
@@ -351,10 +358,11 @@
 				if (cs3.support.css3 && eLock.support2d && !cs3.support.threeD) {
 					var allowGroups = eLock.support2d.split(',')
 
-					for (var i=0; i<eArrFinal.length; i++) {
-						for (var j=0; j<allowGroups.length; j++) {
+					for (var i = 0; i < eArrFinal.length; i++) {
+						for (var j = 0; j < allowGroups.length; j++) {
 							var group = $.trim(allowGroups[j])
-							if (eArrFinal[i].indexOf(group)>=0) eArrLock.push(eArrFinal[i])
+
+							if (eArrFinal[i].indexOf(group) >= 0) eArrLock.push(eArrFinal[i])
 						}
 					}
 
@@ -364,10 +372,11 @@
 				if (!cs3.support.threeD && eLock.supportCanvasNoCSS3 && cs3.support.canvas && !cs3.support.css3) {
 					var allowGroups = eLock.supportCanvasNoCSS3.split(',')
 
-					for (var i=0; i<eArrFinal.length; i++) {
-						for (var j=0; j<allowGroups.length; j++) {
+					for (var i = 0; i < eArrFinal.length; i++) {
+						for (var j = 0; j < allowGroups.length; j++) {
 							var group = $.trim(allowGroups[j])
-							if (eArrFinal[i].indexOf(group)>=0) eArrLock.push(eArrFinal[i])
+
+							if (eArrFinal[i].indexOf(group) >= 0) eArrLock.push(eArrFinal[i])
 						}
 					}
 
@@ -377,7 +386,7 @@
 
 			if (eArrFinal.length === 0) {
 				for (var e in cs3.e.flat) {
-					if (e.charAt(0)!='_') eArrFinal.push('flat-'+e)
+					if (e.charAt(0) !== '_') eArrFinal.push('flat-' + e)
 				}
 			}
 
@@ -390,11 +399,11 @@
 		cs3.set_timeout = function(func, time) {
 			//Get Document State
 			var hidden, change, vis = {
-				hidden: "visibilitychange",
-				mozHidden: "mozvisibilitychange",
-				webkitHidden: "webkitvisibilitychange",
-				msHidden: "msvisibilitychange",
-				oHidden: "ovisibilitychange"
+				hidden:         "visibilitychange",
+				mozHidden:      "mozvisibilitychange",
+				webkitHidden:   "webkitvisibilitychange",
+				msHidden:       "msvisibilitychange",
+				oHidden:        "ovisibilitychange"
 			}
 
 			for (var hidden in vis) {
@@ -404,9 +413,9 @@
 				}
 			}
 
-			if(!change){
+			if (!change) {
 				//IE6-9
-				return setTimeout(function(){
+				return setTimeout(function() {
 					func()
 				},time)
 			}
@@ -414,7 +423,7 @@
 			var timeStart = (new Date()).getTime()
 			var timeLeft = false
 
-			//Timeout Counter
+			// Timeout Counter
 			function countTime() {
 				if (document[hidden]) {
 					timeLeft = time - (( new Date() ).getTime() - timeStart)
@@ -425,7 +434,7 @@
 			document.addEventListener(change, countTime)
 
 			if (!document[hidden]) {
-				return setTimeout(function(){
+				return setTimeout(function() {
 					if (!document[hidden]) func()
 					else {
 						function continueTimeOut() {
@@ -434,6 +443,7 @@
 								document.removeEventListener(change, continueTimeOut)
 							}
 						}
+
 						document.addEventListener(change, continueTimeOut)
 					}
 				}, time)
@@ -456,8 +466,8 @@
 		cs3.autoplayTimeout         = false
 
 		cs3.autoplayStart = function() {
-			cs3.params.autoplay.enabled = true
-			cs3.autoplayTimeout = cs3.set_timeout(function() {
+			cs3.params.autoplay.enabled     = true
+			cs3.autoplayTimeout             = cs3.set_timeout(function() {
 				cs3.slideNext()
 			}, cs3.params.autoplay.delay)
 		}
@@ -475,11 +485,11 @@
 						cs3.slides.eq( cs3.h.indexes().active ).show()
 					}
 
-					cs3.width = cs3.width || cs3.c.width()
-					cs3.height = cs3.height || cs3.c.height()
+					cs3.width       = cs3.width || cs3.c.width()
+					cs3.height      = cs3.height || cs3.c.height()
 
-					var oldWidth = cs3.width
-					var oldHeight = cs3.height
+					var oldWidth    = cs3.width
+					var oldHeight   = cs3.height
 
 					if (cs3.params.responsiveSetSize) {
 						cs3.c.width('auto')
@@ -536,28 +546,28 @@
 				a.value = a.value || 1200
 				a.origin = a.origin || '50% 50%'
 
-				if (!target) var target = navigator.userAgent.indexOf('MSIE')>=0 ? cs3.l : cs3.c
+				if (!target) var target = navigator.userAgent.indexOf('MSIE') >= 0 ? cs3.l : cs3.c
 
 				target.css({
-					"-webkit-perspective-origin":a.origin,
-					"-webkit-perspective":a.value,
-					"-moz-perspective-origin":a.origin,
-					"-moz-perspective":a.value	,
-					"-ms-perspective-origin":a.origin,
-					"-ms-perspective":a.value	,
-					"-o-perspective-origin":a.origin,
-					"-o-perspective":a.value	,
-					"perspective-origin":a.origin,
-					"perspective":a.value
+					"-webkit-perspective-origin":   a.origin,
+					"-webkit-perspective":          a.value,
+					"-moz-perspective-origin":      a.origin,
+					"-moz-perspective":             a.value,
+					"-ms-perspective-origin":       a.origin,
+					"-ms-perspective":              a.value,
+					"-o-perspective-origin":        a.origin,
+					"-o-perspective":               a.value,
+					"perspective-origin":           a.origin,
+					"perspective":                  a.value
 				})
 			},
 			triggerIndex : false,
 			getDelay : function(p) {
-				var newDelay=0
+				var newDelay = 0
 
 				if (p.grid.cols && p.grid.rows) {
-					var rowIndex = Math.floor(p.index/p.grid.cols),
-						colIndex = p.index - p.grid.cols*Math.floor(p.index/p.grid.cols)
+					var rowIndex = Math.floor(p.index / p.grid.cols),
+						colIndex = p.index - p.grid.cols * Math.floor(p.index / p.grid.cols)
 				}
 
 				if (!p.startIndex) {
@@ -566,54 +576,59 @@
 
 				switch(p.type) {
 					case 'linear' : {
-						if (p.startIndex == 'middle') p.startIndex = Math.floor(p.grid.rows*p.grid.cols/2)
-						newDelay = Math.abs(p.delay*(p.startIndex-p.index))
-						if (p.startIndex >= p.grid.cols*p.grid.rows/2) cs3.h.triggerIndex = 0
-						else cs3.h.triggerIndex = p.grid.cols*p.grid.rows-1
+						if (p.startIndex === 'middle') p.startIndex = Math.floor(p.grid.rows * p.grid.cols / 2)
+
+						newDelay = Math.abs(p.delay * (p.startIndex - p.index))
+
+						if (p.startIndex >= p.grid.cols * p.grid.rows / 2) cs3.h.triggerIndex = 0
+						else cs3.h.triggerIndex = p.grid.cols * p.grid.rows - 1
 					}
 						break
 
 					case 'progressive' : {
-						newDelay = Math.abs(p.delay*( p.startIndex - (colIndex*p.grid.rows/5+rowIndex) ))
-						if (p.startIndex >= p.grid.cols*p.grid.rows/2) cs3.h.triggerIndex = 0
-						else cs3.h.triggerIndex = p.grid.cols*p.grid.rows-1
+						newDelay = Math.abs(p.delay * (p.startIndex - (colIndex * p.grid.rows / 5 + rowIndex)))
 
+						if (p.startIndex >= p.grid.cols * p.grid.rows / 2) cs3.h.triggerIndex = 0
+						else cs3.h.triggerIndex = p.grid.cols * p.grid.rows - 1
 					}
 						break
 
 					case 'horizontal' : {
-						newDelay = Math.abs(p.delay*(p.startIndex - colIndex))
-						if (p.startIndex >= p.grid.cols/2) cs3.h.triggerIndex = 0
-						else cs3.h.triggerIndex = p.grid.cols-1
+						newDelay = Math.abs(p.delay * (p.startIndex - colIndex))
+
+						if (p.startIndex >= p.grid.cols / 2) cs3.h.triggerIndex = 0
+						else cs3.h.triggerIndex = p.grid.cols - 1
 					}
 						break
 
 					case 'vertical' : {
-						newDelay = Math.abs(p.delay*(p.startIndex-rowIndex))
-						if (p.startIndex >= p.grid.rows/2) cs3.h.triggerIndex = 0
-						else cs3.h.triggerIndex = p.grid.rows*p.grid.cols-1
+						newDelay = Math.abs(p.delay * (p.startIndex - rowIndex))
+
+						if (p.startIndex >= p.grid.rows / 2) cs3.h.triggerIndex = 0
+						else cs3.h.triggerIndex = p.grid.rows * p.grid.cols - 1
 					}
 						break
 				}
 				return newDelay
 			},
 			indexes : function() {
-				var b={}
+				var b = {}
 
 				b.active = cs3.c.find('.cs3-active-slide').index()
-				b.next = b.active+1>=cs3.slides.length ? 0 : b.active+1
-				b.prev = b.active-1<0 ? cs3.slides.length-1 : b.active-1
+				b.next = b.active + 1 >= cs3.slides.length ? 0 : b.active + 1
+				b.prev = b.active - 1 < 0 ? cs3.slides.length - 1 : b.active - 1
 
 				return b
 			},
-			transformString : function(transform){
-				return '-webkit-transform:'+transform+';' + '-moz-transform:'+transform+';' + '-o-transform:'+transform+';' + '-ms-transform:'+transform+';' + 'transform:'+transform+';'
+			transformString : function(transform) {
+				return '-webkit-transform:' + transform + ';' + '-moz-transform:' + transform + ';' + '-o-transform:' + transform + ';' + '-ms-transform:' + transform + ';' + 'transform:' + transform + ';'
 			},
 			slice : function(a) {
 				if (a.square) {
 					if (!a.squareSize) a.squareSize = 100
-					a.cols = Math.ceil(cs3.width/a.squareSize)
-					a.rows = Math.ceil(cs3.height/a.squareSize)
+
+					a.cols = Math.ceil(cs3.width / a.squareSize)
+					a.rows = Math.ceil(cs3.height / a.squareSize)
 				}
 
 				var x = a.cols, y = a.rows
@@ -624,8 +639,8 @@
 				var sliceWidth = Math.floor(cs3.width / x)
 				var lastWidth = sliceWidth
 
-				if (sliceWidth*x < cs3.width) {
-					lastWidth = cs3.width - sliceWidth*(x-1)
+				if (sliceWidth * x < cs3.width) {
+					lastWidth = cs3.width - sliceWidth * (x - 1)
 				}
 
 				// Heights
@@ -1067,10 +1082,10 @@
 			cs3.prepare({l:1})
 
 			cs3.l.children().each(function() {
-				var a = $(this)
-				var index = a.index()
-				var aWidth = a.width()
-				var aHeight = a.height()
+				var a           = $(this)
+				var index       = a.index()
+				var aWidth      = a.width()
+				var aHeight     = a.height()
 
 				a.css({
 					width:0,
@@ -1078,8 +1093,8 @@
 					opacity:0
 				})
 					.delay( cs3.h.getDelay({ type:'progressive', index: index, delay : 150, grid:sliced} ) )
-					.animate({width: aWidth, height:aHeight, opacity:1}, 300, function(){
-						if ( index == cs3.h.triggerIndex ) {
+					.animate({width: aWidth, height:aHeight, opacity:1}, 300, function() {
+						if ( index === cs3.h.triggerIndex ) {
 							cs3.updateSlides()
 						}
 					})
@@ -1090,20 +1105,20 @@
 			cs3.l[0].innerHTML = sliced.html
 			cs3.prepare({l:1})
 
-			cs3.l.children().each(function(){
-				var a = $(this)
-				var index = a.index()
-				var aWidth = a.width()
-				var aLeft = a.position().left
+			cs3.l.children().each(function() {
+				var a       = $(this)
+				var index   = a.index()
+				var aWidth  = a.width()
+				var aLeft   = a.position().left
 
 				a.css({
-					width:0,
-					opacity:0,
-					left : aLeft + (cs3.direction==1 ? 30 : -30)
+					width:      0,
+					opacity:    0,
+					left :      aLeft + (cs3.direction === 1 ? 30 : -30)
 				})
 					.delay( cs3.h.getDelay({ type:'linear', index: index, delay : 50, grid:sliced, startIndex: cs3.direction===1 ? 0 : sliced.cols} ) )
-					.animate({width: aWidth, opacity:1, left: aLeft}, 400, function(){
-						if ( index == cs3.h.triggerIndex ) {
+					.animate({width: aWidth, opacity:1, left: aLeft}, 400, function() {
+						if ( index === cs3.h.triggerIndex ) {
 							cs3.updateSlides()
 						}
 					})
@@ -1164,13 +1179,13 @@
 			cs3.prepare({ l:1, active : 0, 'new' : 1 })
 			setTimeout(function() {
 				cs3.l.children().each(function() {
-					var tX = cs3.direction ==1 ? 100 : -100
-					var r = cs3.direction ==1 ? 5 : -5
-					var start = cs3.direction == 1 ? 0 : sliced.cols
+					var tX      = cs3.direction === 1 ? 100 : -100
+					var r       = cs3.direction === 1 ? 5 : -5
+					var start   = cs3.direction === 1 ? 0 : sliced.cols
 
 					$(this).csTransform({
 						time:1000,
-						transform: 'scale(2,1.5) rotate('+r+'deg) translate3d('+tX+'px,0,0)',
+						transform: 'scale(2,1.5) rotate(' + r + 'deg) translate3d(' + tX + 'px,0,0)',
 						delay:cs3.h.getDelay({type:'horizontal', index: $(this).index() , delay : 50, grid : sliced, startIndex : start})
 					})
 						.csTransitionEnd(function(){
@@ -1181,22 +1196,22 @@
 			},50)
 		},// <!- End Smear
 		__bars : function(cs3, p) {
-			p = p || {}
-			p.cols = p.cols || 1
-			p.rows = p.rows || 6
-			p.type = p.type || 'h'
+			p           = p || {}
+			p.cols      = p.cols || 1
+			p.rows      = p.rows || 6
+			p.type      = p.type || 'h'
 
-			var dir = cs3.direction
-			var sliced = cs3.h.slice({index1:cs3.h.indexes().active, index2: cs3.newSlideIndex, cols:p.cols, rows:p.rows, wrap:true})
+			var dir     = cs3.direction
+			var sliced  = cs3.h.slice({index1:cs3.h.indexes().active, index2: cs3.newSlideIndex, cols:p.cols, rows:p.rows, wrap:true})
 
 			cs3.l[0].innerHTML = sliced.html
 			cs3.l.find('.cs3-slice').each(function() {
-				var a = $(this)
-				var index = a.index()
-				var translateX = p.type=='h' ? ( index%2==0 ? 0 : (a.parent().index()%2==0 ? cs3.width : -cs3.width) ) : 0
-				var translateY = p.type=='h' ? 0 : (  index%2==0 ? 0 : (a.parent().index()%2==0 ? cs3.height : -cs3.height)  )
-				translateX = translateX * dir
-				translateY = translateY * dir
+				var a           = $(this)
+				var index       = a.index()
+				var translateX  = p.type === 'h' ? ( index%2 === 0 ? 0 : (a.parent().index()%2 === 0 ? cs3.width : -cs3.width) ) : 0
+				var translateY  = p.type === 'h' ? 0 : (  index%2 === 0 ? 0 : (a.parent().index()%2 === 0 ? cs3.height : -cs3.height)  )
+				translateX      = translateX * dir
+				translateY      = translateY * dir
 				a.csTransform({
 					transform:'translate3d('+translateX+'px, '+translateY+'px, 0px)'
 				})
@@ -1207,8 +1222,8 @@
 
 			setTimeout(function() {
 				cs3.l.children().each(function() {
-					var a = $(this)
-					var translateX = p.type === 'h' ? (a.index()%2 !== 0 ? cs3.width : -cs3.width) : 0
+					var a               = $(this)
+					var translateX      = p.type === 'h' ? (a.index()%2 !== 0 ? cs3.width : -cs3.width) : 0
 
 					translateX = translateX * dir
 
@@ -1216,10 +1231,10 @@
 
 					translateY = translateY * dir
 					a.csTransform({
-						transform: 'translate3d('+translateX+'px, '+translateY+'px, 0px)',
-						time:1000,
 						delay: 0,
-						ease: 'cubic-bezier(1,0,0.8,0.2)'
+						ease: 'cubic-bezier(1,0,0.8,0.2)',
+						time:1000,
+						transform: 'translate3d(' + translateX + 'px, ' + translateY + 'px, 0px)'
 					})
 						.csTransitionEnd(function() {
 							if (a.index() === p.cols-1) cs3.updateSlides()
