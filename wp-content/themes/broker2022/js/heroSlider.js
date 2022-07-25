@@ -1,6 +1,4 @@
 
-// some special code here
-
 // more info
 // https://github.com/idangerous/plugins/tree/master/Chop%20Slider%203/Chop%20Slider%203%20jQuery
 $(document).ready(function() {
