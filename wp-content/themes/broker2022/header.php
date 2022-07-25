@@ -16,7 +16,7 @@
 
 	<?php wp_head(); ?>
 
-	<link rel="stylesheet" href="<?php echo esc_url(get_template_directory_uri()); ?>/style.css?v<?php echo(date("YmdHis")); ?>" />
+	<link rel="stylesheet" href="<?php echo esc_url(get_template_directory_uri()); ?>/styles.css?v<?php echo(date("YmdHis")); ?>" />
 </head>
 
 <body>

@@ -1,5 +1,8 @@
 
-<?php $i = esc_url(get_template_directory_uri()) . '/i'; ?>
+<?php
+$i          = esc_url(get_template_directory_uri()) . '/i';
+$whatsapp   = esc_attr(get_option('broker_whatsapp'));
+?>
 
 <?php if (is_active_sidebar('footer')) : ?>
 	<?php dynamic_sidebar('footer'); ?>
@@ -43,6 +46,8 @@
 		</div>
 	</div>
 </footer>
+
+<a class="whatsapp_link" href="//wa.me/<?php echo $whatsapp; ?>" target="_blank"><img class="whatsapp_link__img" src="<?php echo $i . '/icons/whatsapp_green.svg'; ?>" alt="whatsapp" /></a>
 
 <?php // all scripts in one file with GULP ?>
 <script src="<?php echo esc_url(get_template_directory_uri()); ?>/all.min.js?v<?php echo(date("Ymd")); ?>"></script>
