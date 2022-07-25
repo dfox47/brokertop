@@ -189,7 +189,7 @@ $objectClass    = $product->get_attribute('pa_klass'); ?>
 	</ul>
 </main>
 
-<div class="popup popup--product js-popup active" data-popup="product_gallery">
+<div class="popup popup--product js-popup" data-popup="product_gallery">
 	<div class="popup__bg js-popup-close"></div>
 
 	<div class="popup__content">
