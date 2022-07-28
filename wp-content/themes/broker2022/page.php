@@ -6,10 +6,13 @@
 <?php if (!is_front_page()) { ?>
 	<main class="main_content_wrap">
 		<div class="main_content">
-			<div class="wrap2">
+			<?php if ($currentUrl == '/o-kompanii/') {}
+			else { ?>
+				<div class="wrap2">
+			<?php } ?>
 				<?php // hide h1 at page About
 				if ($currentUrl == '/o-kompanii/') {}
-				// hide
+				// hide h1 at page news
 				elseif ($currentUrl == '/novosti/') {}
 				else { ?>
 					<h1><?php single_post_title(); ?></h1>
@@ -24,7 +27,10 @@
 						the_post();
 					}
 				} ?>
-			</div>
+			<?php if ($currentUrl == '/o-kompanii/') {}
+			else { ?>
+				</div>
+			<?php } ?>
 		</div>
 	</main>
 <?php } ?>
