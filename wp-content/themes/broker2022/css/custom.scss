@@ -37,6 +37,14 @@ blockquote {
 		bottom: 22px;
 		content: "";
 		right: 2px;
+
+		@media #{$desktop_hd} {
+			right: 0;
+		}
+
+		@media #{$mobile} {
+			bottom: 0;
+		}
 	}
 
 	&::before {
@@ -44,6 +52,15 @@ blockquote {
 		content: "";
 		left: -55px;
 		top: 7px;
+
+		@media #{$mobile} {
+			left: 0;
+			top: 0;
+		}
+	}
+
+	@media #{$mobile} {
+		padding: 40px 0;
 	}
 }
 

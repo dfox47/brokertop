@@ -35,6 +35,16 @@
 		flex-wrap: wrap;
 		justify-content: space-between;
 		padding: 0 33px 0 0;
+
+		@media #{$desktop_hd} {
+			align-items: center;
+			flex-direction: column;
+			padding: 0 100px;
+		}
+
+		@media #{$mobile} {
+			padding: 0 30px;
+		}
 	}
 }
 
@@ -45,6 +55,10 @@
 .about_quote_img {
 	&.wp-block-image {
 		margin: -40px 0 0;
+
+		@media #{$desktop_hd} {
+			margin: 20px 0 0;
+		}
 	}
 }
 
