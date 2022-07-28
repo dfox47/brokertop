@@ -1,4 +1,6 @@
 
+<?php $currentUrl = $_SERVER['REQUEST_URI']; ?>
+
 <?php get_header(); ?>
 
 <?php // thumb img url
@@ -15,7 +17,12 @@ if (get_the_post_thumbnail_url()) {
 				<img class="thumb_img" src="<?php echo $thumbUrl; ?>" alt="" />
 			<?php } ?>
 
-			<h1><?php single_post_title(); ?></h1>
+			<?php
+			// hide h1 at page About
+			if ($currentUrl == '/o-kompanii/') {}
+			else { ?>
+				<h1><?php single_post_title(); ?></h1>
+			<?php } ?>
 
 			<?php // content
 			the_content(); ?>

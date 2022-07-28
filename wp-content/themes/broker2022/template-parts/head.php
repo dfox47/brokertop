@@ -7,7 +7,8 @@ if (get_the_post_thumbnail_url()) {
 }
 
 // page type
-$pageType = '';
+$pageType       = '';
+$currentUrl     = $_SERVER['REQUEST_URI'];
 
 if (is_front_page()) {
 	$pageType = ' hero_block_wrap--home';
@@ -17,11 +18,18 @@ else if (is_product()) {
 }
 else if (is_category()) {
 	$pageType = ' hero_block_wrap--category';
-} ?>
+}
+else if ($currentUrl == '/kontakty/') {
+	$pageType = ' hero_block_wrap--contacts';
+}
+else if ($currentUrl == '/o-kompanii/') {
+	$pageType = ' hero_block_wrap--about';
+}
+?>
 
 <div class="hero_block_wrap<?php echo $pageType; ?>">
 	<div class="hero_block" <?php if ($thumbUrl !== '' && is_product()) { ?>style="background-image: url(<?php echo $thumbUrl; ?>);"<?php } ?>>
-		<?php if ($_SERVER['REQUEST_URI'] == '/kontakty/') {
+		<?php if ($currentUrl == '/kontakty/') {
 			include_once "contacts_map.php";
 		} ?>
 
@@ -74,7 +82,15 @@ else if (is_category()) {
 						</div>
 					<?php } ?>
 				</div>
-			<?php } ?>
+			<?php }
+			elseif ($currentUrl == '/o-kompanii/') {
+				// title
+				if (get_the_title()) { ?>
+					<div class="wrap">
+						<h1><?php echo get_the_title(); ?></h1>
+					</div>
+				<?php }
+			} ?>
 		</div>
 
 		<?php if (is_front_page()) { ?>
