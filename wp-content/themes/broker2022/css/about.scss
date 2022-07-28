@@ -1,0 +1,56 @@
+
+.about_list {
+	background: url(#{$i}/about_list_bg.png) center no-repeat scroll transparent;
+	background-size: cover;
+
+	h3 {
+		color: $c_text;
+		font-family: $font_montserrat;
+		font-size: 20px;
+		font-weight: 600;
+		margin: 40px 0 25px;
+	}
+
+	> .wp-block-group__inner-container {
+		display: grid;
+		grid-template-columns: 50% 50%;
+		margin: 0 auto;
+		max-width: 1182px;
+		padding: 15px 0;
+		width: 100%;
+
+		> .wp-block-group {
+			max-width: 510px;
+			padding: 0 0 16px 20px;
+			width: 100%;
+		}
+	}
+}
+
+.about_quote {
+	margin: 0 0 44px;
+
+	> .wp-block-group__inner-container {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-between;
+		padding: 0 33px 0 0;
+	}
+}
+
+.about_quote_desc {
+	max-width: 750px;
+}
+
+.about_quote_img {
+	&.wp-block-image {
+		margin: -40px 0 0;
+	}
+}
+
+.about_quote_sign {
+	font-size: 12px;
+	line-height: 1.9;
+	margin: 23px 0 0;
+	text-align: right;
+}
