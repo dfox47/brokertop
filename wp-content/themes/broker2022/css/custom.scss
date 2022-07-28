@@ -138,6 +138,15 @@ h4 {}
 	&__item {
 		display: block;
 		width: 100%;
+
+		@media #{$tablet} {
+			padding: 0 0 50px;
+			width: 50%;
+		}
+
+		@media #{$mobile} {
+			width: 100%;
+		}
 	}
 
 	&__name {
@@ -145,6 +154,13 @@ h4 {}
 		font-size: 24px;
 		font-weight: 600;
 		margin: .5em 0;
+	}
+
+	@media #{$tablet} {
+		display: flex;
+		flex-wrap: wrap;
+		grid-gap: 0;
+		justify-content: center;
 	}
 }
 

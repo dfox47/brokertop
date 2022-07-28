@@ -14,6 +14,7 @@
 	> .wp-block-group__inner-container {
 		display: grid;
 		grid-template-columns: 50% 50%;
+		grid-gap: 30px;
 		margin: 0 auto;
 		max-width: 1182px;
 		padding: 15px 0;
@@ -23,6 +24,11 @@
 			max-width: 510px;
 			padding: 0 0 16px 20px;
 			width: 100%;
+		}
+
+		@media #{$tablet} {
+			grid-template-columns: 100%;
+			padding: 15px 30px;
 		}
 	}
 }
