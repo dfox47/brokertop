@@ -36,25 +36,23 @@ $heroImages = $i . '/hero';
 <!--			--><?php //endwhile; ?>
 
 			<div class="cs3-slide">
-				<div class="hero_block_slide"><img class="hero_block_slide__img" src="<?php echo $heroImages; ?>/1.jpg" alt="" /></div>
-				<div class="hero_block_slide"><img class="hero_block_slide__img" src="<?php echo $heroImages; ?>/2.jpg" alt="" /></div>
-				<div class="hero_block_slide"><img class="hero_block_slide__img" src="<?php echo $heroImages; ?>/3.jpg" alt="" /></div>
-				<div class="hero_block_slide"><img class="hero_block_slide__img" src="<?php echo $heroImages; ?>/4.jpg" alt="" /></div>
-				<div class="hero_block_slide"><img class="hero_block_slide__img" src="<?php echo $heroImages; ?>/5.jpg" alt="" /></div>
-				<div class="hero_block_slide"><img class="hero_block_slide__img" src="<?php echo $heroImages; ?>/6.jpg" alt="" /></div>
-				<div class="hero_block_slide"><img class="hero_block_slide__img" src="<?php echo $heroImages; ?>/7.jpg" alt="" /></div>
-				<div class="hero_block_slide"><img class="hero_block_slide__img" src="<?php echo $heroImages; ?>/8.jpg" alt="" /></div>
-				<div class="hero_block_slide"><img class="hero_block_slide__img" src="<?php echo $heroImages; ?>/9.jpg" alt="" /></div>
-				<div class="hero_block_slide"><img class="hero_block_slide__img" src="<?php echo $heroImages; ?>/10.jpg" alt="" /></div>
-				<div class="hero_block_slide"><img class="hero_block_slide__img" src="<?php echo $heroImages; ?>/11.jpg" alt="" /></div>
-				<div class="hero_block_slide"><img class="hero_block_slide__img" src="<?php echo $heroImages; ?>/12.jpg" alt="" /></div>
-				<div class="hero_block_slide"><img class="hero_block_slide__img" src="<?php echo $heroImages; ?>/13.jpg" alt="" /></div>
-				<div class="hero_block_slide"><img class="hero_block_slide__img" src="<?php echo $heroImages; ?>/14.jpg" alt="" /></div>
-				<div class="hero_block_slide"><img class="hero_block_slide__img" src="<?php echo $heroImages; ?>/15.jpg" alt="" /></div>
-				<div class="hero_block_slide"><img class="hero_block_slide__img" src="<?php echo $heroImages; ?>/16.jpg" alt="" /></div>
 				<div class="hero_block_slide"><img class="hero_block_slide__img" src="<?php echo $heroImages; ?>/17.jpg" alt="" /></div>
+			</div>
+
+			<div class="cs3-slide">
+				<div class="hero_block_slide"><img class="hero_block_slide__img" src="<?php echo $heroImages; ?>/8.jpg" alt="" /></div>
+			</div>
+
+			<div class="cs3-slide">
+				<div class="hero_block_slide"><img class="hero_block_slide__img" src="<?php echo $heroImages; ?>/3.jpg" alt="" /></div>
+			</div>
+
+			<div class="cs3-slide">
 				<div class="hero_block_slide"><img class="hero_block_slide__img" src="<?php echo $heroImages; ?>/18.jpg" alt="" /></div>
-				<div class="hero_block_slide"><img class="hero_block_slide__img" src="<?php echo $heroImages; ?>/19.jpg" alt="" /></div>
+			</div>
+
+			<div class="cs3-slide">
+				<div class="hero_block_slide"><img class="hero_block_slide__img" src="<?php echo $heroImages; ?>/1.jpg" alt="" /></div>
 			</div>
 
 
@@ -65,10 +63,56 @@ $heroImages = $i . '/hero';
 			<div class="hero_slider_pagination js-hero-slider-pagination"></div>
 
 			<div class="cs3-captions">
-				<div class="cs3-caption"></div>
-				<div class="cs3-caption"></div>
-				<div class="cs3-caption"></div>
-				<div class="cs3-caption"></div>
+				<div class="cs3-caption">
+					<div class="hero_block_slide__content">
+						<div class="hero_block_slide__title">Каталог недвижимости</div>
+
+						<a class="hero_block_slide__developer" href="//novostroiki-moscow.com/">Новостройки</a>
+
+						<div class="hero_block_slide__more"><a class="btn btn_more" href="/shop/">Открыть</a></div>
+					</div>
+				</div>
+
+				<div class="cs3-caption">
+					<div class="hero_block_slide__content">
+						<div class="hero_block_slide__title">Новостройки</div>
+
+						<a class="hero_block_slide__developer" href="//dubaiestate.top/">Дубай/Dubai</a>
+
+						<div class="hero_block_slide__more"><a class="btn btn_more" href="//novostroiki-moscow.com/">Открыть</a></div>
+					</div>
+				</div>
+
+				<div class="cs3-caption">
+					<div class="hero_block_slide__content">
+						<div class="hero_block_slide__title">Дубай/Dubai</div>
+
+						<a class="hero_block_slide__developer" href="/o-kompanii/">О компании</a>
+
+						<div class="hero_block_slide__more"><a class="btn btn_more" href="//dubaiestate.top/">Открыть</a></div>
+					</div>
+				</div>
+
+				<div class="cs3-caption">
+					<div class="hero_block_slide__content">
+						<div class="hero_block_slide__title">О компании</div>
+
+						<a class="hero_block_slide__developer" href="/novosti/">Новости</a>
+
+						<div class="hero_block_slide__more"><a class="btn btn_more" href="/o-kompanii/">Открыть</a></div>
+					</div>
+				</div>
+
+				<div class="cs3-caption">
+					<div class="hero_block_slide__content">
+						<div class="hero_block_slide__title">Новости</div>
+
+						<a class="hero_block_slide__developer" href="/shop/">Каталог недвижимости</a>
+
+						<div class="hero_block_slide__more"><a class="btn btn_more" href="/novosti/">Открыть</a></div>
+					</div>
+				</div>
+
 <!--				--><?php //while ($loop->have_posts()) :
 //					$loop->the_post();
 //					global $product; ?>

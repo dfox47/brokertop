@@ -78,11 +78,18 @@
 	&__developer {
 		bottom: 10px;
 		color: #fff;
+		display: block;
 		font-size: 16px;
 		font-weight: 700;
 		position: absolute;
 		right: 0;
+		text-decoration: none;
 		text-transform: uppercase;
+		transition: $transition;
+
+		&:hover {
+			color: $c_main;
+		}
 
 		&::after {
 			background-color: $c_main;
