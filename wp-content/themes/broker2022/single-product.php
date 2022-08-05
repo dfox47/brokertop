@@ -141,6 +141,8 @@ $objectClass    = $product->get_attribute('pa_klass'); ?>
 						<a class="product_realtor__phone" href="tel:<?php echo $product -> get_attribute('pa_telefon-rieltora'); ?>" target="_blank"><?php echo $product -> get_attribute('pa_telefon-rieltora'); ?></a>
 					<?php } ?>
 
+					<a class="product_realtor__phone js-popup-show" href="javascript:void(0);" data-popup="feedback">Обратная связь</a>
+
 					<?php // Ссылка на презентацию
 					if ($product -> get_attribute('pa_ssylka-na-prezentacziyu')) { ?>
 						<a class="product_realtor__presentation" href="<?php echo $product -> get_attribute('pa_ssylka-na-prezentacziyu'); ?>" target="_blank">Скачать презентацию</a>
@@ -189,6 +191,7 @@ $objectClass    = $product->get_attribute('pa_klass'); ?>
 	</ul>
 </main>
 
+<?php // popup gallery ?>
 <div class="popup popup--product js-popup" data-popup="product_gallery">
 	<div class="popup__bg js-popup-close"></div>
 
@@ -203,6 +206,19 @@ $objectClass    = $product->get_attribute('pa_klass'); ?>
 					<img class="product_slider__img" src="<?php echo $image_link; ?>" alt="" />
 				<?php } ?>
 			</div>
+		</div>
+	</div>
+</div>
+
+<?php // feedback popup ?>
+<div class="popup popup--feedback js-popup" data-popup="feedback">
+	<div class="popup__bg js-popup-close"></div>
+
+	<div class="popup__content">
+		<div class="popup__close js-popup-close"></div>
+
+		<div class="contacts_form">
+			<?php echo do_shortcode('[contact-form-7 id="63" title="Обратная связь"]'); ?>
 		</div>
 	</div>
 </div>
