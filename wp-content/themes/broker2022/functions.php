@@ -95,6 +95,7 @@ add_action('woocommerce_before_shop_loop_item', 'switchLoopTitle');
 // remove default product link at category page
 remove_action('woocommerce_before_shop_loop_item', 'woocommerce_template_loop_product_link_open', 10);
 
+
 function replaceProductLinkAtCategory() {
 	global $product;
 	$affiliate_link = get_post_meta(get_the_ID(), '_product_url', true);
@@ -108,3 +109,44 @@ function replaceProductLinkAtCategory() {
 }
 
 add_action('woocommerce_before_shop_loop_item', 'replaceProductLinkAtCategory', 10);
+
+
+remove_action( 'woocommerce_before_shop_loop', 'woocommerce_result_count', 20 );
+
+function get_current_url() {
+    global $wp;
+    $old = 'http://' . $_SERVER['HTTP_HOST'] . strtok($_SERVER['REQUEST_URI'], '?');
+
+    $current_url = add_query_arg( '', '', home_url( $wp->request ) );
+    return $current_url;
+}
+
+function woocommerce_catalog_ordering() {
+    global $wp_query;
+
+    if ( 1 == $wp_query->found_posts || ! woocommerce_products_will_display() ) {
+        return;
+    }
+
+    $orderby                 = isset( $_GET['orderby'] ) ? wc_clean( $_GET['orderby'] ) : apply_filters( 'woocommerce_default_catalog_orderby', get_option( 'woocommerce_default_catalog_orderby' ) );
+    $show_default_orderby    = 'menu_order' === apply_filters( 'woocommerce_default_catalog_orderby', get_option( 'woocommerce_default_catalog_orderby' ) );
+    $catalog_orderby_options = apply_filters( 'woocommerce_catalog_orderby', array(
+        'date'       => __( 'По дате обновления', 'woocommerce' ),
+        'price'      => __( 'Sort by price: low to high', 'woocommerce' ),
+        'price-desc' => __( 'Sort by price: high to low', 'woocommerce' )
+    ) );
+
+    if ( ! $show_default_orderby ) {
+        unset( $catalog_orderby_options['menu_order'] );
+    }
+
+    if ( get_option( 'woocommerce_enable_review_rating' ) === 'no' ) {
+        unset( $catalog_orderby_options['rating'] );
+    }
+
+    if( get_option('woocommerce_enable_review_rating') == 'no' && get_option('woocommerce_default_catalog_orderby') == 'rating') {
+        update_option('woocommerce_default_catalog_orderby', 'date');
+    }
+
+    wc_get_template( 'loop/orderby.php', array( 'catalog_orderby_options' => $catalog_orderby_options, 'orderby' => $orderby, 'show_default_orderby' => $show_default_orderby ) );
+}
