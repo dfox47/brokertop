@@ -39,6 +39,7 @@ Array.from($contactError).forEach(function(output) {
 
 		$form.dataset.status = 'init'
 		$form.classList.remove('invalid')
+		$form.classList.remove('sent')
 		$form.classList.add('init')
 	})
 })

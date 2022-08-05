@@ -159,7 +159,8 @@
 
 	.wpcf7 {
 		form {
-			&.invalid {
+			&.invalid,
+			&.sent {
 				.wpcf7-response-output {
 					display: flex;
 				}
