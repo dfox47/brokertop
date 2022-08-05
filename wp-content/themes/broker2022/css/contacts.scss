@@ -183,6 +183,13 @@
 				width: 100%;
 				z-index: 7;
 
+				&:hover {
+					&::after,
+					&::before {
+						height: 4px;
+					}
+				}
+
 				&::after,
 				&::before {
 					background-color: #fff;
@@ -196,10 +203,6 @@
 					top: 40px;
 					transition: $transition;
 					width: 40px;
-
-					&:hover {
-						height: 4px;
-					}
 				}
 
 				&::after {

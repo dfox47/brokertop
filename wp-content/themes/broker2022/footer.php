@@ -1,6 +1,7 @@
 
 <?php
 $i          = esc_url(get_template_directory_uri()) . '/i';
+$currentUrl = $_SERVER['REQUEST_URI'];
 $whatsapp   = esc_attr(get_option('broker_whatsapp'));
 ?>
 
@@ -49,6 +50,21 @@ $whatsapp   = esc_attr(get_option('broker_whatsapp'));
 
 <?php if ($whatsapp) { ?>
 	<a class="whatsapp_link" href="//wa.me/<?php echo $whatsapp; ?>" target="_blank"><img class="whatsapp_link__img" src="<?php echo $i . '/icons/whatsapp_green.svg'; ?>" alt="whatsapp" /></a>
+<?php } ?>
+
+<?php //  feedback popup | all pages except contacts
+if ($currentUrl !== '/kontakty/') { ?>
+	<div class="popup popup--feedback js-popup" data-popup="feedback">
+		<div class="popup__bg js-popup-close"></div>
+
+		<div class="popup__content">
+			<div class="popup__close js-popup-close"></div>
+
+			<div class="contacts_form">
+				<?php echo do_shortcode('[contact-form-7 id="63" title="Обратная связь"]'); ?>
+			</div>
+		</div>
+	</div>
 <?php } ?>
 
 <?php // all scripts in one file with GULP ?>

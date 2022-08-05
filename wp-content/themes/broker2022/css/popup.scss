@@ -26,6 +26,42 @@
 		z-index: 1;
 	}
 
+	&--feedback {
+		h2 {
+			text-align: center;
+
+			@media #{$mobile} {
+				font-size: 30px;
+			}
+		}
+
+		.contacts_form {
+			left: auto;
+			margin: 0;
+			min-height: 300px;
+			max-width: 400px;
+			padding: 30px;
+			position: relative;
+			top: auto;
+			width: 100%;
+		}
+
+		.popup {
+			&__content {
+				height: auto;
+				padding: 56px;
+
+				@media #{$mobile} {
+					padding: 10px;
+				}
+
+				@media #{$mobile_s} {
+					padding: 2px;
+				}
+			}
+		}
+	}
+
 	&--product {
 		.popup {
 			&__content {
