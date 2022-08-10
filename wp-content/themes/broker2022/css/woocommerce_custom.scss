@@ -137,12 +137,42 @@
 		}
 	}
 
+	.widget_price_filter {
+		.price_slider_wrapper {
+			.ui-widget-content {
+				background-color: $c_filter_bg;
+			}
+		}
+
+		.ui-slider {
+			.ui-slider-range {
+				background-color: $c_main;
+				height: 2px;
+			}
+
+			.ui-slider-handle {
+				background-color: $c_main;
+				height: 8px;
+				top: -3px;
+				width: 8px;
+			}
+		}
+
+		.ui-slider-horizontal {
+			height: 2px;
+		}
+	}
+
 	.woocommerce-breadcrumb {
 		font-size: 12px;
-		margin: 0 auto;
+		margin: 0 auto -80px;
 		max-width: 1373px;
 		padding: 30px;
 		width: 100%;
+
+		@media #{$tablet} {
+			display: none;
+		}
 	}
 }
 
