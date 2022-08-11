@@ -2,7 +2,7 @@
 <?php $i = '/wp-content/themes/broker2022/i/hero'; ?>
 
 <div class="hero_block_slider">
-	<div class="owl-carousel js-owl-carousel">
+	<div class="owl-carousel js-owl-carousel-auto">
 		<div class="hero_block_slide">
 			<img class="hero_block_slide__img" src="<?php echo $i; ?>/17.jpg" alt="" />
 

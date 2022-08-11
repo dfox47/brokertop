@@ -22,6 +22,17 @@ $(document).ready(function() {
 		navText: ['', '']
 	})
 
+	$('.js-owl-carousel-auto').owlCarousel({
+		autoplay:           true,
+		autoplayHoverPause: true,
+		autoplayTimeout:    4000,
+		dots:               false,
+		items:              1,
+		loop:               true,
+		nav:                true,
+		navText:            ['', '']
+	})
+
 	// go to selected slide
 	$('.js-go-to-slide').click(function () {
 		let slideId = $(this).attr('data-slide')
