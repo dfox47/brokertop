@@ -176,9 +176,6 @@ $objectClass    = $product->get_attribute('pa_klass'); ?>
 		</div>
 	</div>
 
-	<?php // map
-	include_once "template-parts/product_map.php"; ?>
-
 	<ul class="product_gallery">
 		<?php // gallery images
 		foreach ($gallery_images as $key=>$gallery_image) {
@@ -189,6 +186,9 @@ $objectClass    = $product->get_attribute('pa_klass'); ?>
 			</li>
 		<?php } ?>
 	</ul>
+
+	<?php // map
+	include_once "template-parts/product_map.php"; ?>
 </main>
 
 <?php // popup gallery ?>
