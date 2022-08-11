@@ -183,6 +183,31 @@ h4 {}
 	}
 }
 
+.instagram_caption {
+	background-color: rgba(0,0,0, .8);
+	border: 10px solid rgba(0,0,0, .8);
+	bottom: 0;
+	color: #fff;
+	display: block;
+	max-height: 100px;
+	left: 0;
+	line-height: 1.4;
+	overflow: hidden;
+	position: absolute;
+	transition: $transition;
+	width: 100%;
+	z-index: 3;
+}
+
+.sbi_photo_wrap {
+	&:hover {
+		.instagram_caption {
+			display: none;
+			//max-height: 100%;
+		}
+	}
+}
+
 .list_type_1 {
 	font-family: $font_montserrat;
 	font-size: 12px;
