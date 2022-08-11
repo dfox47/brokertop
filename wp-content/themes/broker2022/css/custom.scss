@@ -243,6 +243,12 @@ h4 {}
 	}
 }
 
+.mgo-mcw-widget {
+	bottom: 10px !important;
+	left: 65px !important;
+	right: auto !important;
+}
+
 .nobr {
 	white-space: nowrap;
 }
@@ -375,12 +381,6 @@ h4 {}
 .thumb_img {
 	display: block;
 	margin: 0 auto 15px;
-}
-
-.mgo-mcw-widget {
-	bottom: 10px !important;
-	left: 65px !important;
-	right: auto !important;
 }
 
 .whatsapp_link {
