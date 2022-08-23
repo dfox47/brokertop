@@ -67,7 +67,7 @@ foreach($estate_object['data'] as $object)
 		$gallery_images = array();
 		foreach($gallery_images_data['data'] as $key=>$gallery_image_data)
 		{
-			if($key != 0 AND $key <= 5)
+			if($key != 0 AND $key <= 20)
 			{
 				$gallery_image_tmp = explode('?',$gallery_image_data['attributes']['download-link']);
 				$gallery_image_ext_arr = explode('.', $gallery_image_tmp[0]);

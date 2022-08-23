@@ -76,10 +76,9 @@ gulp.task('copy_js', function () {
 
 gulp.task('js', function () {
 	return gulp.src([
-			localFolderJs + 'jquery-3.6.0.min.js',
-			localFolderJs + 'owl.carousel.min.js',
-			localFolderJs + 'idangerous.chopslider-3.4.js',
-			localFolderJs + 'splide.min.js',
+			// localFolderJs + 'jquery.3.2.1.js',
+			localFolderJs + 'owl.carousel.js',
+			localFolderJs + 'jspdf.min.js',
 			localFolderJs + '**/*.js'
 		])
 		.pipe(concat('all.js'))
