@@ -18,17 +18,30 @@ $productAttributes = [
 <?php //} ?>
 
 <?php // object attribites
-$objectType     = $product->get_attribute('pa_tip-nedvizhimosti');
-$objectClass    = $product->get_attribute('pa_klass'); ?>
+$objectClass        = $product->get_attribute('pa_klass');
+$objectFloor        = $product->get_attribute('pa_etazh');
+$objectFloorTotal   = $product->get_attribute('pa_vsego-etazhej');
+$objectId           = $product->get_id();
+$objectRooms        = $product->get_attribute('pa_kolichestvo-komnat');
+$objectSquare       = $product->get_attribute('pa_obshhaya-ploshhad');
+$objectType         = $product->get_attribute('pa_tip-nedvizhimosti');
+$objectView         = $product->get_attribute('pa_vid-iz-okon');
+$pdfLink            = $product->get_attribute('pa_ssylka-na-prezentacziyu');
+$pdfOnServer        = 'wp-content/themes/broker2022/pdf/' . $objectId . '.pdf';
+$price              = $product->get_price();
+$realtorName        = $product->get_attribute('pa_imya-rieltora');
+$realtorPhone       = $product->get_attribute('pa_telefon-rieltora');
+$realtorPhoto       = $product->get_attribute('pa_foto-rieltora');
+?>
 
-<main class="main_content_wrap">
+<main class="main_content_wrap" data-object-id="<?php echo $objectId; ?>" data-link="<?php echo $pdfOnServer; ?>">
 	<div class="main_content">
 		<div class="wrap3">
 			<div class="product_info_wrap">
 				<div class="product_apt_info">
 					<div class="product_info">
 						<?php // Тип квартиры
-						if ($product -> get_attribute('pa_tip-nedvizhimosti')) { ?>
+						if ($objectType) { ?>
 							<div class="product_info__item product_info__item--full-width-mobile">
 								<div class="product_info__title"><?php echo wc_attribute_label('pa_tip-nedvizhimosti'); ?></div>
 
@@ -50,22 +63,22 @@ $objectClass    = $product->get_attribute('pa_klass'); ?>
 						<?php } ?>
 
 						<?php // Количество комнат
-						if ($product -> get_attribute('pa_kolichestvo-komnat')) { ?>
+						if ($objectRooms) { ?>
 							<div class="product_info__item product_info__item--cols">
-								<div class="product_info__value product_info__value--xl"><?php echo $product -> get_attribute('pa_kolichestvo-komnat'); ?></div>
+								<div class="product_info__value product_info__value--xl"><?php echo $objectRooms; ?></div>
 								<div class="product_info__title">Количество<br />комнат</div>
 							</div>
 						<?php } ?>
 
 						<?php // Этаж
-						if ($product -> get_attribute('pa_etazh')) { ?>
+						if ($objectFloor) { ?>
 							<div class="product_info__item product_info__item--cols">
-								<div class="product_info__value product_info__value--xl"><?php echo $product -> get_attribute('pa_etazh'); ?></div>
+								<div class="product_info__value product_info__value--xl"><?php echo $objectFloor; ?></div>
 
 								<?php // Этажность
-								if ($product -> get_attribute('pa_vsego-etazhej')) { ?>
+								if ($objectFloorTotal) { ?>
 									<div class="product_info_floor">
-										<div class="product_info_floor__from">/ <?php echo $product -> get_attribute('pa_vsego-etazhej'); ?></div>
+										<div class="product_info_floor__from">/ <?php echo $objectFloorTotal; ?></div>
 										<div class="product_info__title">Этажность</div>
 									</div>
 								<?php } ?>
@@ -80,20 +93,26 @@ $objectClass    = $product->get_attribute('pa_klass'); ?>
 
 					<div class="product_info product_info--start">
 						<?php // Вид из окон
-						if ($product -> get_attribute('pa_vid-iz-okon')) { ?>
+						if ($objectView) { ?>
 							<div class="product_info__item product_info__item--start">
-								<div class="product_info__title product_info__title--short"><?php echo $product -> get_attribute('pa_vid-iz-okon'); ?></div>
+								<div class="product_info__title product_info__title--short"><?php echo $objectView; ?></div>
 							</div>
 						<?php } ?>
 
 						<?php // Класс
-						if ($product -> get_attribute('pa_klass')) { ?>
+						if ($objectClass) { ?>
 							<div class="product_info__item product_info__item--start">
 								<div class="product_info__title"><?php echo wc_attribute_label('pa_klass'); ?></div>
 
 								<div class="product_info__value">
 									<?php if ($objectClass == 'flat') { ?>
 										Апартамент
+									<?php }
+									elseif ($objectClass == 'elite') { ?>
+										Элитное жильё
+									<?php }
+									elseif ($objectClass == 'apartments') { ?>
+										Апартаменты
 									<?php }
 									else {
 										echo $objectClass;
@@ -103,18 +122,18 @@ $objectClass    = $product->get_attribute('pa_klass'); ?>
 						<?php } ?>
 
 						<?php // Общая площадь
-						if ($product -> get_attribute('pa_obshhaya-ploshhad')) { ?>
+						if ($objectSquare) { ?>
 							<div class="product_info__item product_info__item--start">
 								<div class="product_info__title"><?php echo wc_attribute_label('pa_obshhaya-ploshhad'); ?></div>
-								<div class="product_info__value"><?php echo $product -> get_attribute('pa_obshhaya-ploshhad'); ?> <small>м</small><sup>2</sup></div>
+								<div class="product_info__value"><?php echo $objectSquare; ?> <small>м</small><sup>2</sup></div>
 							</div>
 						<?php } ?>
 
 						<?php // Стоимость
-						if ($product -> get_price()) { ?>
+						if ($price) { ?>
 							<div class="product_info__item product_info__item--start">
 								<div class="product_info__title">Стоимость</div>
-								<div class="product_info__value product_info__value--bold"><?php echo number_format($product -> get_price(),0,'',' '); ?>&nbsp;₽</div>
+								<div class="product_info__value product_info__value--bold"><?php echo number_format($price,0,'',' '); ?>&nbsp;₽</div>
 							</div>
 						<?php } ?>
 					</div>
@@ -127,35 +146,50 @@ $objectClass    = $product->get_attribute('pa_klass'); ?>
 					<?php } ?>
 
 					<?php // Имя риэлтора
-					if ($product -> get_attribute('pa_imya-rieltora')) { ?>
-						<div class="product_realtor__name"><?php echo $product -> get_attribute('pa_imya-rieltora'); ?></div>
-					<?php } ?>
+					if ($realtorName) { ?>
+						<div class="product_realtor__name"><?php echo $realtorName; ?></div>
 
-					<?php // Фото риэлтора
-					if ($product -> get_attribute('pa_foto-rieltora')) { ?>
-						<img class="product_realtor__img" src="<?php echo $product -> get_attribute('pa_foto-rieltora'); ?>" alt="<?php if ($product -> get_attribute('pa_imya-rieltora')) echo $product -> get_attribute('pa_imya-rieltora'); ?>" />
-					<?php } ?>
+						<?php // Андреев Борис
+						if ($realtorName == 'Андреев Борис') { ?>
+							<img class="product_realtor__img" src="/wp-content/themes/broker2022/i/team/andreev.png" alt="<?php echo $realtorName; ?>" />
+							<a class="product_realtor__phone" href="tel:+79778021616" target="_blank">+7(977) 802-16-16</a>
+						<?php }
+						// Сорокина Ульяна
+						elseif ($realtorName == 'Сорокина Ульяна') { ?>
+							<img class="product_realtor__img" src="/wp-content/themes/broker2022/i/team/sorokina.png" alt="<?php echo $realtorName; ?>" />
+							<a class="product_realtor__phone" href="tel:+79778021616" target="_blank">+7(977) 802-16-16</a>
+						<?php }
+						else { ?>
+							<?php // Фото риэлтора
+							if ($realtorPhoto) { ?>
+								<img class="product_realtor__img" src="<?php echo $realtorPhoto; ?>" alt="<?php if ($realtorName) echo $realtorName; ?>" />
+							<?php } ?>
 
-					<?php // Телефон риэлтора
-					if ($product -> get_attribute('pa_telefon-rieltora')) { ?>
-						<a class="product_realtor__phone" href="tel:<?php echo $product -> get_attribute('pa_telefon-rieltora'); ?>" target="_blank"><?php echo $product -> get_attribute('pa_telefon-rieltora'); ?></a>
+							<?php // Телефон риэлтора
+							if ($realtorPhone) { ?>
+								<a class="product_realtor__phone" href="tel:<?php echo $realtorPhone; ?>" target="_blank"><?php echo $realtorPhone; ?></a>
+							<?php } ?>
+						<?php } ?>
+					<?php }
+					// default | Баширова Юлия
+					else { ?>
+						<div class="product_realtor__name">Баширова Юлия</div>
+						<img class="product_realtor__img" src="/wp-content/themes/broker2022/i/team/bashirova.png" alt="Баширова Юлия" />
+<!--						<a class="product_realtor__phone" href="tel:+79267989236" target="_blank">+7(926) 798-92-36</a>-->
+						<a class="product_realtor__phone" href="tel:+79778021616" target="_blank">+7(977) 802-16-16</a>
 					<?php } ?>
 
 					<a class="product_realtor__phone js-popup-show" href="javascript:void(0);" data-popup="feedback">Обратная связь</a>
 
 					<?php // Ссылка на презентацию
-					if ($product -> get_attribute('pa_ssylka-na-prezentacziyu')) { ?>
-						<a class="product_realtor__presentation" href="<?php echo $product -> get_attribute('pa_ssylka-na-prezentacziyu'); ?>" target="_blank">Скачать презентацию</a>
+					if ($pdfLink) { ?>
+						<a class="product_realtor__presentation" href="<?php echo $pdfLink; ?>" target="_blank">Скачать презентацию</a>
+					<?php }
+					elseif (file_exists($pdfOnServer)) { ?>
+						<a class="product_realtor__presentation" href="/<?php echo $pdfOnServer; ?>" target="_blank">Скачать презентацию</a>
 					<?php } ?>
 				</div>
 			</div>
-
-
-
-
-
-
-
 
 			<?php // attributes
 			foreach ($productAttributes as $productAttribute) {

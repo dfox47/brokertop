@@ -43,7 +43,7 @@
 		.sbi_load_btn {
 			background: none;
 			border-radius: 0;
-			border: 1px solid $c_main;
+			border: 1px solid $c_main !important;
 			color: $c_text;
 			font-size: 14px;
 			margin: 20px 0;
@@ -82,5 +82,3 @@
 .sb_instagram_header {
 	display: none;
 }
-
-
