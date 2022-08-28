@@ -10,6 +10,7 @@
 		&[type="text"] {
 			background-color: $c_menu_bg;
 			border-bottom: 1px solid #fff;
+			color: #fff;
 			padding: 0 .3em .3em;
 		}
 	}
@@ -37,6 +38,13 @@
 		input {
 			max-width: 100%;
 		}
+	}
+
+	.wpcf7-not-valid-tip {
+		left: 0;
+		margin: 4px 0 0;
+		position: absolute;
+		top: 100%;
 	}
 
 	@media #{$mobile} {

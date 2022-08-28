@@ -110,6 +110,12 @@ h3 {
 
 h4 {}
 
+input {
+	&:focus {
+		outline: none;
+	}
+}
+
 
 
 .brokers_list {
