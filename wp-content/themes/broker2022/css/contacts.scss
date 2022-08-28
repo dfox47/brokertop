@@ -1,4 +1,75 @@
 
+.contacts_consult {
+	background-color: $c_menu_bg;
+	box-shadow: 0 12px 24px rgba(#000, .25);
+	padding: 63px 20px 93px;
+	margin: 0 -30px;
+
+	input {
+		&[type="email"],
+		&[type="text"] {
+			background-color: $c_menu_bg;
+			border-bottom: 1px solid #fff;
+			padding: 0 .3em .3em;
+		}
+	}
+
+	.contacts_form {
+		&__label {
+			margin: 0;
+			width: 100%;
+		}
+	}
+
+	.wpcf7-acceptance {
+		color: #fff;
+
+		a,
+		a:visited {
+			color: #fff;
+		}
+	}
+
+	.wpcf7-form-control-wrap {
+		display: block;
+		width: 100%;
+
+		input {
+			max-width: 100%;
+		}
+	}
+
+	@media #{$mobile} {
+		margin: 0;
+	}
+}
+
+.contacts_consult_list {
+	align-items: flex-end;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: flex-start;
+	padding: 15px 15px 25px;
+
+	&__item {
+		display: flex;
+		margin: 0 45px 25px 0;
+		max-width: 260px;
+		width: 100%;
+
+		&:last-child {
+			max-width: 200px;
+			margin-right: 0;
+		}
+	}
+}
+
+.contacts_consult_wrap {
+	margin: 0 auto;
+	max-width: 1172px;
+	width: 100%;
+}
+
 .contacts_info {
 	background: url(#{$i}/contacts_bg.png) no-repeat center scroll $c_img_bg;
 	background-size: cover;
@@ -149,6 +220,7 @@
 		position: absolute;
 		top: 0;
 		transition: $transition;
+		z-index: 3;
 
 		&--textarea {
 			color: $c_menu_bg;
