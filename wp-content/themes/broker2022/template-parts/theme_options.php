@@ -36,6 +36,7 @@ function customOptionsContent() { ?>
 			<?php do_settings_sections('broker-options-admin'); ?>
 
 			<table class="form-table">
+				<!-- Телефон -->
 				<tr>
 					<th scope="row"><label for="broker_phone">Телефон</label></th>
 					<td>
@@ -48,6 +49,7 @@ function customOptionsContent() { ?>
 					</td>
 				</tr>
 
+				<!-- Адрес -->
 				<tr>
 					<th scope="row"><label for="broker_phone">Адрес</label></th>
 					<td>
@@ -60,6 +62,7 @@ function customOptionsContent() { ?>
 					</td>
 				</tr>
 
+				<!-- Instagram -->
 				<tr>
 					<th scope="row"><label for="broker_inst">Instagram</label></th>
 					<td>
@@ -72,6 +75,7 @@ function customOptionsContent() { ?>
 					</td>
 				</tr>
 
+				<!-- WhatsApp -->
 				<tr>
 					<th scope="row"><label for="broker_whatsapp">WhatsApp</label></th>
 					<td>
@@ -84,8 +88,9 @@ function customOptionsContent() { ?>
 					</td>
 				</tr>
 
+				<!-- Telegram -->
 				<tr>
-					<th scope="row"><label for="broker_telegram">Telagram</label></th>
+					<th scope="row"><label for="broker_telegram">Telegram</label></th>
 					<td>
 						<input id="broker_telegram"
 						       name="broker_telegram"
@@ -96,6 +101,7 @@ function customOptionsContent() { ?>
 					</td>
 				</tr>
 
+				<!-- Footer | Заголовок -->
 				<tr>
 					<th scope="row"><label for="broker_footer_title">Footer | Заголовок</label></th>
 					<td>
@@ -108,6 +114,7 @@ function customOptionsContent() { ?>
 					</td>
 				</tr>
 
+				<!-- Footer | Адрес -->
 				<tr>
 					<th scope="row"><label for="broker_footer_address">Footer | Адрес</label></th>
 					<td>
