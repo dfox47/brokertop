@@ -8,7 +8,7 @@
 		font-family: $font_montserrat;
 		font-size: 20px;
 		font-weight: 600;
-		margin: 40px 0 25px;
+		margin: 20px 0 25px;
 	}
 
 	> .wp-block-group__inner-container {
@@ -60,7 +60,7 @@
 
 .about_quote_img {
 	&.wp-block-image {
-		margin: -40px 0 0;
+		margin: -75px -10px 0 0;
 
 		@media #{$desktop_hd} {
 			margin: 20px 0 0;
@@ -69,8 +69,10 @@
 }
 
 .about_quote_sign {
-	font-size: 12px;
+	font-size: 15px;
+	font-weight: 700;
 	line-height: 1.9;
 	margin: 23px 0 0;
+	padding: 0 70px 0 0;
 	text-align: right;
 }
