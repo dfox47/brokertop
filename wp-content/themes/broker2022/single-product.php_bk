@@ -184,14 +184,12 @@ $manager1name       = esc_attr(get_option('manager_1_name'));
 					<a class="product_realtor__phone js-popup-show" href="javascript:void(0);" data-popup="feedback">Обратная связь</a>
 
 					<?php // Ссылка на презентацию
-					/*
 					if ($pdfLink) { ?>
 						<a class="product_realtor__presentation" href="<?php echo $pdfLink; ?>" target="_blank">Скачать презентацию</a>
 					<?php }
 					elseif (file_exists($pdfOnServer)) { ?>
 						<a class="product_realtor__presentation" href="/<?php echo $pdfOnServer; ?>" target="_blank">Скачать презентацию</a>
-					<?php } */?>
-					<a class="product_realtor__presentation" href="/ajax_presentation.php?id=<?php echo $objectId; ?>" target="_blank">Скачать презентацию</a>
+					<?php } ?>
 				</div>
 			</div>
 
