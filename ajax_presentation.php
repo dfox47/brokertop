@@ -19,6 +19,8 @@ $broker_email = isset($attributes['pa_email_rieltora']) ? $product->get_attribut
 $broker_adres = isset($attributes['pa_adres']) ? $product->get_attribute('pa_adres') : '';
 $broker_tip_nedvizhimosti = isset($attributes['pa_tip-nedvizhimosti']) ? $product->get_attribute('pa_tip-nedvizhimosti') : '';
 $broker_obshhaya_ploshhad = isset($attributes['pa_obshhaya-ploshhad']) ? $product->get_attribute('pa_obshhaya-ploshhad') : '';
+$googleMapsX = (empty($product->get_attribute('pa_google-api-x')) ? '55.7560299' : $product->get_attribute('pa_google-api-x'));
+$googleMapsY = (empty($product->get_attribute('pa_google-api-y')) ? '37.6048052' : $product->get_attribute('pa_google-api-y'));
 
 
 $main_image = wp_get_attachment_image_src(get_post_thumbnail_id( $post_id ), 'single-post-thumbnail')[0];
@@ -31,7 +33,7 @@ $attachment_ids = $product->get_gallery_attachment_ids();
 
     }
 	
-//var_dump($image_link);
+//var_dump($product);
 // echo $broker_photo; https://via.placeholder.com/164x59 <img src="data:image/png;base64, '.base64_encode(file_get_contents('http://brokertop.ru/wp-content/uploads/2022/04/1-1-scaled.jpg')).'">
 
 $html = '
@@ -213,7 +215,10 @@ $html = '
 				<div class="empty"><span>-</span></div>
 			</div>
 			<div class="firstpage-data-info-detail">
-				<div>Адрес: <span>'.$broker_adres.'</span>
+				<div style="margin-bottom: 20px;">Адрес: <span>'.$broker_adres.'</span>
+				</div>
+				<div>
+				<img width:300px; height:250px; src="data:image/svg+xml;base64, '.base64_encode(file_get_contents('https://static-maps.yandex.ru/1.x/?ll='.$googleMapsY.','.$googleMapsX.'&size=650,250&z=13&l=map&pt='.$googleMapsY.','.$googleMapsX.',pm2dom~37.64,55.76363,pm2dom99')).'">
 				</div>
 				<div>Описание:
 				<p>'.$product->get_description().'</p>
@@ -257,8 +262,9 @@ $dompdf->setPaper('A4', 'portrait');
 
 $dompdf->render();
 
-$dompdf->stream();
+$dompdf->stream('document.pdf',array("Attachment" => false));
 
+exit(0);
 
 function num2str($num) {
     $nul='ноль';
