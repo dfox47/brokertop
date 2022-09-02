@@ -3,7 +3,8 @@
 
 <?php // attributes
 global $product;
-$gallery_images = $product->get_gallery_image_ids();
+$gallery_images     = $product->get_gallery_image_ids();
+$attributes         = $product->get_attributes();
 
 $productAttrNotShow = [
 	'pa_adres',
@@ -191,10 +192,7 @@ $realtorPhoto       = $product->get_attribute('pa_foto-rieltora'); ?>
 			</div>
 
 			<div class="product_attr_list">
-				<?php // Get product attributes
-				$attributes = $product->get_attributes();
-
-				if (!$attributes) {
+				<?php if (!$attributes) {
 					return;
 				}
 
