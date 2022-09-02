@@ -32,8 +32,6 @@ $price              = $product->get_price();
 $realtorName        = $product->get_attribute('pa_imya-rieltora');
 $realtorPhone       = $product->get_attribute('pa_telefon-rieltora');
 $realtorPhoto       = $product->get_attribute('pa_foto-rieltora');
-
-$manager1name       = esc_attr(get_option('manager_1_name'));
 ?>
 
 <main class="main_content_wrap" data-object-id="<?php echo $objectId; ?>" data-link="<?php echo $pdfOnServer; ?>">
