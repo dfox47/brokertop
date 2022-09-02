@@ -28,6 +28,43 @@
 	}
 }
 
+.product_attr_list {
+	display: grid;
+	grid-column-gap: 30px;
+	grid-template-columns: calc(33% - 20px) calc(33% - 20px) calc(33% - 20px);
+}
+
+.product_attr_item {
+	display: flex;
+	margin: 0 0 1em;
+	position: relative;
+	justify-content: space-between;
+
+	&::after {
+		border-bottom: 1px dotted #000;
+		bottom: 6px;
+		content: "";
+		left: 0;
+		opacity: .5;
+		position: absolute;
+		width: 100%;
+	}
+
+	&__name {
+		background-color: $c_content_bg;
+		padding: 2px 4px;
+		position: relative;
+		z-index: 3;
+	}
+
+	&__val {
+		background-color: $c_content_bg;
+		padding: 2px 4px;
+		position: relative;
+		z-index: 3;
+	}
+}
+
 .product_attribute {
 	&__pa_adres {
 		font-size: 10px;
