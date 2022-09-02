@@ -5,23 +5,29 @@
 global $product;
 $gallery_images = $product->get_gallery_image_ids();
 
-$productAttributes = [
-//	'pa_material-doma',
-//	'pa_rajony',
-//	'pa_remont',
-//	'pa_stancziya-metro'
+$productAttrNotShow = [
+	'pa_adres',
+	'pa_etazh',
+	'pa_foto-rieltora',
+	'pa_google-api-x',
+	'pa_google-api-y',
+	'pa_imya-rieltora',
+	'pa_klass',
+	'pa_kolichestvo-komnat',
+	'pa_obshhaya-ploshhad',
+	'pa_ssylka-na-prezentacziyu',
+	'pa_telefon-rieltora',
+	'pa_tip-nedvizhimosti',
+	'pa_vid-iz-okon',
+	'pa_vsego-etazhej'
 ]; ?>
-
-<?php // filter
-//if (is_active_sidebar('woocommerce_filter')) { ?>
-<!--	--><?php //dynamic_sidebar('woocommerce_filter'); ?>
-<?php //} ?>
 
 <?php // object attribites
 $objectClass        = $product->get_attribute('pa_klass');
 $objectFloor        = $product->get_attribute('pa_etazh');
 $objectFloorTotal   = $product->get_attribute('pa_vsego-etazhej');
 $objectId           = $product->get_id();
+$objectNumber       = $product->get_attribute('pa_nomer-obekta');
 $objectRooms        = $product->get_attribute('pa_kolichestvo-komnat');
 $objectSquare       = $product->get_attribute('pa_obshhaya-ploshhad');
 $objectType         = $product->get_attribute('pa_tip-nedvizhimosti');
@@ -31,8 +37,7 @@ $pdfOnServer        = 'wp-content/themes/broker2022/pdf/' . $objectId . '.pdf';
 $price              = $product->get_price();
 $realtorName        = $product->get_attribute('pa_imya-rieltora');
 $realtorPhone       = $product->get_attribute('pa_telefon-rieltora');
-$realtorPhoto       = $product->get_attribute('pa_foto-rieltora');
-?>
+$realtorPhoto       = $product->get_attribute('pa_foto-rieltora'); ?>
 
 <main class="main_content_wrap" data-object-id="<?php echo $objectId; ?>" data-link="<?php echo $pdfOnServer; ?>">
 	<div class="main_content">
@@ -141,8 +146,8 @@ $realtorPhoto       = $product->get_attribute('pa_foto-rieltora');
 
 				<div class="product_realtor">
 					<?php // Объект №
-					if ($product -> get_attribute('pa_nomer-obekta')) { ?>
-						<div class="product_info__title">Объект № <?php echo $product->get_attribute('pa_nomer-obekta'); ?></div>
+					if ($objectNumber) { ?>
+						<div class="product_info__title">Объект № <?php echo $objectNumber; ?></div>
 					<?php } ?>
 
 					<?php // Имя риэлтора
@@ -175,36 +180,72 @@ $realtorPhoto       = $product->get_attribute('pa_foto-rieltora');
 					else { ?>
 						<div class="product_realtor__name">Баширова Юлия</div>
 						<img class="product_realtor__img" src="/wp-content/themes/broker2022/i/team/bashirova.png" alt="Баширова Юлия" />
-<!--						<a class="product_realtor__phone" href="tel:+79267989236" target="_blank">+7(926) 798-92-36</a>-->
+						<!--						<a class="product_realtor__phone" href="tel:+79267989236" target="_blank">+7(926) 798-92-36</a>-->
 						<a class="product_realtor__phone" href="tel:+79778021616" target="_blank">+7(977) 802-16-16</a>
 					<?php } ?>
 
 					<a class="product_realtor__phone js-popup-show" href="javascript:void(0);" data-popup="feedback">Обратная связь</a>
 
-					<?php // Ссылка на презентацию
-					/*
-					if ($pdfLink) { ?>
-						<a class="product_realtor__presentation" href="<?php echo $pdfLink; ?>" target="_blank">Скачать презентацию</a>
-					<?php }
-					elseif (file_exists($pdfOnServer)) { ?>
-						<a class="product_realtor__presentation" href="/<?php echo $pdfOnServer; ?>" target="_blank">Скачать презентацию</a>
-					<?php } */?>
 					<a class="product_realtor__presentation" href="/ajax_presentation.php?id=<?php echo $objectId; ?>" target="_blank">Скачать презентацию</a>
 				</div>
 			</div>
 
-			<?php // attributes
-			foreach ($productAttributes as $productAttribute) {
-				$value      = $product -> get_attribute($productAttribute);
-				$label      = wc_attribute_label($productAttribute);
+			<div class="product_attr_list">
+				<?php // Get product attributes
+				$attributes = $product->get_attributes();
 
-				if ($value) { ?>
-					<div><?php echo $label; ?> --|-- <?php echo $value; ?></div>
-				<?php }
-			} ?>
+				if (!$attributes) {
+					return;
+				}
+
+				$display_result = '';
+
+				foreach ($attributes as $attribute) {
+					if ($attribute->get_variation()) {
+						continue;
+					}
+
+					$name = $attribute->get_name();
+
+					if (!in_array($name, $productAttrNotShow)) {
+						if ($attribute->is_taxonomy()) {
+							$terms                  = wp_get_post_terms($product->get_id(), $name, 'all');
+							$cwtax                  = $terms[0]->taxonomy;
+							$cw_object_taxonomy     = get_taxonomy($cwtax);
+
+							if (isset($cw_object_taxonomy->labels->singular_name)) {
+								$tax_label = $cw_object_taxonomy->labels->singular_name;
+							}
+							elseif (isset($cw_object_taxonomy->label)) {
+								$tax_label = $cw_object_taxonomy->label;
+
+								if (0 === strpos($tax_label, 'Product ')) {
+									$tax_label = substr($tax_label, 8);
+								}
+							}
+
+							$display_result .= '<div class="product_attr_item" data-name="' . $name . '"><span class="product_attr_item__name">' . $tax_label . '</span>';
+							$tax_terms = array();
+
+							foreach ($terms as $term) {
+								$single_term = esc_html($term->name);
+								array_push($tax_terms, $single_term);
+							}
+
+							$display_result .= '<span class="product_attr_item__val">' . implode(', ', $tax_terms) .  '</span></div>';
+						}
+						else {
+							$display_result .= '<div class="product_attr_item"><span class="product_attr_item__name">' . $name . '</span>';
+							$display_result .= '<span class="product_attr_item__val">' . esc_html(implode(', ', $attribute->get_options())) . '</span></div>';
+						}
+					}
+				}
+
+				echo $display_result; ?>
+			</div>
 
 			<?php // posts
-			if ( have_posts() ) {
+			if (have_posts()) {
 				while ( have_posts() ) {
 					the_post();
 				}
