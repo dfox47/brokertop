@@ -177,16 +177,13 @@ $realtorPhoto       = $product->get_attribute('pa_foto-rieltora'); ?>
 							<?php } ?>
 						<?php } ?>
 					<?php }
-					// default | Баширова Юлия
+					// default
 					else { ?>
-						<div class="product_realtor__name">Баширова Юлия</div>
-						<img class="product_realtor__img" src="/wp-content/themes/broker2022/i/team/bashirova.png" alt="Баширова Юлия" />
-						<!--						<a class="product_realtor__phone" href="tel:+79267989236" target="_blank">+7(926) 798-92-36</a>-->
+						<img class="product_realtor__img_default" src="https://brokertop.ru/wp-content/themes/broker2022/i/logo_dark.svg" alt="Topbroker" />
 						<a class="product_realtor__phone" href="tel:+79778021616" target="_blank">+7(977) 802-16-16</a>
 					<?php } ?>
 
 					<a class="product_realtor__phone js-popup-show" href="javascript:void(0);" data-popup="feedback">Обратная связь</a>
-
 					<a class="product_realtor__presentation" href="/ajax_presentation.php?id=<?php echo $objectId; ?>" target="_blank">Скачать презентацию</a>
 				</div>
 			</div>
