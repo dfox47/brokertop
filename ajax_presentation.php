@@ -13,10 +13,22 @@ $attributes = $product->get_attributes();
 
 $attachment_ids             = $product->get_gallery_attachment_ids();
 $brokerPhoto                = $product->get_attribute('pa_foto-rieltora');
+$broker_name                = isset($attributes['pa_imya-rieltora']) ? $product->get_attribute('pa_imya-rieltora') : 'TOPBROKER';
+
+if ($broker_name == 'Андреев Борис') {
+	$brokerPhoto = 'https://brokertop.ru/wp-content/themes/broker2022/i/team/andreev.png';
+}
+elseif ($broker_name == 'Сорокина Ульяна') {
+	$brokerPhoto = 'https://brokertop.ru/wp-content/themes/broker2022/i/team/sorokina.png';
+}
+elseif ($broker_name == 'Баширова Юлия') {
+	$brokerPhoto = 'https://brokertop.ru/wp-content/themes/broker2022/i/team/bashirova.png';
+}
+
 $brokerPhotoCSS             = empty(!$brokerPhoto) ? 'background: url("data:image/png;base64, ' . base64_encode(file_get_contents($brokerPhoto)) . '") center no-repeat; height: 170px;' : '';
 $broker_adres               = isset($attributes['pa_adres']) ? $product->get_attribute('pa_adres') : '';
 $broker_email               = isset($attributes['pa_email_rieltora']) ? $product->get_attribute('pa_email_rieltora') : '1@topbroker.moscow';
-$broker_name                = isset($attributes['pa_imya-rieltora']) ? $product->get_attribute('pa_imya-rieltora') : 'TOPBROKER';
+
 $broker_obshhaya_ploshhad   = isset($attributes['pa_obshhaya-ploshhad']) ? $product->get_attribute('pa_obshhaya-ploshhad') : '';
 $broker_phone               = isset($attributes['pa_telefon-rieltora']) ? $product->get_attribute('pa_telefon-rieltora') : '+7(977)802-16-16';
 $broker_tip_nedvizhimosti   = isset($attributes['pa_tip-nedvizhimosti']) ? $product->get_attribute('pa_tip-nedvizhimosti') : '';
@@ -77,6 +89,8 @@ $html = '
 					'. $brokerPhotoCSS . '
 					background-size: cover;
 					border-radius: 5px;
+					height: 170px;
+					width: 170px;
 				}
 
 				.firstpage .broker-info .broker-name {

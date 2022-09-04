@@ -165,7 +165,7 @@ $realtorPhoto       = $product->get_attribute('pa_foto-rieltora'); ?>
 							<img class="product_realtor__img" src="/wp-content/themes/broker2022/i/team/sorokina.png" alt="<?php echo $realtorName; ?>" />
 							<a class="product_realtor__phone" href="tel:+79778021616" target="_blank">+7(977) 802-16-16</a>
 						<?php }
-						// Сорокина Ульяна
+						// Баширова Юлия
 						elseif ($realtorName == 'Баширова Юлия') { ?>
 							<img class="product_realtor__img" src="/wp-content/themes/broker2022/i/team/bashirova.png" alt="<?php echo $realtorName; ?>" />
 							<a class="product_realtor__phone" href="tel:+79778021616" target="_blank">+7(977) 802-16-16</a>
