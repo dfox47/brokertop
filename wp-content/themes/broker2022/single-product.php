@@ -165,15 +165,26 @@ $realtorPhoto       = $product->get_attribute('pa_foto-rieltora'); ?>
 							<img class="product_realtor__img" src="/wp-content/themes/broker2022/i/team/sorokina.png" alt="<?php echo $realtorName; ?>" />
 							<a class="product_realtor__phone" href="tel:+79778021616" target="_blank">+7(977) 802-16-16</a>
 						<?php }
+						// Сорокина Ульяна
+						elseif ($realtorName == 'Баширова Юлия') { ?>
+							<img class="product_realtor__img" src="/wp-content/themes/broker2022/i/team/bashirova.png" alt="<?php echo $realtorName; ?>" />
+							<a class="product_realtor__phone" href="tel:+79778021616" target="_blank">+7(977) 802-16-16</a>
+						<?php }
 						else { ?>
 							<?php // Фото риэлтора
 							if ($realtorPhoto) { ?>
 								<img class="product_realtor__img" src="<?php echo $realtorPhoto; ?>" alt="<?php echo $realtorName; ?>" />
+							<?php }
+							else { ?>
+								<img class="product_realtor__img_default" src="https://brokertop.ru/wp-content/themes/broker2022/i/logo_dark.svg" alt="Topbroker" />
 							<?php } ?>
 
 							<?php // Телефон риэлтора
 							if ($realtorPhone) { ?>
 								<a class="product_realtor__phone" href="tel:<?php echo $realtorPhone; ?>" target="_blank"><?php echo $realtorPhone; ?></a>
+							<?php }
+							else { ?>
+								<a class="product_realtor__phone" href="tel:+79778021616" target="_blank">+7(977) 802-16-16</a>
 							<?php } ?>
 						<?php } ?>
 					<?php }
