@@ -16,8 +16,7 @@ let password            = config.password
 let port                = config.port
 let user                = config.user
 
-let remoteRoot                  = '/www/brokertop.ru/'
-let remoteFolder                = remoteRoot + 'wp-content/themes/broker2022/'
+let remoteFolder                = '/www/brokertop.ru/wp-content/themes/broker2022/'
 let remoteFolderCss             = remoteFolder + 'css/'
 let remoteFolderJs              = remoteFolder + 'js/'
 let remoteFolderTemplateParts   = remoteFolder + 'template-parts/'
@@ -65,11 +64,6 @@ gulp.task('copy_html', function () {
 		.pipe(conn.dest(remoteFolder))
 })
 
-gulp.task('copy_ajax_pdf', function () {
-	return gulp.src('ajax_presentation.php')
-		.pipe(conn.dest(remoteRoot))
-})
-
 gulp.task('copy_template_parts', function () {
 	return gulp.src(localFolderTemplateParts + '**/*')
 		.pipe(conn.dest(remoteFolderTemplateParts))
@@ -83,7 +77,7 @@ gulp.task('copy_js', function () {
 gulp.task('js', function () {
 	return gulp.src([
 			// localFolderJs + 'jquery.3.2.1.js',
-			localFolderJs + 'owl.carousel.min.js',
+			localFolderJs + 'owl.carousel.js',
 			localFolderJs + 'jspdf.min.js',
 			localFolderJs + '**/*.js'
 		])
@@ -96,9 +90,8 @@ gulp.task('js', function () {
 })
 
 gulp.task('watch', function() {
-	gulp.watch('ajax_presentation.php',             gulp.series('copy_ajax_pdf'))
-	gulp.watch(localFolder + '*.php',               gulp.series('copy_html'))
 	gulp.watch(localFolderCss + '**/*',             gulp.series('css', 'copy_css'))
+	gulp.watch(localFolder + '*.php',               gulp.series('copy_html'))
 	gulp.watch(localFolderJs + '**/*.js',           gulp.series('js', 'copy_js'))
 	gulp.watch(localFolderTemplateParts + '**/*',   gulp.series('copy_template_parts'))
 })
