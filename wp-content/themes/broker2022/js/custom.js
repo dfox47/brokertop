@@ -41,33 +41,47 @@ $(document).ready(function() {
 	})
 })
 
-jQuery(document).ready(function($) {
-	var custom_uploader;
 
-	$('#upload_image_button').click(function(e) {
-		e.preventDefault();
-		//If the uploader object has already been created, reopen the dialog
-		if (custom_uploader) {
-			custom_uploader.open();
-			return;
-		}
 
-		//Extend the wp.media object
-		custom_uploader = wp.media.frames.file_frame = wp.media({
-			title: 'Choose Image',
-			button: {
-				text: 'Choose Image'
-			},
-			multiple: false
-		});
+let $menuItem153 = document.querySelector('.menu-item-153 a')
+let $menuItem154 = document.querySelector('.menu-item-154 a')
 
-		//When a file is selected, grab the URL and set it as the text field's value
-		custom_uploader.on('select', function() {
-			attachment = custom_uploader.state().get('selection').first().toJSON();
-			$('#upload_image').val(attachment.url);
-		});
+$menuItem153.addEventListener('click', (e) => {
+	e.preventDefault()
 
-		//Open the uploader dialog
-		custom_uploader.open();
-	});
-});
+	// remove old tip
+	menuTipRemove()
+	menuTipCreate($menuItem153)
+})
+
+$menuItem154.addEventListener('click', (e) => {
+	e.preventDefault()
+
+	// remove old tip
+	menuTipRemove()
+	menuTipCreate($menuItem154)
+})
+
+let menuTipCreate = (menuId) => {
+	let menuTip = document.createElement('div')
+	menuTip.classList.add('header_menu_tip')
+	menuTip.textContent = 'Раздел на модерации'
+
+	insertAfter(menuTip, menuId)
+
+	setTimeout(() => {
+		menuTip.remove()
+	}, 2000)
+}
+
+let menuTipRemove = () => {
+	let menuOld = document.querySelector('.header_menu_tip')
+
+	if (menuOld) {
+		menuOld.remove()
+	}
+}
+
+let insertAfter = (newNode, existingNode) => {
+	existingNode.parentNode.insertBefore(newNode, existingNode.nextSibling)
+}

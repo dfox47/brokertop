@@ -88,6 +88,7 @@
 
 	li {
 		padding: 0 20px;
+		position: relative;
 
 		&.current-menu-item {
 			a,
@@ -100,6 +101,14 @@
 						width: 77px;
 					}
 				}
+			}
+		}
+
+		&.menu-item-153,
+		&.menu-item-154 {
+			a,
+			a:visited {
+				opacity: .5;
 			}
 		}
 
@@ -130,6 +139,21 @@
 		background-color: $c_menu_bg;
 		display: flex;
 	}
+}
+
+.header_menu_tip {
+	background-color: #000;
+	border: 1px solid $c_main;
+	color: #fff;
+	left: 50%;
+	margin: 15px 0 0;
+	padding: .5em 1em;
+	position: absolute;
+	text-align: center;
+	text-transform: none;
+	top: 100%;
+	transform: translateX(-50%);
+	white-space: nowrap;
 }
 
 .header_menu_toggle {
