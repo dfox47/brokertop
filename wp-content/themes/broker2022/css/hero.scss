@@ -173,6 +173,10 @@
 			max-width: none;
 			text-align: center;
 		}
+
+		@media #{$mobile_s} {
+			font-size: 40px;
+		}
 	}
 
 	&__thumb {
