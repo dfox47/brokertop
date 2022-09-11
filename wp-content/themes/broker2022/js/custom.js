@@ -41,6 +41,14 @@ $(document).ready(function() {
 
 		$('.js-owl-carousel').trigger('to.owl.carousel', slideId)
 	})
+
+
+
+	let $acceptInput = $('.js-accept')
+
+	$acceptInput.on('change', () => {
+		$('.js-accept-desc').toggleClass('active', !$acceptInput.is(':checked'))
+	})
 })
 
 
