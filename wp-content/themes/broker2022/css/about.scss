@@ -49,6 +49,7 @@
 		}
 
 		@media #{$mobile} {
+			align-items: flex-start;
 			padding: 0 30px;
 		}
 	}
@@ -65,6 +66,10 @@
 		@media #{$desktop_hd} {
 			margin: 20px 0 0;
 		}
+
+		@media #{$mobile} {
+			margin: -160px 0 0 -110px;
+		}
 	}
 }
 
@@ -75,4 +80,14 @@
 	margin: 23px 0 0;
 	padding: 0 70px 0 0;
 	text-align: right;
+
+	@media #{$tablet} {
+		padding: 0;
+	}
+
+	@media #{$mobile} {
+		float: right;
+		font-size: 12px;
+		max-width: 150px;
+	}
 }
