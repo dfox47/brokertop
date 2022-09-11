@@ -55,14 +55,29 @@
 
 .btn_submit {
 	background: none;
-	border: 1px solid $c_main;
 	color: #fff;
 	font-family: $font_main;
 	letter-spacing: .08em;
-	padding: 14px 54px 12px;
+	text-align: center;
+
+	input {
+		left: -9999px;
+		position: absolute;
+	}
+
+	&__title {
+		border: 1px solid $c_main;
+		display: block;
+		padding: 14px 54px 12px;
+		text-align: center;
+	}
 
 	&:hover {
-		background-color: $c_main;
-		color: #000;
+		.btn_submit {
+			&__title {
+				background-color: $c_main;
+				color: #000;
+			}
+		}
 	}
 }
