@@ -59,6 +59,7 @@ blockquote {
 	}
 
 	@media #{$mobile} {
+		font-size: 15px;
 		padding: 40px 0;
 	}
 }
@@ -295,6 +296,10 @@ input {
 	&.page-id-14 {
 		.hero_block {
 			min-height: 440px;
+
+			@media #{$tablet} {
+				min-height: 0;
+			}
 		}
 	}
 
@@ -318,6 +323,10 @@ input {
 		font-size: 24px;
 		font-weight: 700;
 		padding: 0 15px;
+
+		@media #{$mobile} {
+			font-size: 18px;
+		}
 	}
 
 	.contacts_consult {

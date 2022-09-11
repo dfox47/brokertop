@@ -559,6 +559,19 @@
 		h1 {
 			font-size: 96px;
 			margin: 46px 0 0 66px;
+
+			@media #{$tablet} {
+				font-size: 70px;
+				margin: 1em 0 2em;
+			}
+
+			@media #{$mobile} {
+				font-size: 60px;
+			}
+
+			@media #{$mobile_s} {
+				font-size: 40px;
+			}
 		}
 
 		.hero_block {
