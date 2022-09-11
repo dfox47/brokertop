@@ -85,6 +85,10 @@
 		position: relative;
 		width: 100%;
 		z-index: 3;
+
+		@media #{$mobile} {
+			padding: 0;
+		}
 	}
 
 	&__developer {
@@ -166,6 +170,7 @@
 
 		@media #{$mobile} {
 			font-size: 54px;
+			max-width: none;
 			text-align: center;
 		}
 	}
@@ -214,7 +219,8 @@
 	}
 
 	@media #{$mobile} {
-		padding: 142px 10px;
+		min-height: 500px;
+		padding: 90px 10px;
 	}
 }
 
