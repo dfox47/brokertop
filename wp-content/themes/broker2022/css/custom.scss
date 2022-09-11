@@ -275,8 +275,15 @@ input {
 
 .mgo-mcw-widget {
 	bottom: 10px !important;
-	left: 65px !important;
+	left: 10px !important;
 	right: auto !important;
+	top: auto !important;
+}
+
+.mgo-mcw-widget_position-right {
+	.mgo-mcw__button {
+		margin: 0 !important;
+	}
 }
 
 .nobr {
