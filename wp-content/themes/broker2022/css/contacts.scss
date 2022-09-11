@@ -144,27 +144,15 @@
 				padding: 0 0 0 30px;
 				position: relative;
 
-				&::after,
 				&::before {
-					content: "";
-					position: absolute;
-				}
-
-				&::after {
 					border: 1px solid $c_main;
+					content: "";
+					display: block;
 					height: 18px;
 					left: 0;
+					position: absolute;
 					top: 0;
 					width: 18px;
-				}
-
-				&::before {
-					background-color: $c_main;
-					display: none;
-					height: 10px;
-					left: 4px;
-					top: 4px;
-					width: 10px;
 				}
 			}
 		}
@@ -234,6 +222,18 @@
 			color: $c_menu_bg;
 			left: 10px;
 			top: 4px;
+		}
+	}
+
+	&__accept_desc {
+		color: $c_main;
+		display: none;
+		font-size: 12px;
+		margin: 1em 0;
+		text-align: center;
+
+		&.active {
+			display: block;
 		}
 	}
 
