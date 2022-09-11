@@ -500,8 +500,8 @@ input {
 
 			&:checked {
 				+ .wpcf7-list-item-label {
-					&::after {
-						opacity: 1;
+					&::before {
+						background-color: $c_main;
 					}
 				}
 			}
@@ -511,25 +511,13 @@ input {
 				padding: 0 0 0 33px;
 				position: relative;
 
-				&::after,
-				&::before {
-					content: "";
-					position: absolute;
-				}
-
-				&::after {
-					background-color: $c_main;
-					height: 10px;
-					left: 4px;
-					opacity: 0;
-					top: 4px;
-					width: 10px;
-				}
-
 				&::before {
 					border: 1px solid $c_main;
+					content: "";
+					display: block;
 					height: 18px;
 					left: 0;
+					position: absolute;
 					top: 0;
 					width: 18px;
 				}
