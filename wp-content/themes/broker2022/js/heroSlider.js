@@ -1,4 +1,6 @@
 
+// heroSlider.js [START]
+
 // more info
 // https://github.com/idangerous/plugins/tree/master/Chop%20Slider%203/Chop%20Slider%203%20jQuery
 $(document).ready(function() {
@@ -27,3 +29,5 @@ $(document).ready(function() {
 		preloader: 'false'
 	})
 })
+
+// heroSlider.js [END]

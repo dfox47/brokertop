@@ -1,4 +1,6 @@
 
+// custom.js [START]
+
 // some special code here
 let x = () => {
 	let pageNavCurrent = document.querySelectorAll('.page-numbers.current')
@@ -85,3 +87,5 @@ let menuTipRemove = () => {
 let insertAfter = (newNode, existingNode) => {
 	existingNode.parentNode.insertBefore(newNode, existingNode.nextSibling)
 }
+
+// custom.js [END]

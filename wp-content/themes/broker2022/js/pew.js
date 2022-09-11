@@ -1,4 +1,6 @@
 
+// pew.js [START]
+
 jQuery(document).ready(function($) {
 	// get all values
 	let valuesBlocks = $('.woof_mselect_pa_obshhaya-ploshhad').find('option')
@@ -107,7 +109,6 @@ jQuery(document).ready(function($) {
 	})
 })
 
-
 // show more|less button
 let productFilterShowMore = () => {
 	let $woof = document.querySelector('.woof')
@@ -137,3 +138,5 @@ let productFilterShowMore = () => {
 }
 
 productFilterShowMore()
+
+// pew.js [END]

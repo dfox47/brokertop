@@ -1,4 +1,6 @@
 
+// pagination.js [START]
+
 function paginationAjax() {
 	let paginationWrap = document.querySelector('.js-pagination-more')
 
@@ -48,3 +50,5 @@ function paginationAjax() {
 }
 
 paginationAjax()
+
+// pagination.js [END]

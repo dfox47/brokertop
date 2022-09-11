@@ -1,4 +1,6 @@
 
+// phone.js [START]
+
 // allow only numbers at phone input
 document.querySelectorAll('.js-phone').forEach((e) => {
 	e.addEventListener('keypress', (event) => {
@@ -11,3 +13,5 @@ document.querySelectorAll('.js-phone').forEach((e) => {
 		}
 	})
 })
+
+// phone.js [END]

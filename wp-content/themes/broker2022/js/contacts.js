@@ -1,4 +1,6 @@
 
+// contacts.js [START]
+
 // inputs [START]
 let $contactInputs = document.getElementsByClassName('wpcf7-form-control')
 
@@ -44,3 +46,5 @@ Array.from($contactError).forEach(function(output) {
 	})
 })
 // response [END]
+
+// contacts.js [END]
