@@ -110,7 +110,7 @@
 		position: relative;
 
 		.woof_container {
-			margin: 0 50px 35px 0;
+			margin: 0 50px 0 0;
 			max-width: 278px;
 			padding: 0;
 			position: relative;
@@ -196,12 +196,11 @@
 			&.woof_container_pa_tip-nedvizhimosti {}
 
 			&.woof_container_product_cat {
-				height: 40px;
+				bottom: 100%;
 				left: 0;
 				max-width: none;
 				padding: 0 15px;
 				position: absolute;
-				top: -40px;
 				width: 100%;
 
 				&::after {
@@ -211,6 +210,7 @@
 				.woof_list {
 					&.woof_list_radio {
 						display: flex;
+						flex-wrap: wrap;
 					}
 
 					input {
@@ -225,6 +225,10 @@
 
 					label {
 						padding: 0 38px;
+
+						@media #{$mobile} {
+							padding: 0 10px;
+						}
 					}
 
 					li {
@@ -243,6 +247,10 @@
 
 							.woof_radio_count {
 								display: none !important;
+							}
+
+							@media #{$mobile} {
+								border-radius: 8px;
 							}
 						}
 					}
