@@ -110,7 +110,7 @@
 		position: relative;
 
 		.woof_container {
-			margin: 0 50px 0 0;
+			margin: 0 35px 0 0;
 			max-width: 278px;
 			padding: 0;
 			position: relative;
@@ -163,7 +163,7 @@
 
 			&.woof_container_pa_obshhaya-ploshhad {
 				padding: 0 24px 0 0;
-				max-width: 278px;
+				//max-width: 278px;
 
 				.woof_block_html_items {
 					display: none;
@@ -259,6 +259,10 @@
 						display: none !important;
 					}
 				}
+
+				@media #{$mobile} {
+					margin: 0;
+				}
 			}
 
 			&.woof_container_product_tag {
@@ -310,8 +314,13 @@
 				}
 			}
 
+			@media #{$desktop_hd} {
+				margin: 0 25px 15px 0;
+				max-width: 260px;
+			}
+
 			@media #{$mobile} {
-				margin-right: 0;
+				margin: 0 0 24px;
 				max-width: none;
 
 				&::after {
@@ -403,6 +412,19 @@
 			&:hover {
 				background-color: $c_text;
 				color: #fff;
+			}
+		}
+	}
+}
+
+.woof_container_pa_metro,
+.woof_container_pa_rajon {
+	.chosen-container {
+		.chosen-drop {
+			//@media #{$tablet} {
+			@media #{$mobile} {
+				bottom: 100%;
+				top: auto;
 			}
 		}
 	}
