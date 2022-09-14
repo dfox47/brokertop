@@ -36,6 +36,28 @@ $googleMapsX                = (empty($product->get_attribute('pa_google-api-x'))
 $googleMapsY                = (empty($product->get_attribute('pa_google-api-y')) ? '37.6048052' : $product->get_attribute('pa_google-api-y'));
 $mainImg                    = empty(!wp_get_attachment_image_src(get_post_thumbnail_id( $post_id ), 'single-post-thumbnail')[0]) ? 'background: url("data:image/png;base64, ' . base64_encode(file_get_contents(wp_get_attachment_image_src(get_post_thumbnail_id( $post_id ), 'single-post-thumbnail')[0])) . '") center no-repeat;' : '';
 
+
+
+$terms = get_terms( 'pa_imya-rieltora', array(
+    'hide_empty' => false,
+	'object_ids' => $post_id,
+) );
+
+foreach( $terms as $term ){
+if ($term->post_id == $post->id) {  
+	//echo $term->name;
+	//echo $term->description;
+	}
+}
+
+$broker_photo_get = $term->description;
+
+preg_match_all("_(?:(?:https?|ftp)://)(?:\S+(?::\S*)?@)?(?:(?!10(?:\.\d{1,3}){3})(?!127(?:\.\d{1,3}){3})(?!169\.254(?:\.\d{1,3}){2})(?!192\.168(?:\.\d{1,3}){2})(?!172\.(?:1[6-9]|2\d|3[0-1])(?:\.\d{1,3}){2})(?:[1-9]\d?|1\d\d|2[01]\d|22[0-3])(?:\.(?:1?\d{1,2}|2[0-4]\d|25[0-5])){2}(?:\.(?:[1-9]\d?|1\d\d|2[0-4]\d|25[0-4]))|(?:(?:[a-z\x{00a1}-\x{ffff}0-9]+-?)*[a-z\x{00a1}-\x{ffff}0-9]+)(?:\.(?:[a-z\x{00a1}-\x{ffff}0-9]+-?)*[a-z\x{00a1}-\x{ffff}0-9]+)*(?:\.(?:[a-z\x{00a1}-\x{ffff}]{2,})))(?::\d{2,5})?(?:/[^\s]*)?_iuS", $broker_photo_get, $urls);
+
+foreach( $urls as $url ){
+	//echo $url[0];
+}
+
 $html = '
 	<html>
 		<head>
@@ -86,11 +108,12 @@ $html = '
 				}
 
 				.firstpage .broker-info .broker-photo {
-					'. $brokerPhotoCSS . '
-					background-size: cover;
-					border-radius: 5px;
-					height: 170px;
-					width: 170px;
+					height: 138px;
+					width: 138px;
+					background:url("data:image/png;base64, '.base64_encode(file_get_contents($url[0])).'") center no-repeat;
+					background-size:cover;
+					border-radius:5px;
+					margin: 0 0 0 30px;
 				}
 
 				.firstpage .broker-info .broker-name {
