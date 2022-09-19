@@ -86,7 +86,7 @@
 		.woof_redraw_zone {
 			@media #{$desktop} {
 				height: auto;
-				overflow: auto;
+				overflow-y: auto;
 			}
 		}
 	}
