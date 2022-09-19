@@ -93,7 +93,14 @@
 			height: 25px;
 			outline: none;
 			text-align: left;
-			width: 100%;
+			width: 100%;			@media #{$desktop_hd} {
+				margin: 0 25px 0 0;
+				max-width: 260px;
+			}
+
+			@media #{$mobile} {
+				font-size: 16px;
+			}
 		}
 
 		.pew-range-from,
@@ -315,7 +322,7 @@
 			}
 
 			@media #{$desktop_hd} {
-				margin: 0 25px 15px 0;
+				margin: 0 25px 0 0;
 				max-width: 260px;
 			}
 
@@ -379,6 +386,17 @@
 		li {
 			margin: 0 !important;
 			padding: 0 !important;
+		}
+
+		.woof_term_20 {
+			input {
+				&:disabled {
+					+ label {
+						display: block!important;
+						opacity: 1;
+					}
+				}
+			}
 		}
 	}
 
