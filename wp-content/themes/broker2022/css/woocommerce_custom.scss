@@ -141,6 +141,7 @@
 		.price_slider_wrapper {
 			.ui-widget-content {
 				background-color: $c_filter_bg;
+				margin: 15px 10px 10px 0;
 			}
 		}
 
@@ -151,10 +152,22 @@
 			}
 
 			.ui-slider-handle {
-				background-color: $c_main;
-				height: 8px;
-				top: -3px;
-				width: 8px;
+				background: none;
+				height: 22px;
+				top: -10px;
+				width: 22px;
+
+				&::after {
+					background-color: $c_main;
+					border-radius: 50%;
+					content: "";
+					height: 8px;
+					left: 50%;
+					position: absolute;
+					top: 50%;
+					transform: translate(-50%,-50%);
+					width: 8px;
+				}
 			}
 		}
 
