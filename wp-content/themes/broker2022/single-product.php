@@ -196,6 +196,10 @@ $realtorPhoto       = $product->get_attribute('pa_foto-rieltora'); ?>
 
 					<a class="product_realtor__phone js-popup-show" href="javascript:void(0);" data-popup="feedback">Заказать просмотр</a>
 					<a class="product_realtor__presentation" href="/ajax_presentation.php?id=<?php echo $objectId; ?>" target="_blank">Скачать презентацию</a>
+
+					<?php // show only if admin
+					if (current_user_can('manage_options')) { ?>
+					<?php } ?>
 				</div>
 			</div>
 
@@ -210,6 +214,14 @@ $realtorPhoto       = $product->get_attribute('pa_foto-rieltora'); ?>
 					if ($attribute->get_variation()) {
 						continue;
 					}
+
+					// to make attribute visible only for admin [START]
+					$isVisible = $attribute->get_visible();
+
+					if (!current_user_can('manage_options') && !$isVisible) {
+						continue;
+					}
+					// to make attribute visible only for admin [END]
 
 					$name = $attribute->get_name();
 
@@ -230,7 +242,7 @@ $realtorPhoto       = $product->get_attribute('pa_foto-rieltora'); ?>
 								}
 							}
 
-							$display_result .= '<div class="product_attr_item" data-name="' . $name . '"><span class="product_attr_item__name">' . $tax_label . '</span>';
+							$display_result .= '<div class="product_attr_item" data-name="' . $name . '" data-visible="' . $isVisible . '"><span class="product_attr_item__name">' . $tax_label . '</span>';
 							$tax_terms = array();
 
 							foreach ($terms as $term) {
