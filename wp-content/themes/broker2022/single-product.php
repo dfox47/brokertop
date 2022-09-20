@@ -194,7 +194,7 @@ $realtorPhoto       = $product->get_attribute('pa_foto-rieltora'); ?>
 						<a class="product_realtor__phone" href="tel:+79778021616" target="_blank">+7(977) 802-16-16</a>
 					<?php } ?>
 
-					<a class="product_realtor__phone js-popup-show" href="javascript:void(0);" data-popup="feedback">Обратная связь</a>
+					<a class="product_realtor__phone js-popup-show" href="javascript:void(0);" data-popup="feedback">Заказать просмотр</a>
 					<a class="product_realtor__presentation" href="/ajax_presentation.php?id=<?php echo $objectId; ?>" target="_blank">Скачать презентацию</a>
 				</div>
 			</div>
@@ -301,7 +301,7 @@ $realtorPhoto       = $product->get_attribute('pa_foto-rieltora'); ?>
 		<div class="popup__close js-popup-close"></div>
 
 		<div class="contacts_form">
-			<?php echo do_shortcode('[contact-form-7 id="63" title="Обратная связь"]'); ?>
+			<?php echo do_shortcode('[contact-form-7 id="63"]'); ?>
 		</div>
 	</div>
 </div>
