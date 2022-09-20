@@ -176,6 +176,20 @@ input {
 	}
 }
 
+.chosen-container {
+	&.chosen-with-drop {
+		&.filter-mobile-hack {
+			.chosen-drop {
+				clip: auto;
+			}
+		}
+
+		.chosen-drop {
+			clip: rect(0,0,0,0);
+		}
+	}
+}
+
 .chosen-container-single {
 	.chosen-search {
 		input {
@@ -581,22 +595,6 @@ input {
 
 	@media #{$mobile} {
 		padding: 0;
-	}
-}
-
-
-
-.chosen-container {
-	&.chosen-with-drop {
-		&.filter-mobile-hack {
-			.chosen-drop {
-				clip: auto;
-			}
-		}
-
-		.chosen-drop {
-			clip: rect(0,0,0,0);
-		}
 	}
 }
 
