@@ -212,14 +212,20 @@ function art_added_tabs_panel() {
 
 add_action( 'woocommerce_product_data_panels', 'art_added_tabs_panel' );
 
-
-// change menu item name at admin
+// change menu items name at admin
 function edit_admin_menus() {
 	global $menu, $submenu;
 
 	$menu[25][0] = 'Отзывы';
 	$menu[26][0] = 'Объекты';
 
+	// woocommerce
+//	$menu['55.5'][0] = 'Store';
+
+	// All products
 	$submenu['edit.php?post_type=product'][5][0] = 'Все объекты';
+
+	// attributes
+	$submenu['edit.php?post_type=product'][17][0] = 'Параметры объекта';
 }
 add_action('admin_menu', 'edit_admin_menus');
