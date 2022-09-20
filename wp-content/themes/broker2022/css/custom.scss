@@ -586,6 +586,20 @@ input {
 
 
 
+.chosen-container {
+	&.chosen-with-drop {
+		&.filter-mobile-hack {
+			.chosen-drop {
+				clip: auto;
+			}
+		}
+
+		.chosen-drop {
+			clip: rect(0,0,0,0);
+		}
+	}
+}
+
 
 
 
