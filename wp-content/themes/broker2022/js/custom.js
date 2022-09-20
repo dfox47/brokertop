@@ -49,48 +49,16 @@ $(document).ready(function() {
 	$acceptInput.on('change', () => {
 		$('.js-accept-desc').toggleClass('active', !$acceptInput.is(':checked'))
 	})
+
+
+
+	$(document).on('click touchstart focus', '.chosen-single', function () {
+		$('.chosen-container').removeClass('filter-mobile-hack')
+		$(this).parent().addClass('filter-mobile-hack')
+	})
 })
 
 
-
-let $menuItem153 = document.querySelector('.menu-item-153 a')
-let $menuItem154 = document.querySelector('.menu-item-154 a')
-
-$menuItem153.addEventListener('click', (e) => {
-	e.preventDefault()
-
-	// remove old tip
-	menuTipRemove()
-	menuTipCreate($menuItem153)
-})
-
-$menuItem154.addEventListener('click', (e) => {
-	e.preventDefault()
-
-	// remove old tip
-	menuTipRemove()
-	menuTipCreate($menuItem154)
-})
-
-let menuTipCreate = (menuId) => {
-	let menuTip = document.createElement('div')
-	menuTip.classList.add('header_menu_tip')
-	menuTip.textContent = 'Раздел на модерации'
-
-	insertAfter(menuTip, menuId)
-
-	setTimeout(() => {
-		menuTip.remove()
-	}, 2000)
-}
-
-let menuTipRemove = () => {
-	let menuOld = document.querySelector('.header_menu_tip')
-
-	if (menuOld) {
-		menuOld.remove()
-	}
-}
 
 let insertAfter = (newNode, existingNode) => {
 	existingNode.parentNode.insertBefore(newNode, existingNode.nextSibling)
