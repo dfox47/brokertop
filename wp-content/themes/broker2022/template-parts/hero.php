@@ -10,7 +10,7 @@
 				<div class="hero_block_slide__title">Каталог недвижимости</div>
 
 				<div class="hero_block_slide__developer">
-					<a class="hero_block_slide__developer_link" href="//novostroiki-moscow.com/">Новостройки</a>
+					<a class="hero_block_slide__developer_link js-menu-item-disabled" href="//novostroiki-moscow.com/">Новостройки</a>
 				</div>
 
 				<div class="hero_block_slide__thumb_wrap">
@@ -28,14 +28,14 @@
 				<div class="hero_block_slide__title">Новостройки</div>
 
 				<div class="hero_block_slide__developer">
-					<a class="hero_block_slide__developer_link" href="//dubaiestate.top/">Дубай / Dubai</a>
+					<a class="hero_block_slide__developer_link js-menu-item-disabled" href="//dubaiestate.top/">Дубай / Dubai</a>
 				</div>
 
 				<div class="hero_block_slide__thumb_wrap">
 					<span class="hero_block_slide__thumb" style="background-image: url(<?php echo $i; ?>/3.jpg"></span>
 				</div>
 
-				<div class="hero_block_slide__more"><a class="btn btn_more" href="//novostroiki-moscow.com/">Открыть</a></div>
+				<div class="hero_block_slide__more"><a class="btn btn_more js-menu-item-disabled" href="//novostroiki-moscow.com/">Открыть</a></div>
 			</div>
 		</div>
 
@@ -53,7 +53,7 @@
 					<span class="hero_block_slide__thumb" style="background-image: url(<?php echo $i; ?>/18.jpg"></span>
 				</div>
 
-				<div class="hero_block_slide__more"><a class="btn btn_more" href="//dubaiestate.top/">Открыть</a></div>
+				<div class="hero_block_slide__more"><a class="btn btn_more js-menu-item-disabled" href="//dubaiestate.top/">Открыть</a></div>
 			</div>
 		</div>
 
