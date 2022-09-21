@@ -64,6 +64,11 @@ gulp.task('copy_html', function () {
 		.pipe(conn.dest(remoteFolder))
 })
 
+gulp.task('copy_ajax_pdf', function () {
+	return gulp.src('ajax_presentation.php')
+		.pipe(conn.dest('/www/brokertop.ru/'))
+})
+
 gulp.task('copy_template_parts', function () {
 	return gulp.src(localFolderTemplateParts + '**/*')
 		.pipe(conn.dest(remoteFolderTemplateParts))
@@ -89,12 +94,11 @@ gulp.task('js', function () {
 })
 
 gulp.task('watch', function() {
-	gulp.watch(localFolderCss + '**/*',             gulp.series('css', 'copy_css'))
+	gulp.watch('ajax_presentation.php',             gulp.series('copy_ajax_pdf'))
 	gulp.watch(localFolder + '*.php',               gulp.series('copy_html'))
+	gulp.watch(localFolderCss + '**/*',             gulp.series('css', 'copy_css'))
 	gulp.watch(localFolderJs + '**/*.js',           gulp.series('js', 'copy_js'))
 	gulp.watch(localFolderTemplateParts + '**/*',   gulp.series('copy_template_parts'))
 })
 
-gulp.task('default', gulp.series(
-	'watch'
-))
+gulp.task('default', gulp.series('watch'))
