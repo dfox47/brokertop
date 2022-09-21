@@ -38,25 +38,14 @@ $mainImg                    = empty(!wp_get_attachment_image_src(get_post_thumbn
 
 
 
-$terms = get_terms( 'pa_imya-rieltora', array(
-    'hide_empty' => false,
-	'object_ids' => $post_id,
-) );
-
-foreach( $terms as $term ){
-if ($term->post_id == $post->id) {  
-	//echo $term->name;
-	//echo $term->description;
-	}
-}
+$terms = get_terms('pa_imya-rieltora', array(
+	'hide_empty' => false,
+	'object_ids' => $post_id
+));
 
 $broker_photo_get = $term->description;
 
 preg_match_all("_(?:(?:https?|ftp)://)(?:\S+(?::\S*)?@)?(?:(?!10(?:\.\d{1,3}){3})(?!127(?:\.\d{1,3}){3})(?!169\.254(?:\.\d{1,3}){2})(?!192\.168(?:\.\d{1,3}){2})(?!172\.(?:1[6-9]|2\d|3[0-1])(?:\.\d{1,3}){2})(?:[1-9]\d?|1\d\d|2[01]\d|22[0-3])(?:\.(?:1?\d{1,2}|2[0-4]\d|25[0-5])){2}(?:\.(?:[1-9]\d?|1\d\d|2[0-4]\d|25[0-4]))|(?:(?:[a-z\x{00a1}-\x{ffff}0-9]+-?)*[a-z\x{00a1}-\x{ffff}0-9]+)(?:\.(?:[a-z\x{00a1}-\x{ffff}0-9]+-?)*[a-z\x{00a1}-\x{ffff}0-9]+)*(?:\.(?:[a-z\x{00a1}-\x{ffff}]{2,})))(?::\d{2,5})?(?:/[^\s]*)?_iuS", $broker_photo_get, $urls);
-
-foreach( $urls as $url ){
-	//echo $url[0];
-}
 
 $html = '
 	<html>
@@ -102,18 +91,18 @@ $html = '
 					width: 165px;
 				}
 
+				.firstpage .broker-info .broker-photo {
+					'. $brokerPhotoCSS . '
+					background-size: cover;
+					border-radius: 5px;
+					height: 138px;
+					margin: 0 0 0 30px;
+					width: 138px;
+				}
+
 				.firstpage .broker-info .broker-title {
 					font-weight: 700;
 					margin: 10px;
-				}
-
-				.firstpage .broker-info .broker-photo {
-					height: 138px;
-					width: 138px;
-					background:url("data:image/png;base64, '.base64_encode(file_get_contents($url[0])).'") center no-repeat;
-					background-size:cover;
-					border-radius:5px;
-					margin: 0 0 0 30px;
 				}
 
 				.firstpage .broker-info .broker-name {
@@ -241,7 +230,7 @@ $html = '
 				<div style="margin-bottom: 20px;">Адрес: <span>'.$broker_adres.'</span></div>
 
 				<div>
-					<img width:300px; height:250px; src="data:image/svg+xml;base64, '.base64_encode(file_get_contents('https://static-maps.yandex.ru/1.x/?ll='.$googleMapsY.','.$googleMapsX.'&size=650,250&z=13&l=map&pt='.$googleMapsY.','.$googleMapsX.',pm2dom~37.64,55.76363,pm2dom99')).'" alt="" />
+					<img style="height: 250px; width: 650px;" src="data:image/svg+xml;base64, '.base64_encode(file_get_contents('https://static-maps.yandex.ru/1.x/?ll='.$googleMapsY.','.$googleMapsX.'&size=650,250&z=13&l=map&pt='.$googleMapsY.','.$googleMapsX.',pm2dom~37.64,55.76363,pm2dom99')).'" alt="" />
 				</div>
 
 				<div>Описание:
