@@ -14,6 +14,7 @@ $attributes = $product->get_attributes();
 $attachment_ids             = $product->get_gallery_attachment_ids();
 $broker_name                = isset($attributes['pa_imya-rieltora']) ? $product->get_attribute('pa_imya-rieltora') : 'TOPBROKER';
 
+// get broker image URL [START]
 $terms = get_terms('pa_imya-rieltora', array(
 	'hide_empty' => false,
 	'object_ids' => $post_id
@@ -24,16 +25,17 @@ foreach ($terms as $term) {
 }
 
 preg_match_all('#\bhttps?://[^,\s()<>]+(?:\([\w\d]+\)|([^,[:punct:]\s]|/))#', $termDesc, $match);
+// get broker image URL [END]
 
-$brokerPhotoCSS             = isset($attributes['pa_imya-rieltora']) ? 'background: url("data:image/png;base64, ' . base64_encode(file_get_contents($match[0][0])) . '") center no-repeat; height: 170px;' : '';
 $address                    = isset($attributes['pa_adres']) ? $product->get_attribute('pa_adres') : '';
+$brokerPhotoCSS             = isset($attributes['pa_imya-rieltora']) ? 'background: url("data:image/png;base64, ' . base64_encode(file_get_contents($match[0][0])) . '") center no-repeat; height: 170px;' : '';
 $broker_email               = isset($attributes['pa_email_rieltora']) ? $product->get_attribute('pa_email_rieltora') : '1@topbroker.moscow';
-$broker_obshhaya_ploshhad   = isset($attributes['pa_obshhaya-ploshhad']) ? $product->get_attribute('pa_obshhaya-ploshhad') : '';
 $broker_phone               = isset($attributes['pa_telefon-rieltora']) ? $product->get_attribute('pa_telefon-rieltora') : '+7(977)802-16-16';
-$tip_nedvizhimosti          = isset($attributes['pa_tip-nedvizhimosti']) ? $product->get_attribute('pa_tip-nedvizhimosti') : '';
 $googleMapsX                = (empty($product->get_attribute('pa_google-api-x')) ? '55.7560299' : $product->get_attribute('pa_google-api-x'));
 $googleMapsY                = (empty($product->get_attribute('pa_google-api-y')) ? '37.6048052' : $product->get_attribute('pa_google-api-y'));
 $mainImg                    = empty(!wp_get_attachment_image_src(get_post_thumbnail_id( $post_id ), 'single-post-thumbnail')[0]) ? 'background: url("data:image/png;base64, ' . base64_encode(file_get_contents(wp_get_attachment_image_src(get_post_thumbnail_id( $post_id ), 'single-post-thumbnail')[0])) . '") center no-repeat;' : '';
+$obshhayaPloshhad           = isset($attributes['pa_obshhaya-ploshhad']) ? $product->get_attribute('pa_obshhaya-ploshhad') : '';
+$tip_nedvizhimosti          = isset($attributes['pa_tip-nedvizhimosti']) ? $product->get_attribute('pa_tip-nedvizhimosti') : '';
 
 $html = '
 	<html>
@@ -208,7 +210,7 @@ $html = '
 			</div>
 
 			<div class="firstpage-data-info">
-				<div><span>'.$broker_obshhaya_ploshhad.' <small>м</small><sup>2</sup><br>Общая площадь</span></div>
+				<div><span>'.$obshhayaPloshhad.' <small>м</small><sup>2</sup><br>Общая площадь</span></div>
 			</div>
 
 			<div class="firstpage-data-info-detail">';
