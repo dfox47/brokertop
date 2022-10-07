@@ -1,6 +1,4 @@
-
 // pew.js [START]
-
 jQuery(document).ready(function($) {
 	// get all values
 	let valuesBlocks = $('.woof_mselect_pa_obshhaya-ploshhad').find('option')
@@ -20,7 +18,7 @@ jQuery(document).ready(function($) {
 	})
 
 	// min square
-	$('body').on('change', 'input[name="pew-range-filter-from"]', function() {
+	$(document).on('change', 'input[name="pew-range-filter-from"]', function() {
 		var value   = $(this).val()
 		var maxVal  = $('input[name="pew-range-filter-to"]').val()
 
@@ -50,7 +48,7 @@ jQuery(document).ready(function($) {
 	})
 
 	// max square
-	$('body').on('change', 'input[name="pew-range-filter-to"]', function() {
+	$(document).on('change', 'input[name="pew-range-filter-to"]', function() {
 		let value       = $(this).val();
 		let min_value   = $('input[name="pew-range-filter-from"]').val()
 
@@ -80,15 +78,25 @@ jQuery(document).ready(function($) {
 		})
 	})
 
-	// switch to the 1st tab if empty
+	// switch to the 1st tab if nothing selected
 	setTimeout(function() {
-		let urlParams       = new URLSearchParams(window.location.search)
-		let product_cat     = urlParams.has('product_cat')
+		const productCatSelected = localStorage.getItem('productCatSelected')
 
-		if (product_cat === false) {
-			$(".woof_container_product_cat .woof_list.woof_list_radio li:first-child input").prop("ckecked", true).trigger("click")
+		console.log('productCatSelected | ', productCatSelected)
+
+		if (productCatSelected) {
+			const $productCat = $('.woof_container_product_cat').find('input[value="' + productCatSelected + '"]')
+
+			$productCat.prop('checked', true)
+		}
+		else {
+			$('.woof_container_product_cat').find('li:first-child').find('input').prop('checked', true)
 		}
 	}, 100)
+
+	$(document).on('change', '.woof_container_product_cat input', function () {
+		localStorage.setItem('productCatSelected', $(this).val())
+	})
 
 	function filterAddSquareFields() {
 		valuesBlocks = $('.woof_mselect_pa_obshhaya-ploshhad').find('option')
@@ -101,7 +109,7 @@ jQuery(document).ready(function($) {
 		$('input[name="pew-filter-current-square-from"]').val(filter_min_square)
 		$('input[name="pew-filter-current-square-to"]').val(filter_max_square)
 
-		$('input[name="woof_t_pa_obshhaya-ploshhad"]').after('<div class="pew-range-fields"><div class="pew-range-from"><input type="text" name="pew-range-filter-from" value="'+filter_min_square+'" placeholder="От" autocomplete="off"></div><div class="pew-range-from"><input type="text" name="pew-range-filter-to" value="'+filter_max_square+'" placeholder="До" autocomplete="off"></div></div>')
+		$('input[name="woof_t_pa_obshhaya-ploshhad"]').after('<div class="pew-range-fields"><div class="pew-range-from"><input type="text" name="pew-range-filter-from" value="' + filter_min_square + '" placeholder="От" autocomplete="off"></div><div class="pew-range-from"><input type="text" name="pew-range-filter-to" value="' + filter_max_square + '" placeholder="До" autocomplete="off"></div></div>')
 	}
 
 	$(document).on('woof_ajax_done', function() {
@@ -138,5 +146,4 @@ let productFilterShowMore = () => {
 }
 
 productFilterShowMore()
-
 // pew.js [END]
