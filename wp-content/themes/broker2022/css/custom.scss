@@ -319,6 +319,43 @@ input {
 	white-space: nowrap;
 }
 
+.order_filter {
+	display: flex;
+	flex-wrap: wrap;
+	white-space: nowrap;
+
+	&__item {
+		border-radius: 7px;
+		padding: 4px 6px;
+
+		&.active {
+			background-color: $c_menu_bg;
+			color: #fff;
+			text-decoration: none;
+
+			.order_filter__link {
+				color: #fff;
+				text-decoration: none;
+			}
+		}
+	}
+
+	&__link {
+		color: $c_text;
+		text-decoration: underline;
+		transition: $transition;
+
+		&:hover {
+			color: $c_main;
+		}
+	}
+
+	@media #{$tablet} {
+		justify-content: center;
+		padding: 0 20px;
+	}
+}
+
 .page {
 	// o-kompanii
 	&.page-id-14 {
