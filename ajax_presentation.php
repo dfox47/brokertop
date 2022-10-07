@@ -11,6 +11,23 @@ $post       = get_post($post_id);
 $product    = wc_get_product($post_id);
 $attributes = $product->get_attributes();
 
+$productAttrNotShow = [
+	'pa_adres',
+	'pa_etazh',
+	'pa_foto-rieltora',
+	'pa_google-api-x',
+	'pa_google-api-y',
+	'pa_imya-rieltora',
+	'pa_klass',
+	'pa_kolichestvo-komnat',
+	'pa_obshhaya-ploshhad',
+	'pa_ssylka-na-prezentacziyu',
+	'pa_telefon-rieltora',
+	'pa_tip-nedvizhimosti',
+	'pa_vid-iz-okon',
+	'pa_vsego-etazhej'
+];
+
 $attachment_ids             = $product->get_gallery_attachment_ids();
 $broker_name                = isset($attributes['pa_imya-rieltora']) ? $product->get_attribute('pa_imya-rieltora') : 'TOPBROKER';
 
@@ -20,15 +37,72 @@ $terms = get_terms('pa_imya-rieltora', array(
 	'object_ids' => $post_id
 ));
 
+$termDesc = "";
+
 foreach ($terms as $term) {
 	$termDesc = $term->description;
 }
 
-preg_match_all('#\bhttps?://[^,\s()<>]+(?:\([\w\d]+\)|([^,[:punct:]\s]|/))#', $termDesc, $match);
+preg_match_all('#\bhttps?://[^,\s()<>]+(?:\([\w\d]+\)|([^,[:punct:]\s]|/))#', $termDesc, $brokerImgUrl);
 // get broker image URL [END]
 
+
+
+// additional attributes [START]
+$display_result = "";
+
+foreach ($attributes as $attribute) {
+	if ($attribute->get_variation()) {
+		continue;
+	}
+
+	// to make attribute visible only for admin [START]
+	$isVisible = $attribute->get_visible();
+
+	if (!current_user_can('manage_options') && !$isVisible) {
+		continue;
+	}
+	// to make attribute visible only for admin [END]
+
+	$name = $attribute->get_name();
+
+	if (!in_array($name, $productAttrNotShow)) {
+		if ($attribute->is_taxonomy()) {
+			$terms                  = wp_get_post_terms($product->get_id(), $name, 'all');
+			$cwtax                  = $terms[0]->taxonomy;
+			$cw_object_taxonomy     = get_taxonomy($cwtax);
+
+			if (isset($cw_object_taxonomy->labels->singular_name)) {
+				$tax_label = $cw_object_taxonomy->labels->singular_name;
+			}
+			elseif (isset($cw_object_taxonomy->label)) {
+				$tax_label = $cw_object_taxonomy->label;
+
+				if (0 === strpos($tax_label, 'Product ')) {
+					$tax_label = substr($tax_label, 8);
+				}
+			}
+
+			$display_result .= '<div class="product_attr_item">' . $tax_label . ': ';
+			$tax_terms = array();
+
+			foreach ($terms as $term) {
+				$single_term = esc_html($term->name);
+				array_push($tax_terms, $single_term);
+			}
+
+			$display_result .= '<span class="product_attr_item__val">' . implode(', ', $tax_terms) .  '</span></div>';
+		}
+		else {
+			$display_result .= '<div class="product_attr_item"><span class="product_attr_item__name">' . $name . '</span>';
+			$display_result .= '<span class="product_attr_item__val">' . esc_html(implode(', ', $attribute->get_options())) . '</span></div>';
+		}
+	}
+}
+// additional attributes [END]
+
 $address                    = isset($attributes['pa_adres']) ? $product->get_attribute('pa_adres') : '';
-$brokerPhotoCSS             = isset($attributes['pa_imya-rieltora']) ? 'background: url("data:image/png;base64, ' . base64_encode(file_get_contents($match[0][0])) . '") center no-repeat; height: 170px;' : '';
+$brokerPhotoCSS             = isset($attributes['pa_imya-rieltora']) ? 'background: url("data:image/png;base64, ' . base64_encode(file_get_contents($brokerImgUrl[0][0])) . '") center no-repeat; height: 170px;' : '';
 $broker_email               = isset($attributes['pa_email_rieltora']) ? $product->get_attribute('pa_email_rieltora') : '1@topbroker.moscow';
 $broker_phone               = isset($attributes['pa_telefon-rieltora']) ? $product->get_attribute('pa_telefon-rieltora') : '+7(977)802-16-16';
 $googleMapsX                = (empty($product->get_attribute('pa_google-api-x')) ? '55.7560299' : $product->get_attribute('pa_google-api-x'));
@@ -228,6 +302,8 @@ $html = '
 				</div>
 
 				<h2>Общая информация</h2>
+
+				<div>' . $display_result . '</div>
 
 				<div>Цена: <span>' . number_format($product->get_price(), 0, '.', ' ') . ' &#8381;</span></div>
 				<div>Планировка: <span></span></div>';
