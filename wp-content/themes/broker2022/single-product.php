@@ -174,10 +174,6 @@ $brokerImgUrl = $match[0][0];
 					<?php // Имя риэлтора
 					if ($realtorName) { ?>
 						<div class="product_realtor__name"><?php echo $realtorName; ?></div>
-					<?php }
-					// default
-					else { ?>
-						<img class="product_realtor__img_default" src="/wp-content/themes/broker2022/i/logo_dark.svg" alt="Topbroker" />
 					<?php } ?>
 
 					<?php // Фото риэлтора
