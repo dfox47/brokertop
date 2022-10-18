@@ -1,4 +1,3 @@
-
 <?php get_header(); ?>
 
 <?php // attributes
@@ -54,9 +53,7 @@ foreach ($terms as $term) {
 preg_match_all('#\bhttps?://[^,\s()<>]+(?:\([\w\d]+\)|([^,[:punct:]\s]|/))#', $termDesc, $match);
 
 $brokerImgUrl = $match[0][0];
-// get broker image URL [END]
-
-?>
+// get broker image URL [END] ?>
 
 
 
@@ -110,6 +107,22 @@ $brokerImgUrl = $match[0][0];
 								<?php } ?>
 							</div>
 						<?php } ?>
+
+						<?php // Общая площадь
+						if ($objectSquare) { ?>
+							<div class="product_info__item product_info__item--start">
+								<div class="product_info__title"><?php echo wc_attribute_label('pa_obshhaya-ploshhad'); ?></div>
+								<div class="product_info__value"><?php echo $objectSquare; ?> <small>м</small><sup>2</sup></div>
+							</div>
+						<?php } ?>
+
+						<?php // Стоимость
+						if ($price) { ?>
+							<div class="product_info__item product_info__item--start">
+								<div class="product_info__title">Стоимость</div>
+								<div class="product_info__value product_info__value--bold"><?php echo number_format($price,0,'',' '); ?>&nbsp;₽</div>
+							</div>
+						<?php } ?>
 					</div>
 
 					<div class="product_desc">
@@ -144,22 +157,6 @@ $brokerImgUrl = $match[0][0];
 										echo $objectClass;
 									} ?>
 								</div>
-							</div>
-						<?php } ?>
-
-						<?php // Общая площадь
-						if ($objectSquare) { ?>
-							<div class="product_info__item product_info__item--start">
-								<div class="product_info__title"><?php echo wc_attribute_label('pa_obshhaya-ploshhad'); ?></div>
-								<div class="product_info__value"><?php echo $objectSquare; ?> <small>м</small><sup>2</sup></div>
-							</div>
-						<?php } ?>
-
-						<?php // Стоимость
-						if ($price) { ?>
-							<div class="product_info__item product_info__item--start">
-								<div class="product_info__title">Стоимость</div>
-								<div class="product_info__value product_info__value--bold"><?php echo number_format($price,0,'',' '); ?>&nbsp;₽</div>
 							</div>
 						<?php } ?>
 					</div>
