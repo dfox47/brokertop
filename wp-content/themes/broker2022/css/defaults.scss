@@ -1,3 +1,14 @@
+@keyframes loading {
+	0% {
+		left: 45%;
+	}
+	50% {
+		left: 55%;
+	}
+	100% {
+		left: 45%;
+	}
+}
 
 // Standart class [START]
 * {
