@@ -272,7 +272,9 @@ $brokerImgUrl = $match[0][0];
 			$image_link = str_replace('https://' . $_SERVER['SERVER_NAME'], '', wp_get_attachment_image_url($gallery_image, 'large')); ?>
 
 			<li class="product_gallery__item">
-				<a class="product_gallery__link js-popup-show js-go-to-slide" href="javascript:void(0);" data-popup="product_gallery" data-slide="<?php echo $key; ?>"><img class="product_gallery__img" src="<?php echo $image_link; ?>" alt="" /></a>
+				<a class="product_gallery__link js-popup-show js-go-to-slide" href="javascript:void(0);" data-popup="product_gallery" data-slide="<?php echo $key; ?>">
+					<img class="product_gallery__img js-img-scroll" src="/wp-content/themes/broker2022/i/dumm.png" data-src="<?php echo $image_link; ?>" alt="" />
+				</a>
 			</li>
 		<?php } ?>
 	</ul>
