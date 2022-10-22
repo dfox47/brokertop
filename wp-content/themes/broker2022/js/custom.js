@@ -15,16 +15,31 @@ let x = () => {
 x()
 
 $(document).ready(function() {
-	// owl carousel at product page
-	$('.js-owl-carousel').owlCarousel({
+	// owl carousel [START]
+	const $owl      = $('.js-owl-carousel')
+	const $owlAuto  = $('.js-owl-carousel-auto')
+
+	$owl.owlCarousel({
 		dots:       false,
 		items:      1,
 		loop:       true,
 		nav:        true,
-		navText: ['', '']
+		navText:    ['', '']
 	})
 
-	$('.js-owl-carousel-auto').owlCarousel({
+	// slide next|prev with arrows on keyboard
+	document.addEventListener('keydown', function(e) {
+		switch (e.keyCode) {
+			case 37:
+				$owl.trigger('prev.owl.carousel');
+				break
+			case 39:
+				$owl.trigger('next.owl.carousel');
+				break
+		}
+	})
+
+	$owlAuto.owlCarousel({
 		autoplay:           true,
 		autoplayHoverPause: true,
 		autoplayTimeout:    4000,
@@ -41,6 +56,7 @@ $(document).ready(function() {
 
 		$('.js-owl-carousel').trigger('to.owl.carousel', slideId)
 	})
+	// owl carousel [END]
 
 
 
@@ -57,8 +73,6 @@ $(document).ready(function() {
 		$(this).parent().addClass('filter-mobile-hack')
 	})
 })
-
-
 
 // insert after hack
 let insertAfter = (newNode, existingNode) => {
