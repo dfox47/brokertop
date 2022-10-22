@@ -269,7 +269,7 @@ $brokerImgUrl = $match[0][0];
 	<ul class="product_gallery">
 		<?php // gallery images
 		foreach ($gallery_images as $key=>$gallery_image) {
-			$image_link = str_replace('https://' . $_SERVER['SERVER_NAME'], '', wp_get_attachment_url($gallery_image)); ?>
+			$image_link = str_replace('https://' . $_SERVER['SERVER_NAME'], '', wp_get_attachment_image_url($gallery_image, 'large')); ?>
 
 			<li class="product_gallery__item">
 				<a class="product_gallery__link js-popup-show js-go-to-slide" href="javascript:void(0);" data-popup="product_gallery" data-slide="<?php echo $key; ?>"><img class="product_gallery__img" src="<?php echo $image_link; ?>" alt="" /></a>
@@ -292,7 +292,9 @@ $brokerImgUrl = $match[0][0];
 			<div class="owl-carousel js-owl-carousel">
 				<?php // gallery images
 				foreach ($gallery_images as $gallery_image) {
-					$image_link = str_replace('https://' . $_SERVER['SERVER_NAME'], '', wp_get_attachment_url($gallery_image)); ?>
+//					$image_link = str_replace('https://' . $_SERVER['SERVER_NAME'], '', wp_get_attachment_url($gallery_image));
+					$image_link = str_replace('https://' . $_SERVER['SERVER_NAME'], '', wp_get_attachment_image_url($gallery_image, 'large')); ?>
+
 					<img class="product_slider__img" src="<?php echo $image_link; ?>" alt="" />
 				<?php } ?>
 			</div>
