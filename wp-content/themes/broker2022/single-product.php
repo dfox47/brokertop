@@ -1,6 +1,9 @@
 <?php get_header(); ?>
 
-<?php // attributes
+<?php // link to dumm img
+$dumm = '/wp-content/themes/broker2022/i/dumm.png';
+
+// attributes
 global $product;
 $gallery_images     = $product->get_gallery_image_ids();
 $attributes         = $product->get_attributes();
@@ -175,10 +178,10 @@ $brokerImgUrl = $match[0][0];
 
 					<?php // Фото риэлтора
 					if ($brokerImgUrl) { ?>
-						<img class="product_realtor__img" src="<?php echo $brokerImgUrl; ?>" alt="<?php echo $realtorName; ?>" />
+						<img class="product_realtor__img js-img-scroll" src="<?php echo $dumm; ?>" data-src="<?php echo $brokerImgUrl; ?>" alt="<?php echo $realtorName; ?>" />
 					<?php }
 					else { ?>
-						<img class="product_realtor__img_default" src="/wp-content/themes/broker2022/i/logo_dark.svg" alt="Topbroker" />
+						<img class="product_realtor__img_default js-img-scroll" src="<?php echo $dumm; ?>" data-src="/wp-content/themes/broker2022/i/logo_dark.svg" alt="Topbroker" />
 					<?php } ?>
 
 					<?php // Телефон риэлтора
@@ -270,7 +273,7 @@ $brokerImgUrl = $match[0][0];
 
 			<li class="product_gallery__item">
 				<a class="product_gallery__link js-popup-show js-go-to-slide" href="javascript:void(0);" data-popup="product_gallery" data-slide="<?php echo $key; ?>">
-					<img class="product_gallery__img js-img-scroll" src="/wp-content/themes/broker2022/i/dumm.png" data-src="<?php echo $image_link; ?>" alt="" />
+					<img class="product_gallery__img js-img-scroll" src="<?php echo $dumm; ?>" data-src="<?php echo $image_link; ?>" alt="" />
 				</a>
 			</li>
 		<?php } ?>
