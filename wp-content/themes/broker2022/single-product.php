@@ -190,11 +190,8 @@ $brokerImgUrl = $match[0][0];
 					<?php } ?>
 
 					<a class="product_realtor__phone js-popup-show" href="javascript:void(0);" data-popup="feedback">Заказать просмотр</a>
-					<a class="product_realtor__presentation" href="/ajax_presentation.php?id=<?php echo $objectId; ?>" target="_blank">Скачать презентацию</a>
 
-					<?php // show only if admin
-					if (current_user_can('manage_options')) { ?>
-					<?php } ?>
+					<a class="product_realtor__presentation" href="<?php echo $pdfLink ? $pdfLink : '/ajax_presentation.php?id=' . $objectId; ?>" target="_blank">Скачать презентацию</a>
 				</div>
 			</div>
 
