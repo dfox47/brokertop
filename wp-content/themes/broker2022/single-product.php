@@ -35,7 +35,7 @@ $objectRooms        = $product->get_attribute('pa_kolichestvo-komnat');
 $objectSquare       = $product->get_attribute('pa_obshhaya-ploshhad');
 $objectType         = $product->get_attribute('pa_tip-nedvizhimosti');
 $objectView         = $product->get_attribute('pa_vid-iz-okon');
-$pdfLink            = $product->get_attribute('pa_ssylka-na-prezentacziyu');
+$pdfLink            = $product->get_attribute('pa_ssylka-na-prezentacziyu') ?: '/ajax_presentation.php?id=' . $objectId;
 $price              = $product->get_price();
 $realtorName        = $product->get_attribute('pa_imya-rieltora');
 $realtorPhone       = $product->get_attribute('pa_telefon-rieltora');
@@ -194,7 +194,7 @@ $brokerImgUrl = $match[0][0];
 
 					<a class="product_realtor__phone js-popup-show" href="javascript:void(0);" data-popup="feedback">Заказать просмотр</a>
 
-					<a class="product_realtor__presentation" href="<?php echo $pdfLink ? $pdfLink : '/ajax_presentation.php?id=' . $objectId; ?>" target="_blank">Скачать презентацию</a>
+					<a class="product_realtor__presentation" href="<?php echo $pdfLink; ?>" target="_blank">Скачать презентацию</a>
 				</div>
 			</div>
 
