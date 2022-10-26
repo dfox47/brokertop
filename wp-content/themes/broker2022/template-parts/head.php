@@ -24,11 +24,10 @@ else if ($currentUrl == '/kontakty/') {
 }
 else if ($currentUrl == '/o-kompanii/') {
 	$pageType = ' hero_block_wrap--about';
-}
-?>
+} ?>
 
 <div class="hero_block_wrap<?php echo $pageType; ?>">
-	<div class="hero_block" <?php if ($thumbUrl !== '' && is_product()) { ?>style="background-image: url(<?php echo $thumbUrl; ?>);"<?php } ?>>
+	<div class="hero_block js-img-bg" <?php if ($thumbUrl !== '' && is_product()) { ?>data-src="<?php echo $thumbUrl; ?>"<?php } ?>>
 		<?php if ($currentUrl == '/kontakty/') {
 			include_once "contacts_map.php";
 		} ?>
