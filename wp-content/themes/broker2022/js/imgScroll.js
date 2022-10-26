@@ -1,4 +1,3 @@
-// pure JS version
 let imgScroll = () => {
 	document.querySelectorAll('.js-img-scroll').forEach((e) => {
 		if (window.pageYOffset + window.innerHeight > e.offsetTop) {
