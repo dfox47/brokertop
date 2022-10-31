@@ -1,4 +1,5 @@
 <?php
+ini_set('memory_limit', '2048M');
 require_once 'wp-load.php';
 require_once 'pdf/autoload.php';
 
