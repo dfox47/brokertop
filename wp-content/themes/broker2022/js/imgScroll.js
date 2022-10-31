@@ -16,3 +16,16 @@ window.addEventListener('resize', function() {
 window.addEventListener('scroll', function() {
 	imgScroll()
 })
+
+
+
+
+
+
+
+document.addEventListener('DOMContentLoaded', function() {
+	document.querySelectorAll('.js-img-lazy').forEach((e) => {
+		e.classList.remove('js-img-lazy')
+		e.src = e.dataset.src
+	})
+})
