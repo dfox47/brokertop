@@ -269,6 +269,7 @@ $brokerImgUrl = $match[0][0];
 	<ul class="product_gallery">
 		<?php // gallery images
 		foreach ($gallery_images as $key=>$gallery_image) {
+			// thumbnail | medium | large | full
 			$image_link = str_replace('https://' . $_SERVER['SERVER_NAME'], '', wp_get_attachment_image_url($gallery_image, 'large')); ?>
 
 			<li class="product_gallery__item">
@@ -294,9 +295,10 @@ $brokerImgUrl = $match[0][0];
 			<div class="owl-carousel js-owl-carousel">
 				<?php // gallery images
 				foreach ($gallery_images as $gallery_image) {
+					// thumbnail | medium | large | full
 					$image_link = str_replace('https://' . $_SERVER['SERVER_NAME'], '', wp_get_attachment_image_url($gallery_image, 'large')); ?>
 
-					<img class="product_slider__img" src="<?php echo $image_link; ?>" alt="" />
+					<img class="product_slider__img js-img-lazy" src="<?php echo $dumm; ?>" data-src="<?php echo $image_link; ?>" alt="" />
 				<?php } ?>
 			</div>
 		</div>
