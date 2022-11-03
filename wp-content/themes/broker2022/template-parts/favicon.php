@@ -1,4 +1,3 @@
-
 <?php $favicon = esc_url(get_template_directory_uri()) . '/i/favicon'; ?>
 
 <link rel="apple-touch-icon" sizes="57x57" href="<?php echo $favicon; ?>/apple-icon-57x57.png">
@@ -15,8 +14,8 @@
 <link rel="icon" type="image/png" sizes="96x96" href="<?php echo $favicon; ?>/favicon-96x96.png">
 <link rel="icon" type="image/png" sizes="16x16" href="<?php echo $favicon; ?>/favicon-16x16.png">
 <link rel="manifest" href="<?php echo $favicon; ?>/manifest.json">
-<meta name="msapplication-TileColor" content="#ffffff" />
-<meta name="msapplication-TileImage" content="<?php echo $favicon; ?>/ms-icon-144x144.png" />
-<meta name="theme-color" content="#ffffff" />
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="<?php echo $favicon; ?>/ms-icon-144x144.png">
+<meta name="theme-color" content="#ffffff">
 
-<link rel="shortcut icon" href="<?php echo $favicon; ?>/favicon.ico" type="image/x-icon" />
+<link rel="shortcut icon" href="<?php echo $favicon; ?>/favicon.ico" type="image/x-icon">
