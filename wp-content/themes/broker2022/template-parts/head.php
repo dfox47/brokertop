@@ -27,7 +27,7 @@ else if ($currentUrl == '/o-kompanii/') {
 } ?>
 
 <div class="hero_block_wrap<?php echo $pageType; ?>">
-	<div class="hero_block js-img-bg" <?php if ($thumbUrl !== '' && is_product()) { ?>data-src="<?php echo $thumbUrl; ?>"<?php } ?>>
+	<div class="hero_block<?php if (!empty($thumbUrl) && is_product()) { ?> js-img-bg<?php } ?>" <?php if (!empty($thumbUrl) && is_product()) { ?>data-src="<?php echo $thumbUrl; ?>"<?php } ?>>
 		<?php if ($currentUrl == '/kontakty/') {
 			include_once "contacts_map.php";
 		} ?>

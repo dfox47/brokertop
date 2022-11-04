@@ -1,4 +1,3 @@
-
 .pew-filter-block {
 	margin: -72px 0 0;
 	position: relative;
@@ -29,6 +28,12 @@
 	}
 
 	.chosen-container-single {
+		&.chosen-container-active {
+			.chosen-drop {
+				display: block;
+			}
+		}
+
 		.chosen-single {
 			background: none;
 			border-radius: 0 !important;
@@ -62,6 +67,7 @@
 		.chosen-drop {
 			border-color: $c_text;
 			border-top: 1px solid $c_text;
+			display: none;
 			margin-top: 0;
 		}
 
