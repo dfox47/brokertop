@@ -1,9 +1,42 @@
-
 .news_list {
 	display: grid;
 	grid-gap: 30px;
 	grid-template-columns: auto auto auto auto;
 	list-style: none;
+
+	li {
+		cursor: pointer;
+		display: block;
+		float: none;
+		height: auto;
+		padding: 0;
+		position: relative;
+		width: 100% !important;
+
+		&::after {
+			content: "";
+			display: block;
+			padding: 100% 0 0;
+		}
+
+		&:hover {
+			.wp-block-latest-posts__featured-image {
+				img {
+					transform: scale(1.1,1.1);
+				}
+			}
+		}
+
+		&:first-child {
+			grid-column: 1/3;
+			grid-row: 1/3;
+
+			@media #{$mobile} {
+				grid-column: 1;
+				grid-row: 1;
+			}
+		}
+	}
 
 	&__item {
 		&:first-child {
@@ -34,6 +67,54 @@
 			width: 100%;
 		}
 	}
+
+	.wp-block-latest-posts {
+		&__featured-image {
+			height: 100%;
+			overflow: hidden;
+			position: absolute;
+			width: 100%;
+			left: 0;
+			top: 0;
+			z-index: 1;
+
+			img {
+				height: 100%;
+				object-fit: cover;
+				transition: $transition;
+				width: 100%;
+			}
+		}
+
+		&__post-date {
+			background-color: #000;
+			color: #fff;
+			left: 0;
+			opacity: .5;
+			padding: .4em .8em;
+			position: absolute;
+			top: 0;
+			z-index: 5;
+		}
+
+		&__post-title {
+			background-color: rgba(#000, .81);
+			border: 10px solid rgba(#000, .8);
+			bottom: 0;
+			color: #fff;
+			display: block;
+			max-height: 100px;
+			left: 0;
+			line-height: 1.4;
+			overflow: hidden;
+			position: absolute;
+			text-decoration: none;
+			transition: $transition;
+			width: 100%;
+			z-index: 3;
+		}
+	}
+
 
 	@media #{$tablet} {
 		grid-template-columns: auto auto auto;
