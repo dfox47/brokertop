@@ -72,6 +72,10 @@ $(document).ready(function() {
 		$('.chosen-container').removeClass('filter-mobile-hack')
 		$(this).parent().addClass('filter-mobile-hack')
 	})
+
+	$('.js-news-list').find('li').click(function() {
+		window.location.href = $(this).find('a').attr('href')
+	})
 })
 
 // insert after hack
@@ -83,5 +87,4 @@ let insertAfter = (newNode, existingNode) => {
 document.querySelectorAll('.js-page-url').forEach((e) => {
 	e.value = window.location.href
 })
-
 // custom.js [END]
