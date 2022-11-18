@@ -1,14 +1,8 @@
-
 // header.js [START]
-
 // header menu toggle
-let $headerMenuToggle   = document.querySelectorAll('.js-header-menu-toggle')
-let $html               = document.querySelector('html')
-
-$headerMenuToggle.forEach((button) => {
+document.querySelectorAll('.js-header-menu-toggle').forEach((button) => {
 	button.addEventListener('click', () => {
-		$html.classList.toggle('header_menu_active')
+		document.querySelector('html').classList.toggle('header_menu_active')
 	})
 })
-
 // header.js [END]
