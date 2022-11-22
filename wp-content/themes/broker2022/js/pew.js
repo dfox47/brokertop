@@ -140,6 +140,8 @@ let productFilterShowMore = () => {
 		return
 	}
 
+	let $html = document.querySelector('html')
+
 	$woofMore.addEventListener('click', () => {
 		$html.classList.toggle('woof_more__active')
 	})
