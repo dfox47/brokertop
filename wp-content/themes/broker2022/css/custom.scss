@@ -21,6 +21,10 @@ blockquote {
 	padding: 0 53px 14px;
 	position: relative;
 
+	p {
+		margin: 0 0 1em;
+	}
+
 	&::after,
 	&::before {
 		color: $c_main;
@@ -122,6 +126,10 @@ img {
 }
 
 
+
+.bold {
+	font-weight: 700;
+}
 
 .brokers_list {
 	display: grid;
