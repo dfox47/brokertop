@@ -1,30 +1,29 @@
-
-let fs                  = require('fs');
-let concat              = require('gulp-concat')
-let config              = JSON.parse(fs.readFileSync('../config.json'))
-let cssMinify           = require('gulp-csso')
-let ftp                 = require('vinyl-ftp')
-let gulp                = require('gulp')
-let gutil               = require('gulp-util')
-let rename              = require('gulp-rename')
-let sass                = require('gulp-sass')(require('sass'))
-let uglify              = require('gulp-uglify')
+const fs            = require('fs')
+const concat        = require('gulp-concat')
+const config        = JSON.parse(fs.readFileSync('../config.json'))
+const cssMinify     = require('gulp-csso')
+const ftp           = require('vinyl-ftp')
+const gulp          = require('gulp')
+const gutil         = require('gulp-util')
+const rename        = require('gulp-rename')
+const sass          = require('gulp-sass')(require('sass'))
+const uglify        = require('gulp-uglify')
 
 // FTP config
-let host                = config.host
-let password            = config.password
-let port                = config.port
-let user                = config.user
+const host          = config.host
+const password      = config.password
+const port          = config.port
+const user          = config.user
 
-let remoteFolder                = '/www/brokertop.ru/wp-content/themes/broker2022/'
-let remoteFolderCss             = remoteFolder + 'css/'
-let remoteFolderJs              = remoteFolder + 'js/'
-let remoteFolderTemplateParts   = remoteFolder + 'template-parts/'
+const remoteFolder                  = '/www/brokertop.ru/wp-content/themes/broker2022/'
+const remoteFolderCss               = remoteFolder + 'css/'
+const remoteFolderJs                = remoteFolder + 'js/'
+const remoteFolderTemplateParts     = remoteFolder + 'template-parts/'
 
-let localFolder                 = 'wp-content/themes/broker2022/'
-let localFolderCss              = localFolder + 'css/'
-let localFolderJs               = localFolder + 'js/'
-let localFolderTemplateParts    = localFolder + 'template-parts/'
+const localFolder                   = 'wp-content/themes/broker2022/'
+const localFolderCss                = localFolder + 'css/'
+const localFolderJs                 = localFolder + 'js/'
+const localFolderTemplateParts      = localFolder + 'template-parts/'
 
 
 
@@ -39,7 +38,7 @@ function getFtpConnection() {
 	})
 }
 
-let conn = getFtpConnection()
+const conn = getFtpConnection()
 
 
 
