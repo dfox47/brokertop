@@ -1,19 +1,4 @@
-
 // custom.js [START]
-
-// some special code here
-let x = () => {
-	let pageNavCurrent = document.querySelectorAll('.page-numbers.current')
-
-	if (!pageNavCurrent) return
-
-	pageNavCurrent.forEach((e) => {
-		e.classList.add('new')
-	})
-}
-
-x()
-
 $(document).ready(function() {
 	// owl carousel [START]
 	const $owl      = $('.js-owl-carousel')
