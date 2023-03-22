@@ -32197,7 +32197,7 @@ msgstr "Обновить"
 #: includes/react-admin/connect-existing-pages.php:284
 #: src/Admin/Features/Navigation/CoreMenu.php:223
 msgid "Attributes"
-msgstr "Атрибуты"
+msgstr "Атрибуты XXX"
 
 #: includes/admin/class-wc-admin-attributes.php:314
 msgid "Terms"
@@ -32681,7 +32681,7 @@ msgstr "Разрешение на позиции заказа будут авт�
 #: packages/woocommerce-blocks/assets/js/blocks/attribute-filter/edit.js:252
 #: packages/woocommerce-blocks/build/attribute-filter.js:37
 msgid "Add new attribute"
-msgstr "Создать атрибут"
+msgstr "Создать атрибут ZZZ"
 
 #: includes/admin/class-wc-admin-assets.php:139
 #: includes/class-wc-frontend-scripts.php:583
