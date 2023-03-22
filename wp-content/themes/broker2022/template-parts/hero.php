@@ -1,10 +1,12 @@
-
-<?php $i = '/wp-content/themes/broker2022/i/hero'; ?>
+<?php // link to images folder
+$i      = '/wp-content/themes/broker2022/i/hero';
+$dumm   = '/wp-content/themes/broker2022/i/dumm.png';
+?>
 
 <div class="hero_block_slider">
 	<div class="owl-carousel js-owl-carousel-auto">
 		<div class="hero_block_slide">
-			<img class="hero_block_slide__img" src="<?php echo $i; ?>/17.jpg" alt="" />
+			<img class="hero_block_slide__img js-img-scroll" src="<?= $dumm; ?>" data-src="<?= $i; ?>/17.jpg" alt="">
 
 			<div class="hero_block_slide__content">
 				<div class="hero_block_slide__title">Каталог недвижимости</div>
@@ -14,7 +16,7 @@
 				</div>
 
 				<div class="hero_block_slide__thumb_wrap">
-					<span class="hero_block_slide__thumb" style="background-image: url(<?php echo $i; ?>/8.jpg"></span>
+					<span class="hero_block_slide__thumb js-img-bg" data-src="<?= $i; ?>/8.jpg"></span>
 				</div>
 
 				<div class="hero_block_slide__more"><a class="btn btn_more" href="/shop/">Открыть</a></div>
@@ -22,7 +24,7 @@
 		</div>
 
 		<div class="hero_block_slide">
-			<img class="hero_block_slide__img" src="<?php echo $i; ?>/8.jpg" alt="" />
+			<img class="hero_block_slide__img js-img-scroll" src="<?= $dumm; ?>" data-src="<?= $i; ?>/8.jpg" alt="">
 
 			<div class="hero_block_slide__content">
 				<div class="hero_block_slide__title">Новостройки</div>
@@ -32,7 +34,7 @@
 				</div>
 
 				<div class="hero_block_slide__thumb_wrap">
-					<span class="hero_block_slide__thumb" style="background-image: url(<?php echo $i; ?>/3.jpg"></span>
+					<span class="hero_block_slide__thumb js-img-bg" data-src="<?= $i; ?>/3.jpg"></span>
 				</div>
 
 				<div class="hero_block_slide__more"><a class="btn btn_more js-menu-item-disabled" href="//novostroiki-moscow.com/">Открыть</a></div>
@@ -40,7 +42,7 @@
 		</div>
 
 		<div class="hero_block_slide">
-			<img class="hero_block_slide__img" src="<?php echo $i; ?>/3.jpg" alt="" />
+			<img class="hero_block_slide__img js-img-scroll" src="<?= $dumm; ?>" data-src="<?= $i; ?>/3.jpg" alt="">
 
 			<div class="hero_block_slide__content">
 				<div class="hero_block_slide__title">Дубай / Dubai</div>
@@ -50,7 +52,7 @@
 				</div>
 
 				<div class="hero_block_slide__thumb_wrap">
-					<span class="hero_block_slide__thumb" style="background-image: url(<?php echo $i; ?>/18.jpg"></span>
+					<span class="hero_block_slide__thumb js-img-bg" data-src="<?= $i; ?>/18.jpg"></span>
 				</div>
 
 				<div class="hero_block_slide__more"><a class="btn btn_more js-menu-item-disabled" href="//dubaiestate.top/">Открыть</a></div>
@@ -58,7 +60,7 @@
 		</div>
 
 		<div class="hero_block_slide">
-			<img class="hero_block_slide__img" src="<?php echo $i; ?>/18.jpg" alt="" />
+			<img class="hero_block_slide__img js-img-scroll" src="<?= $dumm; ?>" data-src="<?= $i; ?>/18.jpg" alt="">
 
 			<div class="hero_block_slide__content">
 				<div class="hero_block_slide__title">О компании</div>
@@ -68,7 +70,7 @@
 				</div>
 
 				<div class="hero_block_slide__thumb_wrap">
-					<span class="hero_block_slide__thumb" style="background-image: url(<?php echo $i; ?>/1.jpg"></span>
+					<span class="hero_block_slide__thumb js-img-bg" data-src="<?= $i; ?>/1.jpg"></span>
 				</div>
 
 				<div class="hero_block_slide__more"><a class="btn btn_more" href="/o-kompanii/">Открыть</a></div>
@@ -76,7 +78,7 @@
 		</div>
 
 		<div class="hero_block_slide">
-			<img class="hero_block_slide__img" src="<?php echo $i; ?>/1.jpg" alt="" />
+			<img class="hero_block_slide__img js-img-scroll" src="<?= $dumm; ?>" data-src="<?= $i; ?>/1.jpg" alt="">
 
 			<div class="hero_block_slide__content">
 				<div class="hero_block_slide__title">Новости</div>
@@ -86,7 +88,7 @@
 				</div>
 
 				<div class="hero_block_slide__thumb_wrap">
-					<span class="hero_block_slide__thumb" style="background-image: url(<?php echo $i; ?>/17.jpg"></span>
+					<span class="hero_block_slide__thumb js-img-bg" data-src="<?= $i; ?>/17.jpg"></span>
 				</div>
 
 				<div class="hero_block_slide__more"><a class="btn btn_more" href="/novosti/">Открыть</a></div>
