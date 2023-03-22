@@ -82,8 +82,6 @@ jQuery(document).ready(function($) {
 	setTimeout(function() {
 		const productCatSelected = localStorage.getItem('productCatSelected')
 
-		console.log('productCatSelected | ', productCatSelected)
-
 		if (productCatSelected) {
 			const $productCat = $('.woof_container_product_cat').find('input[value="' + productCatSelected + '"]')
 
