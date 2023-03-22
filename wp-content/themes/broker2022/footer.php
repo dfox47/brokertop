@@ -44,7 +44,7 @@ $whatsapp   = esc_attr(get_option('broker_whatsapp'));
 
 				<a class="footer_agree" href="">Согласие на обработку персональных данных</a>
 
-				<iframe src="https://yandex.ru/sprav/widget/rating-badge/4782454911" width="150" height="50" frameborder="0"></iframe>
+				<iframe class="yandex_badge" src="//yandex.ru/sprav/widget/rating-badge/4782454911"></iframe>
 			</div>
 		</div>
 	</div>
