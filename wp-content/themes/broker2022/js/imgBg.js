@@ -1,3 +1,4 @@
+// imgBg [START]
 let imgBg = () => {
 	document.querySelectorAll('.js-img-bg').forEach((e) => {
 		if (window.pageYOffset + window.innerHeight > e.offsetTop) {
@@ -16,3 +17,4 @@ window.addEventListener('resize', function() {
 window.addEventListener('scroll', function() {
 	imgBg()
 })
+// imgBg [END]
