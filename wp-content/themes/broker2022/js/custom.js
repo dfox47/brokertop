@@ -58,11 +58,6 @@ $(document).ready(function() {
 		$(this).parent().addClass('filter-mobile-hack')
 	})
 
-	$(document).on('click', '.js-woocommerce-pagination a', function () {
-		console.log('xxxxxxxxxxx')
-		console.log('-------------')
-	})
-
 	$('.js-news-list').find('li').click(function() {
 		window.location.href = $(this).find('a').attr('href')
 	})
