@@ -54,31 +54,8 @@ $whatsapp   = esc_attr(get_option('broker_whatsapp'));
 	<a class="whatsapp_link" href="//wa.me/<?php echo $whatsapp; ?>" target="_blank"><img class="whatsapp_link__img" src="<?php echo $i . '/icons/whatsapp_green.svg'; ?>" alt="whatsapp" /></a>
 <?php } ?>
 
-<?php // feedback 2 popup ?>
-<div class="popup popup--feedback js-popup" data-popup="feedback2">
-	<div class="popup__bg js-popup-close"></div>
-
-	<div class="popup__content">
-		<div class="popup__close js-popup-close"></div>
-
-		<div class="contacts_form">
-			<?php echo do_shortcode('[contact-form-7 id="1966"]'); ?>
-		</div>
-	</div>
-</div>
-
-<?php // feedback 3 popup ?>
-<div class="popup popup--feedback js-popup" data-popup="feedback3">
-	<div class="popup__bg js-popup-close"></div>
-
-	<div class="popup__content">
-		<div class="popup__close js-popup-close"></div>
-
-		<div class="contacts_form">
-			<?php echo do_shortcode('[contact-form-7 id="1967"]'); ?>
-		</div>
-	</div>
-</div>
+<?php // popup
+include "template-parts/popups.php"; ?>
 
 <?php // all scripts in one file with GULP ?>
 <script src="<?php echo esc_url(get_template_directory_uri()); ?>/all.min.js?v<?php echo(date("Ymd")); ?>"></script>
