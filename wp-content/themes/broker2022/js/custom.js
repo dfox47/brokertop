@@ -63,31 +63,6 @@ $(document).ready(function() {
 	})
 })
 
-let woocommerceNext = () => {
-	const $pagination = document.querySelector('.js-woocommerce-pagination')
-
-	if ($pagination == null) return
-
-	const $next = $pagination.querySelectorAll('.next')
-
-	if ($next == null) return
-
-	$next.forEach((e) => {
-		e.addEventListener('click', () => {
-			const $products = document.querySelector('.js-products')
-
-			if ($products == null) return
-
-			window.scrollTo({
-				behavior:   'smooth',
-				top:        $products.offsetTop
-			})
-		})
-	})
-}
-
-// woocommerceNext()
-
 // insert after hack
 let insertAfter = (newNode, existingNode) => {
 	existingNode.parentNode.insertBefore(newNode, existingNode.nextSibling)
