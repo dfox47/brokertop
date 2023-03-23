@@ -494,6 +494,78 @@ img {
 	padding: 0 15px 0 0;
 }
 
+.projects_gallery {
+	margin: 30px 0;
+	position: relative;
+	width: 100%;
+
+	.owl-next {
+		@media #{$desktop_hd} {
+			top: 50%;
+		}
+
+		@media #{$mobile} {
+			bottom: -28px;
+			right: 0;
+			top: auto;
+		}
+	}
+
+	.owl-prev {
+		@media #{$desktop_hd} {
+			top: 50%;
+		}
+
+		@media #{$mobile} {
+			bottom: -28px;
+			left: 0;
+			top: auto;
+		}
+	}
+
+	.wp-block-image {
+		width: 100% !important;
+
+		&::after {
+			content: "";
+			display: block;
+			padding: 24%;
+			position: relative;
+			width: 100%;
+			z-index: 1;
+		}
+
+		> a {
+			height: 100%;
+			left: 0;
+			position: absolute;
+			top: 0;
+			width: 100%;
+			z-index: 3;
+
+			> img {
+				object-fit: cover;
+			}
+		}
+
+		> img {
+			left: 0;
+			object-fit: cover;
+			position: absolute;
+			top: 0;
+		}
+
+		figcaption {
+			bottom: 0;
+			left: 0;
+			padding: 0 30px 1em!important;
+			position: absolute;
+			width: 100%;
+			z-index: 5;
+		}
+	}
+}
+
 .single-product {
 	h1 {
 		font-size: 96px;
@@ -658,6 +730,7 @@ img {
 
 
 
+// slider - maybe it's time to delete it [START]
 .cs3 {
 	position: relative;
 	display: block;
@@ -897,3 +970,4 @@ img {
 	width: 100%;
 	z-index: 1;
 }
+// slider - maybe it's time to delete it [END]

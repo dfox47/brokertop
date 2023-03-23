@@ -35,6 +35,17 @@ $(document).ready(function() {
 		navText:            ['', '']
 	})
 
+	$('.js-projects-gallery').owlCarousel({
+		// autoplay:           true,
+		autoplayHoverPause: true,
+		autoplayTimeout:    4000,
+		dots:               false,
+		items:              1,
+		loop:               true,
+		nav:                true,
+		navText:            ['', '']
+	})
+
 	// go to selected slide
 	$('.js-go-to-slide').click(function () {
 		let slideId = $(this).attr('data-slide')
