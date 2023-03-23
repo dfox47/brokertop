@@ -1,4 +1,3 @@
-
 .btn {
 	cursor: pointer;
 	display: inline-block;
@@ -68,8 +67,10 @@
 	&__title {
 		border: 1px solid $c_main;
 		display: block;
-		padding: 14px 54px 12px;
+		max-width: 260px;
+		padding: 14px;
 		text-align: center;
+		width: 100%;
 	}
 
 	&:hover {

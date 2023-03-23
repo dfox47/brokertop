@@ -99,6 +99,10 @@ h2 {
 	font-size: 40px;
 	font-weight: 400;
 	line-height: 1.2;
+
+	@media #{$mobile} {
+		font-size: 30px;
+	}
 }
 
 h3 {
