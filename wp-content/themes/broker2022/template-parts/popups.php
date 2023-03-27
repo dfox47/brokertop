@@ -32,7 +32,9 @@
 		<div class="popup__close js-popup-close"></div>
 
 		<div class="contacts_form">
-			<?php echo do_shortcode('[contact-form-7 id="6847"]'); ?>
+			<form name="feedback-form" method="POST" action="/send_amo.php">
+				<?php echo do_shortcode('[contact-form-7 id="6847"]'); ?>
+			</form>
 		</div>
 	</div>
 </div>
