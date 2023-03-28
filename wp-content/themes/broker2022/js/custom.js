@@ -83,4 +83,11 @@ let insertAfter = (newNode, existingNode) => {
 document.querySelectorAll('.js-page-url').forEach((e) => {
 	e.value = window.location.href
 })
+
+const $welcome = document.querySelector('.js-welcome')
+
+if ($welcome !== null) {
+	document.querySelector('html').classList.add('welcome_active')
+}
+// document.querySelector('html').classList.remove('welcome_active')
 // custom.js [END]
