@@ -12,6 +12,29 @@
 	width: 100%;
 	z-index: 999999999;
 
+	&__content {
+		align-items: center;
+		display: flex;
+		flex-direction: column;
+		height: 100%;
+		justify-content: center;
+		left: 0;
+		position: absolute;
+		top: 0;
+		width: 100%;
+		z-index: 5;
+	}
+
+	&__bg {
+		background: url(#{$i}/welcome/bg.png) 0 0 repeat scroll transparent;
+		height: 100%;
+		left: 0;
+		position: absolute;
+		top: 0;
+		width: 100%;
+		z-index: 1;
+	}
+
 	.logo {
 		left: 64px;
 		margin: 0;
@@ -21,6 +44,8 @@
 }
 
 .welcome_active {
+	overflow: hidden;
+
 	.welcome {
 		display: flex;
 	}

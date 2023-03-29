@@ -69,18 +69,22 @@
 <?php //if ()
 if ($_SERVER['REQUEST_URI'] == "/dubaj/") { ?>
 	<div class="welcome js-welcome">
-		<span class="logo"></span>
+		<div class="welcome__bg"></div>
 
-		<div class="welcome_slogan">
-			Мы делаем наших клиентов <span class="nobr">еще счастливее</span> <span class="nobr">и успешнее</span> <span class="nobr">с каждой</span> сделкой
-		</div>
+		<div class="welcome__content">
+			<span class="logo"></span>
 
-		<div class="welcome_slogan_en">
-			We make <span class="nobr">our customers</span> happier <span class="nobr">and more</span> successful <span class="nobr">with every</span> deal
-		</div>
+			<div class="welcome_slogan">
+				Мы делаем наших клиентов <span class="nobr">еще счастливее</span> <span class="nobr">и успешнее</span> <span class="nobr">с каждой</span> сделкой
+			</div>
 
-		<div class="welcome_copyright">
-			<?php include "copyright.php" ?>
+			<div class="welcome_slogan_en">
+				We make <span class="nobr">our customers</span> happier <span class="nobr">and more</span> successful <span class="nobr">with every</span> deal
+			</div>
+
+			<div class="welcome_copyright">
+				<?php include "copyright.php" ?>
+			</div>
 		</div>
 	</div>
 <?php }
