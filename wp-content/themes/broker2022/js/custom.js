@@ -93,8 +93,16 @@ if ($welcome !== null) {
 	Promise.all(Array.from(document.images).filter(img => !img.complete).map(img => new Promise(resolve => { img.onload = img.onerror = resolve; }))).then(() => {
 		// add class to start animation
 		document.querySelector('html').classList.add('welcome_active')
+
+		setTimeout(() => {
+			document.querySelector('html').classList.add('welcome_part_2')
+		}, 6000)
+
+		setTimeout(() => {
+			document.querySelector('html').classList.remove('welcome_active')
+			document.querySelector('html').classList.remove('welcome_part_2')
+		}, 9000)
 	})
 }
-// document.querySelector('html').classList.remove('welcome_active')
 // welcome [END]
 // custom.js [END]

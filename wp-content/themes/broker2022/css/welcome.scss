@@ -71,6 +71,81 @@
 .welcome_active {
 	overflow: hidden;
 
+	// animation part 2
+	&.welcome_part_2 {
+		.welcome {
+			.logo {
+				left: -300px;
+				transition-delay: 2s;
+			}
+		}
+
+		.welcome_animation {
+			&__1 {
+				left: -50%;
+				opacity: .5;
+				top: -50%;
+				transform: rotate(-45deg);
+				transition-delay: 1.5s;
+			}
+
+			&__2 {
+				opacity: .3;
+				bottom: 100%;
+				right: 0;
+				transition-delay: 1.5s;
+			}
+
+			&__3 {
+				bottom: -100%;
+				opacity: .5;
+				right: 0;
+				transition-delay: 1.5s;
+				z-index: 3;
+			}
+
+			&__4 {
+				left: -30%;
+				top: 0;
+				transform: rotate(90deg);
+				transition-delay: 1.5s;
+			}
+		}
+
+		.welcome_copyright {
+			bottom: -100px;
+			transition-delay: .5s;
+		}
+
+		.welcome_slogan {
+			&::after {
+				opacity: 0;
+				right: -1000px;
+				top: -1000px;
+				transition-delay: 0s;
+			}
+
+			&__row {
+				clip-path: polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%);
+				transition-delay: .3s;
+			}
+		}
+
+		.welcome_slogan_en {
+			&::after {
+				bottom: -500px;
+				left: -500px;
+				opacity: 0;
+				transition-delay: .6s;
+			}
+
+			&__row {
+				clip-path: polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%);
+				transition-delay: .9s;
+			}
+		}
+	}
+
 	.welcome {
 		&__bg {
 			opacity: .55;
