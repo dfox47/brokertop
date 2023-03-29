@@ -59,10 +59,9 @@
 	.logo {
 		height: 125px;
 		left: 50%;
-		margin: 0;
+		margin: -62px 0 0 -175px;
 		position: absolute;
 		top: 50%;
-		transform: translate(-50%,-50%);
 		transition: all 1s ease-in-out;
 		transition-delay: 2.5s;
 		width: 350px;
@@ -80,9 +79,9 @@
 		.logo {
 			height: 51px;
 			left: 64px;
+			margin: 0;
 			opacity: 1;
 			top: 55px;
-			transform: translate(0,0);
 			width: 143px;
 		}
 	}
@@ -206,8 +205,8 @@
 	position: absolute;
 	text-align: center;
 	transform: translateX(-50%);
-	transition: bottom 2s ease-in-out;
-	transition-delay: 2s;
+	transition: bottom 1s ease-in-out;
+	transition-delay: 4s;
 
 	.copyright {
 		font-size: 10px;
@@ -269,7 +268,7 @@
 		right: -1000px;
 		top: -1000px;
 		transition: all 1s ease-in-out;
-		transition-delay: 1.5s;
+		transition-delay: 2.5s;
 		width: 68px;
 	}
 
@@ -277,7 +276,7 @@
 		clip-path: polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%);
 		text-align: center;
 		transition: all 1s ease-in-out;
-		transition-delay: 2.5s;
+		transition-delay: 3s;
 	}
 }
 
@@ -302,13 +301,13 @@
 		opacity: 0;
 		position: absolute;
 		transition: all 1s ease-in-out;
-		transition-delay: 2.5s;
+		transition-delay: 3.5s;
 		width: 68px;
 	}
 
 	&__row {
 		clip-path: polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%);
 		transition: all 1s ease-in-out;
-		transition-delay: 3.5s;
+		transition-delay: 4s;
 	}
 }
