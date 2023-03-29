@@ -159,18 +159,26 @@
 		}
 	}
 
+	.welcome_copyright {
+		bottom: 74px;
+		opacity: 1;
+	}
+
 	.welcome_preload {
 		display: none;
 	}
 }
 
 .welcome_copyright {
-	bottom: 74px;
+	bottom: -100px;
 	left: 50%;
 	line-height: 1.2;
+	opacity: 0;
 	position: absolute;
 	text-align: center;
 	transform: translateX(-50%);
+	transition: bottom 2s ease-in-out;
+	transition-delay: 2s;
 
 	.copyright {
 		font-size: 10px;
