@@ -648,8 +648,8 @@ img {
 
 			&:checked {
 				+ .wpcf7-list-item-label {
-					&::before {
-						background-color: $c_main;
+					&::after {
+						display: block;
 					}
 				}
 			}
@@ -659,13 +659,26 @@ img {
 				padding: 0 0 0 33px;
 				position: relative;
 
+				&::after,
+				&::before {
+					content: "";
+					position: absolute;
+				}
+
+				&::after {
+					background-color: $c_main;
+					display: none;
+					height: 10px;
+					left: 4px;
+					top: 4px;
+					width: 10px;
+				}
+
 				&::before {
 					border: 1px solid $c_main;
-					content: "";
 					display: block;
 					height: 18px;
 					left: 0;
-					position: absolute;
 					top: 0;
 					width: 18px;
 				}

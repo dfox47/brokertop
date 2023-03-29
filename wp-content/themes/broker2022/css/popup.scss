@@ -89,15 +89,46 @@
 	}
 
 	&--welcome {
+		h2 {
+			text-align: left;
+		}
+
+		h3 {
+			color: #fff;
+			font-size: 24px;
+			letter-spacing: .01em;
+			line-height: 1.2;
+			margin: 40px 0 45px;
+			text-align: left;
+		}
+
+		.btn_submit {
+			&__title {
+				margin: 0 auto;
+				max-width: 273px;
+			}
+		}
+
 		.contacts_consult {
+			box-shadow: none;
 			margin: 0;
+			padding: 5px 40px;
 		}
 
 		.contacts_consult_list {
 			justify-content: center;
+			padding: 0;
+
+			&__agree {
+				display: block;
+				margin: -20px 0 40px;
+				text-align: left;
+				width: 100%;
+			}
 
 			&__item {
-				margin: 0 0 25px;
+				margin: 0 auto 40px;
+				max-width: none;
 			}
 		}
 
@@ -106,14 +137,19 @@
 		}
 
 		.contacts_form {
+			box-shadow: none;
 			left: auto;
 			margin: 0;
 			min-height: 300px;
-			max-width: 400px;
+			max-width: 510px;
 			padding: 0;
 			position: relative;
 			top: auto;
 			width: 100%;
+		}
+
+		.popup__content {
+			background-color: $c_menu_bg;;
 		}
 	}
 
