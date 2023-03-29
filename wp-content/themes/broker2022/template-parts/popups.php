@@ -98,11 +98,15 @@ if ($_SERVER['REQUEST_URI'] == "/dubaj/") {
 			<span class="logo"></span>
 
 			<div class="welcome_slogan">
-				Мы делаем наших клиентов <span class="nobr">еще счастливее</span> <span class="nobr">и успешнее</span> <span class="nobr">с каждой</span> сделкой
+				<div class="welcome_slogan__row">Мы делаем наших клиентов</div>
+				<div class="welcome_slogan__row">еще счастливее и успешнее</div>
+				<div class="welcome_slogan__row">с каждой сделкой</div>
 			</div>
 
 			<div class="welcome_slogan_en">
-				We make <span class="nobr">our customers</span> happier <span class="nobr">and more</span> successful <span class="nobr">with every</span> deal
+				<div class="welcome_slogan_en__row">We make our customers</div>
+				<div class="welcome_slogan_en__row">happier and more successful</div>
+				<div class="welcome_slogan_en__row">with every deal</div>
 			</div>
 
 			<div class="welcome_copyright">
