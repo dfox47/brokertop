@@ -69,7 +69,7 @@
 if ($_SERVER['REQUEST_URI'] == "/dubaj/") {
 	$welcome = "/wp-content/themes/broker2022/i/welcome"; ?>
 
-	<div class="welcome_preload">
+	<div class="welcome_preload js-welcome-preload">
 		<span></span>
 		<span></span>
 		<span></span>
