@@ -1,75 +1,98 @@
-<?php // Подать заявку ?>
-	<div class="popup popup--feedback js-popup" data-popup="feedback2">
-		<div class="popup__bg js-popup-close"></div>
+<!-- Подать заявку -->
+<div class="popup popup--feedback js-popup" data-popup="feedback2">
+	<div class="popup__bg js-popup-close"></div>
 
-		<div class="popup__content">
-			<div class="popup__close js-popup-close"></div>
+	<div class="popup__content">
+		<div class="popup__close js-popup-close"></div>
 
-			<div class="contacts_form">
-				<?php echo do_shortcode('[contact-form-7 id="1966"]'); ?>
-			</div>
+		<div class="contacts_form">
+			<?php echo do_shortcode('[contact-form-7 id="1966"]'); ?>
 		</div>
 	</div>
+</div>
 
-<?php // Реализовать объект ?>
-	<div class="popup popup--feedback js-popup" data-popup="feedback3">
-		<div class="popup__bg js-popup-close"></div>
+<!-- Реализовать объект -->
+<div class="popup popup--feedback js-popup" data-popup="feedback3">
+	<div class="popup__bg js-popup-close"></div>
 
-		<div class="popup__content">
-			<div class="popup__close js-popup-close"></div>
+	<div class="popup__content">
+		<div class="popup__close js-popup-close"></div>
 
-			<div class="contacts_form">
-				<?php echo do_shortcode('[contact-form-7 id="1967"]'); ?>
-			</div>
+		<div class="contacts_form">
+			<?php echo do_shortcode('[contact-form-7 id="1967"]'); ?>
 		</div>
 	</div>
+</div>
 
-<?php // Добро пожаловать ?>
-	<div class="popup popup--welcome js-popup" data-popup="feedback-6847">
-		<div class="popup__bg js-popup-close"></div>
+<!-- Добро пожаловать -->
+<div class="popup popup--welcome js-popup" data-popup="feedback-6847">
+	<div class="popup__bg js-popup-close"></div>
 
-		<div class="popup__content">
-			<div class="popup__close js-popup-close"></div>
+	<div class="popup__content">
+		<div class="popup__close js-popup-close"></div>
 
-			<div class="contacts_form">
-				<form name="feedback-form" method="POST" action="/send_amo.php">
-					<?php echo do_shortcode('[contact-form-7 id="6847"]'); ?>
-				</form>
-			</div>
+		<div class="contacts_form">
+			<form name="feedback-form" method="POST" action="/send_amo.php">
+				<?php echo do_shortcode('[contact-form-7 id="6847"]'); ?>
+			</form>
 		</div>
 	</div>
+</div>
 
-<?php // Внимание! Закрытые лоты и переуступки с лучшей ценой! ?>
-	<div class="popup popup--welcome js-popup" data-popup="feedback-6953">
-		<div class="popup__bg js-popup-close"></div>
+<!-- Внимание! Закрытые лоты и переуступки с лучшей ценой! -->
+<div class="popup popup--welcome js-popup" data-popup="feedback-6953">
+	<div class="popup__bg js-popup-close"></div>
 
-		<div class="popup__content">
-			<div class="popup__close js-popup-close"></div>
+	<div class="popup__content">
+		<div class="popup__close js-popup-close"></div>
 
-			<div class="contacts_form">
-				<?php echo do_shortcode('[contact-form-7 id="6953"]'); ?>
-			</div>
+		<div class="contacts_form">
+			<?php echo do_shortcode('[contact-form-7 id="6953"]'); ?>
 		</div>
 	</div>
+</div>
 
-<?php // Внимание! Успейте забронировать до старта продаж! ?>
-	<div class="popup popup--welcome js-popup" data-popup="feedback-6954">
-		<div class="popup__bg js-popup-close"></div>
+<!-- Внимание! Успейте забронировать до старта продаж! -->
+<div class="popup popup--welcome js-popup" data-popup="feedback-6954">
+	<div class="popup__bg js-popup-close"></div>
 
-		<div class="popup__content">
-			<div class="popup__close js-popup-close"></div>
+	<div class="popup__content">
+		<div class="popup__close js-popup-close"></div>
 
-			<div class="contacts_form">
-				<?php echo do_shortcode('[contact-form-7 id="6954"]'); ?>
-			</div>
+		<div class="contacts_form">
+			<?php echo do_shortcode('[contact-form-7 id="6954"]'); ?>
 		</div>
 	</div>
+</div>
 
+<?php // welcome popup
+if ($_SERVER['REQUEST_URI'] == "/dubaj/") {
+	$welcome = "/wp-content/themes/broker2022/i/welcome"; ?>
 
-<?php //if ()
-if ($_SERVER['REQUEST_URI'] == "/dubaj/") { ?>
+	<div class="welcome_preload">
+		<span></span>
+		<span></span>
+		<span></span>
+	</div>
+
 	<div class="welcome js-welcome">
 		<div class="welcome__bg"></div>
+
+		<div class="welcome_animation welcome_animation__1">
+			<img src="<?= $welcome; ?>/1.png" alt="">
+		</div>
+
+		<div class="welcome_animation welcome_animation__2">
+			<img src="<?= $welcome; ?>/2.png" alt="">
+		</div>
+
+		<div class="welcome_animation welcome_animation__3">
+			<img src="<?= $welcome; ?>/3.png" alt="">
+		</div>
+
+		<div class="welcome_animation welcome_animation__4">
+			<img src="<?= $welcome; ?>/4.png" alt="">
+		</div>
 
 		<div class="welcome__content">
 			<span class="logo"></span>
@@ -87,5 +110,4 @@ if ($_SERVER['REQUEST_URI'] == "/dubaj/") { ?>
 			</div>
 		</div>
 	</div>
-<?php }
-// ?>
+<?php } ?>

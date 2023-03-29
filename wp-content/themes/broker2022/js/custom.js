@@ -84,10 +84,17 @@ document.querySelectorAll('.js-page-url').forEach((e) => {
 	e.value = window.location.href
 })
 
+
+// welcome [START]
 const $welcome = document.querySelector('.js-welcome')
 
 if ($welcome !== null) {
-	document.querySelector('html').classList.add('welcome_active')
+	// check that all images are loaded
+	Promise.all(Array.from(document.images).filter(img => !img.complete).map(img => new Promise(resolve => { img.onload = img.onerror = resolve; }))).then(() => {
+		// add class to start animation
+		document.querySelector('html').classList.add('welcome_active')
+	})
 }
 // document.querySelector('html').classList.remove('welcome_active')
+// welcome [END]
 // custom.js [END]
