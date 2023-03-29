@@ -46,8 +46,6 @@ $whatsapp   = esc_attr(get_option('broker_whatsapp'));
 
 				<iframe class="yandex_badge" src="//yandex.ru/sprav/widget/rating-badge/4782454911"></iframe>
 			</div>
-
-			<div class="js-popup-show" data-popup="feedback-6847" style="text-align: center;">....</div>
 		</div>
 	</div>
 </footer>
