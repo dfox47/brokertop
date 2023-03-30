@@ -36,6 +36,8 @@
 				<?php echo do_shortcode('[contact-form-7 id="6847"]'); ?>
 			</form>
 		</div>
+
+		<div class="contacts_form__error js-popup-error">Ошибка. Заполните все поля</div>
 	</div>
 </div>
 
