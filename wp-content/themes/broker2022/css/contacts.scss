@@ -185,6 +185,48 @@
 		}
 	}
 
+	&__error {
+		align-items: center;
+		background-color: $c_main;
+		color: #fff;
+		cursor: pointer;
+		display: none;
+		font-size: 22px;
+		height: 100%;
+		justify-content: center;
+		left: 0;
+		padding: 30px;
+		position: absolute;
+		text-align: center;
+		top: 0;
+		width: 100%;
+		z-index: 7;
+
+		&.active {
+			display: flex;
+		}
+
+		&::after,
+		&::before {
+			background-color: #fff;
+			border-radius: 4px;
+			content: "";
+			cursor: pointer;
+			display: block;
+			height: 2px;
+			position: absolute;
+			right: 25px;
+			top: 40px;
+			transform: rotate(45deg);
+			transition: $transition;
+			width: 40px;
+		}
+
+		&::before {
+			transform: rotate(-45deg);
+		}
+	}
+
 	&__label {
 		display: block;
 		margin: 40px 0 0;
