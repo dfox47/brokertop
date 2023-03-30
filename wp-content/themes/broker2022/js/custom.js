@@ -54,21 +54,20 @@ $(document).ready(function() {
 	})
 	// owl carousel [END]
 
-
-
+	// accept [START]
 	let $acceptInput = $('.js-accept')
 
 	$acceptInput.on('change', () => {
 		$('.js-accept-desc').toggleClass('active', !$acceptInput.is(':checked'))
 	})
-
-
+	// accept [END]
 
 	$(document).on('click touchstart focus', '.chosen-single', function () {
 		$('.chosen-container').removeClass('filter-mobile-hack')
 		$(this).parent().addClass('filter-mobile-hack')
 	})
 
+	// news
 	$('.js-news-list').find('li').click(function() {
 		window.location.href = $(this).find('a').attr('href')
 	})
