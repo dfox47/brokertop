@@ -26,8 +26,19 @@ const onSubmit = () => {
 
 		if ($name == null || $phone == null) return
 
+		$name.addEventListener('focus', () => {
+			$name.classList.remove('error')
+			$nameLabel.classList.remove('error')
+		})
+
+		$phone.addEventListener('focus', () => {
+			$phone.classList.remove('error')
+			$phoneLabel.classList.remove('error')
+		})
+
 		// check name is not empty
 		if ($name.value === '') {
+			$name.classList.add('error')
 			$nameLabel.classList.add('error')
 
 			showError()
@@ -37,6 +48,7 @@ const onSubmit = () => {
 
 		// check phone is not empty
 		if ($phone.value === '') {
+			$phone.classList.add('error')
 			$phoneLabel.classList.add('error')
 
 			showError()

@@ -166,6 +166,10 @@
 			display: block;
 			padding: 2px 0;
 			width: 100%;
+
+			&.error {
+				border-bottom-color: $c_error;
+			}
 		}
 	}
 
@@ -244,6 +248,15 @@
 			&__label {
 				&--textarea {
 					margin: 30px 0 0;
+				}
+			}
+		}
+
+		&.error {
+			.contacts_form {
+				&__label_title {
+					color: $c_error;
+					opacity: 1;
 				}
 			}
 		}
