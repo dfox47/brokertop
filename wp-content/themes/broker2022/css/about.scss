@@ -18,6 +18,11 @@
 				font-size: 32px;
 				font-weight: 600;
 				padding: 0 0 0 80px;
+
+				@media #{$tablet} {
+					font-size: 22px;
+					padding: 0;
+				}
 			}
 		}
 	}
@@ -84,6 +89,14 @@
 	blockquote {
 		line-height: 1.74;
 		padding: 0 40px 0 53px;
+
+		@media #{$tablet} {
+			padding: 40px 0;
+		}
+	}
+
+	@media #{$tablet} {
+		padding: 0 0 30px;
 	}
 }
 
@@ -101,6 +114,10 @@
 			top: 118px;
 			width: 477px;
 			z-index: 1;
+
+			@media #{$mobile} {
+				display: none;
+			}
 		}
 
 		img {
