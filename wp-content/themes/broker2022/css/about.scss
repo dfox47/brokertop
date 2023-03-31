@@ -40,8 +40,6 @@
 }
 
 .about_quote {
-	margin: 0 0 44px;
-
 	> .wp-block-group__inner-container {
 		align-items: flex-end;
 		display: flex;
@@ -63,7 +61,7 @@
 
 .about_quote_desc {
 	max-width: 850px;
-	padding: 0 0 0 78px;
+	padding: 0 0 40px 78px;
 
 	blockquote {
 		line-height: 1.74;
@@ -73,8 +71,24 @@
 
 .about_quote_img {
 	&.wp-block-image {
+		margin: 0 -8px 0 0;
+		position: relative;
+
+		&::before {
+			border: 18px solid $c_main;
+			content: "";
+			height: 457px;
+			left: -53px;
+			position: absolute;
+			top: 118px;
+			width: 457px;
+			z-index: 1;
+		}
+
 		img {
 			display: block;
+			position: relative;
+			z-index: 3;
 		}
 
 		@media #{$desktop_hd} {
