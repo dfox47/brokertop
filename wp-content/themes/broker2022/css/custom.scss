@@ -495,7 +495,7 @@ img {
 }
 
 .projects_gallery {
-	margin: 30px 0;
+	margin: 34px 0;
 	position: relative;
 	width: 100%;
 
@@ -523,13 +523,34 @@ img {
 		}
 	}
 
-	.wp-block-image {
-		width: 100% !important;
+	&.wp-block-gallery.has-nested-images {
+		figure {
+			&.wp-block-image {
+				width: 100%;
 
-		&::after {
+				figcaption {
+					background: #fff;
+					bottom: 0;
+					color: $c_menu_bg;
+					font-size: 15px;
+					font-weight: 600;
+					left: 0;
+					min-height: 110px;
+					padding: 10px 20px;
+					position: relative;
+					text-align: left;
+					width: 100%;
+					z-index: 5;
+				}
+			}
+		}
+	}
+
+	.wp-block-image {
+		&::before {
 			content: "";
 			display: block;
-			padding: 24%;
+			padding: 74% 0 0;
 			position: relative;
 			width: 100%;
 			z-index: 1;
@@ -553,15 +574,6 @@ img {
 			object-fit: cover;
 			position: absolute;
 			top: 0;
-		}
-
-		figcaption {
-			bottom: 0;
-			left: 0;
-			padding: 0 30px 1em!important;
-			position: absolute;
-			width: 100%;
-			z-index: 5;
 		}
 	}
 }
