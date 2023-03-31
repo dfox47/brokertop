@@ -35,17 +35,35 @@ $(document).ready(function() {
 		navText:            ['', '']
 	})
 
-	$('.js-projects-gallery').owlCarousel({
-		// autoplay:           true,
-		autoplayHoverPause: true,
-		autoplayTimeout:    4000,
-		dots:               true,
-		items:              4,
-		loop:               true,
-		margin:             24,
-		nav:                true,
-		navText:            ['', '']
-	})
+	const projectsGallery = () => {
+		const $projectsGallery = $('.js-projects-gallery')
+
+		if ($projectsGallery.length < 1) return
+
+		// add alt text from img alt
+		$projectsGallery.find('img').each(function () {
+			const imgAlt = $(this).attr('alt')
+
+			if (imgAlt.length < 1) return
+
+			$(this).parent().find('figcaption').append('<span class="projects_gallery__alt">' + imgAlt + '</span>')
+		})
+
+		// creat carousel
+		$projectsGallery.owlCarousel({
+			// autoplay:           true,
+			autoplayHoverPause: true,
+			autoplayTimeout:    4000,
+			dots:               true,
+			items:              4,
+			loop:               true,
+			margin:             24,
+			nav:                true,
+			navText:            ['', '']
+		})
+	}
+
+	projectsGallery()
 
 	// go to selected slide
 	$('.js-go-to-slide').click(function () {

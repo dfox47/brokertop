@@ -499,7 +499,46 @@ img {
 	position: relative;
 	width: 100%;
 
+	&__alt {
+		background: url(#{$icons}/map.svg) no-repeat left top scroll transparent;
+		color: rgba($c_menu_bg, .5);
+		display: block;
+		font-size: 12px;
+		font-weight: 500;
+		margin: 17px 0 0;
+		min-height: 30px;
+		padding: 0 0 5px 36px;
+	}
+
+	.owl-dot {
+		background-color: $c_main;
+		height: 13px;
+		margin: 0 2px;
+		transition: $transition;
+		width: 2px;
+
+		&.active {
+			height: 28px;
+		}
+	}
+
+	.owl-dots {
+		align-items: flex-end;
+		display: flex;
+		justify-content: center;
+		position: relative;
+		width: 100%;
+	}
+
+	.owl-next,
+	.owl-prev {
+		margin: 0;
+		top: 90px;
+	}
+
 	.owl-next {
+		right: -27px;
+
 		@media #{$desktop_hd} {
 			top: 50%;
 		}
@@ -512,6 +551,8 @@ img {
 	}
 
 	.owl-prev {
+		left: -27px;
+
 		@media #{$desktop_hd} {
 			top: 50%;
 		}
@@ -535,7 +576,7 @@ img {
 					font-size: 15px;
 					font-weight: 600;
 					left: 0;
-					min-height: 110px;
+					min-height: 150px;
 					padding: 10px 20px;
 					position: relative;
 					text-align: left;
