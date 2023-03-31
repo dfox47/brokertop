@@ -39,8 +39,8 @@ $(document).ready(function() {
 		// autoplay:           true,
 		autoplayHoverPause: true,
 		autoplayTimeout:    4000,
-		dots:               false,
-		items:              1,
+		dots:               true,
+		items:              4,
 		loop:               true,
 		nav:                true,
 		navText:            ['', '']
