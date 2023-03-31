@@ -731,6 +731,17 @@ img {
 	}
 }
 
+.wrap5 {
+	margin: 0 auto;
+	max-width: 1472px;
+	padding: 0 36px;
+	width: 100%;
+
+	@media #{$mobile} {
+		padding: 0;
+	}
+}
+
 .yandex_badge {
 	border: 0 none;
 	height: 50px;
