@@ -57,26 +57,28 @@
 	}
 
 	.logo {
-		height: 125px;
-		left: 50%;
-		margin: -62px 0 0 -175px;
+		height: 51px;
+		left: 64px;
+		margin: 0;
+		opacity: 0;
 		position: absolute;
-		top: 50%;
-		transition: all 1s ease-in-out;
+		top: 55px;
+		transition: all 2s ease-in-out;
 		transition-delay: 2.5s;
-		width: 350px;
+		width: 143px;
 	}
 }
 
+// animation | step 1
 .welcome_active {
 	overflow: hidden;
 
-	// animation part 2
+	// animation | step 2
 	&.welcome_part_2 {
 		.welcome {
 			.logo {
-				left: -300px;
-				transition-delay: 2s;
+				opacity: 0;
+				transition-delay: 0s;
 			}
 		}
 
@@ -120,8 +122,6 @@
 		.welcome_slogan {
 			&::after {
 				opacity: 0;
-				right: -1000px;
-				top: -1000px;
 				transition-delay: 0s;
 			}
 
@@ -133,8 +133,6 @@
 
 		.welcome_slogan_en {
 			&::after {
-				bottom: -500px;
-				left: -500px;
 				opacity: 0;
 				transition-delay: .6s;
 			}
@@ -152,12 +150,7 @@
 		}
 
 		.logo {
-			height: 51px;
-			left: 64px;
-			margin: 0;
 			opacity: 1;
-			top: 55px;
-			width: 143px;
 		}
 	}
 
@@ -198,8 +191,6 @@
 	.welcome_slogan {
 		&::after {
 			opacity: 1;
-			right: 4px;
-			top: -27px;
 		}
 
 		&__row {
@@ -209,8 +200,6 @@
 
 	.welcome_slogan_en {
 		&::after {
-			bottom: -35px;
-			left: -51px;
 			opacity: 1;
 		}
 
@@ -340,10 +329,10 @@
 		height: 74px;
 		opacity: 0;
 		position: absolute;
-		right: -1000px;
-		top: -1000px;
-		transition: all 1s ease-in-out;
+		right: 4px;
+		top: -27px;
 		transition-delay: 2.5s;
+		transition: all 1s ease-in-out;
 		width: 68px;
 	}
 
@@ -369,10 +358,10 @@
 	&::after {
 		border-bottom: 10px solid $c_main;
 		border-left: 10px solid $c_main;
-		bottom: -500px;
+		bottom: -35px;
 		content: "";
 		height: 74px;
-		left: -500px;
+		left: -51px;
 		opacity: 0;
 		position: absolute;
 		transition: all 1s ease-in-out;
