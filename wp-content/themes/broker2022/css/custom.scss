@@ -540,36 +540,16 @@ img {
 
 	.owl-next {
 		right: -27px;
-
-		@media #{$desktop_hd} {
-			top: 50%;
-		}
-
-		@media #{$mobile} {
-			bottom: -28px;
-			right: 0;
-			top: auto;
-		}
 	}
 
 	.owl-prev {
 		left: -27px;
-
-		@media #{$desktop_hd} {
-			top: 50%;
-		}
-
-		@media #{$mobile} {
-			bottom: -28px;
-			left: 0;
-			top: auto;
-		}
 	}
 
 	&.wp-block-gallery.has-nested-images {
 		figure {
 			&.wp-block-image {
-				width: 100%;
+				width: 100%!important;
 
 				figcaption {
 					background: #fff;

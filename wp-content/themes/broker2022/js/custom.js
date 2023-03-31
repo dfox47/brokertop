@@ -59,7 +59,13 @@ $(document).ready(function() {
 			loop:               true,
 			margin:             24,
 			nav:                true,
-			navText:            ['', '']
+			navText:            ['', ''],
+			responsive:{
+				0:      {items: 1},
+				700:    {items: 2},
+				1100:   {items: 3},
+				1400:   {items: 4}
+			}
 		})
 	}
 
