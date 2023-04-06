@@ -1,3 +1,12 @@
+@keyframes slidetounlock {
+	0% {
+		background-position: -320px 0;
+	}
+	100%{
+		background-position: 320px 0;
+	}
+}
+
 .pew-filter-block {
 	margin: -72px 0 0;
 	position: relative;
@@ -231,6 +240,8 @@
 					input {
 						&:checked {
 							+ label {
+								-webkit-text-fill-color: #515151;
+								animation: none;
 								background: #fff !important;
 								color: #515151 !important;
 								opacity: 1;
@@ -250,15 +261,19 @@
 						height: 40px;
 
 						label {
+							animation: slidetounlock 5s infinite;
+							background: -webkit-gradient(linear,left top,right top,color-stop(0, #ddd),color-stop(0.4, #ddd),color-stop(0.5, $c_main),color-stop(0.6, #ddd),color-stop(1, #ddd));
 							border-radius: 8px 8px 0 0;
 							color: #fff;
 							font-weight: 700;
 							height: 40px;
 							line-height: 40px;
-							opacity: .75;
 							text-align: center;
 							text-decoration: none;
 							white-space: nowrap;
+							-webkit-background-clip: text;
+							-webkit-text-fill-color: transparent;
+							-webkit-text-size-adjust: none;
 
 							.woof_radio_count {
 								display: none !important;
@@ -455,3 +470,14 @@
 		}
 	}
 }
+
+
+
+
+
+
+
+
+
+
+
