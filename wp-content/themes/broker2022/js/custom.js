@@ -42,11 +42,12 @@ $(document).ready(function() {
 
 		// add alt text from img alt
 		$projectsGallery.find('img').each(function () {
-			const imgAlt = $(this).attr('alt')
+			const $this     = $(this)
+			const imgAlt    = $this.attr('alt')
 
 			if (imgAlt.length < 1) return
 
-			$(this).parent().find('figcaption').append('<span class="projects_gallery__alt">' + imgAlt + '</span>')
+			$this.parent().find('figcaption').append('<span class="projects_gallery__alt">' + imgAlt + '</span>')
 		})
 
 		// creat carousel
