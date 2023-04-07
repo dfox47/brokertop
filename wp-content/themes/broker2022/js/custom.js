@@ -74,9 +74,7 @@ $(document).ready(function() {
 
 	// go to selected slide
 	$('.js-go-to-slide').click(function () {
-		let slideId = $(this).attr('data-slide')
-
-		$('.js-owl-carousel').trigger('to.owl.carousel', slideId)
+		$('.js-owl-carousel').trigger('to.owl.carousel', $(this).attr('data-slide'))
 	})
 	// owl carousel [END]
 
