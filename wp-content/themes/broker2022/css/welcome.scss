@@ -342,6 +342,16 @@
 		transition: all 1s ease-in-out;
 		transition-delay: 3s;
 	}
+
+	@media #{$desktop} {
+		font-size: 40px;
+		max-width: 820px;
+	}
+
+	@media #{$tablet} {
+		font-size: 30px;
+		max-width: 620px;
+	}
 }
 
 .welcome_slogan_en {
@@ -373,5 +383,13 @@
 		clip-path: polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%);
 		transition: all 1s ease-in-out;
 		transition-delay: 4s;
+	}
+
+	@media #{$desktop} {
+		font-size: 30px;
+	}
+
+	@media #{$tablet} {
+		font-size: 20px;
 	}
 }
