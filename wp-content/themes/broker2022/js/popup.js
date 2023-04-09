@@ -1,10 +1,10 @@
 // popup.js [START]
-let $popups         = document.querySelectorAll('.js-popup')
-let $popupShow      = document.querySelectorAll('.js-popup-show')
-let $popupClose     = document.querySelectorAll('.js-popup-close')
+const $popups       = document.querySelectorAll('.js-popup')
+const $popupShow    = document.querySelectorAll('.js-popup-show')
+const $popupClose   = document.querySelectorAll('.js-popup-close')
 
 $popupShow.forEach((button) => {
-	let popupId = button.dataset.popup
+	const popupId = button.dataset.popup
 
 	button.addEventListener('click', () => {
 		$popups.forEach((e) => {
