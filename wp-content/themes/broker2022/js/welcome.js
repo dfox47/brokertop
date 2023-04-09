@@ -1,7 +1,9 @@
 // welcome [START]
-const $welcome = document.querySelector('.js-welcome')
+const welcomeAnimation = () => {
+	const $welcome = document.querySelector('.js-welcome')
 
-if ($welcome !== null) {
+	if ($welcome == null) return
+
 	// check that all images are loaded
 	Promise.all(Array.from(document.images).filter(img => !img.complete).map(img => new Promise(resolve => { img.onload = img.onerror = resolve; }))).then(() => {
 		// animation part 1
@@ -23,4 +25,6 @@ if ($welcome !== null) {
 		}, 9000)
 	})
 }
+
+welcomeAnimation()
 // welcome [END]
