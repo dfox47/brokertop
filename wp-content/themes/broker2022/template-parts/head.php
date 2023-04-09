@@ -22,12 +22,15 @@ else if (is_category()) {
 else if ($currentUrl == '/kontakty/') {
 	$pageType = ' hero_block_wrap--contacts';
 }
+else if ($currentUrl == '/novostrojki/') {
+	$pageType = ' hero_block_wrap--new_buildings';
+}
 else if ($currentUrl == '/o-kompanii/') {
 	$pageType = ' hero_block_wrap--about';
 } ?>
 
-<div class="hero_block_wrap<?php echo $pageType; ?>">
-	<div class="hero_block<?php if (!empty($thumbUrl) && is_product()) { ?> js-img-bg<?php } ?>" <?php if (!empty($thumbUrl) && is_product()) { ?>data-src="<?php echo $thumbUrl; ?>"<?php } ?>>
+<div class="hero_block_wrap<?= $pageType; ?>">
+	<div class="hero_block<?php if (!empty($thumbUrl) && is_product()) { ?> js-img-bg<?php } ?>" <?php if (!empty($thumbUrl) && is_product()) { ?>data-src="<?= $thumbUrl; ?>"<?php } ?>>
 		<?php if ($currentUrl == '/kontakty/') {
 			include_once "contacts_map.php";
 		} ?>
@@ -69,7 +72,7 @@ else if ($currentUrl == '/o-kompanii/') {
 				<div class="wrap2">
 					<?php // title
 					if (get_the_title()) { ?>
-						<h1><?php echo get_the_title(); ?></h1>
+						<h1><?= get_the_title(); ?></h1>
 					<?php } ?>
 
 					<?php // Адрес объекта
@@ -77,7 +80,7 @@ else if ($currentUrl == '/o-kompanii/') {
 
 					if ($product -> get_attribute('pa_adres')) { ?>
 						<div class="product_address">
-							<span><?php echo $product -> get_attribute('pa_adres'); ?></span>
+							<span><?= $product -> get_attribute('pa_adres'); ?></span>
 						</div>
 					<?php } ?>
 				</div>
@@ -86,14 +89,17 @@ else if ($currentUrl == '/o-kompanii/') {
 				// title
 				if (get_the_title()) { ?>
 					<div class="wrap">
-						<h1><?php echo get_the_title(); ?></h1>
+						<h1><?= get_the_title(); ?></h1>
 					</div>
 				<?php }
 			} ?>
 		</div>
 
-		<?php if (is_front_page()) { ?>
-			<?php include "hero.php"; ?>
-		<?php } ?>
+		<?php if (is_front_page()) {
+			include_once "hero.php";
+		}
+		elseif ($currentUrl == '/novostrojki/') {
+			include_once "new_buildings.php";
+		} ?>
 	</div>
 </div>

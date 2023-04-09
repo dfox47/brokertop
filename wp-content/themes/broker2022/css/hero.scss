@@ -1,4 +1,3 @@
-
 .hero_block {
 	background: url(#{$i}/hero_bg.png) center no-repeat scroll $c_img_bg;
 	background-size: cover;
@@ -580,13 +579,6 @@
 		}
 	}
 
-	&--contacts {
-		.hero_block {
-			background: url(#{$i}/contacts_header_bg.png) left top no-repeat scroll $c_img_bg;
-			background-size: 100% 120px;
-		}
-	}
-
 	&--category {
 		.hero_block {
 			min-height: 110px;
@@ -594,8 +586,26 @@
 		}
 	}
 
+	&--contacts {
+		.hero_block {
+			background: url(#{$i}/contacts_header_bg.png) left top no-repeat scroll $c_img_bg;
+			background-size: 100% 120px;
+		}
+	}
+
 	&--home {
 		padding-bottom: 27px;
+	}
+
+	&--new_buildings {
+		.header {
+			background-color: rgba($c_menu_bg, .8);
+		}
+
+		.hero_block {
+			background: $c_menu_bg;
+			padding: 0;
+		}
 	}
 
 	&--product {
