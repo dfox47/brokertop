@@ -1,6 +1,4 @@
-
 // popup.js [START]
-
 let $popups         = document.querySelectorAll('.js-popup')
 let $popupShow      = document.querySelectorAll('.js-popup-show')
 let $popupClose     = document.querySelectorAll('.js-popup-close')
@@ -30,5 +28,4 @@ $popupClose.forEach((button) => {
 		})
 	})
 })
-
 // popup.js [END]
