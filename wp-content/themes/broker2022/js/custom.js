@@ -17,6 +17,12 @@ $(document).ready(function() {
 	$('.js-news-list').find('li').click(function() {
 		window.location.href = $(this).find('a').attr('href')
 	})
+
+	// delete [START]
+	if (window.location.pathname !== '/dubaj/') return
+
+	$('.js-popup[data-popup="feedback-6847"]').addClass('active')
+	// delete [END]
 })
 
 // insert after hack

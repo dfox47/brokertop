@@ -1,12 +1,4 @@
 // amoCrm.js [START]
-$(document).ready(function() {
-	// delete [START]
-	if (window.location.pathname !== '/novostrojki/') return
-
-	$('.js-popup[data-popup="feedback-6847"]').addClass('active')
-	// delete [END]
-})
-
 // check form on submit
 const onSubmit = () => {
 	const $submit = document.querySelector('.js-crm-submit')
