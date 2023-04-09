@@ -39,6 +39,7 @@
 
 		<div class="contacts_form__error js-popup-error">Ошибка. Заполните все поля</div>
 	</div>
+	<div id="success-message"></div>
 </div>
 
 <!-- Внимание! Закрытые лоты и переуступки с лучшей ценой! -->
