@@ -135,6 +135,19 @@
 		}
 	}
 
+	&__desc {
+		color: #fff;
+		font-size: 18px;
+		font-weight: 500;
+		padding: 0 120px 0 0;
+
+		@media #{$mobile} {
+			font-size: 14px;
+			padding: 0;
+			text-align: center;
+		}
+	}
+
 	&__img {
 		height: 100%;
 		left: 0;
@@ -605,6 +618,32 @@
 		.hero_block {
 			background: $c_menu_bg;
 			padding: 0;
+		}
+
+		.hero_block_slide {
+			align-items: flex-end;
+			min-height: 747px;
+
+			&__content {
+				padding: 62px 30px;
+			}
+
+			@media #{$mobile} {
+				min-height: 0;
+			}
+		}
+
+		.hero_block_slider {
+			.owl-nav {
+				button {
+					margin-top: 0;
+					top: 69%;
+				}
+			}
+
+			@media #{$mobile} {
+				height: auto;
+			}
 		}
 	}
 
