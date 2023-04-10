@@ -21,7 +21,9 @@ $dumm   = '/wp-content/themes/broker2022/i/dumm.png';
 			<img class="hero_block_slide__img js-img-scroll" src="<?= $dumm; ?>" data-src="<?= $i; ?>/21.jpg" alt="">
 
 			<div class="hero_block_slide__content">
-				<?= do_shortcode('[contact-form-7 id="6954"]'); ?>
+				<div class="hero_block_form">
+					<?= do_shortcode('[contact-form-7 id="7237"]'); ?>
+				</div>
 			</div>
 		</div>
 	</div>
