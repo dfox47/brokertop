@@ -232,7 +232,26 @@ img {
 		font-family: $font_montserrat;
 		font-size: 18px;
 		font-weight: 500;
+		margin: 35px 0 0;
 		max-width: 710px;
+	}
+
+	input {
+		background: transparent;
+		border-bottom: 1px solid $c_text;
+	}
+
+	.contacts_consult_list {
+		&__item {
+			max-width: 430px;
+		}
+	}
+
+	.contacts_form {
+		&__label_title {
+			color: rgba($c_text, .7);
+			top: -5px;
+		}
 	}
 
 	&__agree {

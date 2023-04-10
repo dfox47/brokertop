@@ -53,6 +53,12 @@
 		z-index: 1;
 	}
 
+	&--light {
+		&::after {
+			display: none;
+		}
+	}
+
 	&__address {
 		color: #fff;
 		font-size: 16px;
