@@ -232,29 +232,18 @@ img {
 		font-family: $font_montserrat;
 		font-size: 18px;
 		font-weight: 500;
-		margin: 35px 0 0;
-		max-width: 710px;
+		margin: 25px 0 5px;
+		max-width: 700px;
 	}
 
 	input {
 		background: transparent;
 		border-bottom: 1px solid $c_text;
-	}
-
-	.contacts_consult_list {
-		&__item {
-			max-width: 430px;
-		}
-	}
-
-	.contacts_form {
-		&__label_title {
-			color: rgba($c_text, .7);
-			top: -5px;
-		}
+		width: 100%;
 	}
 
 	&__agree {
+		margin: 15px 0 0;
 		text-transform: none;
 
 		a {
@@ -265,13 +254,35 @@ img {
 	.btn_submit {
 		color: $c_text;
 		letter-spacing: .03em;
-		margin: 20px 0 0;
+		margin: 40px 0 0;
 		max-width: none;
 		white-space: nowrap;
 
 		&__title {
 			max-width: none;
 		}
+	}
+
+	.contacts_consult_list {
+		&__item {
+			max-width: 430px;
+		}
+	}
+
+	.contacts_form {
+		&__label {
+			margin: 20px 0 0;
+			width: 100%;
+		}
+
+		&__label_title {
+			color: rgba($c_text, .8);
+			top: -5px;
+		}
+	}
+
+	.wpcf7-form-control-wrap {
+		width: 100%;
 	}
 
 	.wpcf7-list-item {
