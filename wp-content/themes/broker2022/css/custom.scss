@@ -219,6 +219,32 @@ img {
 	}
 }
 
+.look_form {
+	h2 {
+		color: $c_text;
+		font-family: $font_montserrat;
+		font-size: 48px;
+		font-weight: 600;
+	}
+
+	h3 {
+		color: $c_text;
+		font-family: $font_montserrat;
+		font-size: 18px;
+		font-weight: 500;
+		max-width: 710px;
+	}
+
+	.btn_submit {
+		max-width: none;
+		white-space: nowrap;
+
+		&__title {
+			max-width: none;
+		}
+	}
+}
+
 .hidden {
 	display: none !important;
 }
