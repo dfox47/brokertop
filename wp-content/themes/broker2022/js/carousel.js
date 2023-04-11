@@ -20,18 +20,10 @@ $(document).ready(function() {
 		nav:        true,
 		navText:    ['<span>назад</span>', '<span>далее</span>'],
 		responsive:{
-			0:{
-				items:  1,
-			},
-			600:{
-				items:  2,
-			},
-			900:{
-				items:  3,
-			},
-			1200:{
-				items:  4,
-			}
+			0:{items: 1,},
+			600:{items: 2,},
+			900:{items: 3,},
+			1200:{items: 4,}
 		}
 	})
 
