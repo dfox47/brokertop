@@ -18,7 +18,21 @@ $(document).ready(function() {
 		loop:       true,
 		margin:     20,
 		nav:        true,
-		navText:    ['', '']
+		navText:    ['<span>назад</span>', '<span>далее</span>'],
+		responsive:{
+			0:{
+				items:  1,
+			},
+			600:{
+				items:  2,
+			},
+			900:{
+				items:  3,
+			},
+			1200:{
+				items:  4,
+			}
+		}
 	})
 
 	// slide next|prev with arrows on keyboard

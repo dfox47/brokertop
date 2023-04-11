@@ -22,7 +22,7 @@
 		background-color: #fff;
 		display: block;
 		height: 237px;
-		width: 310px;
+		width: 100%;
 
 		img {
 			height: 100%;
@@ -66,6 +66,38 @@
 		min-height: 103px;
 	}
 
+	.owl-dot {
+		align-items: flex-end;
+		display: flex;
+		height: 28px;
+		padding: 0 4px !important;
+
+		&.active {
+			&::after {
+				height: 100%;
+			}
+		}
+
+		&::after {
+			background-color: $c_main;
+			content: "";
+			height: 13px;
+			display: block;
+			transition: $transition;
+			width: 2px;
+		}
+	}
+
+	.owl-dots {
+		bottom: 0;
+		display: flex;
+		justify-content: center;
+		left: 50%;
+		position: absolute;
+		transform: translateX(-50%);
+		z-index: 3;
+	}
+
 	.owl-item {
 		padding: 2px;
 
@@ -75,6 +107,65 @@
 					width: auto;
 				}
 			}
+		}
+	}
+
+	.owl-nav {
+		display: flex;
+		justify-content: center;
+		margin: 50px 0 0;
+		position: relative;
+	}
+
+	.owl-next,
+	.owl-prev {
+		background: none;
+		bottom: auto;
+		color: $c_main;
+		font-size: 14px;
+		height: auto;
+		left: auto;
+		margin: 0;
+		position: relative;
+		right: auto;
+		top: auto;
+		width: auto;
+
+		&::after {
+			display: none;
+		}
+
+		&::before {
+			height: 12px;
+			margin: -5px 0 0;
+			width: 12px;
+		}
+
+		&:hover {
+			&::before {
+				border-left-width: 3px;
+				border-top-width: 3px;
+			}
+		}
+	}
+
+	.owl-next {
+		margin: 0 0 0 80px;
+		padding: 0 30px 0 0 !important;
+
+		&::before {
+			left: auto;
+			right: 0;
+		}
+	}
+
+	.owl-prev {
+		margin: 0 80px 0 0;
+		padding: 0 0 0 30px !important;
+
+		&::before {
+			left: 0;
+			right: auto;
 		}
 	}
 }
