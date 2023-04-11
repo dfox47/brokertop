@@ -64,6 +64,18 @@
 		justify-content: center;
 		min-height: 103px;
 	}
+
+	.owl-item {
+		padding: 2px;
+
+		.new_building_list {
+			&__logo {
+				img {
+					width: auto;
+				}
+			}
+		}
+	}
 }
 
 .new_buildings_quote {

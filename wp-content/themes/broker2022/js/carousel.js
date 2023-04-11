@@ -1,12 +1,22 @@
 // carousel.js [START]
 $(document).ready(function() {
-	const $owl      = $('.js-owl-carousel')
-	const $owlAuto  = $('.js-owl-carousel-auto')
+	const $owl              = $('.js-owl-carousel')
+	const $owlAuto          = $('.js-owl-carousel-auto')
+	const $owlBuildings     = $('.js-owl-buildings')
 
 	$owl.owlCarousel({
 		dots:       false,
 		items:      1,
 		loop:       true,
+		nav:        true,
+		navText:    ['', '']
+	})
+
+	$owlBuildings.owlCarousel({
+		dots:       true,
+		items:      4,
+		loop:       true,
+		margin:     20,
 		nav:        true,
 		navText:    ['', '']
 	})

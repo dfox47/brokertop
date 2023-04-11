@@ -13,7 +13,7 @@ $dumm = '/wp-content/themes/broker2022/i/dumm.png'; ?>
 	<h1>Жилые комплексы</h1>
 
 	<div class="wrap">
-		<ul class="new_building_list owl-carouselX">
+		<ul class="new_building_list owl-carousel js-owl-buildings">
 			<?php // subcategories of new buildings
 			$categories = get_terms(array(
 				'hide_empty'    => false,
