@@ -41,7 +41,7 @@ $dumm = '/wp-content/themes/broker2022/i/dumm.png'; ?>
 							<?php } ?>
 						</span>
 
-						<span class="new_building_list__logo"><img src="<?= $logo_link; ?>" alt=""></span>
+						<span class="new_building_list__logo"><img class="js-img-scroll" src="<?php echo $dumm; ?>" data-src="<?= $logo_link; ?>" alt=""></span>
 
 						<span class="new_building_list__desc"><?= $desc_no_img; ?></span>
 					</a>
