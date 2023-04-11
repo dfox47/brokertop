@@ -37,11 +37,11 @@ $dumm = '/wp-content/themes/broker2022/i/dumm.png'; ?>
 					<a class="new_building_list__link" href="<?= $link; ?>">
 						<span class="new_building_list__img">
 							<?php if ($image) { ?>
-								<img class="js-img-scroll" src="<?php echo $dumm; ?>" data-src="<?=  $image; ?>" alt="">
+								<img class="js-img-scroll" src="<?= $dumm; ?>" data-src="<?=  $image; ?>" alt="">
 							<?php } ?>
 						</span>
 
-						<span class="new_building_list__logo"><img class="js-img-scroll" src="<?php echo $dumm; ?>" data-src="<?= $logo_link; ?>" alt=""></span>
+						<span class="new_building_list__logo"><img class="js-img-scroll" src="<?= $dumm; ?>" data-src="<?= $logo_link; ?>" alt=""></span>
 
 						<span class="new_building_list__desc"><?= $desc_no_img; ?></span>
 					</a>
