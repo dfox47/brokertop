@@ -1,4 +1,12 @@
-.new_building_list {}
+.new_building_list {
+	&__desc {}
+
+	&__img {}
+
+	&__item {}
+
+	&__logo {}
+}
 
 .new_buildings_quote {
 	background-color: $c_menu_bg;
