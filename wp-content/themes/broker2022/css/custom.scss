@@ -321,6 +321,65 @@ img {
 	}
 }
 
+.new_buildings_quote {
+	background-color: $c_menu_bg;
+	color: #fff;
+	margin: 0 0 -30px;
+	position: relative;
+
+	blockquote {
+		max-width: 770px;
+		padding: 0 10px 0 33px;
+
+		&::after {
+			bottom: 10px;
+		}
+	}
+
+	h2 {
+		color: #fff;
+		font-family: $font_montserrat;
+		font-size: 32px;
+		font-weight: 600;
+		padding: 0 0 5px 32px;
+	}
+
+	> .wp-block-group__inner-container {
+		align-items: flex-end;
+		display: flex;
+		justify-content: space-between;
+		margin: 0 auto;
+		max-width: 1356px;
+	}
+
+	&__sign {
+		color: $c_quote_sign;
+		font-size: 15px;
+		font-weight: 700;
+		line-height: 1.7;
+		padding: 10px 28px 0 0;
+		text-align: right;
+	}
+
+	.wp-block-image {
+		margin: -57px 0 0;
+
+		a {
+			display: block;
+			width: 425px;
+
+			img {
+				display: block;
+				width: 100%;
+			}
+		}
+	}
+}
+
+.new_buildings_quote_wrap {
+	padding: 0 0 72px 68px;
+}
+
 .nobr {
 	white-space: nowrap;
 }
@@ -418,6 +477,19 @@ img {
 .page-id-16 {
 	h1 {
 		text-align: left;
+	}
+}
+
+// новостройки
+.page-template-page-new_buildings {
+	h1 {
+		color: $c_text;
+		font-family: $font_montserrat;
+		font-size: 32px;
+		font-weight: 600;
+		letter-spacing: 0;
+		margin: 0 auto;
+		max-width: 1152px;
 	}
 }
 
