@@ -5,12 +5,15 @@
 */
 ?>
 
+<?php // link to dumm img
+$dumm = '/wp-content/themes/broker2022/i/dumm.png'; ?>
+
 <?php get_header(); ?>
 
 	<h1>Жилые комплексы</h1>
 
 	<div class="wrap">
-		<ul class="new_building_list">
+		<ul class="new_building_list owl-carouselX">
 			<?php // subcategories of new buildings
 			$categories = get_terms(array(
 				'hide_empty'    => false,
@@ -34,7 +37,7 @@
 					<a class="new_building_list__link" href="<?= $link; ?>">
 						<span class="new_building_list__img">
 							<?php if ($image) { ?>
-								<img src="<?=  $image; ?>" alt="">
+								<img class="js-img-scroll" src="<?php echo $dumm; ?>" data-src="<?=  $image; ?>" alt="">
 							<?php } ?>
 						</span>
 
