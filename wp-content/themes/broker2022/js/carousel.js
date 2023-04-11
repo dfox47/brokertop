@@ -4,6 +4,17 @@ $(document).ready(function() {
 	const $owlAuto          = $('.js-owl-carousel-auto')
 	const $owlBuildings     = $('.js-owl-buildings')
 
+	// add numbers to dots
+	const dotNumbers = () => {
+		let $dotIndex = 1
+
+		$owlBuildings.find('.owl-dot').each(function () {
+			$(this).append('<span class="owl-dot-number">0' + $dotIndex + '</span>')
+
+			$dotIndex++
+		})
+	}
+
 	$owl.owlCarousel({
 		dots:       false,
 		items:      1,
@@ -21,15 +32,15 @@ $(document).ready(function() {
 		navText:    ['<span>назад</span>', '<span>далее</span>'],
 		slideBy:    4,
 		onInitialized: function () {
-			let $dotIndex = 1
-
-			$owlBuildings.find('.owl-dot').each(function () {
-				$(this).append('<span class="owl-dot-number">0' + $dotIndex + '</span>')
-
-				$dotIndex++
-			})
+			dotNumbers()
 		},
-		responsive:{
+		onResized: function () {
+			dotNumbers()
+		},
+		onRefreshed: function () {
+			dotNumbers()
+		},
+		responsive: {
 			0: {
 				items:      1,
 				slideBy:    1,
