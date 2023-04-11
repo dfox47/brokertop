@@ -632,10 +632,14 @@
 
 			&__content {
 				padding: 62px 30px;
-			}
 
-			@media #{$mobile} {
-				min-height: 0;
+				@media #{$tablet} {
+					padding: 30px;
+				}
+
+				@media #{$mobile} {
+					padding: 0;
+				}
 			}
 		}
 
@@ -644,6 +648,10 @@
 				button {
 					margin-top: 0;
 					top: 69%;
+
+					@media #{$desktop} {
+						top: auto;
+					}
 				}
 			}
 
