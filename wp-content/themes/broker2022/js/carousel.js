@@ -19,11 +19,33 @@ $(document).ready(function() {
 		margin:     20,
 		nav:        true,
 		navText:    ['<span>назад</span>', '<span>далее</span>'],
+		slideBy:    4,
+		onInitialized: function () {
+			let $dotIndex = 1
+
+			$owlBuildings.find('.owl-dot').each(function () {
+				$(this).append('<span class="owl-dot-number">0' + $dotIndex + '</span>')
+
+				$dotIndex++
+			})
+		},
 		responsive:{
-			0:{items: 1,},
-			600:{items: 2,},
-			900:{items: 3,},
-			1200:{items: 4,}
+			0: {
+				items:      1,
+				slideBy:    1,
+			},
+			600: {
+				items:      2,
+				slideBy:    2,
+			},
+			900: {
+				items:      3,
+				slideBy:    3,
+			},
+			1200: {
+				items:      4,
+				slideBy:    4,
+			}
 		}
 	})
 

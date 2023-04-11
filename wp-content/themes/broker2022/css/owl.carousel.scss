@@ -94,6 +94,26 @@
 	display: none;
 }
 
+.owl-dot {
+	position: relative;
+
+	&.active {
+		.owl-dot-number {
+			display: block;
+		}
+	}
+}
+
+.owl-dot-number {
+	bottom: 100%;
+	color: $c_main;
+	display: none;
+	font-size: 14px;
+	left: 50%;
+	position: absolute;
+	transform: translateX(-50%);
+}
+
 .owl-prev,
 .owl-next,
 .owl-dot {
