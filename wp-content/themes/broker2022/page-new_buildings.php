@@ -31,15 +31,17 @@
 				$logo_link = array_pop($match); ?>
 
 				<li class="new_building_list__item">
-					<span class="new_building_list__img">
-						<?php if ($image) { ?>
-							<img src="<?=  $image; ?>" alt="">
-						<?php } ?>
-					</span>
+					<a class="new_building_list__link" href="<?= $link; ?>">
+						<span class="new_building_list__img">
+							<?php if ($image) { ?>
+								<img src="<?=  $image; ?>" alt="">
+							<?php } ?>
+						</span>
 
-					<span class="new_building_list__logo"><img src="<?= $logo_link; ?>" alt=""></span>
+						<span class="new_building_list__logo"><img src="<?= $logo_link; ?>" alt=""></span>
 
-					<span class="new_building_list__desc"><?= $desc_no_img; ?></span>
+						<span class="new_building_list__desc"><?= $desc_no_img; ?></span>
+					</a>
 				</li>
 			<?php } ?>
 		</ul>

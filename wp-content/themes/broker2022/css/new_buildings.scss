@@ -1,11 +1,67 @@
 .new_building_list {
-	&__desc {}
+	display: flex;
+	margin: 54px 0;
 
-	&__img {}
+	&__desc {
+		background-color: #fff;
+		bottom: -100px;
+		color: $c_text;
+		font-size: 15px;
+		left: 0;
+		opacity: 0;
+		padding: 20px 25px;
+		position: absolute;
+		transition: $transition;
+		width: 100%;
+		z-index: 5;
+	}
 
-	&__item {}
+	&__img {
+		background-color: #fff;
+		display: block;
+		height: 237px;
+		width: 310px;
 
-	&__logo {}
+		img {
+			height: 100%;
+			object-fit: cover;
+			width: 100%;
+		}
+	}
+
+	&__item {
+		display: flex;
+		filter: drop-shadow(0 2px 2px rgba(#000, .15));
+		flex-direction: column;
+		overflow: hidden;
+		position: relative;
+
+		&:hover {
+			.new_building_list {
+				&__desc {
+					bottom: 0;
+					opacity: 1;
+				}
+
+				&__img {
+					opacity: .5;
+				}
+			}
+		}
+	}
+
+	&__link {
+		display: block;
+		text-decoration: none;
+	}
+
+	&__logo {
+		align-items: center;
+		background-color: #fff;
+		display: flex;
+		justify-content: center;
+		min-height: 103px;
+	}
 }
 
 .new_buildings_quote {
