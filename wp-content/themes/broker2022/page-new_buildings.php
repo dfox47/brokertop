@@ -30,7 +30,7 @@ $dumm = '/wp-content/themes/broker2022/i/dumm.png'; ?>
 					$desc           = $product->get_short_description();
 					$descNoImg      = preg_replace('/(<)([img])(\w+)([^>]*>)/', '', $desc);
 					$image          = get_the_post_thumbnail($id, 'large');
-					$index          = 1;
+					$index          = 0;
 					$link           = get_permalink($id);
 					$attributes     = $product->get_attributes();
 
@@ -51,9 +51,13 @@ $dumm = '/wp-content/themes/broker2022/i/dumm.png'; ?>
 								<?= $descNoImg; ?>
 
 								<span class="new_building_links">
-									<a class="new_building_links__item new_building__presentation" href="<?= $pdfLink; ?>" target="_blank"></a>
+									<?php if ($pdfLink) { ?>
+										<a class="new_building_links__item new_building__presentation" href="<?= $pdfLink; ?>" target="_blank"></a>
+									<?php }  ?>
 
-									<a class="new_building_links__item social_list__icon social_list__icon--whatsapp" href="//wa.me/<?= $realtorPhone; ?>" target="_blank" rel="noopener" title="whatsapp"></a>
+									<?php if ($realtorPhone) { ?>
+										<a class="new_building_links__item social_list__icon social_list__icon--whatsapp" href="//wa.me/<?= $realtorPhone; ?>" target="_blank" rel="noopener" title="whatsapp"></a>
+									<?php }  ?>
 
 									<a class="new_building_links__item social_list__icon social_list__icon--telegram" href="//t.me/top_broker_estate" target="_blank" rel="noopener" title="telegram"></a>
 								</span>
