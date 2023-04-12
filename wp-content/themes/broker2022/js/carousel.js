@@ -3,6 +3,7 @@ $(document).ready(function() {
 	const $owl              = $('.js-owl-carousel')
 	const $owlAuto          = $('.js-owl-carousel-auto')
 	const $owlBuildings     = $('.js-owl-buildings')
+	const $projectsGallery  = $('.js-projects-gallery')
 
 	// add numbers to dots
 	const dotNumbers = () => {
@@ -118,8 +119,6 @@ $(document).ready(function() {
 
 	// owl carousel projects [START]
 	const projectsGallery = () => {
-		const $projectsGallery = $('.js-projects-gallery')
-
 		if ($projectsGallery.length < 1) return
 
 		// add alt text from img alt
@@ -154,8 +153,6 @@ $(document).ready(function() {
 
 	projectsGallery()
 	// owl carousel projects [END]
-
-
 
 	// go to selected slide
 	$('.js-go-to-slide').click(function () {
