@@ -8,6 +8,8 @@ $(document).ready(function() {
 	const dotNumbers = () => {
 		let $dotIndex = 1
 
+		if ($owlBuildings.length < 1) return
+
 		$owlBuildings.find('.owl-dot').each(function () {
 			$(this).append('<span class="owl-dot-number">0' + $dotIndex + '</span>')
 
@@ -15,74 +17,106 @@ $(document).ready(function() {
 		})
 	}
 
-	$owl.owlCarousel({
-		dots:       false,
-		items:      1,
-		loop:       true,
-		nav:        true,
-		navText:    ['', '']
-	})
+	// owl carousel default [START]
+	const owlCarouselDefault = () => {
+		if ($owl.length < 1) return
 
-	$owlBuildings.owlCarousel({
-		dots:       true,
-		items:      4,
-		loop:       true,
-		margin:     20,
-		nav:        true,
-		navText:    ['<span>назад</span>', '<span>далее</span>'],
-		slideBy:    4,
-		onInitialized: function () {
-			dotNumbers()
-		},
-		onResized: function () {
-			dotNumbers()
-		},
-		onRefreshed: function () {
-			dotNumbers()
-		},
-		responsive: {
-			0: {
-				items:      1,
-				slideBy:    1,
-			},
-			600: {
-				items:      2,
-				slideBy:    2,
-			},
-			900: {
-				items:      3,
-				slideBy:    3,
-			},
-			1200: {
-				items:      4,
-				slideBy:    4,
+		// slide next|prev with arrows on keyboard
+		document.addEventListener('keydown', function(e) {
+			switch (e.keyCode) {
+				case 37:
+					$owl.trigger('prev.owl.carousel');
+					break
+				case 39:
+					$owl.trigger('next.owl.carousel');
+					break
 			}
-		}
-	})
+		})
 
-	// slide next|prev with arrows on keyboard
-	document.addEventListener('keydown', function(e) {
-		switch (e.keyCode) {
-			case 37:
-				$owl.trigger('prev.owl.carousel');
-				break
-			case 39:
-				$owl.trigger('next.owl.carousel');
-				break
-		}
-	})
+		// carousel
+		$owl.owlCarousel({
+			dots:       false,
+			items:      1,
+			loop:       true,
+			nav:        true,
+			navText:    ['', '']
+		})
+	}
 
-	$owlAuto.owlCarousel({
-		autoplay:           true,
-		autoplayHoverPause: true,
-		autoplayTimeout:    4000,
-		dots:               false,
-		items:              1,
-		loop:               true,
-		nav:                true,
-		navText:            ['', '']
-	})
+	owlCarouselDefault()
+	// owl carousel default [END]
 
+
+
+	// owl carousel auto [START]
+	const owlCarouselAuto = () => {
+		if ($owlAuto.length < 1) return
+
+		$owlAuto.owlCarousel({
+			autoplay:           true,
+			autoplayHoverPause: true,
+			autoplayTimeout:    4000,
+			dots:               false,
+			items:              1,
+			loop:               true,
+			nav:                true,
+			navText:            ['', '']
+		})
+	}
+
+	owlCarouselAuto()
+	// owl carousel auto [END]
+
+
+
+	// owl carousel buildings [START]
+	const buildingsCarousel = () => {
+		if ($owlBuildings.length < 1) return
+
+		$owlBuildings.owlCarousel({
+			dots:       true,
+			items:      4,
+			loop:       true,
+			margin:     20,
+			nav:        true,
+			navText:    ['<span>назад</span>', '<span>далее</span>'],
+			slideBy:    4,
+			onInitialized: function () {
+				dotNumbers()
+			},
+			onResized: function () {
+				dotNumbers()
+			},
+			onRefreshed: function () {
+				dotNumbers()
+			},
+			responsive: {
+				0: {
+					items:      1,
+					slideBy:    1,
+				},
+				600: {
+					items:      2,
+					slideBy:    2,
+				},
+				900: {
+					items:      3,
+					slideBy:    3,
+				},
+				1200: {
+					items:      4,
+					slideBy:    4,
+				}
+			}
+		})
+	}
+
+	buildingsCarousel()
+	// owl carousel buildings [END]
+
+
+
+	// owl carousel projects [START]
 	const projectsGallery = () => {
 		const $projectsGallery = $('.js-projects-gallery')
 
@@ -119,6 +153,9 @@ $(document).ready(function() {
 	}
 
 	projectsGallery()
+	// owl carousel projects [END]
+
+
 
 	// go to selected slide
 	$('.js-go-to-slide').click(function () {
