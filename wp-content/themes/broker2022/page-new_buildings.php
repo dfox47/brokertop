@@ -26,29 +26,39 @@ $dumm = '/wp-content/themes/broker2022/i/dumm.png'; ?>
 				while ($loop->have_posts()) : $loop->the_post();
 					global $product;
 
+					$id             = $loop->post->ID;
 					$desc           = $product->get_short_description();
 					$descNoImg      = preg_replace('/(<)([img])(\w+)([^>]*>)/', '', $desc);
-					$image          = get_the_post_thumbnail($loop->post->ID, 'large');
+					$image          = get_the_post_thumbnail($id, 'large');
 					$index          = 1;
-					$link           = get_permalink($loop->post->ID);
+					$link           = get_permalink($id);
 					$attributes     = $product->get_attributes();
 
-					$realtorPhone   = $product->get_attribute('pa_telefon-rieltora');
+					$realtorPhone   = preg_replace('/\D/', '', $product->get_attribute('pa_telefon-rieltora'));
+					$pdfLink        = $product->get_attribute('pa_ssylka-na-prezentacziyu') ?: '/ajax_presentation.php?id=' . $id;
 
 					preg_match('@src="([^"]+)"@', $desc, $match);
 					$logoLink       = array_pop($match);
 					?>
 
 					<div class="new_building_list__item">
-						<a class="new_building_list__link" href="<?= $link; ?>">
-							<span class="new_building_list__img">
-								<?php if ($image) echo $image; ?>
-							</span>
+						<div class="new_building_list__link">
+							<span class="new_building_list__img"><?php if ($image) echo $image; ?></span>
 
 							<span class="new_building_list__logo"><img class="js-img-scroll" src="<?= $dumm; ?>" data-src="<?= $logoLink; ?>" alt=""></span>
 
-							<span class="new_building_list__desc"><?= $descNoImg; ?></span>
-						</a>
+							<span class="new_building_list__desc">
+								<?= $descNoImg; ?>
+
+								<span class="new_building_links">
+									<a class="new_building_links__item new_building__presentation" href="<?= $pdfLink; ?>" target="_blank"></a>
+
+									<a class="new_building_links__item social_list__icon social_list__icon--whatsapp" href="//wa.me/<?= $realtorPhone; ?>" target="_blank" rel="noopener" title="whatsapp"></a>
+
+									<a class="new_building_links__item social_list__icon social_list__icon--telegram" href="//t.me/top_broker_estate" target="_blank" rel="noopener" title="telegram"></a>
+								</span>
+							</span>
+						</div>
 					</div>
 
 					<?php $index++; ?>

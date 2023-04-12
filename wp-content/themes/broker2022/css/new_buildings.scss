@@ -1,3 +1,12 @@
+.new_building {
+	&__presentation {
+		background: url(#{$icons}/download.svg) 0 0 no-repeat scroll transparent;
+		background-size: cover;
+		height: 35px;
+		width: 27px;
+	}
+}
+
 .new_building_list {
 	display: grid;
 	grid-gap: 24px;
@@ -167,6 +176,17 @@
 			left: 0;
 			right: auto;
 		}
+	}
+}
+
+.new_building_links {
+	display: flex;
+	justify-content: center;
+	margin: 50px 0 30px;
+	width: 100%;
+
+	&__item {
+		margin: 0 16px;
 	}
 }
 
