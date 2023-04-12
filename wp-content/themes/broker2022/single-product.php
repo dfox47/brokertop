@@ -69,7 +69,7 @@ $brokerImgUrl = $match[0][0];
 						<?php // Тип квартиры
 						if ($objectType) { ?>
 							<div class="product_info__item product_info__item--full-width-mobile">
-								<div class="product_info__title"><?php echo wc_attribute_label('pa_tip-nedvizhimosti'); ?></div>
+								<div class="product_info__title"><?= wc_attribute_label('pa_tip-nedvizhimosti'); ?></div>
 
 								<div class="product_info__value">
 									<?php if ($objectType == 'flat_and_room') { ?>
@@ -91,7 +91,7 @@ $brokerImgUrl = $match[0][0];
 						<?php // Количество комнат
 						if ($objectRooms) { ?>
 							<div class="product_info__item product_info__item--cols">
-								<div class="product_info__value product_info__value--xl"><?php echo $objectRooms; ?></div>
+								<div class="product_info__value product_info__value--xl"><?= $objectRooms; ?></div>
 								<div class="product_info__title">Количество<br />комнат</div>
 							</div>
 						<?php } ?>
@@ -99,12 +99,12 @@ $brokerImgUrl = $match[0][0];
 						<?php // Этаж
 						if ($objectFloor) { ?>
 							<div class="product_info__item product_info__item--cols">
-								<div class="product_info__value product_info__value--xl"><?php echo $objectFloor; ?></div>
+								<div class="product_info__value product_info__value--xl"><?= $objectFloor; ?></div>
 
 								<?php // Этажность
 								if ($objectFloorTotal) { ?>
 									<div class="product_info_floor">
-										<div class="product_info_floor__from">/ <?php echo $objectFloorTotal; ?></div>
+										<div class="product_info_floor__from">/ <?= $objectFloorTotal; ?></div>
 										<div class="product_info__title">Этажность</div>
 									</div>
 								<?php } ?>

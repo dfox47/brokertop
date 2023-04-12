@@ -31,6 +31,9 @@ $dumm = '/wp-content/themes/broker2022/i/dumm.png'; ?>
 					$image          = get_the_post_thumbnail($loop->post->ID, 'large');
 					$index          = 1;
 					$link           = get_permalink($loop->post->ID);
+					$attributes     = $product->get_attributes();
+
+					$realtorPhone   = $product->get_attribute('pa_telefon-rieltora');
 
 					preg_match('@src="([^"]+)"@', $desc, $match);
 					$logoLink       = array_pop($match);
