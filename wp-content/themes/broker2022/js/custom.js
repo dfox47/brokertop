@@ -19,9 +19,7 @@ $(document).ready(function() {
 	})
 
 	// delete [START]
-	if (window.location.pathname !== '/dubaj/') return
-
-	$('.js-popup[data-popup="feedback-6847"]').addClass('active')
+	// $('.js-popup[data-popup="feedback-6847"]').addClass('active')
 	// delete [END]
 })
 
