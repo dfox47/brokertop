@@ -78,12 +78,10 @@ $dumm = '/wp-content/themes/broker2022/i/dumm.png'; ?>
 			<?php } ?>
 
 			<?php wp_reset_query(); ?>
-		</div>
 	</div>
 </div>
 
 <?php // content
 the_content(); ?>
-	</div>
 
 <?php get_footer(); ?>
