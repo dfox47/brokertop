@@ -178,7 +178,8 @@
 		font-family: $font_arsenica;
 		font-size: 96px;
 		letter-spacing: -.04em;
-		line-height: 1.2;
+		line-height: 0.8;
+		margin: 0 0 10px;
 		max-width: 850px;
 
 		@media #{$tablet} {
@@ -685,6 +686,11 @@
 				@media #{$mobile} {
 					padding: 0;
 				}
+			}
+
+			&__desc {
+				font-size: 16px;
+				max-width: 800px;
 			}
 		}
 
