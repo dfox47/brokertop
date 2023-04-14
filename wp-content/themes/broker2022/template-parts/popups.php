@@ -69,7 +69,7 @@
 </div>
 
 <?php // welcome popup
-if (is_front_page()) {
+if (is_front_page() && 1 > 2) {
 	$welcome = "/wp-content/themes/broker2022/i/welcome"; ?>
 
 	<div class="welcome_preload js-welcome-preload">
