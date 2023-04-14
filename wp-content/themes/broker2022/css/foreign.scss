@@ -1,5 +1,45 @@
 .foreign_desc {
 	background: url(#{$i}/foreign/bg.png) left bottom no-repeat scroll $c_menu_bg;
 	color: #fff;
+	font-size: 18px;
 	margin: 0 0 -30px;
+
+	h2 {
+		color: #fff;
+		font-family: $font_montserrat;
+		font-size: 32px;
+		font-weight: 600;
+		line-height: 1.2;
+		max-width: 500px;
+	}
+
+	ol {
+		display: grid;
+		grid-gap: 30px;
+		grid-template-columns: repeat(2, 1fr);
+
+		&::marker {
+			color: $c_main;
+			display: block;
+			font-size: 96px;
+			line-height: 2;
+		}
+	}
+
+	> .wp-block-group__inner-container {
+		margin: 0 auto;
+		max-width: 1200px;
+		padding: 35px 30px;
+		width: 100%;
+	}
+}
+
+.foreign_desc_top {
+	h2 {
+		margin: 50px 0 0;
+	}
+
+	> .wp-block-group__inner-container {
+		display: flex;
+	}
 }
