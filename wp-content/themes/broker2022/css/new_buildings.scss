@@ -47,8 +47,11 @@
 		margin: 0 0 24px;
 		overflow: hidden;
 		position: relative;
+		transition: $transition;
 
 		&:hover {
+			filter: drop-shadow(0 8px 10px rgba(#000, .25));
+
 			.new_building_list {
 				&__desc {
 					bottom: 0;
