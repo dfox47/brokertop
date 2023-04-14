@@ -11,7 +11,7 @@
 	display: grid;
 	grid-gap: 24px;
 	grid-template-columns: repeat(4, 1fr);
-	margin: 54px 0;
+	padding: 54px 0 24px;
 
 	&__desc {
 		background-color: #fff;
@@ -98,7 +98,7 @@
 	}
 
 	.owl-dots {
-		bottom: 0;
+		bottom: 24px;
 		display: flex;
 		justify-content: center;
 		left: 50%;
