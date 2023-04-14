@@ -25,6 +25,9 @@ else if ($currentUrl == '/kontakty/') {
 else if ($currentUrl == '/novostrojki/') {
 	$pageType = ' hero_block_wrap--new_buildings';
 }
+else if ($currentUrl == '/dubaj/') {
+	$pageType = ' hero_block_wrap--foreign';
+}
 else if ($currentUrl == '/o-kompanii/') {
 	$pageType = ' hero_block_wrap--about';
 } ?>
@@ -100,6 +103,9 @@ else if ($currentUrl == '/o-kompanii/') {
 		}
 		elseif ($currentUrl == '/novostrojki/') {
 			include_once "new_buildings.php";
+		}
+		elseif ($currentUrl == '/dubaj/') {
+			include_once "foreign.php";
 		} ?>
 	</div>
 </div>

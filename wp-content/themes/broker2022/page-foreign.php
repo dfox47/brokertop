@@ -11,10 +11,9 @@ $dumm = '/wp-content/themes/broker2022/i/dumm.png'; ?>
 <?php get_header(); ?>
 
 	<div class="wrap_bg">
-		<div class="wrap">
-			<?php // content
-			the_content(); ?>
+		<h1>Жилые комплексы</h1>
 
+		<div class="wrap">
 			<div class="new_building_list owl-carousel js-owl-buildings">
 				<div class="new_building_list__group">
 					<?php
@@ -78,6 +77,9 @@ $dumm = '/wp-content/themes/broker2022/i/dumm.png'; ?>
 				</div>
 			</div>
 		</div>
+
+		<?php // content
+		the_content(); ?>
 	</div>
 
 <?php get_footer(); ?>

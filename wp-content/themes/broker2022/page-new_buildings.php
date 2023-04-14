@@ -10,6 +10,7 @@ $dumm = '/wp-content/themes/broker2022/i/dumm.png'; ?>
 
 <?php get_header(); ?>
 
+<div class="wrap_bg">
 	<h1>Жилые комплексы</h1>
 
 	<div class="wrap">
@@ -76,6 +77,7 @@ $dumm = '/wp-content/themes/broker2022/i/dumm.png'; ?>
 			</div>
 		</div>
 	</div>
+</div>
 
 <?php // content
 the_content(); ?>
