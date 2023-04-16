@@ -80,6 +80,8 @@
 	// animation | step 2
 	&.welcome_part_2 {
 		.welcome {
+			opacity: 0;
+
 			.logo {
 				opacity: 0;
 				transition-delay: 0s;
@@ -119,7 +121,7 @@
 		}
 
 		.welcome_copyright {
-			bottom: -100px;
+			opacity: 0;
 			transition-delay: .5s;
 		}
 
@@ -130,25 +132,28 @@
 			}
 
 			&__row {
-				clip-path: polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%);
-				transition-delay: .3s;
+				opacity: 0;
+				transition-delay: 0s;
 			}
 		}
 
 		.welcome_slogan_en {
 			&::after {
 				opacity: 0;
-				transition-delay: .6s;
+				transition-delay: .5s;
 			}
 
 			&__row {
-				clip-path: polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%);
-				transition-delay: .9s;
+				opacity: 0;
+				transition-delay: 0s;
 			}
 		}
 	}
 
 	.welcome {
+		transition: all 4s ease-in-out;
+		transition-delay: 1s;
+
 		&__bg {
 			opacity: .55;
 		}

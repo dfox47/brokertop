@@ -13,18 +13,18 @@ const welcomeAnimation = () => {
 
 		// animation part 2
 		setTimeout(() => {
-			// $html.classList.add('welcome_part_2')
+			$html.classList.add('welcome_part_2')
 
 			document.querySelector('.js-welcome-preload').remove()
-		}, 6000)
+		}, 5000)
 
 		// animation part 3 | hide & remove
 		setTimeout(() => {
-			// $html.classList.remove('welcome_active')
-			// $html.classList.remove('welcome_part_2')
+			$html.classList.remove('welcome_active')
+			$html.classList.remove('welcome_part_2')
 
-			// document.querySelector('.js-welcome').remove()
-		}, 9000)
+			document.querySelector('.js-welcome').remove()
+		}, 8500)
 	})
 }
 
