@@ -23,7 +23,7 @@ $(document).ready(function() {
 	// delete [END]
 })
 
-// insert after hack
+// insert after | hack
 let insertAfter = (newNode, existingNode) => {
 	existingNode.parentNode.insertBefore(newNode, existingNode.nextSibling)
 }
