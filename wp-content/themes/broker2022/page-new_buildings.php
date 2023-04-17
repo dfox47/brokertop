@@ -32,7 +32,7 @@ $dumm = '/wp-content/themes/broker2022/i/dumm.png'; ?>
 				$image          = get_the_post_thumbnail($id, 'large');
 				$link           = get_permalink($id);
 				$attributes     = $product->get_attributes();
-				$realtorPhone   = preg_replace('/\D/', '', $product->get_attribute('pa_telefon-rieltora'));
+				$realtorPhone   = $product->get_attribute('pa_telefon-rieltora') ? preg_replace('/\D/', '', $product->get_attribute('pa_telefon-rieltora')) : '79778021616';
 				$pdfLink        = $product->get_attribute('pa_ssylka-na-prezentacziyu') ?: '/ajax_presentation.php?id=' . $id;
 
 				preg_match('@src="([^"]+)"@', $desc, $match);
