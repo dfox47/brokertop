@@ -23,6 +23,20 @@ $popupShow.forEach((button) => {
 					if ($popupContentToPut == null) return
 
 					$popupContent.innerHTML = $popupContentToPut.innerHTML
+
+					let $owlCarouselPopup = $('.js-popup-owl-carousel')
+
+					if ($owlCarouselPopup.length > 0) {
+						$(document).ready(function() {
+							$owlCarouselPopup.owlCarousel({
+								dots:       false,
+								items:      1,
+								loop:       true,
+								nav:        true,
+								navText:    ['', '']
+							})
+						})
+					}
 				}
 
 				return
