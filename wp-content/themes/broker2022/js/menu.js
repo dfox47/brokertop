@@ -1,14 +1,14 @@
 // menu.js [START]
-let $menuItem153    = document.querySelector('.menu-item-7623 a')
 let $menuItem154    = document.querySelector('.menu-item-154 a')
+let $menuItem7623   = document.querySelector('.menu-item-7623 a')
 
-if ($menuItem153) {
-	$menuItem153.addEventListener('click', (e) => {
+if ($menuItem7623) {
+	$menuItem7623.addEventListener('click', (e) => {
 		e.preventDefault()
 
 		// remove old tip
 		menuTipRemove()
-		menuTipCreate($menuItem153)
+		menuTipCreate($menuItem7623)
 	})
 }
 
