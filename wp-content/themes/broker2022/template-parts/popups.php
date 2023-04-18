@@ -81,7 +81,7 @@
 	</div>
 </div>
 
-<div class="popup popup--content js-popup" data-popup="content">
+<div class="popup popup--content js-popup" data-popup="with_content">
 	<div class="popup__bg js-popup-close"></div>
 
 	<div class="popup__content">
