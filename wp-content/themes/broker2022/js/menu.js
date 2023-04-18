@@ -1,7 +1,6 @@
-
 // menu.js [START]
-let $menuItem153        = document.querySelector('.menu-item-153 a')
-let $menuItem154        = document.querySelector('.menu-item-154 a')
+let $menuItem153    = document.querySelector('.menu-item-153 a')
+let $menuItem154    = document.querySelector('.menu-item-154 a')
 
 $menuItem153.addEventListener('click', (e) => {
 	e.preventDefault()
