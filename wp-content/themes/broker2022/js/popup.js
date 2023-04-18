@@ -24,7 +24,7 @@ $popupShow.forEach((button) => {
 
 					$popupContent.innerHTML = $popupContentToPut.innerHTML
 
-					let $owlCarouselPopup = $('.js-popup-owl-carousel')
+					let $owlCarouselPopup = $('.js-popup-content').find('.js-popup-owl-carousel')
 
 					if ($owlCarouselPopup.length > 0) {
 						$(document).ready(function() {
