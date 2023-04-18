@@ -1,22 +1,26 @@
 // menu.js [START]
-let $menuItem153    = document.querySelector('.menu-item-153 a')
+let $menuItem153    = document.querySelector('.menu-item-7623 a')
 let $menuItem154    = document.querySelector('.menu-item-154 a')
 
-$menuItem153.addEventListener('click', (e) => {
-	e.preventDefault()
+if ($menuItem153) {
+	$menuItem153.addEventListener('click', (e) => {
+		e.preventDefault()
 
-	// remove old tip
-	menuTipRemove()
-	menuTipCreate($menuItem153)
-})
+		// remove old tip
+		menuTipRemove()
+		menuTipCreate($menuItem153)
+	})
+}
 
-$menuItem154.addEventListener('click', (e) => {
-	e.preventDefault()
+if ($menuItem154) {
+	$menuItem154.addEventListener('click', (e) => {
+		e.preventDefault()
 
-	// remove old tip
-	menuTipRemove()
-	menuTipCreate($menuItem154)
-})
+		// remove old tip
+		menuTipRemove()
+		menuTipCreate($menuItem154)
+	})
+}
 
 document.querySelectorAll('.js-menu-item-disabled').forEach((menuItem) => {
 	menuItem.addEventListener('click', (event) => {
