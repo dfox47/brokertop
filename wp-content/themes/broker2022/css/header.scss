@@ -28,8 +28,7 @@
 	text-align: center;
 	text-transform: uppercase;
 
-	a,
-	a:visited {
+	a {
 		color: #fff;
 		position: relative;
 		text-decoration: none;
@@ -105,9 +104,9 @@
 		}
 
 		&.menu-item-153,
-		&.menu-item-154 {
-			a,
-			a:visited {
+		&.menu-item-154,
+		&.menu-item-7623 {
+			a {
 				opacity: .5;
 			}
 		}
