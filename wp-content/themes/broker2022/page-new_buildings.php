@@ -49,7 +49,34 @@ $dumm = '/wp-content/themes/broker2022/i/dumm.png'; ?>
 							<span class="new_building_list__logo"><img class="js-img-scroll" src="<?= $dumm; ?>" data-src="<?= $logoLink; ?>" alt=""></span>
 
 							<span class="new_building_list__desc">
-							<?= $descNoImg; ?>
+								<?= $descNoImg; ?>
+
+								<span class="new_building_links">
+									<?php if ($pdfLink) { ?>
+										<a class="new_building_links__item new_building__presentation" href="<?= $pdfLink; ?>" target="_blank"></a>
+									<?php } ?>
+
+									<?php if ($realtorPhone) { ?>
+										<a class="new_building_links__item social_list__icon social_list__icon--whatsapp" href="//wa.me/<?= $realtorPhone; ?>" target="_blank" rel="noopener" title="whatsapp"></a>
+									<?php }  ?>
+
+									<a class="new_building_links__item social_list__icon social_list__icon--telegram" href="//t.me/top_broker_estate" target="_blank" rel="noopener" title="telegram"></a>
+								</span>
+							</span>
+						</div>
+
+						<div class="hidden js-popup-content-put">
+							<div class="product_slider">
+								<div class="owl-carousel js-popup-owl-carousel">
+									<?php // gallery images
+									foreach ($galleryImages as $galleryImage) {
+										// thumbnail | medium | large | full
+										$imageLink = str_replace('https://' . $_SERVER['SERVER_NAME'], '', wp_get_attachment_url($galleryImage)); ?>
+
+										<img class="product_slider__img js-img-lazy" src="<?= $dumm; ?>" data-src="<?= $imageLink; ?>" alt="" />
+									<?php } ?>
+								</div>
+							</div>
 
 							<span class="new_building_links">
 								<?php if ($pdfLink) { ?>
@@ -62,21 +89,6 @@ $dumm = '/wp-content/themes/broker2022/i/dumm.png'; ?>
 
 								<a class="new_building_links__item social_list__icon social_list__icon--telegram" href="//t.me/top_broker_estate" target="_blank" rel="noopener" title="telegram"></a>
 							</span>
-						</span>
-						</div>
-
-						<div class="hidden js-popup-content-put">
-							<div class="product_slider">
-								<div class="owl-carouselX js-owl-carouselX">
-									<?php // gallery images
-									foreach ($galleryImages as $galleryImage) {
-										// thumbnail | medium | large | full
-										$imageLink = str_replace('https://' . $_SERVER['SERVER_NAME'], '', wp_get_attachment_url($galleryImage)); ?>
-
-										<img class="product_slider__img js-img-lazy" src="<?= $dumm; ?>" data-src="<?= $imageLink; ?>" alt="" />
-									<?php } ?>
-								</div>
-							</div>
 						</div>
 					</div>
 
