@@ -68,6 +68,19 @@
 	</div>
 </div>
 
+<!-- Не нашли что искали? -->
+<div class="popup popup--welcome js-popup" data-popup="feedback-7237">
+	<div class="popup__bg js-popup-close"></div>
+
+	<div class="popup__content">
+		<div class="popup__close js-popup-close"></div>
+
+		<div class="contacts_form">
+			<?php echo do_shortcode('[contact-form-7 id="7237"]'); ?>
+		</div>
+	</div>
+</div>
+
 <?php // welcome popup
 //if (is_front_page()) {
 if ($_SERVER['REQUEST_URI'] == '/test/') {

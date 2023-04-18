@@ -1,6 +1,6 @@
 .look_form {
 	h2 {
-		color: $c_text;
+		//color: $c_text;
 		font-family: $font_montserrat;
 		font-size: 48px;
 		font-weight: 600;
@@ -35,11 +35,11 @@
 	}
 
 	.btn_submit {
-		color: $c_text;
+		//color: $c_text;
 		letter-spacing: .03em;
 		margin: 40px 0 0;
 		max-width: none;
-		white-space: nowrap;
+		//white-space: nowrap;
 
 		&__title {
 			max-width: none;
@@ -63,7 +63,7 @@
 		}
 
 		&__label_title {
-			color: rgba($c_text, .8);
+			//color: rgba($c_text, .8);
 			top: -5px;
 		}
 	}
