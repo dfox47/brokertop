@@ -296,7 +296,7 @@ $brokerImgUrl = $match[0][0];
 					// thumbnail | medium | large | full
 					$image_link = str_replace('https://' . $_SERVER['SERVER_NAME'], '', wp_get_attachment_image_url($gallery_image, 'large')); ?>
 
-					<img class="product_slider__img js-img-lazy" src="<?php echo $dumm; ?>" data-src="<?php echo $image_link; ?>" alt="" />
+					<img class="product_slider__img js-img-lazy" src="<?= $dumm; ?>" data-src="<?= $image_link; ?>" alt="" />
 				<?php } ?>
 			</div>
 		</div>
