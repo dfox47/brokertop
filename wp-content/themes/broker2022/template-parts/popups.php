@@ -73,30 +73,18 @@
 if ($_SERVER['REQUEST_URI'] == '/test/') {
 	$welcome = "/wp-content/themes/broker2022/i/welcome"; ?>
 
-	<div class="welcome_preload js-welcome-preload">
-		<span></span>
-		<span></span>
-		<span></span>
-	</div>
+	<div class="welcome_preload js-welcome-preload"><span></span><span></span><span></span></div>
 
 	<div class="welcome js-welcome">
 		<div class="welcome__bg"></div>
 
-		<div class="welcome_animation welcome_animation__1">
-			<img src="<?= $welcome; ?>/1.png" alt="">
-		</div>
+		<div class="welcome_animation welcome_animation__1"><img src="<?= $welcome; ?>/1.png" alt=""></div>
 
-		<div class="welcome_animation welcome_animation__2">
-			<img src="<?= $welcome; ?>/2.png" alt="">
-		</div>
+		<div class="welcome_animation welcome_animation__2"><img src="<?= $welcome; ?>/2.png" alt=""></div>
 
-		<div class="welcome_animation welcome_animation__3">
-			<img src="<?= $welcome; ?>/3.png" alt="">
-		</div>
+		<div class="welcome_animation welcome_animation__3"><img src="<?= $welcome; ?>/3.png" alt=""></div>
 
-		<div class="welcome_animation welcome_animation__4">
-			<img src="<?= $welcome; ?>/4.png" alt="">
-		</div>
+		<div class="welcome_animation welcome_animation__4"><img src="<?= $welcome; ?>/4.png" alt=""></div>
 
 		<div class="welcome__content">
 			<span class="logo"></span>
