@@ -25,7 +25,6 @@ window.addEventListener('scroll', function() {
 
 document.addEventListener('DOMContentLoaded', function() {
 	document.querySelectorAll('.js-img-lazy').forEach((e) => {
-		e.classList.remove('js-img-lazy')
 		e.src = e.dataset.src
 	})
 })
