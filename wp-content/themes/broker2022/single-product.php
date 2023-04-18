@@ -270,11 +270,11 @@ $brokerImgUrl = $match[0][0];
 		<?php // gallery images
 		foreach ($gallery_images as $key=>$gallery_image) {
 			// thumbnail | medium | large | full
-			$image_link = str_replace('https://' . $_SERVER['SERVER_NAME'], '', wp_get_attachment_image_url($gallery_image, 'large')); ?>
+			$image_link = str_replace('https://' . $_SERVER['SERVER_NAME'], '', wp_get_attachment_image_url($gallery_image, 'medium')); ?>
 
 			<li class="product_gallery__item">
 				<a class="product_gallery__link js-popup-show js-go-to-slide" href="javascript:void(0);" data-popup="product_gallery" data-slide="<?php echo $key; ?>">
-					<img class="product_gallery__img js-img-scroll" src="<?php echo $dumm; ?>" data-src="<?php echo $image_link; ?>" alt="" />
+					<img class="product_gallery__img js-img-lazy" src="<?php echo $dumm; ?>" data-src="<?php echo $image_link; ?>" alt="" />
 				</a>
 			</li>
 		<?php } ?>
