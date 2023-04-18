@@ -154,8 +154,11 @@
 			width: 100%;
 		}
 
-		.popup__content {
-			background-color: $c_menu_bg;;
+		.popup {
+			&__content {
+				background-color: $c_menu_bg;;
+				height: auto;
+			}
 		}
 	}
 
