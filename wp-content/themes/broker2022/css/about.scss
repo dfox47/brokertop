@@ -108,6 +108,7 @@
 		&::before {
 			border: 18px solid $c_main;
 			content: "";
+			display: none;
 			height: 457px;
 			left: -53px;
 			position: absolute;
