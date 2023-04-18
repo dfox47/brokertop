@@ -81,6 +81,16 @@
 	</div>
 </div>
 
+<div class="popup popup--content js-popup" data-popup="content">
+	<div class="popup__bg js-popup-close"></div>
+
+	<div class="popup__content">
+		<div class="popup__close js-popup-close"></div>
+
+		<div class="js-popup-content"></div>
+	</div>
+</div>
+
 <?php // welcome popup
 //if (is_front_page()) {
 if ($_SERVER['REQUEST_URI'] == '/test/') {

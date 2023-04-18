@@ -29,9 +29,9 @@ $dumm = '/wp-content/themes/broker2022/i/dumm.png'; ?>
 				$id             = $loop->post->ID;
 				$desc           = $product->get_short_description();
 				$descNoImg      = preg_replace('/(<)([img])(\w+)([^>]*>)/', '', $desc);
+				$galleryImages  = $product->get_gallery_image_ids();
 				$image          = get_the_post_thumbnail($id, 'large');
 				$link           = get_permalink($id);
-				$attributes     = $product->get_attributes();
 				$realtorPhone   = $product->get_attribute('pa_telefon-rieltora') ? preg_replace('/\D/', '', $product->get_attribute('pa_telefon-rieltora')) : '79778021616';
 				$pdfLink        = $product->get_attribute('pa_ssylka-na-prezentacziyu') ?: '/ajax_presentation.php?id=' . $id;
 
@@ -83,7 +83,27 @@ $dumm = '/wp-content/themes/broker2022/i/dumm.png'; ?>
 </div>
 </div>
 
-<?php // content
-the_content(); ?>
+<?php the_content(); ?>
+
+<?php // popup gallery ?>
+<div class="popup popup--product js-popup" data-popup="product_gallery">
+	<div class="popup__bg js-popup-close"></div>
+
+	<div class="popup__content">
+		<div class="popup__close js-popup-close"></div>
+
+		<div class="product_slider">
+			<div class="owl-carousel js-owl-carousel">
+				<?php // gallery images
+				foreach ($gallery_images as $gallery_image) {
+					// thumbnail | medium | large | full
+					$image_link = str_replace('https://' . $_SERVER['SERVER_NAME'], '', wp_get_attachment_image_url($gallery_image, 'large')); ?>
+
+					<img class="product_slider__img js-img-lazy" src="<?php echo $dumm; ?>" data-src="<?php echo $image_link; ?>" alt="" />
+				<?php } ?>
+			</div>
+		</div>
+	</div>
+</div>
 
 <?php get_footer(); ?>
