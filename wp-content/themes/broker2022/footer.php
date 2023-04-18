@@ -1,7 +1,7 @@
-
 <?php
-$i          = esc_url(get_template_directory_uri()) . '/i';
 $currentUrl = $_SERVER['REQUEST_URI'];
+$dumm       = '/wp-content/themes/broker2022/i/dumm.png';
+$i          = esc_url(get_template_directory_uri()) . '/i';
 $whatsapp   = esc_attr(get_option('broker_whatsapp'));
 ?>
 
@@ -51,7 +51,7 @@ $whatsapp   = esc_attr(get_option('broker_whatsapp'));
 </footer>
 
 <?php if ($whatsapp) { ?>
-	<a class="whatsapp_link" href="//wa.me/<?php echo $whatsapp; ?>" target="_blank"><img class="whatsapp_link__img" src="<?php echo $i . '/icons/whatsapp_green.svg'; ?>" alt="whatsapp" /></a>
+	<a class="whatsapp_link" href="//wa.me/<?php echo $whatsapp; ?>" target="_blank"><img class="whatsapp_link__img js-img-scroll" src="<?php echo $dumm; ?>" data-src="<?php echo $i . '/icons/whatsapp_green.svg'; ?>" alt="whatsapp" /></a>
 <?php } ?>
 
 <?php // popup
