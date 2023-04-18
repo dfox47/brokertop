@@ -25,6 +25,12 @@
 		z-index: 1;
 	}
 
+	.btn_submit {
+		&__title {
+			max-width: none;
+		}
+	}
+
 	&--feedback {
 		h2 {
 			text-align: center;
