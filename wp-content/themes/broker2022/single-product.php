@@ -199,9 +199,7 @@ $brokerImgUrl = $match[0][0];
 			</div>
 
 			<div class="product_attr_list">
-				<?php if (!$attributes) {
-					return;
-				}
+				<?php if (!$attributes) return;
 
 				$display_result = '';
 
@@ -268,7 +266,7 @@ $brokerImgUrl = $match[0][0];
 
 	<ul class="product_gallery">
 		<?php // gallery images
-		foreach ($gallery_images as $key=>$gallery_image) {
+		foreach ($gallery_images as $key => $gallery_image) {
 			// thumbnail | medium | large | full
 			$image_link = str_replace('https://' . $_SERVER['SERVER_NAME'], '', wp_get_attachment_image_url($gallery_image, 'medium')); ?>
 
