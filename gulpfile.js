@@ -16,6 +16,7 @@ const port          = config.port
 const user          = config.user
 
 const remoteTheme           = '/www/brokertop.ru/wp-content/themes/broker2022/'
+const remoteContact7        = '/www/brokertop.ru/wp-content/plugins/contact-form-7/includes/css/'
 const remoteCss             = remoteTheme + 'css/'
 const remoteJs              = remoteTheme + 'js/'
 const remoteTemplateParts   = remoteTheme + 'template-parts/'
@@ -24,6 +25,7 @@ const remoteWCBuild         = '/www/brokertop.ru/wp-content/plugins/woocommerce/
 const remoteWCLibrary       = '/www/brokertop.ru/wp-includes/css/dist/block-library/'
 
 const localTheme            = 'wp-content/themes/broker2022/'
+const localContact7         = 'wp-content/plugins/contact-form-7/includes/css/'
 const localCss              = localTheme + 'css/'
 const localJs               = localTheme + 'js/'
 const localTemplateParts    = localTheme + 'template-parts/'
@@ -89,6 +91,11 @@ gulp.task('copy_css_wc_vendors', function () {
 		.pipe(conn.dest(remoteWCBuild))
 })
 
+gulp.task('copy_css_contact_form_7', function () {
+	return gulp.src(localContact7 + 'styles.css')
+		.pipe(conn.dest(remoteContact7))
+})
+
 gulp.task('copy_html', function () {
 	return gulp.src(localTheme + '*.php')
 		.pipe(conn.dest(remoteTheme))
@@ -125,6 +132,7 @@ gulp.task('js', function () {
 
 gulp.task('watch', function() {
 	gulp.watch('ajax_presentation.php',                         gulp.series('copy_ajax_pdf'))
+	gulp.watch(localContact7 + 'styles.css',                    gulp.series('copy_css_contact_form_7'))
 	gulp.watch(localCss + '**/*',                               gulp.series('css', 'copy_css'))
 	gulp.watch(localJs + '**/*.js',                             gulp.series('js', 'copy_js'))
 	gulp.watch(localTemplateParts + '**/*',                     gulp.series('copy_template_parts'))
