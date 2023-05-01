@@ -4087,7 +4087,6 @@ html[dir=rtl] .wc-block-components-pagination-page--arrow span {
 .wc-block-components-review-list-item__image>img {
 	display: block;
 	max-height: 100%;
-	-o-object-fit: contain;
 	object-fit: contain
 }
 
@@ -4980,7 +4979,7 @@ html[dir=rtl] .wc-block-components-pagination-page--arrow span {
 
 .wp-block-woocommerce-cart .wp-block-woocommerce-cart-cross-sells-block .cross-sells-product .wc-block-components-product-add-to-cart .wc-block-components-product-add-to-cart-button:not(.is-link):focus,
 .wp-block-woocommerce-cart .wp-block-woocommerce-cart-cross-sells-block .cross-sells-product .wc-block-components-product-add-to-cart .wc-block-components-product-add-to-cart-button:not(.is-link):hover {
-	background-color: #d5d5d5;
+	background-color: #d5d5d4;
 	border-color: #d5d5d5;
 	color: #333
 }
@@ -5733,10 +5732,10 @@ html[dir=rtl] .wc-block-components-pagination-page--arrow span {
 }
 
 .wp-block-woocommerce-featured-category {
-	background-color: transparent;
+	background-color: rgba(0,0,0, .01);
 	border-color: transparent;
 	box-sizing: border-box;
-	color: #fff
+	color: #fff;
 }
 
 .wc-block-featured-category {
@@ -5941,7 +5940,7 @@ html[dir=rtl] .wc-block-components-pagination-page--arrow span {
 }
 
 .wp-block-woocommerce-featured-product {
-	background-color: transparent;
+	background-color: rgba(0,0,0, .01);
 	border-color: transparent;
 	box-sizing: border-box;
 	color: #fff
