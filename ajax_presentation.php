@@ -29,8 +29,8 @@ $productAttrNotShow = [
 	'pa_vsego-etazhej'
 ];
 
-$attachment_ids             = $product->get_gallery_attachment_ids();
-$broker_name                = isset($attributes['pa_imya-rieltora']) ? $product->get_attribute('pa_imya-rieltora') : 'TOPBROKER';
+$attachment_ids     = $product->get_gallery_attachment_ids();
+$broker_name        = isset($attributes['pa_imya-rieltora']) ? $product->get_attribute('pa_imya-rieltora') : 'TOPBROKER';
 
 // get broker image URL [START]
 $terms = get_terms('pa_imya-rieltora', array(
