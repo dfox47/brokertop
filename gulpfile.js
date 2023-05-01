@@ -64,6 +64,31 @@ gulp.task('copy_css', function () {
 		.pipe(conn.dest(remoteCss))
 })
 
+gulp.task('copy_css_wc_blocks', function () {
+	return gulp.src(localWCBuild + 'wc-blocks-style.css')
+		.pipe(conn.dest(remoteWCBuild))
+})
+
+gulp.task('copy_css_wc_default', function () {
+	return gulp.src(localWCAssets + 'woocommerce.css')
+		.pipe(conn.dest(remoteWCAssets))
+})
+
+gulp.task('copy_css_wc_layout', function () {
+	return gulp.src(localWCAssets + 'woocommerce-layout.css')
+		.pipe(conn.dest(remoteWCAssets))
+})
+
+gulp.task('copy_css_wc_library', function () {
+	return gulp.src(localWCLibrary + 'style.min.css')
+		.pipe(conn.dest(remoteWCLibrary))
+})
+
+gulp.task('copy_css_wc_vendors', function () {
+	return gulp.src(localWCBuild + 'wc-blocks-vendors-style.css')
+		.pipe(conn.dest(remoteWCBuild))
+})
+
 gulp.task('copy_html', function () {
 	return gulp.src(localTheme + '*.php')
 		.pipe(conn.dest(remoteTheme))
@@ -99,11 +124,16 @@ gulp.task('js', function () {
 })
 
 gulp.task('watch', function() {
-	gulp.watch('ajax_presentation.php',             gulp.series('copy_ajax_pdf'))
-	gulp.watch(localTheme + '*.php',               gulp.series('copy_html'))
-	gulp.watch(localCss + '**/*',             gulp.series('css', 'copy_css'))
-	gulp.watch(localJs + '**/*.js',           gulp.series('js', 'copy_js'))
-	gulp.watch(localTemplateParts + '**/*',   gulp.series('copy_template_parts'))
+	gulp.watch('ajax_presentation.php',                         gulp.series('copy_ajax_pdf'))
+	gulp.watch(localCss + '**/*',                               gulp.series('css', 'copy_css'))
+	gulp.watch(localJs + '**/*.js',                             gulp.series('js', 'copy_js'))
+	gulp.watch(localTemplateParts + '**/*',                     gulp.series('copy_template_parts'))
+	gulp.watch(localTheme + '*.php',                            gulp.series('copy_html'))
+	gulp.watch(localWCAssets + 'woocommerce-layout.css',        gulp.series('copy_css_wc_layout'))
+	gulp.watch(localWCAssets + 'woocommerce.css',               gulp.series('copy_css_wc_default'))
+	gulp.watch(localWCBuild + 'wc-blocks-style.css',            gulp.series('copy_css_wc_blocks'))
+	gulp.watch(localWCBuild + 'wc-blocks-vendors-style.css',    gulp.series('copy_css_wc_vendors'))
+	gulp.watch(localWCLibrary + 'style.min.css',                gulp.series('copy_css_wc_library'))
 })
 
 gulp.task('default', gulp.series('watch'))
