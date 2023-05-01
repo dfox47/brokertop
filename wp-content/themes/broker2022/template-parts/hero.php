@@ -6,7 +6,7 @@ $dumm   = '/wp-content/themes/broker2022/i/dumm.png';
 <div class="hero_block_slider">
 	<div class="owl-carousel js-owl-carousel-auto">
 		<div class="hero_block_slide">
-			<img class="hero_block_slide__img js-img-scroll" src="<?= $dumm; ?>" data-src="<?= $i; ?>/17.jpg" alt="">
+			<img class="hero_block_slide__img js-img-scroll" src="<?= $dumm; ?>" data-src="<?= $i; ?>/17.jpg" alt="" loading="lazy">
 
 			<div class="hero_block_slide__content">
 				<div class="hero_block_slide__title">Каталог недвижимости</div>
@@ -24,7 +24,7 @@ $dumm   = '/wp-content/themes/broker2022/i/dumm.png';
 		</div>
 
 		<div class="hero_block_slide">
-			<img class="hero_block_slide__img js-img-scroll" src="<?= $dumm; ?>" data-src="<?= $i; ?>/8.jpg" alt="">
+			<img class="hero_block_slide__img js-img-scroll" src="<?= $dumm; ?>" data-src="<?= $i; ?>/8.jpg" alt="" loading="lazy">
 
 			<div class="hero_block_slide__content">
 				<div class="hero_block_slide__title">Новостройки</div>
@@ -42,7 +42,7 @@ $dumm   = '/wp-content/themes/broker2022/i/dumm.png';
 		</div>
 
 		<div class="hero_block_slide">
-			<img class="hero_block_slide__img js-img-scroll" src="<?= $dumm; ?>" data-src="<?= $i; ?>/3.jpg" alt="">
+			<img class="hero_block_slide__img js-img-scroll" src="<?= $dumm; ?>" data-src="<?= $i; ?>/3.jpg" alt="" loading="lazy">
 
 			<div class="hero_block_slide__content">
 				<div class="hero_block_slide__title">Дубай / Dubai</div>
@@ -60,7 +60,7 @@ $dumm   = '/wp-content/themes/broker2022/i/dumm.png';
 		</div>
 
 		<div class="hero_block_slide">
-			<img class="hero_block_slide__img js-img-scroll" src="<?= $dumm; ?>" data-src="<?= $i; ?>/18.jpg" alt="">
+			<img class="hero_block_slide__img js-img-scroll" src="<?= $dumm; ?>" data-src="<?= $i; ?>/18.jpg" alt="" loading="lazy">
 
 			<div class="hero_block_slide__content">
 				<div class="hero_block_slide__title">О компании</div>
@@ -78,7 +78,7 @@ $dumm   = '/wp-content/themes/broker2022/i/dumm.png';
 		</div>
 
 		<div class="hero_block_slide">
-			<img class="hero_block_slide__img js-img-scroll" src="<?= $dumm; ?>" data-src="<?= $i; ?>/1.jpg" alt="">
+			<img class="hero_block_slide__img js-img-scroll" src="<?= $dumm; ?>" data-src="<?= $i; ?>/1.jpg" alt="" loading="lazy">
 
 			<div class="hero_block_slide__content">
 				<div class="hero_block_slide__title">Новости</div>
