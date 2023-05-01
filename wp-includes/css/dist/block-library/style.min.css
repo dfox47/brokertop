@@ -1780,7 +1780,6 @@ ul.has-background {
 	grid-row: 1;
 	/*!rtl:end:ignore*/
 	padding: 0 8%;
-	word-break: break-word
 }
 
 .wp-block-media-text.has-media-on-the-right .wp-block-media-text__media {
@@ -1817,7 +1816,6 @@ ul.has-background {
 }
 
 .wp-block-media-text.is-image-fill .wp-block-media-text__media img {
-	clip: rect(0, 0, 0, 0);
 	border: 0;
 	height: 1px;
 	margin: -1px;
@@ -2576,7 +2574,6 @@ p.has-background {
 
 .wp-block-post-excerpt__more-text {
 	margin-bottom: 0;
-	margin-top: var(--wp--style--block-gap)
 }
 
 .wp-block-post-excerpt__more-link {
@@ -2691,7 +2688,6 @@ p.has-background {
 
 .wp-block-post-title {
 	box-sizing: border-box;
-	word-break: break-word
 }
 
 .wp-block-post-title a {
@@ -3627,25 +3623,11 @@ ul.wp-block-rss.is-grid li {
 	width: 100%
 }
 
-.wp-block-table .has-fixed-layout td,
-.wp-block-table .has-fixed-layout th {
-	word-break: break-word
-}
-
 .wp-block-table.aligncenter,
 .wp-block-table.alignleft,
 .wp-block-table.alignright {
 	display: table;
 	width: auto
-}
-
-.wp-block-table.aligncenter td,
-.wp-block-table.aligncenter th,
-.wp-block-table.alignleft td,
-.wp-block-table.alignleft th,
-.wp-block-table.alignright td,
-.wp-block-table.alignright th {
-	word-break: break-word
 }
 
 .wp-block-table .has-subtle-light-gray-background-color {
@@ -3926,7 +3908,6 @@ pre.wp-block-verse {
 }
 
 .screen-reader-text {
-	clip: rect(1px, 1px, 1px, 1px);
 	word-wrap: normal !important;
 	border: 0;
 	clip-path: inset(50%);
@@ -3939,7 +3920,6 @@ pre.wp-block-verse {
 }
 
 .screen-reader-text:focus {
-	clip: auto !important;
 	background-color: #ddd;
 	clip-path: none;
 	color: #444;
