@@ -47,7 +47,6 @@
 
 .wc-block-grid__product-add-to-cart.wp-block-button {
 	white-space: normal;
-	word-break: break-word
 }
 
 .wc-block-grid__product-add-to-cart.wp-block-button .wp-block-button__link {
@@ -59,7 +58,6 @@
 	padding: .5em 1em;
 	text-align: center;
 	white-space: normal;
-	word-break: break-word
 }
 
 .wc-block-grid__product-add-to-cart.wp-block-button .wp-block-button__link.loading {
@@ -184,7 +182,7 @@
 .theme-twentynineteen .wc-block-components-product-title,
 .theme-twentynineteen .wc-block-grid__product-onsale,
 .theme-twentynineteen .wc-block-grid__product-title {
-	font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif
+	font-family: BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
 }
 
 .theme-twentynineteen .wc-block-grid__product-title:before {
@@ -207,7 +205,7 @@
 .theme-twentytwenty .wc-block-components-product-title,
 .theme-twentytwenty .wc-block-grid__product-title {
 	color: #cd2653;
-	font-family: -apple-system, blinkmacsystemfont, Helvetica Neue, helvetica, sans-serif;
+	font-family: blinkmacsystemfont, 'Helvetica Neue', helvetica, sans-serif;
 	font-size: 1em
 }
 
@@ -219,7 +217,7 @@
 .theme-twentytwenty .wc-block-components-product-price__value,
 .theme-twentytwenty .wc-block-grid__product-price .woocommerce-Price-amount,
 .theme-twentytwenty .wc-block-grid__product-price__value {
-	font-family: -apple-system, blinkmacsystemfont, Helvetica Neue, helvetica, sans-serif;
+	font-family: blinkmacsystemfont, 'Helvetica Neue', helvetica, sans-serif;
 	font-size: .9em
 }
 
@@ -247,14 +245,14 @@
 
 .theme-twentytwenty .wc-block-components-product-button>.wp-block-button__link,
 .theme-twentytwenty .wc-block-grid__product-add-to-cart>.wp-block-button__link {
-	font-family: -apple-system, blinkmacsystemfont, Helvetica Neue, helvetica, sans-serif
+	font-family: blinkmacsystemfont, 'Helvetica Neue', helvetica, sans-serif;
 }
 
 .theme-twentytwenty .wc-block-components-product-sale-badge,
 .theme-twentytwenty .wc-block-grid__products .wc-block-grid__product-onsale {
 	background: #cd2653;
 	color: #fff;
-	font-family: -apple-system, blinkmacsystemfont, Helvetica Neue, helvetica, sans-serif;
+	font-family: blinkmacsystemfont, 'Helvetica Neue', helvetica, sans-serif;
 	font-weight: 700;
 	letter-spacing: -.02em;
 	line-height: 1.2;
@@ -349,11 +347,6 @@
 	z-index: 100000
 }
 
-.wp-block-add-to-cart-form .woocommerce-grouped-product-list-item__price del,
-.wp-block-add-to-cart-form .woocommerce-Price-amount.amount {
-	font-size: var(--wp--preset--font-size--large)
-}
-
 .wc-block-components-product-add-to-cart-attribute-picker {
 	flex-basis: 100%;
 	margin: 0
@@ -427,7 +420,6 @@
 .is-loading .wc-block-components-product-add-to-cart .wc-block-components-product-add-to-cart-quantity,
 .wc-block-components-product-add-to-cart--placeholder .wc-block-components-product-add-to-cart-button,
 .wc-block-components-product-add-to-cart--placeholder .wc-block-components-product-add-to-cart-quantity {
-	background-color: currentColor !important;
 	border: 0 !important;
 	border-radius: .25rem;
 	box-shadow: none;
@@ -487,7 +479,6 @@
 
 .wp-block-button.wc-block-components-product-button {
 	white-space: normal;
-	word-break: break-word
 }
 
 .wp-block-button.wc-block-components-product-button .wc-block-components-product-button__button {
