@@ -82,7 +82,7 @@ gulp.task('js', function () {
 	return gulp.src([
 			localFolderJs + 'jquery-3.6.0.min.js',
 			localFolderJs + 'owl.carousel.min.js',
-			localFolderJs + '**/*.js'
+			localFolderJs + '*.js'
 		])
 		.pipe(concat('all.js'))
 		// .pipe(uglify())
