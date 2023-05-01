@@ -1,4 +1,4 @@
-let imgScroll = () => {
+const imgScroll = () => {
 	document.querySelectorAll('.js-img-scroll').forEach((e) => {
 		if (window.pageYOffset + window.innerHeight > e.offsetTop) {
 			e.classList.remove('js-img-scroll')

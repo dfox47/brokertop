@@ -5,8 +5,12 @@ const scripts = [
 	// 'https://www.googletagmanager.com/gtag/js?id=UA-129076025-1'
 ]
 
-setTimeout(function() {
-	for (let i = 0; i < scripts.length; i++) {
-		$('head').append('<script src="' + scripts[i] + '"></script>')
-	}
-}, 3000)
+document.addEventListener('DOMContentLoaded', () => {
+	setTimeout(function() {
+		for (let i = 0; i < scripts.length; i++) {
+			const $script = document.createElement('script')
+			$script.src = scripts[i]
+			document.head.appendChild($script)
+		}
+	}, 3000)
+})
