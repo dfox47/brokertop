@@ -15,15 +15,21 @@ const password      = config.password
 const port          = config.port
 const user          = config.user
 
-const remoteFolder                  = '/www/brokertop.ru/wp-content/themes/broker2022/'
-const remoteFolderCss               = remoteFolder + 'css/'
-const remoteFolderJs                = remoteFolder + 'js/'
-const remoteFolderTemplateParts     = remoteFolder + 'template-parts/'
+const remoteTheme           = '/www/brokertop.ru/wp-content/themes/broker2022/'
+const remoteCss             = remoteTheme + 'css/'
+const remoteJs              = remoteTheme + 'js/'
+const remoteTemplateParts   = remoteTheme + 'template-parts/'
+const remoteWCAssets        = '/wp-content/plugins/woocommerce/assets/css/'
+const remoteWCBuild         = '/wp-content/plugins/woocommerce/packages/woocommerce-blocks/build/'
+const remoteWCLibrary       = '/wp-includes/css/dist/block-library/'
 
-const localFolder                   = 'wp-content/themes/broker2022/'
-const localFolderCss                = localFolder + 'css/'
-const localFolderJs                 = localFolder + 'js/'
-const localFolderTemplateParts      = localFolder + 'template-parts/'
+const localTheme            = 'wp-content/themes/broker2022/'
+const localCss              = localTheme + 'css/'
+const localJs               = localTheme + 'js/'
+const localTemplateParts    = localTheme + 'template-parts/'
+const localWCAssets         = 'wp-content/plugins/woocommerce/assets/css/'
+const localWCBuild          = 'wp-content/plugins/woocommerce/packages/woocommerce-blocks/build/'
+const localWCLibrary        = 'wp-includes/css/dist/block-library/'
 
 
 
@@ -43,24 +49,24 @@ const conn = getFtpConnection()
 
 
 gulp.task('css', function () {
-	return gulp.src(localFolderCss + 'styles.scss')
+	return gulp.src(localCss + 'styles.scss')
 		.pipe(sass())
 		.pipe(cssMinify())
 		.pipe(rename({
 			base: 'style'
 			// suffix: ".min"
 		}))
-		.pipe(conn.dest(remoteFolder))
+		.pipe(conn.dest(remoteTheme))
 })
 
 gulp.task('copy_css', function () {
-	return gulp.src(localFolderCss + '**/*')
-		.pipe(conn.dest(remoteFolderCss))
+	return gulp.src(localCss + '**/*')
+		.pipe(conn.dest(remoteCss))
 })
 
 gulp.task('copy_html', function () {
-	return gulp.src(localFolder + '*.php')
-		.pipe(conn.dest(remoteFolder))
+	return gulp.src(localTheme + '*.php')
+		.pipe(conn.dest(remoteTheme))
 })
 
 gulp.task('copy_ajax_pdf', function () {
@@ -69,35 +75,35 @@ gulp.task('copy_ajax_pdf', function () {
 })
 
 gulp.task('copy_template_parts', function () {
-	return gulp.src(localFolderTemplateParts + '**/*')
-		.pipe(conn.dest(remoteFolderTemplateParts))
+	return gulp.src(localTemplateParts + '**/*')
+		.pipe(conn.dest(remoteTemplateParts))
 })
 
 gulp.task('copy_js', function () {
-	return gulp.src(localFolderJs + '**/*')
-		.pipe(conn.dest(remoteFolderJs))
+	return gulp.src(localJs + '**/*')
+		.pipe(conn.dest(remoteJs))
 })
 
 gulp.task('js', function () {
 	return gulp.src([
-			localFolderJs + 'jquery-3.6.0.min.js',
-			localFolderJs + 'owl.carousel.min.js',
-			localFolderJs + '*.js'
+			localJs + 'jquery-3.6.0.min.js',
+			localJs + 'owl.carousel.min.js',
+			localJs + '*.js'
 		])
 		.pipe(concat('all.js'))
 		// .pipe(uglify())
 		.pipe(rename({
 			suffix: ".min"
 		}))
-		.pipe(conn.dest(remoteFolder))
+		.pipe(conn.dest(remoteTheme))
 })
 
 gulp.task('watch', function() {
 	gulp.watch('ajax_presentation.php',             gulp.series('copy_ajax_pdf'))
-	gulp.watch(localFolder + '*.php',               gulp.series('copy_html'))
-	gulp.watch(localFolderCss + '**/*',             gulp.series('css', 'copy_css'))
-	gulp.watch(localFolderJs + '**/*.js',           gulp.series('js', 'copy_js'))
-	gulp.watch(localFolderTemplateParts + '**/*',   gulp.series('copy_template_parts'))
+	gulp.watch(localTheme + '*.php',               gulp.series('copy_html'))
+	gulp.watch(localCss + '**/*',             gulp.series('css', 'copy_css'))
+	gulp.watch(localJs + '**/*.js',           gulp.series('js', 'copy_js'))
+	gulp.watch(localTemplateParts + '**/*',   gulp.series('copy_template_parts'))
 })
 
 gulp.task('default', gulp.series('watch'))
