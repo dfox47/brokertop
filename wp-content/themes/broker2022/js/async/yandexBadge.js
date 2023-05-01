@@ -1,0 +1,1 @@
+document.querySelector('.js-yandex-badge').innerHTML = '<iframe class="yandex_badge" src="//yandex.ru/sprav/widget/rating-badge/4782454911"></iframe>'
