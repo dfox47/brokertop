@@ -74,7 +74,7 @@ gulp.task('copy_template_parts', function () {
 })
 
 gulp.task('copy_js', function () {
-	return gulp.src(localFolderJs + '**/*.js')
+	return gulp.src(localFolderJs + '**/*')
 		.pipe(conn.dest(remoteFolderJs))
 })
 
