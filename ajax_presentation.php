@@ -287,21 +287,19 @@ $html = '
 
 				if ($price_formatted) $html .= '<div class="right">' . $price_formatted . ' &#8381;</div>';
 
-				$html.='</div>';
+				$html .='</div>';
 
 				if ($obshhayaPloshhad) {
-					$html.='<div class="firstpage-data-info">
+					$html .='<div class="firstpage-data-info">
 						<div><span>' . $obshhayaPloshhad . ' <small>м</small><sup>2</sup><br>Общая площадь</span></div>
 					</div>';
 				}
 
-				$html.='<div class="firstpage-data-info-detail">';
+				$html .='<div class="firstpage-data-info-detail">';
 				// адрес
-				if ($address) {
-					$html .= '<div style="margin-bottom: 20px;">Адрес: <span>' . $address . '</span></div>';
-				}
+				if ($address) $html .= '<div style="margin-bottom: 20px;">Адрес: <span>' . $address . '</span></div>';
 
-				$html.='<div>
+				$html .= '<div>
 					<img style="height: 250px; width: 650px;" src="data:image/svg+xml;base64, '.base64_encode(file_get_contents('https://static-maps.yandex.ru/1.x/?ll='.$googleMapsY.','.$googleMapsX.'&size=650,250&z=13&l=map&pt=' . $googleMapsY . ',' . $googleMapsX . ',pm2dom~37.64,55.76363,pm2dom99')).'" alt="" />
 				</div>
 
@@ -316,31 +314,27 @@ $html = '
 
 				if ($price_formatted) $html .= '<div>Цена: <span>' . $price_formatted . ' &#8381;</span></div>';
 
-				$html.='<div>Планировка: <span></span></div>';
+				$html .= '<div>Планировка: <span></span></div>';
 
 				// тип недвижимости
-				if ($tip_nedvizhimosti) {
-					$html.= '<div>Тип объекта: <span>' . $tip_nedvizhimosti . '</span></div>';
-				}
+				if ($tip_nedvizhimosti) $html .= '<div>Тип объекта: <span>' . $tip_nedvizhimosti . '</span></div>';
 
-				$html.= '<div>Валюта: <span>&#8381;</span></div>
+				$html .= '<div>Валюта: <span>&#8381;</span></div>
 				<div>Категория объекта: <span></span></div>';
 
-				if ($price_words) {
-					$html .= '<div>Цена (прописью): <span>' . $price_words . '</span></div>';
-				}
+				if ($price_words) $html .= '<div>Цена (прописью): <span>' . $price_words . '</span></div>';
 
-				$html.= '<h2>Контактная информация</h2>
+				$html .= '<h2>Контактная информация</h2>
 				<div>Брокер объекта: <span>' . $broker_phone . ', ' . $broker_name . '</span></div>
 
 				<h2>Фотографии объекта</h2>';
 
 				foreach($attachment_ids as $attachment_id) {
 					$image_link = wp_get_attachment_url($attachment_id);
-					$html.= '<img src="data:image/png;base64, '.base64_encode(file_get_contents($image_link)).'" style="width: 735px; height: auto; padding: 9px;" alt="" /><br>';
+					$html .= '<img src="data:image/png;base64, '.base64_encode(file_get_contents($image_link)).'" style="width: 735px; height: auto; padding: 9px;" alt="" /><br>';
 				}
 
-			$html.= '</div>
+			$html .= '</div>
 
 			<div class="firstpage-data-info-footer">
 				<span>123112, г. Москва, ул. Пресненская набережная, 8, стр.1, 571<br>
