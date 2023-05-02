@@ -112,10 +112,8 @@ $mainImg                    = empty(!wp_get_attachment_image_src(get_post_thumbn
 $obshhayaPloshhad           = isset($attributes['pa_obshhaya-ploshhad']) ? $product->get_attribute('pa_obshhaya-ploshhad') : '';
 $tip_nedvizhimosti          = isset($attributes['pa_tip-nedvizhimosti']) ? $product->get_attribute('pa_tip-nedvizhimosti') : '';
 $price                      = $product->get_price();
-//$price_formatted            = (empty($price) ? number_format($price, 0, '.', ' ') : '');
-$price_formatted            = '';
-//$price_words                = (empty($price) ? num2str($price) : '');
-$price_words                = '';
+$price_formatted            = $price !== "" ? number_format($price, 0, '.', ' ') : '';
+$price_words                = $price !== "" ? num2str($price) : '';
 
 $html = '
 	<html>
