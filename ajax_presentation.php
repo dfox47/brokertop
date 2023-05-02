@@ -111,6 +111,8 @@ $googleMapsY                = (empty($product->get_attribute('pa_google-api-y'))
 $mainImg                    = empty(!wp_get_attachment_image_src(get_post_thumbnail_id( $post_id ), 'single-post-thumbnail')[0]) ? 'background: url("data:image/png;base64, ' . base64_encode(file_get_contents(wp_get_attachment_image_src(get_post_thumbnail_id( $post_id ), 'single-post-thumbnail')[0])) . '") center no-repeat;' : '';
 $obshhayaPloshhad           = isset($attributes['pa_obshhaya-ploshhad']) ? $product->get_attribute('pa_obshhaya-ploshhad') : '';
 $tip_nedvizhimosti          = isset($attributes['pa_tip-nedvizhimosti']) ? $product->get_attribute('pa_tip-nedvizhimosti') : '';
+$price_formatted            = empty($product->get_price()) ? number_format($product->get_price(), 0, '.', ' ') : '';
+$price_words                = empty($product->get_price()) ? num2str($product->get_price()) : '';
 
 $html = '
 	<html>
@@ -280,9 +282,11 @@ $html = '
 			<div class="firstpage-line"></div>
 
 			<div class="firstpage-data">
-				<div class="left">'.$product->get_title().'</div>
-				<div class="right">'.number_format($product->get_price(), 0, '.', ' ').' &#8381;</div>
-			</div>
+				<div class="left">' . $product->get_title() . '</div>';
+
+				if ($price_formatted) $html .= '<div class="right">' . $price_formatted . ' &#8381;</div>';
+
+				$html.='</div>
 
 			<div class="firstpage-data-info">
 				<div><span>'.$obshhayaPloshhad.' <small>м</small><sup>2</sup><br>Общая площадь</span></div>
@@ -304,10 +308,13 @@ $html = '
 
 				<h2>Общая информация</h2>
 
-				<div>' . $display_result . '</div>
+				<div>' . $display_result . '</div>';
 
-				<div>Цена: <span>' . number_format($product->get_price(), 0, '.', ' ') . ' &#8381;</span></div>
-				<div>Планировка: <span></span></div>';
+				if ($price_formatted) {
+					$html .= '<div>Цена: <span>' . $price_formatted . ' &#8381;</span></div>';
+				}
+
+				$html.='<div>Планировка: <span></span></div>';
 
 				// тип недвижимости
 				if ($tip_nedvizhimosti) {
@@ -315,9 +322,13 @@ $html = '
 				}
 
 				$html.= '<div>Валюта: <span>&#8381;</span></div>
-				<div>Категория объекта: <span></span></div>
-				<div>Цена (прописью): <span>' . num2str($product->get_price()) . '</span></div>
-				<h2>Контактная информация</h2>
+				<div>Категория объекта: <span></span></div>';
+
+				if ($price_words) {
+					$html .= '<div>Цена (прописью): <span>' . $price_words . '</span></div>';
+				}
+
+				$html.= '<h2>Контактная информация</h2>
 				<div>Брокер объекта: <span>' . $broker_phone . ', ' . $broker_name . '</span></div>
 
 				<h2>Фотографии объекта</h2>';
@@ -347,7 +358,7 @@ $dompdf->setPaper('A4', 'portrait');
 
 $dompdf->render();
 
-$dompdf->stream('document.pdf',array("Attachment" => false));
+$dompdf->stream('object_' . $post_id . '.pdf',array("Attachment" => false));
 
 exit(0);
 
