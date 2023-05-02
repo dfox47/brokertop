@@ -287,13 +287,15 @@ $html = '
 
 				if ($price_formatted) $html .= '<div class="right">' . $price_formatted . ' &#8381;</div>';
 
-				$html.='</div>
+				$html.='</div>';
 
-			<div class="firstpage-data-info">
-				<div><span>' . $obshhayaPloshhad . ' <small>м</small><sup>2</sup><br>Общая площадь</span></div>
-			</div>
+				if ($obshhayaPloshhad) {
+					$html.='<div class="firstpage-data-info">
+						<div><span>' . $obshhayaPloshhad . ' <small>м</small><sup>2</sup><br>Общая площадь</span></div>
+					</div>';
+				}
 
-			<div class="firstpage-data-info-detail">';
+				$html.='<div class="firstpage-data-info-detail">';
 				// адрес
 				if ($address) {
 					$html .= '<div style="margin-bottom: 20px;">Адрес: <span>' . $address . '</span></div>';
