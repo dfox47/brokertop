@@ -114,6 +114,7 @@ $tip_nedvizhimosti          = isset($attributes['pa_tip-nedvizhimosti']) ? $prod
 $price                      = $product->get_price();
 $price_formatted            = $price !== "" ? number_format($price, 0, '.', ' ') : '';
 $price_words                = $price !== "" ? num2str($price) : '';
+$product_description        = $product->get_description() !== "" ? $product->get_description() : '';
 
 $html = '
 	<html>
@@ -300,15 +301,17 @@ $html = '
 				if ($address) $html .= '<div style="margin-bottom: 20px;">Адрес: <span>' . $address . '</span></div>';
 
 				$html .= '<div>
-					<img style="height: 250px; width: 650px;" src="data:image/svg+xml;base64, '.base64_encode(file_get_contents('https://static-maps.yandex.ru/1.x/?ll='.$googleMapsY.','.$googleMapsX.'&size=650,250&z=13&l=map&pt=' . $googleMapsY . ',' . $googleMapsX . ',pm2dom~37.64,55.76363,pm2dom99')).'" alt="" />
-				</div>
+					<img style="height: 250px; width: 650px;" src="data:image/svg+xml;base64, '.base64_encode(file_get_contents('https://static-maps.yandex.ru/1.x/?ll=' . $googleMapsY . ',' . $googleMapsX . '&size=650,250&z=13&l=map&pt=' . $googleMapsY . ',' . $googleMapsX . ',pm2dom~37.64,55.76363,pm2dom99')).'" alt="">
+				</div>';
 
-				<div>
-					<p>Описание:</p>
-					<p>' . $product->get_description() . '</p>
-				</div>
+				if ($product_description) {
+					$html .= '<div>
+						<p>Описание:</p>
+						<p>' . $product->get_description() . '</p>
+					</div>';
+				}
 
-				<h2>Общая информация</h2>
+				$html .= '<h2>Общая информация</h2>
 
 				<div>' . $display_result . '</div>';
 
@@ -324,10 +327,11 @@ $html = '
 
 				if ($price_words) $html .= '<div>Цена (прописью): <span>' . $price_words . '</span></div>';
 
-				$html .= '<h2>Контактная информация</h2>
-				<div>Брокер объекта: <span>' . $broker_phone . ', ' . $broker_name . '</span></div>
+				$html .= '<h2>Контактная информация</h2>';
 
-				<h2>Фотографии объекта</h2>';
+				if ($broker_phone && $broker_name) $html .= '<div>Брокер объекта: <span>' . $broker_phone . ', ' . $broker_name . '</span></div>';
+
+				$html .= '<h2>Фотографии объекта</h2>';
 
 				foreach($attachment_ids as $attachment_id) {
 					$image_link = wp_get_attachment_url($attachment_id);
