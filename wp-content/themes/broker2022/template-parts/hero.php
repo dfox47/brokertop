@@ -4,7 +4,8 @@ $dumm   = '/wp-content/themes/broker2022/i/dumm.png';
 ?>
 
 <div class="hero_block_slider">
-	<div class="owl-carousel js-owl-carousel-auto">
+<!--	<div class="owl-carousel js-owl-carousel-auto">-->
+	<div class="owl-carousel js-owl-carousel">
 		<div class="hero_block_slide">
 			<img class="hero_block_slide__img js-img-scroll" src="<?= $dumm; ?>" data-src="<?= $i; ?>/17.jpg" alt="" loading="lazy">
 
@@ -16,7 +17,7 @@ $dumm   = '/wp-content/themes/broker2022/i/dumm.png';
 				</div>
 
 				<div class="hero_block_slide__thumb_wrap">
-					<span class="hero_block_slide__thumb js-img-bg" data-src="<?= $i; ?>/8.jpg"></span>
+					<img class="hero_block_slide__thumb js-img-scroll" src="<?= $dumm; ?>" data-src="<?= $i; ?>/8.jpg" alt="" loading="lazy">
 				</div>
 
 				<div class="hero_block_slide__more"><a class="btn btn_more" href="/shop/">Открыть</a></div>
@@ -34,7 +35,7 @@ $dumm   = '/wp-content/themes/broker2022/i/dumm.png';
 				</div>
 
 				<div class="hero_block_slide__thumb_wrap">
-					<span class="hero_block_slide__thumb js-img-bg" data-src="<?= $i; ?>/3.jpg"></span>
+					<img class="hero_block_slide__thumb js-img-scroll" src="<?= $dumm; ?>" data-src="<?= $i; ?>/3.jpg" alt="" loading="lazy">
 				</div>
 
 				<div class="hero_block_slide__more"><a class="btn btn_more js-menu-item-disabled" href="//novostroiki-moscow.com/">Открыть</a></div>
@@ -52,7 +53,7 @@ $dumm   = '/wp-content/themes/broker2022/i/dumm.png';
 				</div>
 
 				<div class="hero_block_slide__thumb_wrap">
-					<span class="hero_block_slide__thumb js-img-bg" data-src="<?= $i; ?>/18.jpg"></span>
+					<img class="hero_block_slide__thumb js-img-scroll" src="<?= $dumm; ?>" data-src="<?= $i; ?>/18.jpg" alt="" loading="lazy">
 				</div>
 
 				<div class="hero_block_slide__more"><a class="btn btn_more js-menu-item-disabled" href="//dubaiestate.top/">Открыть</a></div>
@@ -70,7 +71,7 @@ $dumm   = '/wp-content/themes/broker2022/i/dumm.png';
 				</div>
 
 				<div class="hero_block_slide__thumb_wrap">
-					<span class="hero_block_slide__thumb js-img-bg" data-src="<?= $i; ?>/1.jpg"></span>
+					<img class="hero_block_slide__thumb js-img-scroll" src="<?= $dumm; ?>" data-src="<?= $i; ?>/1.jpg" alt="" loading="lazy">
 				</div>
 
 				<div class="hero_block_slide__more"><a class="btn btn_more" href="/o-kompanii/">Открыть</a></div>
@@ -88,7 +89,7 @@ $dumm   = '/wp-content/themes/broker2022/i/dumm.png';
 				</div>
 
 				<div class="hero_block_slide__thumb_wrap">
-					<span class="hero_block_slide__thumb js-img-bg" data-src="<?= $i; ?>/17.jpg"></span>
+					<img class="hero_block_slide__thumb js-img-scroll" src="<?= $dumm; ?>" data-src="<?= $i; ?>/17.jpg" alt="" loading="lazy">
 				</div>
 
 				<div class="hero_block_slide__more"><a class="btn btn_more" href="/novosti/">Открыть</a></div>
