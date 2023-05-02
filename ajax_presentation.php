@@ -336,7 +336,7 @@ $html = '<html lang="ru">
 
 				foreach($attachment_ids as $attachment_id) {
 					$image_link = wp_get_attachment_url($attachment_id);
-					$html .= '<img src="data:image/png;base64, '.base64_encode(file_get_contents($image_link)).'" style="width: 735px; height: auto; padding: 9px;" alt="" /><br>';
+					$html .= '<img src="data:image/png;base64, '.base64_encode(file_get_contents($image_link)).'" style="width: 735px; height: auto; padding: 9px;" alt=""><br>';
 				}
 
 			$html .= '</div>
