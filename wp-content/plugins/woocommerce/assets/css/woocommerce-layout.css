@@ -230,7 +230,6 @@
 .woocommerce ul.products li.product,
 .woocommerce-page ul.products li.product {
 	float: left;
-	margin: 0 3.8% 2.992em 0;
 	padding: 0;
 	position: relative;
 	width: 22.05%;
@@ -535,7 +534,7 @@
 
 .woocommerce form .show-password-input::after,
 .woocommerce-page form .show-password-input::after {
-	font-family: WooCommerce;
+	font-family: WooCommerce, Arial, Helvetica, sans-serif;
 	speak: never;
 	font-weight: 400;
 	font-variant: normal;

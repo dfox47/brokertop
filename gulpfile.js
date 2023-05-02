@@ -99,7 +99,7 @@ gulp.task('copy_css_wc_vendors', function () {
 
 gulp.task('copy_css_contact_form_7', function () {
 	return gulp.src(localContact7 + 'styles.css')
-		.pipe(cssMinify())
+		// .pipe(cssMinify())
 		.pipe(conn.dest(remoteContact7))
 })
 
