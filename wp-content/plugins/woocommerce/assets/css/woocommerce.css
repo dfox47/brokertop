@@ -578,7 +578,6 @@ p.demo_store a {
 	min-height: 3.236em;
 	min-width: 3.236em;
 	padding: .202em;
-	font-size: 1em;
 	font-weight: 700;
 	position: absolute;
 	text-align: center;
@@ -729,7 +728,6 @@ p.demo_store a {
 .woocommerce nav.woocommerce-pagination ul li span {
 	margin: 0;
 	text-decoration: none;
-	padding: 0;
 	line-height: 1;
 	font-size: 1em;
 	font-weight: 400;
@@ -818,7 +816,6 @@ p.demo_store a {
 	border: 0;
 	position: relative;
 	background: 0;
-	border: 0
 }
 
 .woocommerce #reviews #comments ol.commentlist li .meta {
@@ -887,13 +884,13 @@ p.demo_store a {
 
 .woocommerce .star-rating {
 	float: right;
-	overflow: hidden;
-	position: relative;
+	font-family: star, Arial, Helvetica, sans-serif;
+	font-size: 1em;
 	height: 1em;
 	line-height: 1;
-	font-size: 1em;
+	overflow: hidden;
+	position: relative;
 	width: 5.4em;
-	font-family: star
 }
 
 .woocommerce .star-rating::before {
@@ -1000,7 +997,7 @@ p.demo_store a {
 	width: 1em;
 	height: 1em;
 	line-height: 1;
-	font-family: WooCommerce;
+	font-family: WooCommerce, Arial, Helvetica, sans-serif;
 	content: "\e021";
 	text-indent: 0
 }
@@ -1810,7 +1807,7 @@ p.demo_store a {
 :where(body:not(.woocommerce-block-theme-has-button-styles)) .woocommerce a.button.loading::after,
 :where(body:not(.woocommerce-block-theme-has-button-styles)) .woocommerce button.button.loading::after,
 :where(body:not(.woocommerce-block-theme-has-button-styles)) .woocommerce input.button.loading::after {
-	font-family: WooCommerce;
+	font-family: WooCommerce, Arial, Helvetica, sans-serif;
 	content: "\e01c";
 	vertical-align: top;
 	font-weight: 400;
@@ -1828,7 +1825,7 @@ p.demo_store a {
 :where(body:not(.woocommerce-block-theme-has-button-styles)) .woocommerce a.button.added::after,
 :where(body:not(.woocommerce-block-theme-has-button-styles)) .woocommerce button.button.added::after,
 :where(body:not(.woocommerce-block-theme-has-button-styles)) .woocommerce input.button.added::after {
-	font-family: WooCommerce;
+	font-family: WooCommerce, Arial, Helvetica, sans-serif;
 	content: "\e017";
 	margin-left: .53em;
 	vertical-align: bottom
@@ -2026,7 +2023,7 @@ p.demo_store a {
 .woocommerce-error::before,
 .woocommerce-info::before,
 .woocommerce-message::before {
-	font-family: WooCommerce;
+	font-family: WooCommerce, Arial, Helvetica, sans-serif;
 	content: "\e028";
 	display: inline-block;
 	position: absolute;
