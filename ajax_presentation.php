@@ -116,8 +116,7 @@ $price_formatted            = $price !== "" ? number_format($price, 0, '.', ' ')
 $price_words                = $price !== "" ? num2str($price) : '';
 $product_description        = $product->get_description() !== "" ? $product->get_description() : '';
 
-$html = '
-	<html>
+$html = '<html lang="ru">
 		<head>
 			<style>
 				@page {
@@ -272,14 +271,18 @@ $html = '
 				<div class="cover-image"></div>
 
 				<div class="broker-info">
-					<div class="logo"></div>
-					<div class="broker-title">Брокер объекта</div>
-					<div class="broker-photo"></div>
-					<div class="broker-name">' . $broker_name . '</div>
-					<div class="broker-phone">' . $broker_phone . '</div>
-					<div class="broker-email">' . $broker_email . '</div>
+					<div class="logo"></div>';
+
+					if ($broker_name !== 'TOPBROKER') {
+						$html .='<div class="broker-title">Брокер объекта</div>
+							<div class="broker-photo"></div>
+							<div class="broker-name">' . $broker_name . '</div>';
+					}
+
+					$html .= '<div class="broker-phone">' . $broker_phone . '</div>
+						<div class="broker-email">' . $broker_email . '</div>
+					</div>
 				</div>
-			</div>
 
 			<div class="firstpage-line"></div>
 
@@ -317,15 +320,13 @@ $html = '
 
 				if ($price_formatted) $html .= '<div>Цена: <span>' . $price_formatted . ' &#8381;</span></div>';
 
-				$html .= '<div>Планировка: <span></span></div>';
-
 				// тип недвижимости
 				if ($tip_nedvizhimosti) $html .= '<div>Тип объекта: <span>' . $tip_nedvizhimosti . '</span></div>';
 
-				$html .= '<div>Валюта: <span>&#8381;</span></div>
-				<div>Категория объекта: <span></span></div>';
-
-				if ($price_words) $html .= '<div>Цена (прописью): <span>' . $price_words . '</span></div>';
+				if ($price) {
+					$html .= '<div>Валюта: <span>&#8381;</span></div>
+					<div>Цена (прописью): <span>' . $price_words . '</span></div>';
+				}
 
 				$html .= '<h2>Контактная информация</h2>';
 
