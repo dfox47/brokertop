@@ -69,31 +69,37 @@ gulp.task('copy_css', function () {
 
 gulp.task('copy_css_wc_blocks', function () {
 	return gulp.src(localWCBuild + 'wc-blocks-style.css')
+		.pipe(cssMinify())
 		.pipe(conn.dest(remoteWCBuild))
 })
 
 gulp.task('copy_css_wc_default', function () {
 	return gulp.src(localWCAssets + 'woocommerce.css')
+		.pipe(cssMinify())
 		.pipe(conn.dest(remoteWCAssets))
 })
 
 gulp.task('copy_css_wc_layout', function () {
 	return gulp.src(localWCAssets + 'woocommerce-layout.css')
+		.pipe(cssMinify())
 		.pipe(conn.dest(remoteWCAssets))
 })
 
 gulp.task('copy_css_wc_library', function () {
 	return gulp.src(localWCLibrary + 'style.min.css')
+		.pipe(cssMinify())
 		.pipe(conn.dest(remoteWCLibrary))
 })
 
 gulp.task('copy_css_wc_vendors', function () {
 	return gulp.src(localWCBuild + 'wc-blocks-vendors-style.css')
+		.pipe(cssMinify())
 		.pipe(conn.dest(remoteWCBuild))
 })
 
 gulp.task('copy_css_contact_form_7', function () {
 	return gulp.src(localContact7 + 'styles.css')
+		.pipe(cssMinify())
 		.pipe(conn.dest(remoteContact7))
 })
 
