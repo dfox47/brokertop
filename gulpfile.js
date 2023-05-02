@@ -15,14 +15,15 @@ const password      = config.password
 const port          = config.port
 const user          = config.user
 
-const remoteTheme           = '/www/brokertop.ru/wp-content/themes/broker2022/'
-const remoteContact7        = '/www/brokertop.ru/wp-content/plugins/contact-form-7/includes/css/'
+const remoteMain            = '/www/brokertop.ru/'
+const remoteTheme           = remoteMain + 'wp-content/themes/broker2022/'
+const remoteContact7        = remoteMain + 'wp-content/plugins/contact-form-7/includes/css/'
 const remoteCss             = remoteTheme + 'css/'
 const remoteJs              = remoteTheme + 'js/'
 const remoteTemplateParts   = remoteTheme + 'template-parts/'
-const remoteWCAssets        = '/www/brokertop.ru/wp-content/plugins/woocommerce/assets/css/'
-const remoteWCBuild         = '/www/brokertop.ru/wp-content/plugins/woocommerce/packages/woocommerce-blocks/build/'
-const remoteWCLibrary       = '/www/brokertop.ru/wp-includes/css/dist/block-library/'
+const remoteWCAssets        = remoteMain + 'wp-content/plugins/woocommerce/assets/css/'
+const remoteWCBuild         = remoteMain + 'wp-content/plugins/woocommerce/packages/woocommerce-blocks/build/'
+const remoteWCLibrary       = remoteMain + 'wp-includes/css/dist/block-library/'
 
 const localTheme            = 'wp-content/themes/broker2022/'
 const localContact7         = 'wp-content/plugins/contact-form-7/includes/css/'
@@ -103,7 +104,7 @@ gulp.task('copy_html', function () {
 
 gulp.task('copy_ajax_pdf', function () {
 	return gulp.src('ajax_presentation.php')
-		.pipe(conn.dest('/www/brokertop.ru/'))
+		.pipe(conn.dest(remoteMain))
 })
 
 gulp.task('copy_template_parts', function () {
