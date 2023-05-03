@@ -138,15 +138,8 @@
 		}
 
 		.welcome_slogan_en {
-			&::after {
-				opacity: 0;
-				transition-delay: .5s;
-			}
-
-			&__row {
-				opacity: 0;
-				transition-delay: 0s;
-			}
+			opacity: 0;
+			transition-delay: .5s;
 		}
 	}
 
@@ -194,19 +187,12 @@
 		}
 
 		&__row {
-			left: 50%;
+			opacity: 1;
 		}
 	}
 
 	.welcome_slogan_en {
-		&::after {
-			opacity: 1;
-		}
-
-		&__row {
-			opacity: 1;
-			right: 0;
-		}
+		opacity: 1;
 	}
 }
 
@@ -326,7 +312,7 @@
 		right: 4px;
 		top: -27px;
 		transition: all 1s ease-in-out;
-		transition-delay: 2.5s;
+		transition-delay: 2s;
 		width: 68px;
 
 		@media #{$desktop} {
@@ -343,7 +329,8 @@
 	}
 
 	&__row {
-		left: -1000px;
+		left: 50%;
+		opacity: 0;
 		position: absolute;
 		text-align: center;
 		transform: translateX(-50%);
@@ -395,8 +382,11 @@
 	line-height: 1;
 	margin: 55px 0 0 77px;
 	max-width: 635px;
+	opacity: 0;
 	position: relative;
 	text-align: right;
+	transition: all 1s ease-in-out;
+	transition-delay: 2s;
 
 	&::after {
 		border-bottom: 10px solid $c_main;
@@ -405,10 +395,7 @@
 		content: "";
 		height: 74px;
 		left: -51px;
-		opacity: 0;
 		position: absolute;
-		transition: all 1s ease-in-out;
-		transition-delay: 3.5s;
 		width: 68px;
 
 		@media #{$desktop} {
@@ -425,11 +412,8 @@
 	}
 
 	&__row {
-		opacity: 0;
 		position: relative;
-		right: -1000px;
-		transition: all 1s ease-in-out;
-		transition-delay: 2.5s;
+		right: 0;
 	}
 
 	@media #{$desktop} {
