@@ -16,7 +16,7 @@ const welcomeAnimation = () => {
 			$html.classList.add('welcome_part_2')
 
 			document.querySelector('.js-welcome-preload').remove()
-		}, 5000)
+		}, 4000)
 
 		// animation part 3 | hide & remove
 		setTimeout(() => {
@@ -24,7 +24,7 @@ const welcomeAnimation = () => {
 			$html.classList.remove('welcome_part_2')
 
 			document.querySelector('.js-welcome').remove()
-		}, 8500)
+		}, 7500)
 	})
 }
 
