@@ -1,12 +1,20 @@
 <?php // link to images folder
 $i      = '/wp-content/themes/broker2022/i/hero';
 $dumm   = '/wp-content/themes/broker2022/i/dumm.png';
-?>
+
+// thumb img url
+$thumbUrl = '';
+
+if (get_the_post_thumbnail_url()) {
+	$thumbUrl = str_replace('https://' . $_SERVER['SERVER_NAME'], '', get_the_post_thumbnail_url());
+} ?>
 
 <div class="hero_block_slider">
 	<div class="owl-carousel js-owl-carousel">
 		<div class="hero_block_slide">
-			<img class="hero_block_slide__img js-img-scroll" src="<?= $dumm; ?>" data-src="<?= $i; ?>/22.jpg" alt="">
+			<?php if ($thumbUrl !== '') { ?>
+				<img class="hero_block_slide__img js-img-scroll" src="<?= $dumm; ?>" data-src="<?php echo $thumbUrl; ?>" alt="">
+			<?php } ?>
 
 			<div class="hero_block_slide__content">
 				<div class="hero_block_slide__title">Зарубежная недвижимость</div>
