@@ -6,3 +6,5 @@
 /wp-content/themes/twentytwentytwo/
 /wp-content/uploads/
 wp-config.php
+package-lock.json
+node_modules
