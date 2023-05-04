@@ -104,7 +104,7 @@ else if ($currentUrl == '/o-kompanii/') {
 		elseif ($currentUrl == '/novostrojki/') {
 			include_once "new_buildings.php";
 		}
-		elseif ($currentUrl == '/dubaj/') {
+		elseif ($currentUrl == '/zarubezhnaya/') {
 			include_once "foreign.php";
 		} ?>
 	</div>
