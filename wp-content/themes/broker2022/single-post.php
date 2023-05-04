@@ -14,7 +14,7 @@ if (get_the_post_thumbnail_url()) {
 	<div class="main_content">
 		<div class="wrap2">
 			<?php if (is_single() && $thumbUrl !== '') { ?>
-				<img class="thumb_img" src="<?php echo $thumbUrl; ?>" alt="" />
+				<img class="thumb_img" src="<?php echo $thumbUrl; ?>" alt="">
 			<?php } ?>
 
 			<?php
