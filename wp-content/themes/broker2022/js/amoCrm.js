@@ -113,12 +113,12 @@ $(document).ready(function () {
 				success: function () {
 					$('.popup--success').addClass('active')
 
-					$feedbackForm.find('input[type="text"]').val('');
+					$feedbackForm.find('input[type="text"]').val('')
 				},
 				error: function () {
-					console.log('error');
+					console.log('error')
 				}
-			});
+			})
 		}
 	})
 	// send to amo [END]
