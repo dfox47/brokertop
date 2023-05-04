@@ -85,9 +85,10 @@ popupError()
 
 $(document).ready(function () {
 	// send to amo [START]
-	const $feedbackForm = $('.hero_block_slide__content').find('form')
+	const submitBtn         = $('.js-crm-submit')
+	const $feedbackForm     = submitBtn.closest('form')
 
-	$feedbackForm.find('.js-crm-submit').click(function (e) {
+	submitBtn.click(function (e) {
 		e.preventDefault()
 
 		let fieldsArray     = $feedbackForm.serializeArray()
