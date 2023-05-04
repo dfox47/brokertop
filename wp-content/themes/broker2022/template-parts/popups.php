@@ -55,6 +55,20 @@
 	</div>
 </div>
 
+
+<!-- Popup с сообщением об успещной отправке! -->
+<div class="popup popup--success js-popup">
+	<div class="popup__bg js-popup-close"></div>
+
+	<div class="popup__content">
+		<div class="popup__close js-popup-close"></div>
+
+		<h3>
+		 “Благодарим за обращение, Ваш запрос уже в обработке!
+		</h3>
+	</div>
+</div>
+
 <!-- Внимание! Успейте забронировать до старта продаж! -->
 <div class="popup popup--welcome js-popup" data-popup="feedback-6954">
 	<div class="popup__bg js-popup-close"></div>
