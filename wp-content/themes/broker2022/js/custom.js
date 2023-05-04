@@ -21,46 +21,6 @@ $(document).ready(function () {
 	// delete [START]
 	// $('.js-popup[data-popup="feedback-6847"]').addClass('active')
 	// delete [END]
-
-
-	// send to amo [START]
-	const $feedbackForm = $('.hero_block_slide__content').find('form')
-
-	$feedbackForm.find('.js-crm-submit').click(function (e) {
-		e.preventDefault()
-
-		let fieldsArray     = $feedbackForm.serializeArray()
-		let fieldName       = $feedbackForm.find('input[name="user-name"]').eq(1)
-		let fieldPhone      = $feedbackForm.find('input[name="user-phone"]').eq(1)
-
-		fieldName.val() === '' ? fieldName.closest('.js-crm-name').addClass('error') : fieldName.closest('.js-crm-name').removeClass('error')
-
-		fieldPhone.val() === '' ? fieldPhone.closest('.js-crm-phone').addClass('error') : fieldPhone.closest('.js-crm-phone').removeClass('error')
-
-		// check to compleated fields
-		if (fieldName.val() !== '' && fieldPhone.val() !== '') {
-			let objData = []
-
-			fieldsArray.forEach(item => {
-				if ((item.name === 'user-name' || item.name === 'user-phone') && item.value !== '') objData.push(item)
-			})
-
-			$.ajax({
-				url: '/send_amo.php',
-				type: 'POST',
-				data: objData,
-				success: function () {
-					$('.popup--success').addClass('active')
-
-					$feedbackForm.find('input[type="text"]').val('');
-				},
-				error: function () {
-					console.log('error');
-				}
-			});
-		}
-	})
-	// send to amo [END]
 })
 
 // insert after | hack
