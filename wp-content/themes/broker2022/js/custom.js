@@ -28,7 +28,7 @@ $(document).ready(function () {
 
 	feedbackForm.attr('action', '/send_amo.php');
 
-	feedbackForm.find('.btn_submit').click(function (event) {
+	feedbackForm.find('.js-crm-submit').click(function (event) {
 		event.preventDefault()
 
 		let fieldsArray = feedbackForm.serializeArray()
