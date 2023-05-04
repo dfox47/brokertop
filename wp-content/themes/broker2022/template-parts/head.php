@@ -25,7 +25,7 @@ else if ($currentUrl == '/kontakty/') {
 else if ($currentUrl == '/novostrojki/') {
 	$pageType = ' hero_block_wrap--new_buildings';
 }
-else if ($currentUrl == '/dubaj/') {
+else if ($currentUrl == '/zarubezhnaya/') {
 	$pageType = ' hero_block_wrap--foreign';
 }
 else if ($currentUrl == '/o-kompanii/') {
