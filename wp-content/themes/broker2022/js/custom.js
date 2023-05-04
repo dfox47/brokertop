@@ -24,18 +24,18 @@ $(document).ready(function () {
 
 
 	// send to amo [START]
-	let feedbackForm = $('.hero_block_slide__content').find('form')
+	const $feedbackForm = $('.hero_block_slide__content').find('form')
 
-	feedbackForm.attr('action', '/send_amo.php');
+	$feedbackForm.attr('action', '/send_amo.php');
 
-	feedbackForm.find('.js-crm-submit').click(function (event) {
+	$feedbackForm.find('.js-crm-submit').click(function (event) {
 		event.preventDefault()
 
-		let fieldsArray = feedbackForm.serializeArray()
+		let fieldsArray = $feedbackForm.serializeArray()
 
-		let fieldName = feedbackForm.find('input[name="user-name"]').eq(1)
+		let fieldName = $feedbackForm.find('input[name="user-name"]').eq(1)
 
-		let fieldPhone = feedbackForm.find('input[name="user-phone"]').eq(1)
+		let fieldPhone = $feedbackForm.find('input[name="user-phone"]').eq(1)
 
 		fieldName.val() === '' ? fieldName.closest('.js-crm-name').addClass('error') : fieldName.closest('.js-crm-name').removeClass('error')
 
@@ -51,13 +51,13 @@ $(document).ready(function () {
 			})
 
 			$.ajax({
-				url: feedbackForm.attr('action'),
-				type: feedbackForm.attr('method'),
+				url: $feedbackForm.attr('action'),
+				type: $feedbackForm.attr('method'),
 				data: objData,
 				success: function (response) {
 					$('.popup--success').addClass('active')
 
-					feedbackForm.find('input[type="text"]').val('');
+					$feedbackForm.find('input[type="text"]').val('');
 				},
 				error: function (xhr, status, error) {
 					console.log('error');
