@@ -306,6 +306,11 @@
 	justify-content: space-between;
 	padding: 30px 0 0;
 
+	@media #{$mobile} {
+		flex-direction: column;
+		gap: 30px;
+	}
+
 	&__item {
 		display: inline-block;
 		margin: 0 30px 0 0;
@@ -365,7 +370,9 @@
 		}
 
 		@media #{$mobile} {
-			margin: 30px 0 0 30px;
+			font-size: 12px;
+			margin: 0;
+			width: 100%;
 		}
 	}
 }
