@@ -86,14 +86,14 @@ popupError()
 $(document).ready(function () {
 	// send to amo [START]
 	const submitBtn         = $('.js-crm-submit')
-	const $feedbackForm     = submitBtn.closest('form')
 
 	submitBtn.click(function (e) {
 		e.preventDefault()
 
+		const $feedbackForm = $(this).closest('form')
 		let fieldsArray     = $feedbackForm.serializeArray()
-		let fieldName       = $feedbackForm.find('input[name="user-name"]').eq(1)
-		let fieldPhone      = $feedbackForm.find('input[name="user-phone"]').eq(1)
+		let fieldName       = $feedbackForm.find('input[name="user-name"]')
+		let fieldPhone      = $feedbackForm.find('input[name="user-phone"]')
 
 		fieldName.val() === '' ? fieldName.closest('.js-crm-name').addClass('error') : fieldName.closest('.js-crm-name').removeClass('error')
 
@@ -112,9 +112,13 @@ $(document).ready(function () {
 				type: 'POST',
 				data: objData,
 				success: function () {
+					$feedbackForm.closest('.js-popup').removeClass('active')
+
 					$('.popup--success').addClass('active')
 
 					$feedbackForm.find('input[type="text"]').val('')
+
+					$.cookie('cookie_presentation_feedback', 'true', { expires: 31, path: '/' });
 				},
 				error: function () {
 					console.log('error')
