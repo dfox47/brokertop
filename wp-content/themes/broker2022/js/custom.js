@@ -21,6 +21,19 @@ $(document).ready(function () {
 	// delete [START]
 	// $('.js-popup[data-popup="feedback-6847"]').addClass('active')
 	// delete [END]
+
+	
+	$('.js-presentation-feedback').click(function(event) {
+		if ($.cookie('cookie_presentation_feedback') !== undefined) return
+
+		event.preventDefault()
+
+		let popup = $('div[data-popup="feedback-6954"].popup--welcome')
+
+		popup.attr('target-link', event.target.href)
+
+		popup.addClass('active');
+	})
 })
 
 // insert after | hack
