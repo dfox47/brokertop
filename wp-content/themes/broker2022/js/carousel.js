@@ -77,7 +77,7 @@ $(document).ready(function() {
 		$owlBuildings.owlCarousel({
 			dots:       true,
 			items:      4,
-			loop:       true,
+			loop:       false,
 			margin:     20,
 			nav:        true,
 			navText:    ['<span>назад</span>', '<span>далее</span>'],
