@@ -23,16 +23,16 @@ $(document).ready(function () {
 	// delete [END]
 
 	
-	$('.js-presentation-feedback').click(function(event) {
+	$('.js-presentation-feedback').click(function(e) {
 		if ($.cookie('cookie_presentation_feedback') !== undefined) return
 
-		event.preventDefault()
+		e.preventDefault()
 
-		let popup = $('div[data-popup="feedback-6954"].popup--welcome')
+		const $popup = $('div[data-popup="feedback-6954"].popup--welcome')
 
-		popup.attr('target-link', event.target.href)
+		$popup.attr('target-link', e.target.href)
 
-		popup.addClass('active');
+		$popup.addClass('active')
 	})
 })
 
