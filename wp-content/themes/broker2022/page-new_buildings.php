@@ -11,7 +11,7 @@ $dumm = '/wp-content/themes/broker2022/i/dumm.png'; ?>
 <?php get_header(); ?>
 
 	<div class="wrap_bg">
-		<h1>Жилые комплексы</h1>
+		<h1>Жилые комплексы Москвы</h1>
 
 		<div class="wrap">
 			<div class="new_building_list owl-carousel js-owl-buildings">
