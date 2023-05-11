@@ -162,6 +162,14 @@
 				border-top-width: 3px;
 			}
 		}
+
+		&.disabled {
+			visibility: hidden;
+
+			&::before {
+				display: none;
+			}
+		}
 	}
 
 	.owl-next {
