@@ -60,7 +60,7 @@ $dumm = '/wp-content/themes/broker2022/i/dumm.png'; ?>
 										<a class="new_building_links__item social_list__icon social_list__icon--whatsapp" href="//wa.me/<?= $realtorPhone; ?>" target="_blank" rel="noopener" title="whatsapp"></a>
 									<?php }  ?>
 
-									<a class="new_building_links__item social_list__icon social_list__icon--telegram" href="//t.me/top_broker_estate" target="_blank" rel="noopener" title="telegram"></a>
+									<a class="new_building_links__item social_list__icon social_list__icon--telegram" href="//t.me/topbrokerestate" target="_blank" rel="noopener" title="telegram"></a>
 								</span>
 							</span>
 					</div>
@@ -88,7 +88,7 @@ $dumm = '/wp-content/themes/broker2022/i/dumm.png'; ?>
 										<a class="new_building_popup_links__item social_list__icon social_list__icon--whatsapp" href="//wa.me/<?= $realtorPhone; ?>" target="_blank" rel="noopener" title="whatsapp"></a>
 									<?php } ?>
 
-									<a class="new_building_popup_links__item social_list__icon social_list__icon--telegram" href="//t.me/top_broker_estate" target="_blank" rel="noopener" title="telegram"></a>
+									<a class="new_building_popup_links__item social_list__icon social_list__icon--telegram" href="//t.me/topbrokerestate" target="_blank" rel="noopener" title="telegram"></a>
 								</div>
 							</span>
 					</div>
