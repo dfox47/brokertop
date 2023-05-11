@@ -25,7 +25,7 @@ $whatsapp   = esc_attr(get_option('broker_whatsapp'));
 
 				<a class="powered_by" href="//flerr.ru/" target="_blank">
 					<span>разработка сайта:</span>
-					<img src="<?php echo $i; ?>/icons/flerr.svg" alt="flerr.ru" />
+					<img src="<?= $i; ?>/icons/flerr.svg" alt="flerr.ru" />
 				</a>
 			</div>
 
@@ -51,14 +51,14 @@ $whatsapp   = esc_attr(get_option('broker_whatsapp'));
 </footer>
 
 <?php if ($whatsapp) { ?>
-	<a class="whatsapp_link" href="//wa.me/<?php echo $whatsapp; ?>" target="_blank"><img class="whatsapp_link__img js-img-scroll" src="<?php echo $dumm; ?>" data-src="<?php echo $i . '/icons/whatsapp_green.svg'; ?>" alt="whatsapp" /></a>
+	<a class="whatsapp_link" href="//wa.me/<?= $whatsapp; ?>" target="_blank"><img class="whatsapp_link__img js-img-scroll" src="<?= $dumm; ?>" data-src="<?= $i . '/icons/whatsapp_green.svg'; ?>" alt="whatsapp" /></a>
 <?php } ?>
 
 <?php // popup
 include "template-parts/popups.php"; ?>
 
 <?php // all scripts in one file with GULP ?>
-<script src="<?php echo esc_url(get_template_directory_uri()); ?>/all.min.js?v<?php echo(date("Ymd")); ?>"></script>
+<script src="<?= esc_url(get_template_directory_uri()); ?>/all.min.js?v<?= (date("Ymd")); ?>"></script>
 
 <?php wp_footer(); ?>
 
