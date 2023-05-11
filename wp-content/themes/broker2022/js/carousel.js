@@ -77,11 +77,11 @@ $(document).ready(function() {
 		$owlBuildings.owlCarousel({
 			dots:       true,
 			items:      4,
-			loop:       false,
+			// loop:       true,
 			margin:     20,
 			nav:        true,
 			navText:    ['<span>назад</span>', '<span>далее</span>'],
-			slideBy:    4,
+			slideBy:    1,
 			onInitialized: function () {
 				dotNumbers()
 			},
