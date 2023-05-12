@@ -136,7 +136,7 @@ $(document).ready(function () {
 				$.cookie('cookie_presentation_feedback', 'true', { expires: 31, path: '/' })
 
 				// download PDF
-				if (pdfLink.length > 0) window.open('https://' + window.location.hostname + '/' + pdfLink, '_blank')
+				if (pdfLink !== null) window.open('https://' + window.location.hostname + '/' + pdfLink, '_blank')
 
 				localStorage.removeItem('pdfLink')
 			},
