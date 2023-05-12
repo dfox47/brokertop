@@ -22,7 +22,6 @@ $(document).ready(function () {
 	// $('.js-popup[data-popup="feedback-6847"]').addClass('active')
 	// delete [END]
 
-	
 	$('.js-presentation-feedback').click(function(e) {
 		if ($.cookie('cookie_presentation_feedback') !== undefined) return
 
