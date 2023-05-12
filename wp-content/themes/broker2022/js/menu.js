@@ -47,8 +47,6 @@ let menuTipCreate = (menuId) => {
 let menuTipRemove = () => {
 	let menuOld = document.querySelector('.header_menu_tip')
 
-	if (menuOld) {
-		menuOld.remove()
-	}
+	if (menuOld) menuOld.remove()
 }
 // menu.js [END]
