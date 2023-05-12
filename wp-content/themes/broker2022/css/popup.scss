@@ -273,6 +273,10 @@
 				}
 			}
 		}
+
+		@media #{$mobile} {
+			padding: 10px;
+		}
 	}
 
 	&__content_wrap {
