@@ -308,6 +308,17 @@
 	}
 }
 
+.new_building_popup_desc {
+	align-items: center;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+
+	img {
+		max-width: 100%;
+	}
+}
+
 .new_building_popup_links {
 	align-items: center;
 	display: flex;
