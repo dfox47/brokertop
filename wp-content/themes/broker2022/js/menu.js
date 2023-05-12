@@ -1,6 +1,6 @@
 // menu.js [START]
-let $menuItem154    = document.querySelector('.menu-item-154 a')
-let $menuItem7623   = document.querySelector('.menu-item-7623 a')
+const $menuItem154      = document.querySelector('.menu-item-154 a')
+const $menuItem7623     = document.querySelector('.menu-item-7623 a')
 
 if ($menuItem7623) {
 	$menuItem7623.addEventListener('click', (e) => {
