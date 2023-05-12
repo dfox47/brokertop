@@ -29,7 +29,6 @@
 			]);
 			$id = $contact->apiAdd();
 
-//			$to         = 'Arson66@yandex.ru';
 			$to         = 'dfox@foxartbox.com';
 			$subject    = 'Заявка с сайта';
 			$message    = 'Имя: '.$_POST['user-name'].'<br>';

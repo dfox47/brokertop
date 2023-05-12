@@ -27,7 +27,10 @@ $(document).ready(function () {
 
 		e.preventDefault()
 
-		const $popup = $('div[data-popup="feedback-6954"].popup--welcome')
+		// set PDF link to localStorage
+		localStorage.setItem('pdfLink', $(this).attr('href'))
+
+		const $popup = $('[data-popup="feedback-6954"]')
 
 		$popup.attr('target-link', e.target.href)
 

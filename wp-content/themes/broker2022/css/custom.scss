@@ -223,6 +223,22 @@ img {
 	display: none !important;
 }
 
+.input_tip {
+	background-color: #000;
+	border: 1px solid $c_main;
+	color: #fff;
+	left: 0;
+	margin: 0;
+	padding: .5em 1em;
+	position: absolute;
+	text-align: center;
+	text-transform: none;
+	top: 0;
+	white-space: nowrap;
+	width: 100%;
+	z-index: 5;
+}
+
 .instagram_caption {
 	background-color: rgba(#000, .81);
 	border: 10px solid rgba(#000, .8);

@@ -85,46 +85,65 @@ popupError()
 
 $(document).ready(function () {
 	// send to amo [START]
-	const submitBtn         = $('.js-crm-submit')
+	const submitBtn = $('.js-crm-submit')
 
 	submitBtn.click(function (e) {
 		e.preventDefault()
 
-		const $feedbackForm = $(this).closest('form')
-		let fieldsArray     = $feedbackForm.serializeArray()
-		let fieldName       = $feedbackForm.find('input[name="user-name"]')
-		let fieldPhone      = $feedbackForm.find('input[name="user-phone"]')
+		const $feedbackForm     = $(this).closest('form')
+		const fieldName         = $feedbackForm.find('input[name="user-name"]')
+		const fieldPhone        = $feedbackForm.find('input[name="user-phone"]')
+		const fieldsArray       = $feedbackForm.serializeArray()
+		const pdfLink           = localStorage.getItem('pdfLink')
 
-		fieldName.val() === '' ? fieldName.closest('.js-crm-name').addClass('error') : fieldName.closest('.js-crm-name').removeClass('error')
+		// name check
+		if (fieldName.length && fieldName.val() === '') {
+			fieldName.after('<div class="input_tip js-input-tip">Обязательно для заполнения</div>')
 
-		fieldPhone.val() === '' ? fieldPhone.closest('.js-crm-phone').addClass('error') : fieldPhone.closest('.js-crm-phone').removeClass('error')
+			setTimeout(() => {
+				$('.js-input-tip').remove()
+			}, 2000)
 
-		// check to compleated fields
-		if (fieldName.val() !== '' && fieldPhone.val() !== '') {
-			let objData = []
-
-			fieldsArray.forEach(item => {
-				if ((item.name === 'user-name' || item.name === 'user-phone') && item.value !== '') objData.push(item)
-			})
-
-			$.ajax({
-				url: '/send_amo.php',
-				type: 'POST',
-				data: objData,
-				success: function () {
-					$feedbackForm.closest('.js-popup').removeClass('active')
-
-					$('.popup--success').addClass('active')
-
-					$feedbackForm.find('input[type="text"]').val('')
-
-					$.cookie('cookie_presentation_feedback', 'true', { expires: 31, path: '/' });
-				},
-				error: function () {
-					console.log('error')
-				}
-			})
+			return
 		}
+
+		// phone check
+		if (fieldPhone.length && fieldPhone.val() === '') {
+			fieldPhone.after('<div class="input_tip js-input-tip">Обязательно для заполнения</div>')
+
+			setTimeout(() => {
+				$('.js-input-tip').remove()
+			}, 2000)
+
+			return
+		}
+
+		let objData = []
+
+		fieldsArray.forEach(item => {
+			if ((item.name === 'user-name' || item.name === 'user-phone') && item.value !== '') objData.push(item)
+		})
+
+		$.ajax({
+			url: '/send_amo.php',
+			type: 'POST',
+			data: objData,
+			success: function () {
+				$feedbackForm.closest('.js-popup').removeClass('active')
+
+				$('.popup--success').addClass('active')
+
+				$.cookie('cookie_presentation_feedback', 'true', { expires: 31, path: '/' })
+
+				// download PDF
+				if (pdfLink.length > 0) window.open('https://' + window.location.hostname + '/' + pdfLink, '_blank')
+
+				localStorage.removeItem('pdfLink')
+			},
+			error: function () {
+				console.log('error')
+			}
+		})
 	})
 	// send to amo [END]
 })
