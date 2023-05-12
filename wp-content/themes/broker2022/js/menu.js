@@ -32,7 +32,7 @@ document.querySelectorAll('.js-menu-item-disabled').forEach((menuItem) => {
 	})
 })
 
-let menuTipCreate = (menuId) => {
+const menuTipCreate = (menuId) => {
 	let menuTip = document.createElement('div')
 	menuTip.classList.add('header_menu_tip')
 	menuTip.textContent = 'Раздел на модерации'
@@ -44,8 +44,8 @@ let menuTipCreate = (menuId) => {
 	}, 2000)
 }
 
-let menuTipRemove = () => {
-	let menuOld = document.querySelector('.header_menu_tip')
+const menuTipRemove = () => {
+	const menuOld = document.querySelector('.header_menu_tip')
 
 	if (menuOld) menuOld.remove()
 }
