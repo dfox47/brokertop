@@ -3,6 +3,12 @@
 	box-shadow: 0 12px 24px rgba(#000, .25);
 	padding: 63px 20px 93px;
 
+	h2 {
+		margin: 0 auto;
+		max-width: 1172px;
+		width: 100%;
+	}
+
 	input {
 		&[type="email"],
 		&[type="text"] {
@@ -27,6 +33,12 @@
 		a:visited {
 			color: #fff;
 		}
+	}
+
+	.wpcf7-form {
+		margin: 0 auto;
+		max-width: 1172px;
+		width: 100%;
 	}
 
 	.wpcf7-form-control-wrap {
@@ -69,12 +81,6 @@
 			margin-right: 0;
 		}
 	}
-}
-
-.contacts_consult_wrap {
-	margin: 0 auto;
-	max-width: 1172px;
-	width: 100%;
 }
 
 .contacts_info {
