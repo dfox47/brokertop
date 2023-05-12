@@ -78,6 +78,12 @@ $dumm = '/wp-content/themes/broker2022/i/dumm.png'; ?>
 							</div>
 						</div>
 
+						<div class="new_building_popup_desc">
+							<div><img class="js-img-scroll" src="<?= $dumm; ?>" data-src="<?= $logoLink; ?>" alt="" loading="lazy"></div>
+
+							<div><?= $descNoImg; ?></div>
+						</div>
+
 						<span class="new_building_popup_links">
 								<?php if ($pdfLink) { ?>
 									<a class="new_building_popup_links__item new_building_popup_link__presentation" href="<?= $pdfLink; ?>" target="_blank">Скачать презентацию</a>
