@@ -186,7 +186,7 @@ $brokerImgUrl = $match[0][0];
 
 					<?php // Телефон риэлтора
 					if ($realtorPhone) { ?>
-						<a class="product_realtor__phone" href="tel:<?= $realtorPhone; ?>" target="_blank"><?= $realtorPhone; ?></a>
+						<a class="product_realtor__phone" href="tel:<?= str_replace(' ', '', $realtorPhone); ?>" target="_blank"><?= $realtorPhone; ?></a>
 					<?php }
 					else { ?>
 						<a class="product_realtor__phone" href="tel:+79778021616" target="_blank">+7(977) 802-16-16</a>

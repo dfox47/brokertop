@@ -32,9 +32,7 @@
 		<div class="popup__close js-popup-close"></div>
 
 		<div class="contacts_form">
-			<form name="feedback-form" method="POST" action="/send_amo.php">
-				<?php echo do_shortcode('[contact-form-7 id="6847"]'); ?>
-			</form>
+			<?php echo do_shortcode('[contact-form-7 id="6847"]'); ?>
 		</div>
 
 		<div class="contacts_form__error js-popup-error">Ошибка. Заполните все поля</div>
