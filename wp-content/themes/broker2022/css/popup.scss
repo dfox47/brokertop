@@ -37,12 +37,20 @@
 		h2 {
 			color: $c_main;
 			font-size: 40px;
+
+			@media #{$mobile} {
+				font-size: 30px;
+			}
 		}
 
 		h3 {
 			color: $c_main;
 			font-size: 12px;
 			margin: 40px 0 11px;
+
+			@media #{$mobile} {
+				margin: 10px;
+			}
 		}
 
 		.btn_submit {
