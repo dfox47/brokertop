@@ -31,12 +31,13 @@
 
 			$to         = 'dfox@foxartbox.com';
 			$subject    = 'Заявка с сайта';
-			$message    = 'Имя: '.$_POST['user-name'].'<br>';
-			$message    .= 'Телефон: '.$_POST['user-phone'].'<br>';
-			$message    .= 'Email: '.$_POST['user-email'].'<br>';
+			$message    = 'Имя: ' . $_POST['user-name'] . '<br>';
+			$message    .= 'Телефон: ' . $_POST['user-phone'] . '<br>';
+			$message    .= 'Email: ' . $_POST['user-email'] . '<br>';
+			$message    .= 'From page: ' . $_POST['page-url'] . '<br>';
 			//$message .= 'Product name: '.$_POST['product_name'].'<br>';
 			$headers = 'From: info@brokertop.ru' . "\r\n" .
-				'Reply-To: '.$_POST['user-email'] . "\r\n" .
+				'Reply-To: ' . $_POST['user-email'] . "\r\n" .
 				'Content-type: text/html; charset=utf-8' . "\r\n" .
 				'X-Mailer: PHP/' . phpversion();
 
