@@ -93,6 +93,7 @@ $(document).ready(function () {
 		const $feedbackForm     = $(this).closest('form')
 		const fieldName         = $feedbackForm.find('input[name="user-name"]')
 		const fieldPhone        = $feedbackForm.find('input[name="user-phone"]')
+		const fieldAgree        = $feedbackForm.find('input[name="user-consent"]')
 		const fieldsArray       = $feedbackForm.serializeArray()
 		const pdfLink           = localStorage.getItem('pdfLink')
 
@@ -110,6 +111,17 @@ $(document).ready(function () {
 		// phone check
 		if (fieldPhone.length && fieldPhone.val() === '') {
 			fieldPhone.after('<div class="input_tip js-input-tip">Обязательно для заполнения</div>')
+
+			setTimeout(() => {
+				$('.js-input-tip').remove()
+			}, 2000)
+
+			return
+		}
+
+		// agree
+		if (fieldAgree.length && !fieldAgree.is(':checked')) {
+			fieldAgree.after('<div class="input_tip js-input-tip">Обязательно для заполнения</div>')
 
 			setTimeout(() => {
 				$('.js-input-tip').remove()
