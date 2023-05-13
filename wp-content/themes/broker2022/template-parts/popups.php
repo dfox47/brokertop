@@ -55,7 +55,6 @@
 	</div>
 </div>
 
-
 <!-- Popup с сообщением об успещной отправке! -->
 <div class="popup popup--success js-popup">
 	<div class="popup__bg js-popup-close"></div>
@@ -89,6 +88,19 @@
 
 		<div class="contacts_form">
 			<?php echo do_shortcode('[contact-form-7 id="7626"]'); ?>
+		</div>
+	</div>
+</div>
+
+<!-- Не нашли что искали? -->
+<div class="popup popup--feedback js-popup" data-popup="feedback-7237">
+	<div class="popup__bg js-popup-close"></div>
+
+	<div class="popup__content">
+		<div class="popup__close js-popup-close"></div>
+
+		<div class="contacts_form">
+			<?= do_shortcode('[contact-form-7 id="7237"]'); ?>
 		</div>
 	</div>
 </div>

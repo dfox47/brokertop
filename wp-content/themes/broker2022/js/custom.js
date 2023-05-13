@@ -18,9 +18,11 @@ $(document).ready(function () {
 		window.location.href = $(this).find('a').attr('href')
 	})
 
-	// delete [START]
-	// $('.js-popup[data-popup="feedback-6847"]').addClass('active')
-	// delete [END]
+	// show popup when user tries to leave
+	$('html').bind('mouseleave', function () {
+		$('.js-popup[data-popup="feedback-7237"]').addClass('active')
+		$('html').unbind('mouseleave')
+	})
 
 	$('.js-presentation-feedback').click(function(e) {
 		if ($.cookie('cookie_presentation_feedback') !== undefined) return

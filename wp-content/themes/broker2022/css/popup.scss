@@ -33,6 +33,32 @@
 		}
 	}
 
+	.look_form {
+		h2 {
+			color: $c_main;
+			font-size: 40px;
+		}
+
+		h3 {
+			color: $c_main;
+			font-size: 12px;
+			margin: 40px 0 11px;
+		}
+
+		.btn_submit {
+			color: #fff;
+			margin: 0;
+			white-space: normal;
+		}
+
+		.contacts_form {
+			&__label_title {
+				color: #fff;
+				top: 0;
+			}
+		}
+	}
+
 	&--content {
 		.popup {
 			&__content {
