@@ -60,7 +60,7 @@ $brokerImgUrl = $match[0][0];
 
 
 
-<main class="main_content_wrap" data-object-id="<?php echo $objectId; ?>">
+<main class="main_content_wrap" data-object-id="<?= $objectId; ?>">
 	<div class="main_content">
 		<div class="wrap3">
 			<div class="product_info_wrap">
@@ -114,8 +114,8 @@ $brokerImgUrl = $match[0][0];
 						<?php // Общая площадь
 						if ($objectSquare) { ?>
 							<div class="product_info__item product_info__item--start">
-								<div class="product_info__title"><?php echo wc_attribute_label('pa_obshhaya-ploshhad'); ?></div>
-								<div class="product_info__value"><?php echo $objectSquare; ?> <small>м</small><sup>2</sup></div>
+								<div class="product_info__title"><?= wc_attribute_label('pa_obshhaya-ploshhad'); ?></div>
+								<div class="product_info__value"><?= $objectSquare; ?> <small>м</small><sup>2</sup></div>
 							</div>
 						<?php } ?>
 
@@ -123,7 +123,7 @@ $brokerImgUrl = $match[0][0];
 						if ($price) { ?>
 							<div class="product_info__item product_info__item--start">
 								<div class="product_info__title">Стоимость</div>
-								<div class="product_info__value product_info__value--bold"><?php echo number_format($price,0,'',' '); ?>&nbsp;₽</div>
+								<div class="product_info__value product_info__value--bold"><?= number_format($price,0,'',' '); ?>&nbsp;₽</div>
 							</div>
 						<?php } ?>
 					</div>
@@ -137,14 +137,14 @@ $brokerImgUrl = $match[0][0];
 						<?php // Вид из окон
 						if ($objectView) { ?>
 							<div class="product_info__item product_info__item--start">
-								<div class="product_info__title product_info__title--short"><?php echo $objectView; ?></div>
+								<div class="product_info__title product_info__title--short"><?= $objectView; ?></div>
 							</div>
 						<?php } ?>
 
 						<?php // Класс
 						if ($objectClass) { ?>
 							<div class="product_info__item product_info__item--start">
-								<div class="product_info__title"><?php echo wc_attribute_label('pa_klass'); ?></div>
+								<div class="product_info__title"><?= wc_attribute_label('pa_klass'); ?></div>
 
 								<div class="product_info__value">
 									<?php if ($objectClass == 'flat') { ?>
@@ -168,25 +168,25 @@ $brokerImgUrl = $match[0][0];
 				<div class="product_realtor">
 					<?php // Объект №
 					if ($objectNumber) { ?>
-						<div class="product_info__title">Объект № <?php echo $objectNumber; ?></div>
+						<div class="product_info__title">Объект № <?= $objectNumber; ?></div>
 					<?php } ?>
 
 					<?php // Имя риэлтора
 					if ($realtorName) { ?>
-						<div class="product_realtor__name"><?php echo $realtorName; ?></div>
+						<div class="product_realtor__name"><?= $realtorName; ?></div>
 					<?php } ?>
 
 					<?php // Фото риэлтора
 					if ($brokerImgUrl) { ?>
-						<img class="product_realtor__img js-img-scroll" src="<?php echo $dumm; ?>" data-src="<?php echo $brokerImgUrl; ?>" alt="<?php echo $realtorName; ?>" />
+						<img class="product_realtor__img js-img-scroll" src="<?= $dumm; ?>" data-src="<?= $brokerImgUrl; ?>" alt="<?= $realtorName; ?>" />
 					<?php }
 					else { ?>
-						<img class="product_realtor__img_default js-img-scroll" src="<?php echo $dumm; ?>" data-src="/wp-content/themes/broker2022/i/logo_dark.svg" alt="Topbroker" />
+						<img class="product_realtor__img_default js-img-scroll" src="<?= $dumm; ?>" data-src="/wp-content/themes/broker2022/i/logo_dark.svg" alt="Topbroker" />
 					<?php } ?>
 
 					<?php // Телефон риэлтора
 					if ($realtorPhone) { ?>
-						<a class="product_realtor__phone" href="tel:<?php echo $realtorPhone; ?>" target="_blank"><?php echo $realtorPhone; ?></a>
+						<a class="product_realtor__phone" href="tel:<?= $realtorPhone; ?>" target="_blank"><?= $realtorPhone; ?></a>
 					<?php }
 					else { ?>
 						<a class="product_realtor__phone" href="tel:+79778021616" target="_blank">+7(977) 802-16-16</a>
@@ -194,7 +194,7 @@ $brokerImgUrl = $match[0][0];
 
 					<a class="product_realtor__phone js-popup-show" href="javascript:void(0);" data-popup="feedback">Заказать просмотр</a>
 
-					<a class="product_realtor__presentation js-presentation-feedback" href="<?php echo $pdfLink; ?>" target="_blank">Скачать презентацию</a>
+					<a class="product_realtor__presentation js-presentation-feedback" href="<?= $pdfLink; ?>" target="_blank">Скачать презентацию</a>
 				</div>
 			</div>
 
@@ -271,8 +271,8 @@ $brokerImgUrl = $match[0][0];
 			$image_link = str_replace('https://' . $_SERVER['SERVER_NAME'], '', wp_get_attachment_image_url($gallery_image, 'medium')); ?>
 
 			<li class="product_gallery__item">
-				<a class="product_gallery__link js-popup-show js-go-to-slide" href="javascript:void(0);" data-popup="product_gallery" data-slide="<?php echo $key; ?>">
-					<img class="product_gallery__img js-img-lazy" src="<?php echo $dumm; ?>" data-src="<?php echo $image_link; ?>" alt="" />
+				<a class="product_gallery__link js-popup-show js-go-to-slide" href="javascript:void(0);" data-popup="product_gallery" data-slide="<?= $key; ?>">
+					<img class="product_gallery__img js-img-lazy" src="<?= $dumm; ?>" data-src="<?= $image_link; ?>" alt="" />
 				</a>
 			</li>
 		<?php } ?>
@@ -311,7 +311,7 @@ $brokerImgUrl = $match[0][0];
 		<div class="popup__close js-popup-close"></div>
 
 		<div class="contacts_form">
-			<?php echo do_shortcode('[contact-form-7 id="63"]'); ?>
+			<?= do_shortcode('[contact-form-7 id="63"]'); ?>
 		</div>
 	</div>
 </div>
