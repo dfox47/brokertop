@@ -16,8 +16,9 @@
 	&__desc {
 		background-color: #fff;
 		bottom: -100px;
-		color: $c_text;
+		color: $c_copyright;
 		font-size: 15px;
+		font-weight: 600;
 		left: 0;
 		opacity: 0;
 		padding: 20px 25px;
@@ -25,6 +26,11 @@
 		transition: $transition;
 		width: 100%;
 		z-index: 5;
+
+		strong {
+			color: #000;
+			font-weight: 700;
+		}
 	}
 
 	&__img {
@@ -77,6 +83,21 @@
 		display: flex;
 		height: 103px;
 		justify-content: center;
+	}
+
+	&__price {
+		color: #000;
+		font-weight: 700;
+		position: absolute;
+		right: 25px;
+		top: 20px;
+		z-index: 3;
+	}
+
+	&__title {
+		color: #000;
+		font-weight: 700;
+		margin: 0 0 1em;
 	}
 
 	.owl-dot {
@@ -316,6 +337,20 @@
 
 	img {
 		max-width: 100%;
+	}
+
+	&__text {
+		color: $c_copyright;
+		display: block;
+		font-weight: 600;
+		padding: 20px 25px;
+		position: relative;
+		max-width: 300px;
+
+		strong {
+			color: #000;
+			font-weight: 700;
+		}
 	}
 }
 

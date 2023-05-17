@@ -46,7 +46,7 @@ $dumm = '/wp-content/themes/broker2022/i/dumm.png'; ?>
 						<div class="new_building_list__link">
 							<span class="new_building_list__img"><?php if ($image) echo $image; ?></span>
 
-							<span class="new_building_list__logo"><img class="js-img-scroll" src="<?= $dumm; ?>" data-src="<?= $logoLink; ?>" alt="" loading="lazy"></span>
+							<img class="new_building_list__logo js-img-scroll" src="<?= $dumm; ?>" data-src="<?= $logoLink; ?>" alt="" loading="lazy">
 
 							<span class="new_building_list__desc">
 								<?= $descNoImg; ?>
@@ -79,7 +79,7 @@ $dumm = '/wp-content/themes/broker2022/i/dumm.png'; ?>
 							</div>
 
 							<div class="new_building_popup_desc">
-								<div><img class="js-img-scroll" src="<?= $dumm; ?>" data-src="<?= $logoLink; ?>" alt="" loading="lazy"></div>
+								<img class="js-img-scroll" src="<?= $dumm; ?>" data-src="<?= $logoLink; ?>" alt="" loading="lazy">
 
 								<div><?= $descNoImg; ?></div>
 							</div>
