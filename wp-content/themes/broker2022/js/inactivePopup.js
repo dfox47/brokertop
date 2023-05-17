@@ -1,7 +1,7 @@
 const inactivePopup = () => {
-	let idleTime = 0
-
 	if (localStorage.getItem('inactivePopupSeen') === '1') return
+
+	let idleTime = 0
 
 	document.addEventListener('mousemove', resetIdleTime, false)
 	document.addEventListener('keypress', resetIdleTime, false)

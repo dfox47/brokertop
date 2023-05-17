@@ -53,7 +53,7 @@
 	</div>
 </div>
 
-<!-- Popup с сообщением об успещной отправке! -->
+<!-- Popup с сообщением об успешной отправке! -->
 <div class="popup popup--success js-popup">
 	<div class="popup__bg js-popup-close"></div>
 

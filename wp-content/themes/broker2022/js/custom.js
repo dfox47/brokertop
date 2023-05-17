@@ -18,11 +18,21 @@ $(document).ready(function () {
 		window.location.href = $(this).find('a').attr('href')
 	})
 
-	// show popup when user tries to leave
-	$('html').bind('mouseleave', function () {
-		$('.js-popup[data-popup="feedback-7237"]').addClass('active')
-		$('html').unbind('mouseleave')
-	})
+	// show popup when user tries to leave [START]
+	const showBeforeLeave = () => {
+		if (localStorage.getItem('inactivePopupSeen') === '1') return
+
+		const $html = $('html')
+
+		$html.bind('mouseleave', function () {
+			$('.js-popup[data-popup="feedback-7237"]').addClass('active')
+			$html.unbind('mouseleave')
+			localStorage.setItem('inactivePopupSeen', '1')
+		})
+	}
+
+	showBeforeLeave()
+	// show popup when user tries to leave [END]
 
 	$('.js-presentation-feedback').click(function(e) {
 		if ($.cookie('cookie_presentation_feedback') !== undefined) return
