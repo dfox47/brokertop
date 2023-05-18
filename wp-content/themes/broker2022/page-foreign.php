@@ -85,18 +85,18 @@ $dumm = '/wp-content/themes/broker2022/i/dumm.png'; ?>
 						</div>
 
 						<span class="new_building_popup_links">
-								<?php if ($pdfLink) { ?>
-									<a class="new_building_popup_links__item new_building_popup_link__presentation" href="<?= $pdfLink; ?>" target="_blank">Скачать презентацию</a>
+							<?php if ($pdfLink) { ?>
+								<a class="new_building_popup_links__item new_building_popup_link__presentation" href="<?= $pdfLink; ?>" target="_blank">Скачать презентацию</a>
+							<?php } ?>
+
+							<div class="new_building_popup_links__social">
+								<?php if ($realtorPhone) { ?>
+									<a class="new_building_popup_links__item social_list__icon social_list__icon--whatsapp" href="//wa.me/<?= $realtorPhone; ?>" target="_blank" rel="noopener" title="whatsapp"></a>
 								<?php } ?>
 
-								<div class="new_building_popup_links__social">
-									<?php if ($realtorPhone) { ?>
-										<a class="new_building_popup_links__item social_list__icon social_list__icon--whatsapp" href="//wa.me/<?= $realtorPhone; ?>" target="_blank" rel="noopener" title="whatsapp"></a>
-									<?php } ?>
-
-									<a class="new_building_popup_links__item social_list__icon social_list__icon--telegram" href="//t.me/topbrokerestate" target="_blank" rel="noopener" title="telegram"></a>
-								</div>
-							</span>
+								<a class="new_building_popup_links__item social_list__icon social_list__icon--telegram" href="//t.me/topbrokerestate" target="_blank" rel="noopener" title="telegram"></a>
+							</div>
+						</span>
 					</div>
 				</div>
 
