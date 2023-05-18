@@ -62,6 +62,21 @@
 	}
 }
 
+.about_objects_desc {
+	background: #fff;
+	bottom: 0;
+	color: $c_menu_bg;
+	font-size: 15px;
+	font-weight: 600;
+	left: 0;
+	min-height: 150px;
+	padding: 10px 20px;
+	position: relative;
+	text-align: left;
+	width: 100%;
+	z-index: 5;
+}
+
 .about_quote {
 	> .wp-block-group__inner-container {
 		align-items: flex-end;
