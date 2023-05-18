@@ -62,6 +62,11 @@ gulp.task('css', function () {
 		.pipe(conn.dest(remoteTheme))
 })
 
+gulp.task('copy_amo_crm', function () {
+	return gulp.src('send_amo.php')
+		.pipe(conn.dest(remoteMain))
+})
+
 gulp.task('copy_css', function () {
 	return gulp.src(localCss + '**/*')
 		.pipe(conn.dest(remoteCss))
@@ -130,7 +135,7 @@ gulp.task('js', function () {
 			localJs + '*.js'
 		])
 		.pipe(concat('all.js'))
-		// .pipe(uglify())
+		.pipe(uglify())
 		.pipe(rename({
 			suffix: ".min"
 		}))
@@ -139,6 +144,7 @@ gulp.task('js', function () {
 
 gulp.task('watch', function() {
 	gulp.watch('ajax_presentation.php',                         gulp.series('copy_ajax_pdf'))
+	gulp.watch('send_amo.php',                                  gulp.series('copy_amo_crm'))
 	gulp.watch(localContact7 + 'styles.css',                    gulp.series('copy_css_contact_form_7'))
 	gulp.watch(localCss + '**/*',                               gulp.series('css', 'copy_css'))
 	gulp.watch(localJs + '**/*.js',                             gulp.series('js', 'copy_js'))
