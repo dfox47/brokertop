@@ -16,14 +16,14 @@ $dumm = '/wp-content/themes/broker2022/i/dumm.png'; ?>
 
 	<div class="js-about-quote"></div>
 
-	<div class="about_examples" style="display: none;">
+	<div class="about_examples">
 		<div class="wp-block-group__inner-container">
 			<h2>Примеры успешных сделок Top Broker estate</h2>
 
 			<figure class="js-projects-gallery projects_gallery is-layout-flex">
 				<?php $args = array(
 					'posts_per_page'    => 40,
-					'product_cat'       => 'uspeshnye-sdelkiXXX'
+					'product_cat'       => 'uspeshnye-sdelki'
 				);
 
 				$loop = new WP_Query($args);
