@@ -91,7 +91,7 @@
 </div>
 
 <!-- Не нашли что искали? -->
-<div class="popup popup--feedback js-popup" data-popup="feedback-7237">
+<div class="popup popup--welcome js-popup" data-popup="feedback-7237">
 	<div class="popup__bg js-popup-close"></div>
 
 	<div class="popup__content">
