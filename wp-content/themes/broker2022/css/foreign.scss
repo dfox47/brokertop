@@ -1,5 +1,6 @@
 .foreign_desc {
-	background: url(#{$i}/foreign/bg.png) left bottom no-repeat scroll $c_menu_bg;
+	background: url(#{$i}/foreign/bg.png) center bottom no-repeat scroll $c_menu_bg;
+	background-size: contain;
 	color: #fff;
 	font-size: 18px;
 	margin: 0 0 -30px;
