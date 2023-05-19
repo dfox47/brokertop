@@ -13,10 +13,18 @@
 	grid-template-columns: repeat(4, 1fr);
 	padding: 54px 0 24px;
 
+	&--foreign {
+		.new_building_list {
+			&__desc {
+				color: $c_copyright;
+			}
+		}
+	}
+
 	&__desc {
 		background-color: #fff;
 		bottom: -100px;
-		color: $c_copyright;
+		color: $c_text;
 		font-size: 15px;
 		font-weight: 600;
 		left: 0;
