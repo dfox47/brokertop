@@ -14,7 +14,7 @@ $dumm = '/wp-content/themes/broker2022/i/dumm.png'; ?>
 	<h1>Жилые комплексы</h1>
 
 	<div class="wrap">
-		<div class="new_building_list owl-carousel js-owl-buildings">
+		<div class="new_building_list new_building_list--foreign owl-carousel js-owl-buildings">
 			<?php $args = array(
 				'posts_per_page'    => 40,
 				'product_cat'       => 'zarubezhnaya-nedvizhimost'
