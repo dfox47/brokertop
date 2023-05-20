@@ -29,6 +29,7 @@ $popupShow.forEach((button) => {
 					if ($owlCarouselPopup.length > 0) {
 						$(document).ready(function() {
 							$owlCarouselPopup.owlCarousel({
+								// autoHeight: true,
 								dots:       false,
 								items:      1,
 								loop:       true,
