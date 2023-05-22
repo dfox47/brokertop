@@ -39,8 +39,20 @@
 
 	.owl-next,
 	.owl-prev {
-		margin: 0;
-		top: 90px;
+		margin: -28px 0 0;
+		top: 25%;
+
+		@media #{$desktop} {
+			top: 33%;
+		}
+
+		@media #{$tablet} {
+			top: 29%;
+		}
+
+		@media #{$mobile} {
+			//top: 110px;
+		}
 	}
 
 	.owl-next {
