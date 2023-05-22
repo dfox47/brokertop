@@ -1,10 +1,14 @@
 .contacts_consult {
-	background-color: $c_menu_bg;
+	background-color: #fff;
 	box-shadow: 0 12px 24px rgba(#000, .25);
+	color: $c_text;
 	margin: 0 0 -30px;
 	padding: 63px 20px 93px;
 
 	h2 {
+		color: $c_text;
+		font-family: $font_montserrat;
+		font-weight: 600;
 		margin: 0 auto;
 		max-width: 1172px;
 		width: 100%;
@@ -13,11 +17,15 @@
 	input {
 		&[type="email"],
 		&[type="text"] {
-			background-color: $c_menu_bg;
-			border-bottom: 1px solid #fff;
-			color: #fff;
+			background-color: #fff;
+			border-bottom: 1px solid $c_menu_bg;
+			color: $c_text;
 			padding: 0 .3em .3em;
 		}
+	}
+
+	.btn_submit {
+		color: $c_text;
 	}
 
 	.contacts_form {
@@ -25,14 +33,18 @@
 			margin: 0;
 			width: 100%;
 		}
+
+		&__label_title {
+			color: $c_text;
+		}
 	}
 
 	.wpcf7-acceptance {
-		color: #fff;
+		color: $c_text;
 
 		a,
 		a:visited {
-			color: #fff;
+			color: $c_text;
 		}
 	}
 
