@@ -11,9 +11,13 @@
 	<?php // favicon
 	include "template-parts/favicon.php"; ?>
 
+	<meta property="og:image" content="https://brokertop.ru/wp-content/themes/broker2022/i/og.png">
+	<meta property="og:title" content="Top Broker Estate">
+	<meta property="og:url" content="https://brokertop.ru">
+
 	<?php wp_head(); ?>
 
-	<link rel="stylesheet" href="<?php echo esc_url(get_template_directory_uri()); ?>/styles.css?v<?php echo(date("YmdHis")); ?>" />
+	<link rel="stylesheet" href="<?php echo esc_url(get_template_directory_uri()); ?>/styles.css?v<?php echo(date("YmdH")); ?>" />
 </head>
 
 <body>
