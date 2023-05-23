@@ -11,7 +11,7 @@
 	<?php // favicon
 	include "template-parts/favicon.php"; ?>
 
-	<meta property="og:image" content="https://brokertop.ru/wp-content/themes/broker2022/i/og.png">
+	<meta property="og:image" content="https://brokertop.ru/wp-content/themes/broker2022/i/og_invert.png">
 	<meta property="og:title" content="Top Broker Estate">
 	<meta property="og:url" content="https://brokertop.ru">
 
