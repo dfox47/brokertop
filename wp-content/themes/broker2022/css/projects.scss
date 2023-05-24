@@ -87,34 +87,13 @@
 	}
 
 	.wp-block-image {
-		&::before {
-			content: "";
-			display: block;
-			padding: 74% 0 0;
-			position: relative;
-			width: 100%;
-			z-index: 1;
-		}
-
-		> a {
-			height: 100%;
-			left: 0;
-			position: absolute;
-			top: 0;
-			width: 100%;
-			z-index: 3;
-
-			> img {
-				object-fit: cover;
-			}
-		}
+		display: flex;
+		flex-direction: column;
 
 		> img {
-			height: 100%;
-			left: 0;
+			display: block;
+			height: 234px;
 			object-fit: cover;
-			position: absolute;
-			top: 0;
 		}
 	}
 }
