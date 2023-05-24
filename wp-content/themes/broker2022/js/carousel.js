@@ -77,7 +77,6 @@ $(document).ready(function() {
 		$owlBuildings.owlCarousel({
 			dots:       true,
 			items:      4,
-			// loop:       true,
 			margin:     20,
 			nav:        true,
 			navText:    ['<span>назад</span>', '<span>далее</span>'],
@@ -133,9 +132,6 @@ $(document).ready(function() {
 
 		// creat carousel
 		$projectsGallery.owlCarousel({
-			// autoplay:           true,
-			autoplayHoverPause: true,
-			autoplayTimeout:    4000,
 			dots:               true,
 			items:              4,
 			loop:               true,
