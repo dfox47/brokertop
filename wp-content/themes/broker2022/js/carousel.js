@@ -143,11 +143,24 @@ $(document).ready(function() {
 			nav:                true,
 			navText:            ['', ''],
 			responsive:{
-				0:      {items: 1},
-				700:    {items: 2},
-				1100:   {items: 3},
-				1400:   {items: 4}
-			}
+				0: {
+					items:      1,
+					slideBy:    1
+				},
+				700: {
+					items:      2,
+					slideBy:    2
+				},
+				1100: {
+					items:      3,
+					slideBy:    3
+				},
+				1400: {
+					items:      4,
+					slideBy:    4
+				}
+			},
+			slideBy: 4
 		})
 	}
 
