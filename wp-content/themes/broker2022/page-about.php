@@ -47,7 +47,7 @@ $dumm = '/wp-content/themes/broker2022/i/dumm.png'; ?>
 						preg_match('@src="([^"]+)"@', $desc, $match);
 						$logoLink       = array_pop($match); ?>
 
-						<div class="wp-block-image js-popup-show" data-popup="with_content">
+						<div class="wp-block-image">
 							<?php if ($image) echo $image; ?>
 
 							<div class="about_objects_desc">
@@ -56,38 +56,6 @@ $dumm = '/wp-content/themes/broker2022/i/dumm.png'; ?>
 								<?php if ($objectAddress !== '') { ?>
 									<span class="projects_gallery__alt"><?= $objectAddress; ?></span>
 								<?php } ?>
-							</div>
-
-							<div class="hidden js-popup-content-put">
-								<div class="product_slider">
-									<div class="owl-carousel js-popup-owl-carousel">
-										<?php // gallery images
-										foreach ($galleryImages as $galleryImage) {
-											// thumbnail | medium | large | full
-											$imageLink = str_replace('https://' . $_SERVER['SERVER_NAME'], '', wp_get_attachment_url($galleryImage)); ?>
-
-											<img class="product_slider__img js-img-lazy" src="<?= $dumm; ?>" data-src="<?= $imageLink; ?>" alt="" loading="lazy">
-										<?php } ?>
-									</div>
-								</div>
-
-								<div class="new_building_popup_desc">
-									<div class="new_building_popup_desc__text"><?= $descNoImg; ?></div>
-								</div>
-
-								<span class="new_building_popup_links">
-									<?php if ($pdfLink) { ?>
-										<a class="new_building_popup_links__item new_building_popup_link__presentation" href="<?= $pdfLink; ?>" target="_blank">Скачать презентацию</a>
-									<?php } ?>
-
-									<div class="new_building_popup_links__social">
-										<?php if ($realtorPhone) { ?>
-											<a class="new_building_popup_links__item social_list__icon social_list__icon--whatsapp" href="//wa.me/<?= $realtorPhone; ?>" target="_blank" rel="noopener" title="whatsapp"></a>
-										<?php } ?>
-
-										<a class="new_building_popup_links__item social_list__icon social_list__icon--telegram" href="//t.me/topbrokerestate" target="_blank" rel="noopener" title="telegram"></a>
-									</div>
-								</span>
 							</div>
 						</div>
 					<?php endwhile; ?>
