@@ -51,7 +51,7 @@ $whatsapp   = esc_attr(get_option('broker_whatsapp'));
 </footer>
 
 <?php if ($whatsapp) { ?>
-	<a class="whatsapp_link" href="//wa.me/<?= $whatsapp; ?>" target="_blank"><img class="whatsapp_link__img js-img-scroll" src="<?= $dumm; ?>" data-src="<?= $i . '/icons/whatsapp_green.svg'; ?>" alt="whatsapp" /></a>
+	<a class="whatsapp_link" href="//wa.me/<?= $whatsapp; ?>" target="_blank"><span class="whatsapp_link__img js-img-scroll" data-src="<?= $i . '/icons/whatsapp_green.svg'; ?>" title="whatsapp"></span></a>
 <?php } ?>
 
 <?php // popup
