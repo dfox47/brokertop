@@ -5,9 +5,6 @@
 */
 ?>
 
-<?php // link to dumm img
-$dumm = '/wp-content/themes/broker2022/i/dumm.png'; ?>
-
 <?php get_header(); ?>
 
 	<div class="wrap_bg">
@@ -46,7 +43,7 @@ $dumm = '/wp-content/themes/broker2022/i/dumm.png'; ?>
 						<div class="new_building_list__link">
 							<span class="new_building_list__img"><?php if ($image) echo $image; ?></span>
 
-							<img class="new_building_list__logo js-img-scroll" src="<?= $dumm; ?>" data-src="<?= $logoLink; ?>" alt="" loading="lazy">
+							<span class="new_building_list__logo js-img-scroll" data-src="<?= $logoLink; ?>"></span>
 
 							<span class="new_building_list__desc">
 								<?= $descNoImg; ?>
@@ -73,13 +70,13 @@ $dumm = '/wp-content/themes/broker2022/i/dumm.png'; ?>
 										// thumbnail | medium | large | full
 										$imageLink = str_replace('https://' . $_SERVER['SERVER_NAME'], '', wp_get_attachment_url($galleryImage)); ?>
 
-										<img class="product_slider__img js-img-lazy" src="<?= $dumm; ?>" data-src="<?= $imageLink; ?>" alt="" loading="lazy">
+										<span class="product_slider__img js-img-scroll" data-src="<?= $imageLink; ?>"></span>
 									<?php } ?>
 								</div>
 							</div>
 
 							<div class="new_building_popup_desc">
-								<img class="js-img-scroll" src="<?= $dumm; ?>" data-src="<?= $logoLink; ?>" alt="" loading="lazy">
+								<span class="js-img-scroll" data-src="<?= $logoLink; ?>"></span>
 
 								<div><?= $descNoImg; ?></div>
 							</div>
