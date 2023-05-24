@@ -5,9 +5,6 @@
 */
 ?>
 
-<?php // link to dumm img
-$dumm = '/wp-content/themes/broker2022/i/dumm.png'; ?>
-
 <?php get_header(); ?>
 
 	<div class="wrap">
