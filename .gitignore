@@ -1,4 +1,5 @@
-/vk_rss/
+/wp-content/plugins/
+/wp-content/themes/broker2022/pdf/
 /wp-content/themes/twentynineteen/
 /wp-content/themes/twentyseventeen/
 /wp-content/themes/twentytwenty/
@@ -6,5 +7,3 @@
 /wp-content/themes/twentytwentytwo/
 /wp-content/uploads/
 wp-config.php
-package-lock.json
-node_modules

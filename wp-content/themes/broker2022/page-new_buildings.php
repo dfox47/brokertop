@@ -70,10 +70,11 @@
 										// thumbnail | medium | large | full
 										$imageLink = str_replace('https://' . $_SERVER['SERVER_NAME'], '', wp_get_attachment_url($galleryImage)); ?>
 
-										<span class="product_slider__img js-img-scroll" data-src="<?= $imageLink; ?>"></span>
+										<img class="product_slider__img js-img-scroll" src="<?= $imageLink; ?>" data-src="<?= $imageLink; ?>" alt="">
 									<?php } ?>
 								</div>
 							</div>
+
 
 							<div class="new_building_popup_desc">
 								<span class="js-img-scroll" data-src="<?= $logoLink; ?>"></span>
