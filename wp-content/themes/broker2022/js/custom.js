@@ -20,14 +20,17 @@ $(document).ready(function () {
 
 	// show popup when user tries to leave [START]
 	const showBeforeLeave = () => {
-		if (localStorage.getItem('inactivePopupSeen') === '1') return
+		const date          = new Date()
+		const currentTime   = date.getTime()
+
+		if (parseInt(localStorage.getItem('inactivePopupSeen')) > currentTime) return
 
 		const $html = $('html')
 
 		$html.bind('mouseleave', function () {
 			$('.js-popup[data-popup="feedback-7237"]').addClass('active')
 			$html.unbind('mouseleave')
-			localStorage.setItem('inactivePopupSeen', '1')
+			localStorage.setItem('inactivePopupSeen', (currentTime + 2 * 360000).toString())
 		})
 	}
 
