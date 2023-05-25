@@ -54,6 +54,8 @@
 	}
 
 	&--light {
+		background-color: #fff;
+
 		&::after {
 			display: none;
 		}
