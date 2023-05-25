@@ -45,14 +45,6 @@
 			max-width: none;
 		}
 
-		.wpcf7-spinner {
-			display: none;
-			left: 50%;
-			position: absolute;
-			top: 50%;
-			transform: translate(-50%,-50%);
-		}
-
 		@media #{$tablet} {
 			white-space: normal;
 		}

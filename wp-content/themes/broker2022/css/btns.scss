@@ -72,6 +72,18 @@
 		position: absolute;
 	}
 
+	&--dark {
+		background-color: $c_text;
+
+		.wpcf7-spinner {
+			display: none;
+			left: 50%;
+			position: absolute;
+			top: 50%;
+			transform: translate(-50%,-50%);
+		}
+	}
+
 	&__title {
 		border: 1px solid $c_main;
 		display: block;
