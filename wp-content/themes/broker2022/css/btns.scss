@@ -7,6 +7,14 @@
 	text-decoration: none;
 	text-transform: uppercase;
 	transition: $transition;
+
+	&__animated {
+		animation: slidetounlock 5s infinite;
+		background: -webkit-gradient(linear,left top,right top,color-stop(0, #ddd),color-stop(0.4, #ddd),color-stop(0.5, $c_main),color-stop(0.6, #ddd),color-stop(1, #ddd));
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+		-webkit-text-size-adjust: none;
+	}
 }
 
 .btn_close {
