@@ -13,7 +13,7 @@ $dumm   = '/wp-content/themes/broker2022/i/dumm.png';
 
 				<div class="hero_block_slide__desc">Квартиры и апартаменты в лучших жилых комплексах Москвы и Подмосковья</div>
 
-				<div class="hero_block_slide__more"><a class="btn btn_more" href="/shop/">Получить планировки и цены</a></div>
+				<div class="hero_block_slide__more"><a class="btn btn_more btn__animated js-popup-show" href="javascript:void(0);" data-popup="feedback-7626">Получить планировки и цены</a></div>
 			</div>
 		</div>
 
