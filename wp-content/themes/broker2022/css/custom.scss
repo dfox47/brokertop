@@ -439,7 +439,8 @@ img {
 	}
 }
 
-// новостройки
+// новостройки и зарубежная недвижимость
+.page-template-page-foreign,
 .page-template-page-new_buildings {
 	h1 {
 		color: $c_text;
@@ -448,20 +449,8 @@ img {
 		font-weight: 600;
 		letter-spacing: 0;
 		margin: 0 auto;
-		max-width: 1180px;
-	}
-}
-
-// зарубежная недвижимость
-.page-template-page-foreign {
-	h1 {
-		color: $c_text;
-		font-family: $font_montserrat;
-		font-size: 32px;
-		font-weight: 600;
-		letter-spacing: 0;
-		margin: 0 auto;
-		max-width: 1152px;
+		max-width: 1238px;
+		padding: 0 30px;
 	}
 }
 
