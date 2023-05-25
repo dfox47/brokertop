@@ -55,8 +55,13 @@
 
 		.btn_submit {
 			color: #fff;
-			margin: 0;
+			margin: 0 auto;
+			max-width: 273px;
 			white-space: normal;
+
+			&:hover {
+				background-color: $c_main;
+			}
 		}
 
 		.contacts_form {
