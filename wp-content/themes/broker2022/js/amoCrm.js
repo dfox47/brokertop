@@ -139,16 +139,19 @@ $(document).ready(function () {
 			type: 'POST',
 			data: objData,
 			success: function () {
-				$feedbackForm.closest('.js-popup').removeClass('active')
+				// hide all popups
+				$('.js-popup').removeClass('active')
 
 				$('.popup--success').addClass('active')
 
 				$.cookie('cookie_presentation_feedback', 'true', { expires: 31, path: '/' })
 
 				// download PDF
-				if (pdfLink !== null) window.open('https://' + window.location.hostname + '/' + pdfLink, '_blank')
+				if (pdfLink !== null) {
+					window.open('https://' + window.location.hostname + '/' + pdfLink, '_blank')
 
-				localStorage.removeItem('pdfLink')
+					localStorage.removeItem('pdfLink')
+				}
 			},
 			error: function () {
 				console.log('error')
