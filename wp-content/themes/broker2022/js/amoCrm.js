@@ -44,8 +44,6 @@ const onSubmit = () => {
 			$phoneLabel.classList.add('error')
 
 			showError()
-
-			return
 		}
 	})
 }
