@@ -50,14 +50,14 @@
 
 								<span class="new_building_links">
 									<?php if ($pdfLink) { ?>
-										<a class="new_building_links__item new_building__presentation" href="<?= $pdfLink; ?>" target="_blank"></a>
+										<a class="new_building_links__item new_building__presentation social_list__icon social_list__icon--dark js-pdf-link" href="<?= $pdfLink; ?>" target="_blank" title="Презентация"></a>
 									<?php } ?>
 
 									<?php if ($realtorPhone) { ?>
-										<a class="new_building_links__item social_list__icon social_list__icon--whatsapp" href="//wa.me/<?= $realtorPhone; ?>" target="_blank" rel="noopener" title="whatsapp"></a>
+										<a class="new_building_links__item social_list__icon social_list__icon--dark social_list__icon--whatsapp" href="//wa.me/<?= $realtorPhone; ?>" target="_blank" rel="noopener" title="whatsapp"></a>
 									<?php }  ?>
 
-									<a class="new_building_links__item social_list__icon social_list__icon--telegram" href="//t.me/topbrokerestate" target="_blank" rel="noopener" title="telegram"></a>
+									<a class="new_building_links__item social_list__icon social_list__icon--dark social_list__icon--telegram" href="//t.me/topbrokerestate" target="_blank" rel="noopener" title="telegram"></a>
 								</span>
 							</span>
 						</div>
