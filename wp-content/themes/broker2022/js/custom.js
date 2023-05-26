@@ -38,10 +38,13 @@ $(document).ready(function () {
 	showBeforeLeave()
 	// show popup when user tries to leave [END]
 
-	$('.js-presentation-feedback').click(function(e) {
+	$(document).on('click', '.js-pdf-link', function(e) {
 		if ($.cookie('cookie_presentation_feedback') !== undefined) return
 
 		e.preventDefault()
+
+		// hide all popups
+		$('.js-popup').removeClass('active')
 
 		// set PDF link to localStorage
 		localStorage.setItem('pdfLink', $(this).attr('href'))

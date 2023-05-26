@@ -191,7 +191,7 @@ $brokerImgUrl = $match[0][0];
 
 					<a class="product_realtor__phone js-popup-show" href="javascript:void(0);" data-popup="feedback">Заказать просмотр</a>
 
-					<a class="product_realtor__presentation js-presentation-feedback" href="<?= $pdfLink; ?>" target="_blank">Скачать презентацию</a>
+					<a class="product_realtor__presentation" href="<?= $pdfLink; ?>" target="_blank">Скачать презентацию</a>
 				</div>
 			</div>
 
