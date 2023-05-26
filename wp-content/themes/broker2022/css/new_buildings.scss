@@ -354,6 +354,10 @@
 		position: relative;
 		max-width: 300px;
 
+		img {
+			display: none;
+		}
+
 		strong {
 			color: #000;
 			font-weight: 700;
