@@ -183,7 +183,6 @@
 		}
 
 		.contacts_consult_list {
-			justify-content: center;
 			padding: 0;
 			margin-top: 24px;
 
@@ -197,11 +196,11 @@
 			&__item {
 				margin: 0 auto 40px;
 				max-width: none;
-			}
-		}
 
-		.contacts_consult_wrap {
-			text-align: center;
+				&:last-child {
+					margin-bottom: 0;
+				}
+			}
 		}
 
 		.contacts_form {

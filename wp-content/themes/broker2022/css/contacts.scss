@@ -71,6 +71,29 @@
 		top: 100%;
 	}
 
+	&--dark {
+		background-color: $c_menu_bg;
+
+		h2 {
+			color: $c_main;
+			font-family: $font_arsenica;
+		}
+
+		h3 {
+			color: #fff;
+		}
+
+		.btn_submit {
+			color: #fff;
+		}
+
+		.contacts_form {
+			&__label_title {
+				color: #fff;
+			}
+		}
+	}
+
 	@media #{$mobile} {
 		margin: 0;
 	}
@@ -396,7 +419,7 @@
 
 	.wpcf7-form {
 		margin: 0 auto;
-		max-width: 430px;
+		max-width: 510px;
 	}
 
 	.wpcf7-form-control {
