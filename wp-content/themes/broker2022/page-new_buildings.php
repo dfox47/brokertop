@@ -79,12 +79,12 @@
 							<div class="new_building_popup_desc">
 								<span class="js-img-scroll" data-src="<?= $logoLink; ?>"></span>
 
-								<div><?= $descNoImg; ?></div>
+								<div class="new_building_popup_desc__text"><?= $descNoImg; ?></div>
 							</div>
 
 							<span class="new_building_popup_links">
 								<?php if ($pdfLink) { ?>
-									<a class="new_building_popup_links__item new_building_popup_link__presentation" href="<?= $pdfLink; ?>" target="_blank">Скачать презентацию</a>
+									<a class="new_building_popup_links__item new_building_popup_link__presentation js-pdf-link" href="<?= $pdfLink; ?>" target="_blank">Скачать презентацию</a>
 								<?php } ?>
 
 								<div class="new_building_popup_links__social">
