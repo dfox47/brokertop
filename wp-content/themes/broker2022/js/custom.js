@@ -29,6 +29,7 @@ $(document).ready(function () {
 
 		$html.bind('mouseleave', function () {
 			$('.js-popup[data-popup="feedback-7237"]').addClass('active')
+			document.getElementsByTagName('html')[0].classList.add('popup_active')
 			$html.unbind('mouseleave')
 			localStorage.setItem('inactivePopupSeen', (currentTime + 2 * 360000).toString())
 		})

@@ -1,4 +1,5 @@
 // popup.js [START]
+const $html             = document.getElementsByTagName('html')[0]
 const $popupClose       = document.querySelectorAll('.js-popup-close')
 const $popupContent     = document.querySelector('.js-popup-content')
 const $popupShow        = document.querySelectorAll('.js-popup-show')
@@ -48,7 +49,7 @@ $popupShow.forEach((button) => {
 		})
 
 		// add class from html tag
-		document.getElementsByTagName('html')[0].classList.add('popup_active')
+		$html.classList.add('popup_active')
 	})
 })
 
@@ -64,7 +65,7 @@ $popupClose.forEach((button) => {
 		})
 
 		// remove class from html tag
-		document.getElementsByTagName('html')[0].classList.remove('popup_active')
+		$html.classList.remove('popup_active')
 	})
 })
 // popup.js [END]

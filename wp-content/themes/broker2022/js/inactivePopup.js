@@ -18,6 +18,7 @@ const inactivePopup = () => {
 
 		if (idleTime >= 10000) {
 			$('.js-popup[data-popup="feedback-7237"]').addClass('active')
+			document.getElementsByTagName('html')[0].classList.add('popup_active')
 			clearInterval(idleInterval)
 
 			localStorage.setItem('inactivePopupSeen', (currentTime + 2 * 360000).toString())
