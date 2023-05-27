@@ -131,7 +131,7 @@ $(document).ready(function () {
 		let objData = []
 
 		fieldsArray.forEach(item => {
-			if ((item.name === 'user-name' || item.name === 'user-phone') && item.value !== '') objData.push(item)
+			if (item.value !== '') objData.push(item)
 		})
 
 		$.ajax({
