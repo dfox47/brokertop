@@ -17,6 +17,9 @@ const inactivePopup = () => {
 		idleTime += 1000
 
 		if (idleTime >= 10000) {
+			// hide all popups
+			$('.js-popup').removeClass('active')
+
 			$('.js-popup[data-popup="feedback-7237"]').addClass('active')
 			document.getElementsByTagName('html')[0].classList.add('popup_active')
 			clearInterval(idleInterval)
