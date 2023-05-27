@@ -286,8 +286,6 @@
 	&__content {
 		background-color: #fff;
 		max-height: 100%;
-		//overflow-y: auto;
-		padding: 30px;
 		position: relative;
 		z-index: 3;
 
@@ -317,10 +315,17 @@
 		@media #{$mobile} {
 			padding: 10px;
 		}
+
+		@media (max-height: 900px) {
+			height: 100%;
+		}
 	}
 
 	&__content_wrap {
 		height: 100%;
+		overflow-y: auto;
+		padding: 30px;
+		position: relative;
 	}
 
 	@media #{$mobile} {

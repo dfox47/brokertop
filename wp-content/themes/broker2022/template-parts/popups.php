@@ -1,3 +1,18 @@
+<!-- feedback popup -->
+<div class="popup popup--feedback js-popup" data-popup="feedback">
+	<div class="popup__bg js-popup-close"></div>
+
+	<div class="popup__content">
+		<div class="popup__close js-popup-close"></div>
+
+		<div class="popup__content_wrap">
+			<div class="contacts_form">
+				<?= do_shortcode('[contact-form-7 id="63"]'); ?>
+			</div>
+		</div>
+	</div>
+</div>
+
 <!-- Подать заявку -->
 <div class="popup popup--feedback js-popup" data-popup="feedback2">
 	<div class="popup__bg js-popup-close"></div>
@@ -5,8 +20,10 @@
 	<div class="popup__content">
 		<div class="popup__close js-popup-close"></div>
 
-		<div class="contacts_form">
-			<?php echo do_shortcode('[contact-form-7 id="1966"]'); ?>
+		<div class="popup__content_wrap">
+			<div class="contacts_form">
+				<?= do_shortcode('[contact-form-7 id="1966"]'); ?>
+			</div>
 		</div>
 	</div>
 </div>
@@ -18,8 +35,10 @@
 	<div class="popup__content">
 		<div class="popup__close js-popup-close"></div>
 
-		<div class="contacts_form">
-			<?php echo do_shortcode('[contact-form-7 id="1967"]'); ?>
+		<div class="popup__content_wrap">
+			<div class="contacts_form">
+				<?= do_shortcode('[contact-form-7 id="1967"]'); ?>
+			</div>
 		</div>
 	</div>
 </div>
@@ -31,12 +50,15 @@
 	<div class="popup__content">
 		<div class="popup__close js-popup-close"></div>
 
-		<div class="contacts_form">
-			<?php echo do_shortcode('[contact-form-7 id="6847"]'); ?>
-		</div>
+		<div class="popup__content_wrap">
+			<div class="contacts_form">
+				<?= do_shortcode('[contact-form-7 id="6847"]'); ?>
+			</div>
 
-		<div class="contacts_form__error js-popup-error">Ошибка. Заполните все поля</div>
+			<div class="contacts_form__error js-popup-error">Ошибка. Заполните все поля</div>
+		</div>
 	</div>
+
 	<div id="success-message"></div>
 </div>
 
@@ -47,8 +69,10 @@
 	<div class="popup__content">
 		<div class="popup__close js-popup-close"></div>
 
-		<div class="contacts_form">
-			<?php echo do_shortcode('[contact-form-7 id="6953"]'); ?>
+		<div class="popup__content_wrap">
+			<div class="contacts_form">
+				<?= do_shortcode('[contact-form-7 id="6953"]'); ?>
+			</div>
 		</div>
 	</div>
 </div>
@@ -60,7 +84,9 @@
 	<div class="popup__content">
 		<div class="popup__close js-popup-close"></div>
 
-		<h3>Благодарим за обращение, Ваш запрос уже в обработке!</h3>
+		<div class="popup__content_wrap">
+			<h3>Благодарим за обращение, Ваш запрос уже в обработке!</h3>
+		</div>
 	</div>
 </div>
 
@@ -71,8 +97,10 @@
 	<div class="popup__content">
 		<div class="popup__close js-popup-close"></div>
 
-		<div class="contacts_form">
-			<?php echo do_shortcode('[contact-form-7 id="6954"]'); ?>
+		<div class="popup__content_wrap">
+			<div class="contacts_form">
+				<?= do_shortcode('[contact-form-7 id="6954"]'); ?>
+			</div>
 		</div>
 	</div>
 </div>
@@ -84,8 +112,10 @@
 	<div class="popup__content">
 		<div class="popup__close js-popup-close"></div>
 
-		<div class="contacts_form">
-			<?php echo do_shortcode('[contact-form-7 id="7626"]'); ?>
+		<div class="popup__content_wrap">
+			<div class="contacts_form">
+				<?= do_shortcode('[contact-form-7 id="7626"]'); ?>
+			</div>
 		</div>
 	</div>
 </div>
@@ -97,8 +127,10 @@
 	<div class="popup__content">
 		<div class="popup__close js-popup-close"></div>
 
-		<div class="contacts_form">
-			<?= do_shortcode('[contact-form-7 id="7237"]'); ?>
+		<div class="popup__content_wrap">
+			<div class="contacts_form">
+				<?= do_shortcode('[contact-form-7 id="7237"]'); ?>
+			</div>
 		</div>
 	</div>
 </div>

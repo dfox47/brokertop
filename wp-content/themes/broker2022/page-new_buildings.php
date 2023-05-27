@@ -75,7 +75,6 @@
 								</div>
 							</div>
 
-
 							<div class="new_building_popup_desc">
 								<span class="js-img-scroll" data-src="<?= $logoLink; ?>"></span>
 
