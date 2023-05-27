@@ -104,21 +104,6 @@
 				padding: 0;
 			}
 		}
-
-		.popup {
-			&__content {
-				height: auto;
-				padding: 56px;
-
-				@media #{$mobile} {
-					padding: 10px;
-				}
-
-				@media #{$mobile_s} {
-					padding: 2px;
-				}
-			}
-		}
 	}
 
 	&--product {
