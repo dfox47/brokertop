@@ -31,6 +31,8 @@
 .about_list {
 	background: url(#{$i}/about_list_bg.png) center no-repeat scroll transparent;
 	background-size: cover;
+	border-left: 27px solid #fff;
+	border-right: 27px solid #fff;
 
 	h3 {
 		color: $c_text;
