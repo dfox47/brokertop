@@ -26,7 +26,6 @@
 
 	.btn_submit {
 		color: $c_text;
-		max-width: 210px;
 		width: 100%;
 
 		&__title {
@@ -95,6 +94,10 @@
 				color: #fff;
 				padding: 0 .3em .3em;
 			}
+		}
+
+		.btn_submit {
+			max-width: 210px;
 		}
 
 		.contacts_form {
