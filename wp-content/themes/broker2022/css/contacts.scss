@@ -3,7 +3,7 @@
 	box-shadow: 0 12px 24px rgba(#000, .25);
 	color: $c_text;
 	margin: 0 0 -30px;
-	padding: 63px 20px 93px;
+	padding: 43px 20px;
 
 	h2 {
 		color: $c_text;
@@ -26,6 +26,12 @@
 
 	.btn_submit {
 		color: $c_text;
+		max-width: 210px;
+		width: 100%;
+
+		&__title {
+			padding: 12px;
+		}
 	}
 
 	.contacts_form {
@@ -42,8 +48,7 @@
 	.wpcf7-acceptance {
 		color: $c_text;
 
-		a,
-		a:visited {
+		a {
 			color: $c_text;
 		}
 	}
@@ -69,6 +74,42 @@
 		margin: 4px 0 0;
 		position: absolute;
 		top: 100%;
+	}
+
+	&--about {
+		background-color: $c_menu_bg;
+		border-bottom: 27px solid #fff;
+		border-left: 27px solid #fff;
+		border-right: 27px solid #fff;
+		color: #fff;
+
+		h2 {
+			color: #fff
+		}
+
+		input {
+			&[type="email"],
+			&[type="text"] {
+				background-color: $c_menu_bg;
+				border-bottom: 1px solid #fff;
+				color: #fff;
+				padding: 0 .3em .3em;
+			}
+		}
+
+		.contacts_form {
+			&__label_title {
+				color: #fff;
+			}
+		}
+
+		.wpcf7-acceptance {
+			color: #fff;
+
+			a {
+				color: #fff;
+			}
+		}
 	}
 
 	&--dark {
@@ -103,8 +144,12 @@
 	align-items: center;
 	display: flex;
 	flex-wrap: wrap;
-	justify-content: flex-start;
-	padding: 15px 15px 25px;
+	justify-content: space-between;
+	padding: 15px;
+
+	&__group {
+		display: flex;
+	}
 
 	&__item {
 		display: flex;
@@ -112,9 +157,9 @@
 		max-width: 260px;
 		width: 100%;
 
-		&:last-child {
-			max-width: 200px;
-			margin-right: 0;
+		&--submit {
+			margin: -11px 17px 36px 0;
+			max-width: 210px;
 		}
 	}
 }
