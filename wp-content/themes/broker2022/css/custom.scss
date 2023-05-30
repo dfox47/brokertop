@@ -406,18 +406,6 @@ img {
 
 // about us
 .page-id-14 {
-	.wp-block-heading {
-		font-family: $font_montserrat;
-		font-size: 24px;
-		font-weight: 700;
-		margin: 1em 0 0;
-		padding: 0 15px;
-
-		@media #{$mobile} {
-			font-size: 18px;
-		}
-	}
-
 	.contacts_consult {
 		h2 {
 			font-family: $font_arsenica;
@@ -430,6 +418,18 @@ img {
 
 	.main_content {
 		padding: 59px 0 0;
+	}
+
+	.wp-block-heading {
+		font-family: $font_montserrat;
+		font-size: 24px;
+		font-weight: 700;
+		margin: 40px 0 0;
+		padding: 0 15px;
+
+		@media #{$mobile} {
+			font-size: 18px;
+		}
 	}
 }
 
