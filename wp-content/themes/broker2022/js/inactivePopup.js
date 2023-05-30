@@ -16,7 +16,7 @@ const inactivePopup = () => {
 	function checkIfIdle () {
 		idleTime += 1000
 
-		if (idleTime >= 10000) {
+		if (idleTime >= 30000) {
 			// hide all popups
 			$('.js-popup').removeClass('active')
 
