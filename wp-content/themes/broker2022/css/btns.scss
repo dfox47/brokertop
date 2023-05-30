@@ -14,6 +14,10 @@
 		-webkit-background-clip: text;
 		-webkit-text-fill-color: transparent;
 		-webkit-text-size-adjust: none;
+
+		&:hover {
+			background-color: $c_main;
+		}
 	}
 }
 
@@ -97,8 +101,9 @@
 	&:hover {
 		.btn_submit {
 			&__title {
-				background-color: $c_main;
+				background: $c_main;
 				color: #000;
+				-webkit-text-fill-color: #000;
 			}
 		}
 	}
