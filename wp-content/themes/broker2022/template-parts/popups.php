@@ -146,8 +146,8 @@
 </div>
 
 <?php // welcome popup
-//if (is_front_page()) {
-if ($_SERVER['REQUEST_URI'] == '/test/') {
+if (is_front_page()) {
+//if ($_SERVER['REQUEST_URI'] == '/test/') {
 	$welcome = "/wp-content/themes/broker2022/i/welcome"; ?>
 
 	<div class="welcome_preload js-welcome-preload"><span></span><span></span><span></span></div>
