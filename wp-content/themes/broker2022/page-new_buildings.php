@@ -39,49 +39,36 @@
 						<div class="new_building_list__group">
 					<?php } ?>
 
-					<div class="new_building_list__item js-buildings-item js-popup-show" data-popup="with_content">
+					<div class="new_building_list__item">
 						<div class="new_building_list__link">
 							<span class="new_building_list__img"><?php if ($image) echo $image; ?></span>
 
 							<span class="new_building_list__logo js-img-scroll" data-src="<?= $logoLink; ?>"></span>
 
-							<span class="new_building_list__desc">
-								<?= $descNoImg; ?>
+							<div class="new_building_list__desc">
+								<div class="js-popup-show" data-popup="with_content">
+									<?= $descNoImg; ?>
 
-								<span class="new_building_links">
-									<?php if ($pdfLink) { ?>
-										<a class="new_building_links__item new_building__presentation social_list__icon social_list__icon--dark js-pdf-link" href="<?= $pdfLink; ?>" target="_blank" title="Презентация"></a>
-									<?php } ?>
+									<div class="hidden js-popup-content-put">
+										<div class="product_slider">
+											<div class="owl-carousel js-popup-owl-carousel">
+												<?php // gallery images
+												foreach ($galleryImages as $galleryImage) {
+													// thumbnail | medium | large | full
+													$imageLink = str_replace('https://' . $_SERVER['SERVER_NAME'], '', wp_get_attachment_url($galleryImage)); ?>
 
-									<?php if ($realtorPhone) { ?>
-										<a class="new_building_links__item social_list__icon social_list__icon--dark social_list__icon--whatsapp" href="//wa.me/<?= $realtorPhone; ?>" target="_blank" rel="noopener" title="whatsapp"></a>
-									<?php }  ?>
+													<img class="product_slider__img js-img-scroll" src="<?= $imageLink; ?>" data-src="<?= $imageLink; ?>" alt="">
+												<?php } ?>
+											</div>
+										</div>
 
-									<a class="new_building_links__item social_list__icon social_list__icon--dark social_list__icon--telegram" href="//t.me/topbrokerestate" target="_blank" rel="noopener" title="telegram"></a>
-								</span>
-							</span>
-						</div>
+										<div class="new_building_popup_desc">
+											<span class="js-img-scroll" data-src="<?= $logoLink; ?>"></span>
 
-						<div class="hidden js-popup-content-put">
-							<div class="product_slider">
-								<div class="owl-carousel js-popup-owl-carousel">
-									<?php // gallery images
-									foreach ($galleryImages as $galleryImage) {
-										// thumbnail | medium | large | full
-										$imageLink = str_replace('https://' . $_SERVER['SERVER_NAME'], '', wp_get_attachment_url($galleryImage)); ?>
+											<div class="new_building_popup_desc__text"><?= $descNoImg; ?></div>
+										</div>
 
-										<img class="product_slider__img js-img-scroll" src="<?= $imageLink; ?>" data-src="<?= $imageLink; ?>" alt="">
-									<?php } ?>
-								</div>
-							</div>
-
-							<div class="new_building_popup_desc">
-								<span class="js-img-scroll" data-src="<?= $logoLink; ?>"></span>
-
-								<div class="new_building_popup_desc__text"><?= $descNoImg; ?></div>
-							</div>
-
-							<span class="new_building_popup_links">
+										<span class="new_building_popup_links">
 								<?php if ($pdfLink) { ?>
 									<a class="new_building_popup_links__item new_building_popup_link__presentation js-pdf-link" href="<?= $pdfLink; ?>" target="_blank">Скачать презентацию</a>
 								<?php } ?>
@@ -94,6 +81,21 @@
 									<a class="new_building_popup_links__item social_list__icon social_list__icon--telegram" href="//t.me/+79778021616" target="_blank" rel="noopener" title="telegram"></a>
 								</div>
 							</span>
+									</div>
+								</div>
+
+								<span class="new_building_links">
+									<?php if ($pdfLink) { ?>
+										<a class="new_building_links__item new_building__presentation social_list__icon social_list__icon--dark js-pdf-link" href="<?= $pdfLink; ?>" target="_blank" title="Презентация"></a>
+									<?php } ?>
+
+									<?php if ($realtorPhone) { ?>
+										<a class="new_building_links__item social_list__icon social_list__icon--dark social_list__icon--whatsapp" href="//wa.me/<?= $realtorPhone; ?>" target="_blank" rel="noopener" title="whatsapp"></a>
+									<?php }  ?>
+
+									<a class="new_building_links__item social_list__icon social_list__icon--dark social_list__icon--telegram" href="//t.me/topbrokerestate" target="_blank" rel="noopener" title="telegram"></a>
+								</span>
+							</div>
 						</div>
 					</div>
 
