@@ -22,45 +22,44 @@
 			$contact['name']    = isset($_POST['user-name']) ? $_POST['user-name'] : 'Не указано';
 			$contact['linked_leads_id'] = [(int)$id];
 			$contact->addCustomField(184885, [
-				[$_POST['user-phone'], 'MOB'],
+				[$_POST['user-phone'], 'MOB']
 			]);
 			$contact->addCustomField(184887, [
-				[$_POST['user-email'], 'PRIV'],
+				[$_POST['user-email'], 'PRIV']
+			]);
+			$contact->addCustomField(184883, [
+				[$_POST['page-url'], 'PRIV']
 			]);
 			$id = $contact->apiAdd();
 
 			// test all fileds
 //			print_r($amo->account->apiCurrent());
 
-
 			$url = parse_url($_SERVER['HTTP_REFERER'], PHP_URL_HOST);
 
-			$to   = 'dfox@foxartbox.com';
-			//$to       = 'Arson66@yandex.ru';
+			$to         = 'dfox@foxartbox.com';
 			$subject    = 'Заявка с сайта';
 			$message    = 'Имя: ' . $_POST['user-name'] . '<br>';
 			$message    .= 'Телефон: ' . $_POST['user-phone'] . '<br>';
 			$message    .= 'Email: ' . $_POST['user-email'] . '<br>';
-			//$message    .= 'From page: ' . $_POST['page-url'] . '<br>';
+//			$message    .= 'From page: ' . $_POST['page-url'] . '<br>';
 			$message    .= 'From page: ' . $url . '<br>';
-			//$message .= 'Product name: '.$_POST['product_name'].'<br>';
 			$headers = 'From: info@brokertop.ru' . "rn" .
 			  'Reply-To: ' . $_POST['user-email'] . "rn" .
 			  'Content-type: text/html; charset=utf-8' . "rn" .
 			  'X-Mailer: PHP/' . phpversion();
 
 			if (mail($to, $subject, $message, $headers)) {
-			  echo "Сообщение продублировано на почту!";
+				echo "Сообщение продублировано на почту!";
 			}
 			else {
-			  echo "Ошибка отправки";
+				echo "Ошибка отправки";
 			}
 		}
 		catch (\AmoCRM\Exception $e) {
 			printf('Error (%d): %s' . PHP_EOL, $e->getCode(), $e->getMessage());
-		}
-//	}
-	?>
+//		}
+	} ?>
 
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
