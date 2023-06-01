@@ -63,16 +63,14 @@
 </div>
 
 <!-- Внимание! Закрытые лоты и переуступки с лучшей ценой! -->
-<div class="popup popup--welcome js-popup" data-popup="feedback-6953">
+<div class="popup popup--dark js-popup" data-popup="feedback-6953">
 	<div class="popup__bg js-popup-close"></div>
 
 	<div class="popup__content">
 		<div class="popup__close js-popup-close"></div>
 
 		<div class="popup__content_wrap">
-			<div class="contacts_form">
-				<?= do_shortcode('[contact-form-7 id="6953"]'); ?>
-			</div>
+			<?= do_shortcode('[contact-form-7 id="6953"]'); ?>
 		</div>
 	</div>
 </div>
@@ -147,7 +145,6 @@
 
 <?php // welcome popup
 if (is_front_page()) {
-//if ($_SERVER['REQUEST_URI'] == '/test/') {
 	$welcome = "/wp-content/themes/broker2022/i/welcome"; ?>
 
 	<div class="welcome_preload js-welcome-preload"><span></span><span></span><span></span></div>
