@@ -86,7 +86,7 @@
 
 								<span class="new_building_links">
 									<?php if ($pdfLink) { ?>
-										<a class="new_building_links__item new_building__presentation social_list__icon social_list__icon--dark js-pdf-link" href="<?= $pdfLink; ?>" target="_blank" title="Презентация"></a>
+										<a class="new_building_links__item new_building__presentation social_list__icon social_list__icon--dark js-pdf-link" href="<?= $pdfLink; ?>" target="_blank" title="Презентация" data-link="<?= $link; ?>"></a>
 									<?php } ?>
 
 									<?php if ($realtorPhone) { ?>
