@@ -43,15 +43,19 @@ $(document).ready(function () {
 
 		e.preventDefault()
 
+		const $this = $(this)
+
 		// hide all popups
 		$('.js-popup').removeClass('active')
 
 		// set PDF link to localStorage
-		localStorage.setItem('pdfLink', $(this).attr('href'))
+		localStorage.setItem('pdfLink', $this.attr('href'))
 
 		const $popup = $('[data-popup="feedback-6953"]')
 
 		$popup.attr('target-link', e.target.href)
+
+		$popup.find('.js-page-url').val($this.attr('data-link'))
 
 		$popup.addClass('active')
 	})
