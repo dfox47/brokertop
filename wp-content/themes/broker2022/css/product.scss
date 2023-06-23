@@ -380,6 +380,19 @@
 		width: 100%;
 		z-index: 3;
 	}
+
+	&__img {
+		background-position: center center;
+		background-repeat: no-repeat;
+		background-size: cover;
+		height: 100%;
+		left: 0;
+		max-height: 186px;
+		position: absolute;
+		top: 0;
+		width: 100%;
+		z-index: 1;
+	}
 }
 
 .product_map {

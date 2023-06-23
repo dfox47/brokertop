@@ -232,6 +232,10 @@
 								right: 19px;
 								width: auto;
 							}
+
+							&__img {
+								max-height: none;
+							}
 						}
 
 						@media #{$mobile} {

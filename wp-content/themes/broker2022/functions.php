@@ -101,10 +101,10 @@ function replaceProductLinkAtCategory() {
 	$affiliate_link = get_post_meta(get_the_ID(), '_product_url', true);
 
 	if ($affiliate_link) {
-		echo '<a href="' . esc_url($affiliate_link) . '" class="product_link" target="_blank">';
+		echo '<a href="' . esc_url($affiliate_link) . '" class="product_link js-product-link" target="_blank">';
 	}
 	else {
-		echo '<a href="' . get_the_permalink() . '" class="product_link" style="background-image: url(' . wp_get_attachment_url( $product->get_image_id() ) . ')"><span class="product_link__content">';
+		echo '<a href="' . get_the_permalink() . '" class="product_link js-product-link"><span class="product_link__img" style="background-image: url(' . wp_get_attachment_url( $product->get_image_id() ) . ')"></span><span class="product_link__content">';
 	}
 }
 
