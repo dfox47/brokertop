@@ -645,6 +645,11 @@
 					padding: 0;
 				}
 			}
+
+			@media #{$mobile} {
+				align-items: flex-start;
+				padding: 140px 10px 0;
+			}
 		}
 
 		.hero_block_slider {
