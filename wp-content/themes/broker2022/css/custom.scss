@@ -406,20 +406,7 @@ img {
 
 // about us
 .page-id-14 {
-	.contacts_consult {
-		h2 {
-			font-size: 32px;
-			font-weight: 600;
-			line-height: 1.2;
-			margin: 0 auto 26px;
-		}
-	}
-
-	.main_content {
-		padding: 59px 0 0;
-	}
-
-	.wp-block-heading {
+	h2 {
 		font-family: $font_montserrat;
 		font-size: 24px;
 		font-weight: 700;
@@ -428,7 +415,27 @@ img {
 
 		@media #{$mobile} {
 			font-size: 18px;
+			margin-left: 0;
 		}
+	}
+
+	h3 {}
+
+	.contacts_consult {
+		h2 {
+			font-size: 32px;
+			font-weight: 600;
+			line-height: 1.2;
+			margin: 0 auto 26px;
+
+			@media #{$mobile} {
+				font-size: 22px;
+			}
+		}
+	}
+
+	.main_content {
+		padding: 59px 0 0;
 	}
 }
 
