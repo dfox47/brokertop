@@ -14,9 +14,11 @@
 		-webkit-background-clip: text;
 		-webkit-text-fill-color: transparent;
 		-webkit-text-size-adjust: none;
+		transition: $transition;
 
 		&:hover {
-			background-color: $c_main;
+			background: $c_main;
+			-webkit-text-fill-color: #fff;
 		}
 	}
 }
