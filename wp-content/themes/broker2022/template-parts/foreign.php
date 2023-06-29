@@ -21,7 +21,7 @@ if (get_the_post_thumbnail_url()) {
 
 				<div class="hero_block_slide__desc">Апартаменты, виллы и готовый бизнес в Объединенных Арабских Эмиратах, Великобритании, Катаре, Северном и Южном Кипре.</div>
 
-				<div class="hero_block_slide__more"><a class="btn btn_more" href="/shop/">Получить планировки и цены</a></div>
+				<div class="hero_block_slide__more"><a class="btn btn_more btn__animated js-popup-show" href="javascript:void(0);" data-popup="feedback-7626">Оставить заявку на бесплатную консультацию</a></div>
 			</div>
 		</div>
 
