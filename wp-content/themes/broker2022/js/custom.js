@@ -70,4 +70,21 @@ let insertAfter = (newNode, existingNode) => {
 document.querySelectorAll('.js-page-url').forEach((e) => {
 	e.value = window.location.href
 })
+
+// change currency from attributes
+document.querySelectorAll('.js-currency').forEach((cur) => {
+	const curFromAttr = cur.dataset.currency
+
+	if (!curFromAttr) return
+
+	const $productLink = cur.closest('.js-product-link')
+
+	if (!$productLink) return
+
+	const $productSymbol = $productLink.querySelector('.woocommerce-Price-currencySymbol')
+
+	if (!$productSymbol) return
+
+	$productSymbol.innerText = curFromAttr
+})
 // custom.js [END]

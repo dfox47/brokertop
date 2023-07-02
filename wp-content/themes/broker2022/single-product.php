@@ -84,7 +84,7 @@ $brokerImgUrl = $match[0][0];
 								</div>
 							</div>
 						<?php } ?>
-
+			
 						<?php // Количество комнат
 						if ($objectRooms) { ?>
 							<div class="product_info__item product_info__item--cols">
@@ -115,16 +115,15 @@ $brokerImgUrl = $match[0][0];
 								<div class="product_info__value"><?= $objectSquare; ?> <small>м</small><sup>2</sup></div>
 							</div>
 						<?php } ?>
-
 						<?php // Стоимость
 						if ($price) { ?>
 							<div class="product_info__item product_info__item--start">
 								<div class="product_info__title">Стоимость</div>
-								<div class="product_info__value product_info__value--bold"><?= number_format($price,0,'',' '); ?>&nbsp;₽</div>
+								<div class="product_info__value product_info__value--bold"><?= number_format($price,0,'',' '); ?>&nbsp;<?php $attribute_value = $product->get_attribute( 'pa_valyuta' ); echo $attribute_value;?></div>
 							</div>
 						<?php } ?>
 					</div>
-
+						
 					<div class="product_desc">
 						<?php // content
 						the_content(); ?>

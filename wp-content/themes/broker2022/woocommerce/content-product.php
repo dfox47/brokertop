@@ -24,7 +24,7 @@ if ( empty( $product ) || ! $product->is_visible() ) {
 	return;
 } ?>
 
-<li <?php wc_product_class( '', $product ); ?>>
+<li <?php wc_product_class('', $product); ?>>
 	<?php /**
 	 * Hook: woocommerce_before_shop_loop_item.
 	 *
@@ -53,8 +53,22 @@ if ( empty( $product ) || ! $product->is_visible() ) {
 	 * @hooked woocommerce_template_loop_rating - 5
 	 * @hooked woocommerce_template_loop_price - 10
 	 */
-	do_action('woocommerce_after_shop_loop_item_title');
+	do_action('woocommerce_after_shop_loop_item_title'); ?>
 
+	<?php $terms = get_the_terms(get_the_ID(), 'pa_valyuta');
+	$currency = get_woocommerce_currency();
+
+	if ($terms && !is_wp_error($terms)) {
+		$currency = '';
+
+		foreach ($terms as $term) {
+			$currency .= $term->name;
+		}
+	} ?>
+
+	<span class="js-currency" data-currency="<?= $currency; ?>"></span>
+
+	<?php
 	/**
 	 * Hook: woocommerce_after_shop_loop_item.
 	 *
@@ -63,3 +77,4 @@ if ( empty( $product ) || ! $product->is_visible() ) {
 	 */
 	do_action('woocommerce_after_shop_loop_item'); ?>
 </li>
+
