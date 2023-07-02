@@ -21,6 +21,7 @@ const remoteContact7        = remoteMain + 'wp-content/plugins/contact-form-7/in
 const remoteCss             = remoteTheme + 'css/'
 const remoteJs              = remoteTheme + 'js/'
 const remoteTemplateParts   = remoteTheme + 'template-parts/'
+const remoteThemeWC         = remoteTheme + 'woocommerce/'
 const remoteWCAssets        = remoteMain + 'wp-content/plugins/woocommerce/assets/css/'
 const remoteWCBuild         = remoteMain + 'wp-content/plugins/woocommerce/packages/woocommerce-blocks/build/'
 const remoteWCLibrary       = remoteMain + 'wp-includes/css/dist/block-library/'
@@ -30,6 +31,7 @@ const localContact7         = 'wp-content/plugins/contact-form-7/includes/css/'
 const localCss              = localTheme + 'css/'
 const localJs               = localTheme + 'js/'
 const localTemplateParts    = localTheme + 'template-parts/'
+const localThemeWC          = localTheme + 'woocommerce/'
 const localWCAssets         = 'wp-content/plugins/woocommerce/assets/css/'
 const localWCBuild          = 'wp-content/plugins/woocommerce/packages/woocommerce-blocks/build/'
 const localWCLibrary        = 'wp-includes/css/dist/block-library/'
@@ -123,6 +125,11 @@ gulp.task('copy_template_parts', function () {
 		.pipe(conn.dest(remoteTemplateParts))
 })
 
+gulp.task('copy_theme_wc', function () {
+	return gulp.src(localThemeWC + '**/*')
+		.pipe(conn.dest(remoteThemeWC))
+})
+
 gulp.task('copy_js', function () {
 	return gulp.src(localJs + '**/*')
 		.pipe(conn.dest(remoteJs))
@@ -150,6 +157,7 @@ gulp.task('watch', function() {
 	gulp.watch(localJs + '**/*.js',                             gulp.series('js', 'copy_js'))
 	gulp.watch(localTemplateParts + '**/*',                     gulp.series('copy_template_parts'))
 	gulp.watch(localTheme + '*.php',                            gulp.series('copy_html'))
+	gulp.watch(localThemeWC + '**/*',                           gulp.series('copy_theme_wc'))
 	gulp.watch(localWCAssets + 'woocommerce-layout.css',        gulp.series('copy_css_wc_layout'))
 	gulp.watch(localWCAssets + 'woocommerce.css',               gulp.series('copy_css_wc_default'))
 	gulp.watch(localWCBuild + 'wc-blocks-style.css',            gulp.series('copy_css_wc_blocks'))
