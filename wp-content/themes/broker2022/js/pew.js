@@ -3,12 +3,13 @@ jQuery(document).ready(function($) {
 	// get all values
 	let valuesBlocks = $('.woof_mselect_pa_obshhaya-ploshhad').find('option')
 	let values = []
+	const $html = document.querySelector('html')
 
 	$.each(valuesBlocks, function() {
 		values.push($(this).val().replace(',','.'))
 	})
 
-	filterAddSquareFields();
+	filterAddSquareFields()
 
 	// filter by numbers
 	$('input[name="pew-range-filter-from"], input[name="pew-range-filter-to"]').on('input paste', function() {
@@ -80,20 +81,29 @@ jQuery(document).ready(function($) {
 
 	// switch to the 1st tab if nothing selected
 	setTimeout(function() {
-		const productCatSelected = localStorage.getItem('productCatSelected')
+		const productCatSelected        = localStorage.getItem('productCatSelected')
+		const $woofContainerProductCat  = $('.woof_container_product_cat')
 
 		if (productCatSelected) {
-			const $productCat = $('.woof_container_product_cat').find('input[value="' + productCatSelected + '"]')
+			$woofContainerProductCat.find('input[value="' + productCatSelected + '"]').prop('checked', true)
 
-			$productCat.prop('checked', true)
+			$html.className = $html.className.replace(/\bwoof_cat_selected__.*?\b/g, '')
+
+			$html.classList.add('woof_cat_selected__' + productCatSelected)
 		}
 		else {
-			$('.woof_container_product_cat').find('li:first-child').find('input').prop('checked', true)
+			$woofContainerProductCat.find('li:first-child').find('input').prop('checked', true)
 		}
 	}, 100)
 
 	$(document).on('change', '.woof_container_product_cat input', function () {
-		localStorage.setItem('productCatSelected', $(this).val())
+		const catId = $(this).val()
+
+		localStorage.setItem('productCatSelected', catId)
+
+		$html.className = $html.className.replace(/\bwoof_cat_selected__.*?\b/g, '')
+
+		$html.classList.add('woof_cat_selected__' + catId)
 	})
 
 	function filterAddSquareFields() {
@@ -117,13 +127,13 @@ jQuery(document).ready(function($) {
 
 // show more|less button
 let productFilterShowMore = () => {
-	let $woof = document.querySelector('.woof')
+	const $woof = document.querySelector('.woof')
 
-	if ( !$woof) {
+	if (!$woof) {
 		return
 	}
 
-	let $woofMoreBtn = document.createElement('div')
+	const $woofMoreBtn = document.createElement('div')
 
 	$woofMoreBtn.classList.add('js-pew-more', 'woof_more')
 	$woofMoreBtn.innerHTML = '<span class="woof_more__hide">Свернуть</span><span class="woof_more__show">Показать фильтры</span>'
@@ -132,13 +142,13 @@ let productFilterShowMore = () => {
 
 
 
-	let $woofMore = document.querySelector('.js-pew-more')
+	const $woofMore = document.querySelector('.js-pew-more')
 
-	if ( !$woofMore) {
+	if (!$woofMore) {
 		return
 	}
 
-	let $html = document.querySelector('html')
+	const $html = document.querySelector('html')
 
 	$woofMore.addEventListener('click', () => {
 		$html.classList.toggle('woof_more__active')

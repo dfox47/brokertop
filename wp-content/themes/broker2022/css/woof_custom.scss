@@ -6,6 +6,16 @@
 	}
 }
 
+.woof_cat_selected {
+	&__19 {}
+
+	&__20 {
+		.woof_container_pa_kolichestvo-komnat {
+			display: none!important;
+		}
+	}
+}
+
 .woof_container_pa_kolichestvo-komnat {
 	.woof_block_html_items {
 		max-width: none;
