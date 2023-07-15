@@ -399,6 +399,14 @@ img {
 		}
 	}
 
+	.hero_block_wrap {
+		&--new_buildings {
+			.hero_block {
+				min-height: 0;
+			}
+		}
+	}
+
 	.hero_block {
 		min-height: 466px;
 	}

@@ -4,7 +4,7 @@ $dumm   = '/wp-content/themes/broker2022/i/dumm.png';
 ?>
 
 <div class="hero_block_slider">
-	<div class="owl-carousel js-owl-carousel">
+	<div class="owl-carousel js-owl-carousel-auto-height">
 		<div class="hero_block_slide">
 			<img class="hero_block_slide__img js-img-scroll" src="<?= $dumm; ?>" data-src="<?= $i; ?>/20.jpg" alt="" loading="lazy">
 
