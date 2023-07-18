@@ -400,6 +400,7 @@ img {
 	}
 
 	.hero_block_wrap {
+		&--home,
 		&--new_buildings {
 			.hero_block {
 				min-height: 0;
