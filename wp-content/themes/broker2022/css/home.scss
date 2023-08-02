@@ -12,7 +12,7 @@
 		min-height: 650px;
 
 		@media #{$mobile} {
-			height: auto;
+			//height: auto;
 			min-height: 450px;
 		}
 	}
