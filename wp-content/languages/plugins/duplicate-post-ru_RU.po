@@ -2,14 +2,19 @@
 # This file is distributed under the same license as the Plugins - Yoast Duplicate Post - Stable (latest release) package.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2022-02-23 17:50:59+0000\n"
+"PO-Revision-Date: 2023-06-29 14:13:14+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n % 10 == 1 && n % 100 != 11) ? 0 : ((n % 10 >= 2 && n % 10 <= 4 && (n % 100 < 12 || n % 100 > 14)) ? 1 : 2);\n"
-"X-Generator: GlotPress/3.0.0-alpha.2\n"
+"X-Generator: GlotPress/4.0.0-alpha.4\n"
 "Language: ru\n"
 "Project-Id-Version: Plugins - Yoast Duplicate Post - Stable (latest release)\n"
+
+#. translators: %1$s and %2$s are replaced by opening and closing anchor tags.
+#: src/ui/newsletter.php:33
+msgid "Yoast respects your privacy. Read %1$sour privacy policy%2$s on how we handle your personal information."
+msgstr "Yoast уважает Вашу конфиденциальность. Прочтите нашу %1$sполитику конфиденциальности%2$s о том, как мы поступаем с Вашей личной информацией."
 
 #: src/admin/views/options.php:236
 msgid "Welcome notice"
@@ -54,30 +59,30 @@ msgstr "Надежный инструмент для клонирования з
 
 #. translators: 1: The page title with a link to the frontend page, 2: The
 #. scheduled date and time.
-#: src/ui/classic-editor.php:271
+#: src/ui/classic-editor.php:291
 msgid "This rewritten page %1$s is now scheduled to replace the original page. It will be published on %2$s."
 msgstr "Эта переписанная страница %1$s теперь запланирована для замены исходной страницы. Она будет опубликована на %2$s."
 
 #. translators: 1: The post title with a link to the frontend page, 2: The
 #. scheduled date and time.
-#: src/ui/classic-editor.php:258
+#: src/ui/classic-editor.php:278
 msgid "This rewritten post %1$s is now scheduled to replace the original post. It will be published on %2$s."
 msgstr "Эта перезаписанная запись %1$s теперь запланирована для замены исходной. Она будет опубликована в %2$s."
 
-#: src/ui/classic-editor.php:232 js/dist/duplicate-post-strings-440.js:1
+#: src/ui/classic-editor.php:252 js/dist/duplicate-post-strings-450.js:1
 msgid "Schedule republish"
 msgstr "Запланировать повторную публикацию"
 
 #. translators: %s: Date on which the post is to be republished.
-#: src/ui/classic-editor.php:215
+#: src/ui/classic-editor.php:229
 msgid "Republish on: %s"
 msgstr "Повторно опубликовать в: %s"
 
-#: src/ui/classic-editor.php:192
+#: src/ui/classic-editor.php:201
 msgid "Compare"
 msgstr "Сравнить"
 
-#: src/ui/classic-editor.php:189
+#: src/ui/classic-editor.php:198
 msgid "Do you want to compare your changes with the original version before merging? Please save any changes first."
 msgstr "Сравнить изменения с исходной версией перед объединением? Сначала сохраните все изменения."
 
@@ -105,8 +110,8 @@ msgid "Warning: users will be able to copy, rewrite and republish all posts, eve
 msgstr "Внимание: пользователи смогут копировать, переписывать и переиздавать все сообщения, даже сообщения других пользователей."
 
 #: src/admin/options.php:281 src/ui/admin-bar.php:105 src/ui/admin-bar.php:125
-#: src/ui/bulk-actions.php:74 src/ui/classic-editor.php:164
-#: js/dist/duplicate-post-edit-440.js:1
+#: src/ui/bulk-actions.php:74 src/ui/classic-editor.php:173
+#: js/dist/duplicate-post-edit-450.js:1
 msgid "Rewrite & Republish"
 msgstr "Переписать и переиздать"
 
@@ -117,6 +122,18 @@ msgstr "В метабоксе на экране редактирования"
 #: src/admin/options.php:142
 msgid "Post format"
 msgstr "Формат записи"
+
+#: src/watchers/original-post-watcher.php:51
+msgid "The original post has been edited in the meantime. If you click \"Republish\", this rewritten post will replace the original post."
+msgstr "Оригинальная запись была отредактирована за это время. Если вы щёлкнете \"Перепубликовать\", эта переписанная запись заменит оригинальную запись."
+
+#. translators: %s: Number of posts copied.
+#: src/watchers/bulk-actions-watcher.php:79
+msgid "%s post duplicated. You can now start rewriting your post in the duplicate of the original post. Once you choose to republish it your changes will be merged back into the original post."
+msgid_plural "%s posts duplicated. You can now start rewriting your posts in the duplicates of the original posts. Once you choose to republish them your changes will be merged back into the original post."
+msgstr[0] "Запись %s дублирована. Теперь вы можете начать переписывать свою запись в дубликате оригинальной записи. Когда вы решите опубликовать ее заново, ваши изменения будут объединены с оригинальной записью."
+msgstr[1] "Записи %s дублированы. Теперь вы можете начать переписывать свою запись в дубликате оригинальной записи. Когда вы решите опубликовать ее заново, ваши изменения будут объединены с оригинальной записью."
+msgstr[2] "Записей %s дублированы. Теперь вы можете начать переписывать свою запись в дубликате оригинальной записи. Когда вы решите опубликовать ее заново, ваши изменения будут объединены с оригинальной записью."
 
 #: src/watchers/republished-post-watcher.php:65
 msgid "Your original post has been replaced with the rewritten post. You are now viewing the (rewritten) original post."
@@ -132,12 +149,24 @@ msgstr "Был создан дубликат этой записи, которы
 msgid "A duplicate of this post was made. Please note that any changes you make to this post will be replaced when the duplicated version is republished."
 msgstr "Сделан дубликат этой записи. Обратите внимание, что любые изменения, которые вы вносите в эту запись, будут заменены при повторной публикации дублированной версии."
 
+#: src/watchers/copied-post-watcher.php:50
+msgid "You can only make one Rewrite & Republish duplicate at a time, and a duplicate of this post already exists in the trash. Permanently delete it if you want to make a new duplicate."
+msgstr "Вы можете создать только одну копию записи «Перезаписать и опубликовать повторно» за раз, и копия этой записи уже существует в корзине. Если вы хотите создать новую копию, удалите ее окончательно."
+
+#: src/watchers/link-actions-watcher.php:113
+msgid "You can now start rewriting your post in this duplicate of the original post. If you click \"Republish\", this rewritten post will replace the original post."
+msgstr "Теперь вы можете начать переписывать свою запись в этой копии оригинальной записи. Если вы щёлкнете \"Перепубликовать\", эта переписанная запись заменит оригинальную запись."
+
+#: src/watchers/link-actions-watcher.php:97
+msgid "You can now start rewriting your post in this duplicate of the original post. If you click \"Republish\", your changes will be merged into the original post and you’ll be redirected there."
+msgstr "Теперь вы можете начать переписывать свою запись в этой копии оригинальной записи. Если вы щёлкнете \"Опубликовать заново\", ваши изменения будут объединены с оригинальной записью, и вы будете перенаправлены туда."
+
 #: src/post-republisher.php:332
 msgid "An error occurred while republishing the post."
 msgstr "Произошла ошибка при повторной публикации записи."
 
-#: src/post-republisher.php:83 src/ui/classic-editor.php:210
-#: js/dist/duplicate-post-strings-440.js:1
+#: src/post-republisher.php:83 src/ui/classic-editor.php:224
+#: js/dist/duplicate-post-strings-450.js:1
 msgid "Republish"
 msgstr "Повторная публикация"
 
@@ -212,6 +241,10 @@ msgstr "Исходный элемент, из которого он был ск�
 #: src/ui/column.php:130 src/ui/metabox.php:89
 msgid "Delete reference to original item."
 msgstr "Удалить ссылку на исходный элемент."
+
+#: src/ui/newsletter.php:29
+msgid "Email address"
+msgstr "E-mail адрес"
 
 #. translators: 1: Yoast
 #: src/ui/newsletter.php:22
@@ -508,7 +541,7 @@ msgid "New Draft"
 msgstr "Новый черновик"
 
 #: common-functions.php:79 src/ui/admin-bar.php:97 src/ui/admin-bar.php:115
-#: src/ui/classic-editor.php:135 js/dist/duplicate-post-edit-440.js:1
+#: src/ui/classic-editor.php:144 js/dist/duplicate-post-edit-450.js:1
 msgid "Copy to a new draft"
 msgstr "Копировать в новый черновик"
 

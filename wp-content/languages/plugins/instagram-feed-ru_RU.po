@@ -2,22 +2,904 @@
 # This file is distributed under the same license as the Plugins - Smash Balloon Social Photo Feed - Stable (latest release) package.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2022-01-05 10:21:54+0000\n"
+"PO-Revision-Date: 2023-07-09 11:29:03+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n % 10 == 1 && n % 100 != 11) ? 0 : ((n % 10 >= 2 && n % 10 <= 4 && (n % 100 < 12 || n % 100 > 14)) ? 1 : 2);\n"
-"X-Generator: GlotPress/3.0.0\n"
+"X-Generator: GlotPress/4.0.0-alpha.4\n"
 "Language: ru\n"
 "Project-Id-Version: Plugins - Smash Balloon Social Photo Feed - Stable (latest release)\n"
 
-#: admin/SBI_Global_Settings.php:1043
-msgid "Delete all Platform Data"
-msgstr "Удалить все данные платформы"
+#: inc/Builder/SBI_Feed_Builder.php:1278
+msgid "Reviews"
+msgstr "Отзывы"
 
-#: admin/SBI_Global_Settings.php:1041
-msgid "Manage Data"
-msgstr "Управление данными"
+#: inc/Builder/SBI_Feed_Builder.php:2225
+msgid "Upload Profile Picture"
+msgstr "Загрузить изображение профиля"
+
+#: inc/Builder/SBI_Feed_Builder.php:2224
+msgid "No, maybe later"
+msgstr "Нет, может позже"
+
+#: inc/Platform_Data.php:320 inc/Platform_Data.php:354
+msgid "Settings Page"
+msgstr "Страница настроек"
+
+#: inc/class-sb-instagram-posts-manager.php:1013
+msgid "<br><br>To prevent the automated data deletion for the source, please reconnect your source within 7 days."
+msgstr "<br><br>Чтобы предотвратить автоматическое удаление данных для источника, повторно подключите источник в течение 7 дней."
+
+#: inc/class-sb-instagram-posts-manager.php:1010 inc/Platform_Data.php:317
+#: inc/Platform_Data.php:334
+msgid "Action Required Within 7 Days"
+msgstr "Требуется принять меры в течение 7 дней"
+
+#: inc/admin/actions.php:266
+msgid "Action Required Within 7 Days:"
+msgstr "Действие требуется в течение 7 дней:"
+
+#: inc/Builder/Tabs/SBI_Settings_Tab.php:349
+msgid "Custom Templates"
+msgstr "Произвольный шаблон"
+
+#: inc/Builder/Tabs/SBI_Settings_Tab.php:288
+msgid "Likes"
+msgstr "Нравится"
+
+#: inc/Builder/Tabs/SBI_Settings_Tab.php:281
+msgid "Newest"
+msgstr "Новейшие"
+
+#: inc/Builder/Tabs/SBI_Settings_Tab.php:275
+msgid "Sort Posts by"
+msgstr "Сортировать записи по"
+
+#: inc/Builder/Tabs/SBI_Settings_Tab.php:252
+msgid "Post Offset"
+msgstr "Смещение записи"
+
+#: inc/Builder/Tabs/SBI_Settings_Tab.php:134
+msgid "Filters"
+msgstr "Фильтры"
+
+#: inc/Builder/Tabs/SBI_Settings_Tab.php:126
+msgid "Block List"
+msgstr "Черный список"
+
+#: inc/Builder/Tabs/SBI_Settings_Tab.php:38
+msgid "Sort"
+msgstr "Сортировка"
+
+#: inc/Builder/Tabs/SBI_Customize_Tab.php:1379
+msgid "Comments"
+msgstr "Комментарии"
+
+#: inc/Builder/Tabs/SBI_Customize_Tab.php:1367
+msgid "Link Color"
+msgstr "Цвет ссылки"
+
+#: inc/Builder/Tabs/SBI_Customize_Tab.php:1208
+msgid "Infinite Scroll"
+msgstr "Бесконечная прокрутка"
+
+#: inc/Builder/Tabs/SBI_Customize_Tab.php:1084
+msgid "Instagram Icon"
+msgstr "Значок Instagram"
+
+#: inc/Builder/Tabs/SBI_Customize_Tab.php:895
+msgid "Resolution"
+msgstr "Разрешение"
+
+#: inc/Builder/Tabs/SBI_Customize_Tab.php:757
+msgid "Change Interval"
+msgstr "Изменить интервал"
+
+#: inc/Builder/Tabs/SBI_Customize_Tab.php:538
+msgid "Button 2"
+msgstr "Кнопка 2"
+
+#: inc/Builder/Tabs/SBI_Customize_Tab.php:527
+msgid "Button 1"
+msgstr "Кнопка 1"
+
+#: inc/Builder/Tabs/SBI_Customize_Tab.php:320
+msgid "Padding"
+msgstr "Внутренний отступ"
+
+#: inc/Builder/Tabs/SBI_Customize_Tab.php:263
+msgid "Offset"
+msgstr "Смещение"
+
+#: inc/Builder/Tabs/SBI_Customize_Tab.php:160
+msgid "Rows"
+msgstr "Строки"
+
+#: inc/Builder/Tabs/SBI_Customize_Tab.php:133
+msgid "Carousel Settings"
+msgstr "Настройки карусели"
+
+#: inc/Builder/Tabs/SBI_Customize_Tab.php:77
+msgid "Lightbox"
+msgstr "Лайтбокс"
+
+#: inc/Builder/Tabs/SBI_Customize_Tab.php:70
+msgid "Follow Button"
+msgstr "Кнопка Подписаться"
+
+#: inc/Builder/Tabs/SBI_Builder_Customizer_Tab.php:118
+msgid "2 days ago"
+msgstr "2 дня назад"
+
+#: inc/Builder/Tabs/SBI_Builder_Customizer_Tab.php:51
+msgid "Inherit"
+msgstr "Наследовать"
+
+#: inc/Builder/SBI_Tooltip_Wizard.php:127
+msgid "Add a Block"
+msgstr "Добавить блок"
+
+#: inc/Builder/SBI_Feed_Builder.php:2027 inc/Builder/SBI_Feed_Builder.php:2028
+msgid "(unknown location)"
+msgstr "(неизвестное место)"
+
+#: inc/Builder/SBI_Feed_Builder.php:1766
+msgid "Extensions"
+msgstr "Расширения"
+
+#: inc/Builder/SBI_Feed_Builder.php:1671
+msgid "Box Shadow"
+msgstr "Тень от блока"
+
+#: inc/Builder/SBI_Feed_Builder.php:1670
+msgid "Border Radius"
+msgstr "Радиус скругления"
+
+#: inc/Builder/SBI_Feed_Builder.php:1667
+msgid "Regular"
+msgstr "Обычный"
+
+#: inc/Builder/SBI_Feed_Builder.php:1666
+msgid "boxed"
+msgstr "блоком"
+
+#: inc/Builder/SBI_Feed_Builder.php:1665
+msgid "Post Type"
+msgstr "Тип записи"
+
+#: inc/Builder/SBI_Feed_Builder.php:1662
+msgid "chars"
+msgstr "символы"
+
+#: inc/Builder/SBI_Feed_Builder.php:1660
+msgid "Link URL"
+msgstr "URL ссылки"
+
+#: inc/Builder/SBI_Feed_Builder.php:1659
+msgid "Link Title"
+msgstr "Заголовок ссылки"
+
+#: inc/Builder/SBI_Feed_Builder.php:1657
+msgid "Box Style"
+msgstr "Стиль блока"
+
+#: inc/Builder/SBI_Feed_Builder.php:1646
+msgid "Auto"
+msgstr "Авто"
+
+#: inc/Builder/SBI_Feed_Builder.php:1641
+msgid "Customize Text"
+msgstr "Настроить текст"
+
+#: inc/Builder/SBI_Feed_Builder.php:1626
+msgid "Format"
+msgstr "Формат"
+
+#: inc/Builder/SBI_Feed_Builder.php:1623
+msgid "Characters"
+msgstr "Символы"
+
+#: inc/Builder/SBI_Feed_Builder.php:1617
+msgid "Event Details"
+msgstr "Подробности мероприятия"
+
+#: inc/Builder/SBI_Feed_Builder.php:1616
+msgid "Event Title"
+msgstr "Заголовок мероприятия"
+
+#: inc/Builder/SBI_Feed_Builder.php:1612
+msgid "Post Text"
+msgstr "Текст записи"
+
+#: inc/Builder/SBI_Feed_Builder.php:1611
+msgid "Post Author"
+msgstr "Автор записи"
+
+#: inc/Builder/SBI_Feed_Builder.php:1605
+msgid "Post Style"
+msgstr "Стиль записи"
+
+#: inc/Builder/SBI_Feed_Builder.php:1603
+msgid "Full width"
+msgstr "Во всю ширину"
+
+#: inc/Builder/SBI_Feed_Builder.php:1601
+msgid "Thumbnail"
+msgstr "Миниатюра"
+
+#: inc/Builder/SBI_Feed_Builder.php:1592
+msgid "Width"
+msgstr "Ширина"
+
+#: inc/Builder/SBI_Feed_Builder.php:1590
+msgid "Custom Width"
+msgstr "Пользовательская ширина"
+
+#: inc/Builder/SBI_Feed_Builder.php:1581
+msgid "Icon Image"
+msgstr "Изображение значка"
+
+#: inc/Builder/SBI_Feed_Builder.php:1580
+#: inc/Builder/Tabs/SBI_Customize_Tab.php:1011
+msgid "Icon"
+msgstr "Значок"
+
+#: inc/Builder/SBI_Feed_Builder.php:1578
+msgid "About (bio and Likes)"
+msgstr "О себе (биография и \"Нравится\")"
+
+#: inc/Builder/SBI_Feed_Builder.php:1576 inc/Builder/SBI_Feed_Builder.php:1589
+msgid "Cover Photo"
+msgstr "Фото обложки"
+
+#: inc/Builder/SBI_Feed_Builder.php:1574
+msgid "Header Type"
+msgstr "Тип заголовка"
+
+#: inc/Builder/SBI_Feed_Builder.php:1568
+msgid "Overrides"
+msgstr "Переопределение"
+
+#: inc/Builder/SBI_Feed_Builder.php:1566
+msgid "Link"
+msgstr "Ссылка"
+
+#: inc/Builder/SBI_Feed_Builder.php:1565
+msgid "Text 2"
+msgstr "Текст 2"
+
+#: inc/Builder/SBI_Feed_Builder.php:1563
+#: inc/Builder/Tabs/SBI_Customize_Tab.php:471
+msgid "Custom Palette"
+msgstr "Пользовательская палитра"
+
+#: inc/Builder/SBI_Feed_Builder.php:1562 inc/Builder/SBI_Feed_Builder.php:1627
+#: inc/Builder/Tabs/SBI_Builder_Customizer_Tab.php:138
+#: inc/Builder/Tabs/SBI_Customize_Tab.php:461
+msgid "Custom"
+msgstr "Произвольно"
+
+#: inc/Builder/SBI_Feed_Builder.php:1561 inc/Builder/SBI_Feed_Builder.php:1648
+#: inc/Builder/Tabs/SBI_Customize_Tab.php:456
+msgid "Dark"
+msgstr "Темная"
+
+#: inc/Builder/SBI_Feed_Builder.php:1560 inc/Builder/SBI_Feed_Builder.php:1647
+#: inc/Builder/Tabs/SBI_Customize_Tab.php:451
+msgid "Light"
+msgstr "Светлая"
+
+#: inc/Builder/SBI_Feed_Builder.php:1552
+#: inc/Builder/Tabs/SBI_Customize_Tab.php:345
+#: inc/Builder/Tabs/SBI_Customize_Tab.php:411
+msgid "Mobile"
+msgstr "Мобильный"
+
+#: inc/Builder/SBI_Feed_Builder.php:1551
+#: inc/Builder/Tabs/SBI_Customize_Tab.php:389
+msgid "Tablet"
+msgstr "Планшет"
+
+#: inc/Builder/SBI_Feed_Builder.php:1550
+#: inc/Builder/Tabs/SBI_Customize_Tab.php:336
+#: inc/Builder/Tabs/SBI_Customize_Tab.php:366
+msgid "Desktop"
+msgstr "Настольный ПК"
+
+#: inc/Builder/SBI_Feed_Builder.php:1549
+#: inc/Builder/Tabs/SBI_Customize_Tab.php:355
+msgid "Columns"
+msgstr "Столбцы"
+
+#: inc/Builder/SBI_Feed_Builder.php:1548
+#: inc/Builder/Tabs/SBI_Customize_Tab.php:325
+msgid "Number of Posts"
+msgstr "Количество записей"
+
+#: inc/Builder/SBI_Feed_Builder.php:1543
+msgid "List"
+msgstr "Список"
+
+#: inc/Builder/SBI_Feed_Builder.php:1539
+#: inc/Builder/Tabs/SBI_Customize_Tab.php:63
+msgid "Load More Button"
+msgstr "Кнопка Загрузить ещё"
+
+#: inc/Builder/SBI_Feed_Builder.php:1537
+#: inc/Builder/Tabs/SBI_Customize_Tab.php:49
+msgid "Posts"
+msgstr "Записи"
+
+#: inc/Builder/SBI_Feed_Builder.php:1535
+#: inc/Builder/Tabs/SBI_Customize_Tab.php:34
+msgid "Color Scheme"
+msgstr "Цветовая схема"
+
+#: inc/Builder/SBI_Feed_Builder.php:1524
+msgid "Enter Text"
+msgstr "Введите текст"
+
+#: inc/Builder/SBI_Feed_Builder.php:1523
+msgid "Select"
+msgstr "Выбрать"
+
+#: inc/Builder/SBI_Feed_Builder.php:1522
+msgid "Placeholder"
+msgstr "Заполнитель"
+
+#: inc/Builder/SBI_Feed_Builder.php:1521
+msgid "Height"
+msgstr "Высота"
+
+#: inc/Builder/SBI_Feed_Builder.php:1520
+#: inc/Builder/Tabs/SBI_Customize_Tab.php:627
+#: inc/Builder/Tabs/SBI_Customize_Tab.php:974
+#: inc/Builder/Tabs/SBI_Customize_Tab.php:1032
+#: inc/Builder/Tabs/SBI_Customize_Tab.php:1142
+#: inc/Builder/Tabs/SBI_Customize_Tab.php:1276
+#: inc/Builder/Tabs/SBI_Customize_Tab.php:1333
+msgid "Color"
+msgstr "Цвет"
+
+#: inc/Builder/SBI_Feed_Builder.php:1519
+#: inc/Builder/Tabs/SBI_Customize_Tab.php:962
+#: inc/Builder/Tabs/SBI_Customize_Tab.php:1020
+msgid "Size"
+msgstr "Размер"
+
+#: inc/Builder/SBI_Feed_Builder.php:1518
+#: inc/Builder/Tabs/SBI_Customize_Tab.php:446
+msgid "Inherit from Theme"
+msgstr "Наследовать из темы"
+
+#: inc/Builder/SBI_Feed_Builder.php:1517
+#: inc/Builder/Tabs/SBI_Customize_Tab.php:603
+#: inc/Builder/Tabs/SBI_Customize_Tab.php:953
+#: inc/Builder/Tabs/SBI_Customize_Tab.php:1062
+#: inc/Builder/Tabs/SBI_Customize_Tab.php:1132
+#: inc/Builder/Tabs/SBI_Customize_Tab.php:1174
+#: inc/Builder/Tabs/SBI_Customize_Tab.php:1266
+#: inc/Builder/Tabs/SBI_Customize_Tab.php:1308
+#: inc/Builder/Tabs/SBI_Customize_Tab.php:1356
+msgid "Text"
+msgstr "Текст"
+
+#: inc/Builder/SBI_Feed_Builder.php:1516
+#: inc/Builder/Tabs/SBI_Customize_Tab.php:480
+#: inc/Builder/Tabs/SBI_Customize_Tab.php:1052
+#: inc/Builder/Tabs/SBI_Customize_Tab.php:1152
+#: inc/Builder/Tabs/SBI_Customize_Tab.php:1286
+#: inc/Builder/Tabs/SBI_Customize_Tab.php:1345
+msgid "Background"
+msgstr "Фон"
+
+#: inc/Builder/SBI_Feed_Builder.php:1514
+#: inc/Builder/Tabs/SBI_Customize_Tab.php:39
+msgid "Sections"
+msgstr "Разделы"
+
+#: inc/Builder/SBI_Feed_Builder.php:1513
+msgid "Save"
+msgstr "Сохранить"
+
+#: inc/Builder/SBI_Feed_Builder.php:1512
+msgid "Embed"
+msgstr "Объект"
+
+#: inc/Builder/SBI_Feed_Builder.php:1484 inc/Builder/SBI_Feed_Builder.php:1530
+#: inc/Builder/Tabs/SBI_Builder_Customizer_Tab.php:28
+msgid "Customize"
+msgstr "Настроить"
+
+#: inc/Builder/SBI_Feed_Builder.php:1315
+msgid "YouTube"
+msgstr "YouTube"
+
+#: inc/Builder/SBI_Feed_Builder.php:1303
+msgid "Twitter"
+msgstr "Twitter"
+
+#: inc/Builder/SBI_Feed_Builder.php:1014
+msgid "Business"
+msgstr "Бизнес"
+
+#: inc/Builder/SBI_Feed_Builder.php:1013
+msgid "Personal"
+msgstr "Частный"
+
+#: inc/Builder/SBI_Feed_Builder.php:1011
+msgid "Add feeds for popular social platforms with <span>our other plugins</span>"
+msgstr "Добавьте каналы для популярных социальных платформ с помощью <span>других наших плагинов</span>"
+
+#: inc/Builder/SBI_Feed_Builder.php:1002
+msgid "Account already exists"
+msgstr "Акаунт уже существует"
+
+#: inc/Builder/SBI_Feed_Builder.php:992
+msgid "Enter ID"
+msgstr "Введите ID"
+
+#: inc/Builder/SBI_Feed_Builder.php:988
+msgid "Source Type"
+msgstr "Тип источника"
+
+#: inc/Builder/SBI_Feed_Builder.php:984
+msgid "Groups"
+msgstr "Группы"
+
+#: inc/Builder/SBI_Feed_Builder.php:983
+msgid "Businesses"
+msgstr "Бизнесы"
+
+#: inc/Builder/SBI_Feed_Builder.php:982 inc/Builder/SBI_Feed_Builder.php:1291
+msgid "Facebook"
+msgstr "Facebook"
+
+#: inc/Builder/SBI_Feed_Builder.php:975
+msgid "Connect"
+msgstr "Подключить"
+
+#: inc/Builder/SBI_Feed_Builder.php:944
+msgid "Add multiple Facebook Pages or Groups to a feed with our Multifeed extension"
+msgstr "Добавьте несколько страниц или групп Facebook в ленту с помощью нашего расширения Multifeed"
+
+#: inc/Builder/SBI_Feed_Builder.php:891
+msgid "Hide Features"
+msgstr "Скрыть функции"
+
+#: inc/Builder/SBI_Feed_Builder.php:856
+msgid "Invalid license key"
+msgstr "Неверный лицензионный ключ"
+
+#: inc/Builder/SBI_Feed_Builder.php:854
+msgid "Installed & Activated"
+msgstr "Установлен и активирован"
+
+#: inc/Builder/SBI_Feed_Builder.php:832
+msgid "Unknown error occurred"
+msgstr "Произошла неизвестная ошибка"
+
+#: inc/Builder/SBI_Feed_Builder.php:809
+msgid "Top Rated"
+msgstr "Рейтинговое"
+
+#: inc/Builder/SBI_Feed_Builder.php:800
+msgid "Product Link"
+msgstr "Ссылка на товар"
+
+#: inc/Builder/SBI_Feed_Builder.php:799
+msgid "Selected Post"
+msgstr "Выбранная запись"
+
+#: inc/Builder/SBI_Feed_Builder.php:797
+msgid "Add Image"
+msgstr "Добавить изображение"
+
+#: inc/Builder/SBI_Feed_Builder.php:794
+msgid "Reconnect"
+msgstr "Переподключиться"
+
+#: inc/Builder/SBI_Feed_Builder.php:793
+msgid "Invalid"
+msgstr "Ключ неверен"
+
+#: inc/Builder/SBI_Feed_Builder.php:787
+#: inc/Builder/Tabs/SBI_Customize_Tab.php:712
+#: inc/Builder/Tabs/SBI_Customize_Tab.php:825
+#: inc/Builder/Tabs/SBI_Customize_Tab.php:1186
+#: inc/Builder/Tabs/SBI_Settings_Tab.php:53
+#: inc/Builder/Tabs/SBI_Settings_Tab.php:96
+msgid "Advanced"
+msgstr "Дополнительно"
+
+#: inc/Builder/SBI_Feed_Builder.php:786
+msgid "Translation"
+msgstr "Перевод"
+
+#: inc/Builder/SBI_Feed_Builder.php:781
+msgid "Save Changes"
+msgstr "Сохранить Изменения"
+
+#: inc/Builder/SBI_Feed_Builder.php:779
+msgid "Clear"
+msgstr "Сброс"
+
+#: inc/Builder/SBI_Feed_Builder.php:777
+msgid "Confirm"
+msgstr "Подтвердить"
+
+#: inc/Builder/SBI_Feed_Builder.php:775
+msgid "ID"
+msgstr "ID"
+
+#: inc/Builder/SBI_Feed_Builder.php:773 inc/Builder/SBI_Feed_Builder.php:1510
+msgid "Preview"
+msgstr "Просмотреть"
+
+#: inc/Builder/SBI_Feed_Builder.php:771
+msgid "Member"
+msgstr "Участник"
+
+#: inc/Builder/SBI_Feed_Builder.php:770
+msgid "Admin"
+msgstr "Администратор"
+
+#: inc/Builder/SBI_Feed_Builder.php:768
+msgid "Timeline"
+msgstr "Хронология"
+
+#: inc/Builder/SBI_Feed_Builder.php:764
+msgid "Page"
+msgstr "Страница"
+
+#: inc/Builder/SBI_Feed_Builder.php:758
+msgid "place"
+msgstr "место"
+
+#: inc/Builder/SBI_Feed_Builder.php:752
+msgid "Delete"
+msgstr "Удалить"
+
+#: inc/Builder/SBI_Feed_Builder.php:751
+msgid "Duplicate"
+msgstr "Дублировать"
+
+#: inc/Builder/SBI_Feed_Builder.php:750 inc/Builder/SBI_Feed_Builder.php:1610
+msgid "Edit"
+msgstr "Изменить"
+
+#: inc/Builder/SBI_Feed_Builder.php:748
+msgid "Apply"
+msgstr "Применить"
+
+#: inc/Builder/SBI_Feed_Builder.php:747
+msgid "Photo"
+msgstr "Фото"
+
+#: inc/Builder/SBI_Feed_Builder.php:745
+msgid "Includes"
+msgstr "Включает"
+
+#: inc/Builder/SBI_Feed_Builder.php:742
+msgid "Change"
+msgstr "Изменить"
+
+#: inc/Builder/SBI_Feed_Builder.php:738
+msgid "Back"
+msgstr "Назад"
+
+#: inc/Builder/SBI_Feed_Builder.php:735
+msgid "Update"
+msgstr "Обновить"
+
+#: inc/Builder/SBI_Feed_Builder.php:733
+msgid "Finish"
+msgstr "Завершить"
+
+#: inc/Builder/SBI_Feed_Builder.php:732
+msgid "Next"
+msgstr "Далее"
+
+#: inc/Builder/SBI_Feed_Builder.php:731
+msgid "Previous"
+msgstr "Назад"
+
+#: inc/Builder/SBI_Feed_Builder.php:728 inc/Builder/SBI_Feed_Builder.php:987
+msgid "Add Source"
+msgstr "Добавить источник"
+
+#: inc/Builder/SBI_Feed_Builder.php:727
+msgid "Add New"
+msgstr "Добавить новую"
+
+#: inc/Builder/SBI_Feed_Builder.php:726
+msgid "Dashboard"
+msgstr "Консоль"
+
+#: inc/Builder/SBI_Feed_Builder.php:724 inc/Builder/SBI_Tooltip_Wizard.php:131
+msgid "Done"
+msgstr "Готово"
+
+#: inc/Builder/SBI_Feed_Builder.php:273 inc/Builder/SBI_Feed_Builder.php:297
+#: inc/Builder/SBI_Feed_Builder.php:343 inc/Builder/SBI_Feed_Builder.php:367
+#: inc/Builder/SBI_Feed_Builder.php:392 inc/Builder/SBI_Feed_Builder.php:417
+#: inc/Builder/SBI_Feed_Builder.php:442 inc/Builder/SBI_Feed_Builder.php:467
+#: inc/Builder/SBI_Feed_Builder.php:887
+msgid "30 day money back guarantee"
+msgstr "30 дней гарантии возврата оплаты"
+
+#: inc/Builder/SBI_Feed_Builder.php:270 inc/Builder/SBI_Feed_Builder.php:294
+#: inc/Builder/SBI_Feed_Builder.php:340 inc/Builder/SBI_Feed_Builder.php:364
+#: inc/Builder/SBI_Feed_Builder.php:389 inc/Builder/SBI_Feed_Builder.php:414
+#: inc/Builder/SBI_Feed_Builder.php:439 inc/Builder/SBI_Feed_Builder.php:464
+msgid "Pro support"
+msgstr "Поддержка Pro"
+
+#: inc/Builder/SBI_Feed_Builder.php:230
+msgid "Select Page"
+msgstr "Выбрать страницу"
+
+#: inc/Builder/SBI_Feed_Builder.php:197
+msgid "You have unsaved changes"
+msgstr "У вас есть несохраненные изменения"
+
+#: inc/Builder/SBI_Feed_Builder.php:187 inc/Builder/SBI_Feed_Builder.php:201
+#: inc/Builder/SBI_Feed_Builder.php:804
+msgid "Save and Exit"
+msgstr "Сохранить и выйти"
+
+#: inc/Builder/SBI_Feed_Builder.php:183
+msgid "Are you Sure?"
+msgstr "Вы уверены?"
+
+#: inc/Builder/SBI_Feed_Builder.php:151
+msgid "Bulk Actions"
+msgstr "Массовые действия"
+
+#: inc/Builder/SBI_Feed_Builder.php:149
+msgid "Actions"
+msgstr "Действия"
+
+#: inc/Builder/SBI_Feed_Builder.php:148
+msgid "Instances"
+msgstr "Экземпляры"
+
+#: inc/Builder/SBI_Feed_Builder.php:146 inc/Builder/SBI_Feed_Builder.php:774
+#: inc/Builder/SBI_Feed_Builder.php:1609
+msgid "Name"
+msgstr "Имя"
+
+#: inc/Builder/SBI_Feed_Builder.php:71 inc/Builder/SBI_Feed_Builder.php:72
+#: inc/Builder/SBI_Feed_Builder.php:126 inc/Builder/SBI_Feed_Builder.php:144
+#: inc/Builder/SBI_Feed_Builder.php:1763
+msgid "All Feeds"
+msgstr "Все ленты"
+
+#: admin/SBI_Upgrader.php:297
+msgid "Pro version installed but needs to be activated from the Plugins page inside your WordPress admin."
+msgstr "Версия Pro установлена, но ее необходимо активировать на странице Плагины в админке WordPress."
+
+#: admin/SBI_Upgrader.php:106 admin/SBI_Upgrader.php:251
+#: admin/SBI_Upgrader.php:274
+msgid "You are not licensed."
+msgstr "У вас нет лицензии."
+
+#: admin/SBI_Upgrader.php:96
+msgid "You are not allowed to install plugins."
+msgstr "Вам не разрешена установка плагинов."
+
+#: admin/SBI_Support.php:184
+msgid "Collapse"
+msgstr "Свернуть"
+
+#: admin/SBI_Support.php:183
+msgid "Expand"
+msgstr "Развернуть"
+
+#: admin/SBI_Support.php:181 inc/Builder/SBI_Feed_Builder.php:749
+msgid "Copy"
+msgstr "Копировать"
+
+#: admin/SBI_Support.php:180
+msgid "Copied"
+msgstr "Скопировано"
+
+#: admin/SBI_Support.php:179
+msgid "Submit a Support Ticket"
+msgstr "Отправить заявку в службу поддержки"
+
+#: admin/SBI_Support.php:178
+msgid "View Blog"
+msgstr "Посмотреть блог"
+
+#: admin/SBI_Support.php:177
+msgid "View Documentation"
+msgstr "Посмотреть документацию"
+
+#: admin/SBI_Support.php:170
+msgid "Export Settings"
+msgstr "Экспорт настроек"
+
+#: admin/SBI_Support.php:169
+msgid "System Info"
+msgstr "Сведения о системе"
+
+#: admin/SBI_Support.php:165
+msgid "Additional Resources"
+msgstr "Дополнительные ресурсы"
+
+#: admin/SBI_oEmbeds.php:212
+msgid "Activate Plugin"
+msgstr "Активировать плагин"
+
+#: admin/SBI_oEmbeds.php:192
+msgid "What else can the Instagram Feed plugin do?"
+msgstr "Что еще может сделать плагин Instagram Feed?"
+
+#: admin/SBI_oEmbeds.php:189 inc/Builder/SBI_Feed_Builder.php:1515
+#: inc/Builder/Tabs/SBI_Customize_Tab.php:560
+#: inc/Builder/Tabs/SBI_Customize_Tab.php:917
+#: inc/Builder/Tabs/SBI_Customize_Tab.php:992
+#: inc/Builder/Tabs/SBI_Customize_Tab.php:1112
+#: inc/Builder/Tabs/SBI_Customize_Tab.php:1246
+#: inc/Builder/Tabs/SBI_Settings_Tab.php:111
+msgid "Enable"
+msgstr "Активен"
+
+#: admin/SBI_oEmbeds.php:188
+msgid "Facebook oEmbeds are turned on"
+msgstr "Facebook oEmbeds включен"
+
+#: admin/SBI_Global_Settings.php:1048 inc/Builder/SBI_Feed_Builder.php:171
+#: inc/Builder/SBI_Feed_Builder.php:175
+msgid "Delete \"#\"?"
+msgstr "Удалить \"#\"?"
+
+#: admin/SBI_Global_Settings.php:967
+msgid "Usage Tracking"
+msgstr "Отслеживание использования"
+
+#: admin/SBI_Global_Settings.php:964 admin/SBI_Global_Settings.php:973
+#: inc/Builder/SBI_Feed_Builder.php:772
+msgid "Reset"
+msgstr "Сбросить"
+
+#: admin/SBI_Global_Settings.php:962
+msgid "Optimize Images"
+msgstr "Оптимизировать изображения"
+
+#: admin/SBI_Global_Settings.php:956
+msgid "Custom JS"
+msgstr "Пользовательский JS"
+
+#: admin/SBI_Global_Settings.php:924
+msgid "Clear All Caches"
+msgstr "Очистить все кеши"
+
+#: admin/SBI_Global_Settings.php:923
+msgid "PM"
+msgstr "ПП"
+
+#: admin/SBI_Global_Settings.php:922
+msgid "AM"
+msgstr "ДП"
+
+#: admin/SBI_Global_Settings.php:913
+msgid "Caching"
+msgstr "Кеширование"
+
+#: admin/SBI_Global_Settings.php:910 inc/Builder/SBI_Feed_Builder.php:1633
+msgid "Timezone"
+msgstr "Временная зона"
+
+#: admin/SBI_Global_Settings.php:906
+msgid "Localization"
+msgstr "Локализация"
+
+#: admin/SBI_Global_Settings.php:901 admin/SBI_Support.php:182
+msgid "Export"
+msgstr "Экспорт"
+
+#: admin/SBI_Global_Settings.php:896
+msgid "Import"
+msgstr "Импорт"
+
+#: admin/SBI_Global_Settings.php:886
+msgid "Manage Sources"
+msgstr "Управление источниками"
+
+#: admin/SBI_Global_Settings.php:880
+msgid "View error"
+msgstr "Посмотреть ошибку"
+
+#: admin/SBI_Global_Settings.php:879
+msgid "Connection failed"
+msgstr "Не удалось подключиться"
+
+#: admin/SBI_Global_Settings.php:876
+msgid "License valid"
+msgstr "Лицензия действительна"
+
+#: admin/SBI_Global_Settings.php:874
+msgid "Test Connection"
+msgstr "Тест подключения"
+
+#: admin/SBI_Global_Settings.php:873
+msgid "Manage License"
+msgstr "Управление лицензией"
+
+#: admin/SBI_Global_Settings.php:870
+msgid "Paste license key here"
+msgstr "Вставьте сюда ключ лицензии"
+
+#: admin/SBI_Global_Settings.php:865
+msgid "License Key"
+msgstr "Лицензионный ключ"
+
+#: admin/SBI_Global_Settings.php:743
+msgid "Settings "
+msgstr "Настройки "
+
+#: admin/SBI_Global_Settings.php:705
+msgid "Renew"
+msgstr "Продлить"
+
+#: admin/SBI_Global_Settings.php:688 admin/SBI_Global_Settings.php:881
+msgid "Upgrade"
+msgstr "Улучшить"
+
+#: admin/SBI_About_Us.php:305
+msgid "Open"
+msgstr "Открыть"
+
+#: admin/SBI_About_Us.php:302 inc/Builder/SBI_Feed_Builder.php:852
+msgid "Installed"
+msgstr "Установлена"
+
+#: admin/SBI_About_Us.php:301 inc/Builder/SBI_Feed_Builder.php:851
+#: inc/Builder/SBI_Feed_Builder.php:1199
+msgid "Install"
+msgstr "Установить"
+
+#: admin/SBI_About_Us.php:300 inc/Builder/SBI_Feed_Builder.php:744
+msgid "View Demo"
+msgstr "Посмотреть демо"
+
+#: admin/SBI_About_Us.php:299 inc/Builder/SBI_Feed_Builder.php:741
+msgid "Add"
+msgstr "Добавить"
+
+#: admin/SBI_About_Us.php:291
+msgid "All in One SEO Pack"
+msgstr "All In One SEO Pack"
+
+#: admin/SBI_About_Us.php:209
+msgid "Add Facebook posts from your timeline, albums and much more."
+msgstr "Добавляйте записи Facebook из своей временной шкалы, альбомов и многого другого."
+
+#: admin/SBI_About_Us.php:194
+msgid "Smash Balloon Team"
+msgstr "Команда Smash Balloon"
+
+#: admin/SBI_About_Us.php:190
+msgid "At Smash Balloon, we build software that helps you create beautiful responsive social media feeds for your website in minutes."
+msgstr "В Smash Balloon мы создаем программное обеспечение, которое помогает вам создавать красивые отзывчивые ленты социальных медиа для вашего веб-сайта всего за несколько минут."
+
+#: admin/SBI_About_Us.php:186
+msgid "Plugins we recommend"
+msgstr "Рекомендуемые плагины"
+
+#: admin/SBI_About_Us.php:183 admin/SBI_oEmbeds.php:182
+#: admin/SBI_Support.php:159 inc/Builder/SBI_Feed_Builder.php:769
+#: inc/Builder/SBI_Feed_Builder.php:1511
+msgid "Help"
+msgstr "Помощь"
+
+#: admin/builder/templates/sections/footer.php:55
+#: admin/views/sections/sticky_widget.php:34
+msgid "Follow Us"
+msgstr "Подписаться на нас"
 
 #: inc/class-sb-instagram-connected-account.php:168
 #: inc/class-sb-instagram-post.php:268
@@ -28,65 +910,49 @@ msgstr "Используя метод редактора резервных ко
 msgid "Warning: Clicking this button will permanently delete all Instagram data, including all connected accounts, cached posts, and stored images."
 msgstr "Предупреждение: При нажатии на эту кнопку все данные Instagram, включая все подключенные аккаунты, кэшированные записи и сохраненные изображения, будут удалены навсегда."
 
-#: inc/class-sb-instagram-posts-manager.php:979
-msgid "Instagram Feed related data for the account(s) %s was removed due to permission for the Smash Balloon App on Facebook or Instagram being revoked."
-msgstr "Данные, связанные с Instagram Feed для аккаунта (ов) %s, были удалены из-за отзыва разрешения на использование приложения Smash Balloon App на Facebook или Instagram."
+#: admin/SBI_Global_Settings.php:1043
+msgid "Delete all Platform Data"
+msgstr "Удалить все данные платформы"
 
-#: inc/admin/actions.php:48
-msgid "<span class=\"sbi_get_pro\">Try the Pro Demo</span>"
-msgstr "<span class=\"sbi_get_pro\">Попробуйте Pro-дэмо</span>"
+#: admin/SBI_Global_Settings.php:1041
+msgid "Manage Data"
+msgstr "Управление данными"
 
-#: inc/admin/actions.php:93 inc/Builder/SBI_Feed_Builder.php:700
+#: inc/Builder/SBI_Feed_Builder.php:736
 msgid "Try the Pro Demo"
 msgstr "Попробуйте Pro"
 
-#: inc/Builder/SBI_Feed_Builder.php:1737 inc/Builder/SBI_Feed_Builder.php:1853
-#: inc/class-sb-instagram-feed-locator.php:647
+#: inc/Builder/SBI_Feed_Builder.php:1817 inc/Builder/SBI_Feed_Builder.php:1931
+#: inc/class-sb-instagram-feed-locator.php:656
+msgid "Footer"
+msgstr "Подвал"
+
+#: inc/Builder/SBI_Feed_Builder.php:1819 inc/Builder/SBI_Feed_Builder.php:1933
+#: inc/class-sb-instagram-feed-locator.php:651
+msgid "Sidebar"
+msgstr "Боковая колонка"
+
+#: inc/Builder/SBI_Feed_Builder.php:1821 inc/Builder/SBI_Feed_Builder.php:1935
+#: inc/class-sb-instagram-feed-locator.php:642
 msgid "Content"
 msgstr "Содержимое"
 
-#: inc/Builder/SBI_Feed_Builder.php:145 inc/Builder/SBI_Feed_Builder.php:719
-#: inc/Builder/SBI_Feed_Builder.php:747
+#: inc/class-sb-instagram-feed-locator.php:575
+msgid "There was an error when trying to create the database tables used to locate feeds."
+msgstr "При попытке создать таблицы базы данных, используемые для размещения лент, возникла ошибка."
+
+#: inc/Builder/SBI_Feed_Builder.php:147 inc/Builder/SBI_Feed_Builder.php:755
+#: inc/Builder/SBI_Feed_Builder.php:783
 msgid "Shortcode"
 msgstr "Шорткод"
-
-#: inc/Builder/SBI_Feed_Builder.php:1735 inc/Builder/SBI_Feed_Builder.php:1851
-#: inc/class-sb-instagram-feed-locator.php:656
-msgid "Sidebar"
-msgstr "Область виджетов"
-
-#: inc/Builder/SBI_Feed_Builder.php:1733 inc/Builder/SBI_Feed_Builder.php:1849
-#: inc/class-sb-instagram-feed-locator.php:661
-msgid "Footer"
-msgstr "Подвал (footer)"
-
-#: inc/Builder/Tabs/SBI_Customize_Tab.php:248
-msgid "Type"
-msgstr "Тип"
 
 #: inc/Builder/Tabs/SBI_Settings_Tab.php:28
 msgid "Sources"
 msgstr "Источники"
 
-#: inc/class-sb-instagram-feed-locator.php:580
-msgid "There was an error when trying to create the database tables used to locate feeds."
-msgstr "При попытке создать таблицы базы данных, используемые для размещения лент, возникла ошибка."
-
-#: inc/class-sb-instagram-settings.php:743
-msgid "A connected account related to the user is required to display user feeds. Please connect an account for this user on the %s."
-msgstr "Для отображения пользовательских лент требуется подключенная учетная запись, связанная с пользователем. Подключите учетную запись для этого пользователя на %s."
-
-#: inc/class-sb-instagram-posts-manager.php:381
-msgid "An unknown error has occurred."
-msgstr "Произошла неизвестная ошибка."
-
-#: inc/class-sb-instagram-settings.php:803
-msgid "Error: No users set."
-msgstr "Ошибка: пользователи не заданы."
-
-#: inc/class-sb-instagram-posts-manager.php:336
-msgid "HTTP Error. Unable to connect to the Instagram API."
-msgstr "Ошибка HTTP. Невозможно подключиться к API Instagram."
+#: inc/Builder/Tabs/SBI_Customize_Tab.php:248
+msgid "Type"
+msgstr "Тип"
 
 #: inc/admin/class-sbi-account-connector.php:99
 msgid "Invalid access token"
@@ -96,21 +962,42 @@ msgstr "Неверный токен доступа"
 msgid "Invalid account ID"
 msgstr "Неверный ID учетной записи"
 
-#: inc/class-sb-instagram-posts-manager.php:365
+#: inc/class-sb-instagram-posts-manager.php:402
+msgid "An unknown error has occurred."
+msgstr "Произошла неизвестная ошибка."
+
+#: inc/class-sb-instagram-posts-manager.php:397 inc/Platform_Data.php:316
+#: inc/Platform_Data.php:333
+msgid "There has been a problem with your Instagram Feed."
+msgstr "Возникла проблема с вашей лентой Instagram."
+
+#: inc/class-sb-instagram-posts-manager.php:386
 msgid "If you need to display more than 30 hashtag feeds on your site, consider connecting an additional business account from a separate Instagram Identity and Facebook page. Connecting an additional Instagram business account from the same Facebook page will not raise the limit."
 msgstr "Если вам необходимо отобразить на сайте более 30 лент хэштегов, рассмотрите возможность подключения дополнительного бизнес-аккаунта с отдельного Instagram Identity и страницы Facebook. Подключение дополнительного бизнес-аккаунта Instagram с той же страницы Facebook не приведет к увеличению лимита."
 
-#: inc/class-sb-instagram-settings.php:804
+#: inc/class-sb-instagram-posts-manager.php:357
+msgid "HTTP Error. Unable to connect to the Instagram API."
+msgstr "Ошибка HTTP. Невозможно подключиться к API Instagram."
+
+#: inc/class-sb-instagram-settings.php:830
 msgid "Please visit the plugin's settings page to select a user account or add one to the shortcode - user=\"username\"."
 msgstr "Посетите страницу настроек плагина для выбора учетной записи пользователя или добавьте ее в шорткод - user=\"username\"."
 
-#: inc/class-sb-instagram-posts-manager.php:376
-msgid "There has been a problem with your Instagram Feed."
-msgstr "Возникла проблема с вашей лентой Instagram."
+#: inc/class-sb-instagram-settings.php:829
+msgid "Error: No users set."
+msgstr "Ошибка: пользователи не заданы."
+
+#: inc/class-sb-instagram-settings.php:769
+msgid "A connected account related to the user is required to display user feeds. Please connect an account for this user on the %s."
+msgstr "Для отображения пользовательских лент требуется подключенная учетная запись, связанная с пользователем. Подключите учетную запись для этого пользователя на %s."
 
 #: inc/class-sb-instagram-gdpr-integrations.php:202
 msgid "Retest"
 msgstr "Повторное тестирование"
+
+#: inc/class-sb-instagram-gdpr-integrations.php:197
+msgid "An image editor is not available on your server. Instagram Feed is unable to create local resized images. See %1$sthis FAQ%2$s for more information"
+msgstr "Редактор изображений недоступен на вашем сервере. Instagram Feed не может создавать локальные изображения с измененным размером. Для получения дополнительной информации см. %1$sэтот FAQ%2$s"
 
 #: inc/class-sb-instagram-gdpr-integrations.php:194
 msgid "Tables used for storing information about resized images were not successfully created."
@@ -120,17 +1007,17 @@ msgstr "Таблицы, используемые для хранения инф�
 msgid "A folder for storing resized images was not successfully created."
 msgstr "Не удалось создать папку для хранения изображений с измененным размером."
 
-#: inc/class-sb-instagram-gdpr-integrations.php:197
-msgid "An image editor is not available on your server. Instagram Feed is unable to create local resized images. See %1$sthis FAQ%2$s for more information"
-msgstr "Редактор изображений недоступен на вашем сервере. Instagram Feed не может создавать локальные изображения с измененным размером. Для получения дополнительной информации см. %1$sэтот FAQ%2$s"
-
-#: inc/Builder/SBI_Feed_Builder.php:752
+#: inc/Builder/SBI_Feed_Builder.php:788
 msgid "Error:"
 msgstr "Ошибка:"
 
 #: admin/SBI_Global_Settings.php:935
 msgid "What will be limited?"
 msgstr "Что будет ограничено?"
+
+#: admin/SBI_Global_Settings.php:944
+msgid "Placeholder blank images will be displayed until images are available."
+msgstr "Пустые изображения-заполнители будут отображаться до тех пор, пока изображения не станут доступны."
 
 #: admin/SBI_Global_Settings.php:943
 msgid "Only local images (not from Instagram's CDN) will be displayed in the feed."
@@ -144,30 +1031,26 @@ msgstr "Автоматически"
 msgid "GDPR"
 msgstr "GDPR"
 
-#: admin/SBI_Global_Settings.php:944
-msgid "Placeholder blank images will be displayed until images are available."
-msgstr "Пустые изображения-заполнители будут отображаться до тех пор, пока изображения не станут доступны."
-
-#: inc/admin/class-sbi-notifications.php:668
+#: inc/admin/class-sbi-notifications.php:697
 msgid "Next message"
 msgstr "Следующее сообщение"
 
-#: inc/admin/class-sbi-notifications.php:667
+#: inc/admin/class-sbi-notifications.php:696
 msgid "Previous message"
 msgstr "Предыдущее сообщение"
 
-#: admin/SBI_Admin_Notices.php:65 inc/admin/class-sbi-notifications.php:657
+#: admin/SBI_Admin_Notices.php:65 inc/admin/class-sbi-notifications.php:686
 msgid "Dismiss this message"
 msgstr "Отклонить это сообщение"
 
-#: inc/Builder/SBI_Feed_Builder.php:815
-msgid "Free"
-msgstr "Бесплатно"
-
-#: inc/admin/actions.php:47 inc/Builder/SBI_Feed_Builder.php:852
-#: inc/Builder/SBI_Feed_Builder.php:1274
+#: inc/admin/actions.php:50 inc/admin/actions.php:51 inc/admin/actions.php:107
+#: inc/Builder/SBI_Feed_Builder.php:892 inc/Builder/SBI_Feed_Builder.php:1358
 msgid "Upgrade to Pro"
 msgstr "Перейдите на версию Pro"
+
+#: inc/Builder/SBI_Feed_Builder.php:855
+msgid "Free"
+msgstr "Бесплатно"
 
 #: admin/SBI_oEmbeds.php:190
 msgid "Disable"
@@ -177,53 +1060,53 @@ msgstr "Отключить"
 msgid "What are oEmbeds?"
 msgstr "Что такое oEmbeds?"
 
-#: admin/SBI_About_Us.php:235 inc/Builder/SBI_Feed_Builder.php:302
-#: inc/Builder/SBI_Feed_Builder.php:2115
+#: admin/SBI_About_Us.php:235 inc/Builder/SBI_Feed_Builder.php:304
+#: inc/Builder/SBI_Feed_Builder.php:2199
 msgid "Social Wall"
 msgstr "Стена соцсетей"
 
-#: admin/SBI_oEmbeds.php:61 admin/SBI_oEmbeds.php:62 admin/SBI_oEmbeds.php:183
-#: inc/Builder/SBI_Feed_Builder.php:1681
-msgid "oEmbeds"
-msgstr "oEmbeds"
+#: inc/admin/actions.php:96 inc/admin/actions.php:97
+#: inc/Builder/SBI_Feed_Builder.php:1374
+msgid "YouTube Feed"
+msgstr "YouTube-лента"
 
-#: inc/admin/actions.php:58 inc/admin/actions.php:59
-#: inc/Builder/SBI_Feed_Builder.php:1215 inc/Builder/SBI_Feed_Builder.php:1280
-msgid "Facebook Feed"
-msgstr "Facebook-лента"
-
-#: inc/admin/actions.php:70 inc/admin/actions.php:71
-#: inc/Builder/SBI_Feed_Builder.php:1227 inc/Builder/SBI_Feed_Builder.php:1285
+#: inc/admin/actions.php:84 inc/admin/actions.php:85
+#: inc/Builder/SBI_Feed_Builder.php:1304 inc/Builder/SBI_Feed_Builder.php:1369
 msgid "Twitter Feed"
 msgstr "Twitter-лента"
 
-#: inc/admin/actions.php:82 inc/admin/actions.php:83
-#: inc/Builder/SBI_Feed_Builder.php:1290
-msgid "YouTube Feed"
-msgstr "YouTube-лента"
+#: inc/admin/actions.php:72 inc/admin/actions.php:73
+#: inc/Builder/SBI_Feed_Builder.php:1292 inc/Builder/SBI_Feed_Builder.php:1364
+msgid "Facebook Feed"
+msgstr "Facebook-лента"
+
+#: admin/SBI_oEmbeds.php:61 admin/SBI_oEmbeds.php:62 admin/SBI_oEmbeds.php:183
+#: inc/Builder/SBI_Feed_Builder.php:1765
+msgid "oEmbeds"
+msgstr "oEmbeds"
 
 #: inc/if-functions.php:1640
 msgid "As your Instagram account is set to be \"Private\", Instagram requires that you reauthenticate your account every 60 days. This a courtesy email to let you know that you need to take action to allow the Instagram feed on your website to continue updating. If you don't refresh your account, then a backup cache will be displayed instead."
 msgstr "Поскольку ваша учетная запись Instagram настроена как «Личная», Instagram требует, чтобы вы повторно аутентифицировали свою учетную запись каждые 60 дней. Это любезное электронное письмо, чтобы вы знали, что вам нужно принять меры, чтобы лента Instagram на вашем веб-сайте продолжала обновляться. Если вы не обновите свою учетную запись, вместо этого будет отображаться резервный кеш."
 
-#: inc/if-functions.php:1638
-msgid "Your Private Instagram Feed Account Needs to be Reauthenticated"
-msgstr "Ваша личная учетная запись Instagram Feed требует повторной аутентификации"
-
-#: inc/class-sb-instagram-posts-manager.php:1010
-#: inc/class-sb-instagram-settings.php:817
-msgid "Error: Private Instagram Account."
-msgstr "Ошибка: личный аккаунт в Instagram."
-
 #: inc/if-functions.php:1639
 msgid "Access Token Refresh Needed"
 msgstr "Требуется обновление токена доступа"
 
-#: inc/class-sb-instagram-posts-manager.php:1011
+#: inc/if-functions.php:1638
+msgid "Your Private Instagram Feed Account Needs to be Reauthenticated"
+msgstr "Ваша личная учетная запись Instagram Feed требует повторной аутентификации"
+
+#: inc/class-sb-instagram-posts-manager.php:1041
+#: inc/class-sb-instagram-settings.php:843
+msgid "Error: Private Instagram Account."
+msgstr "Ошибка: личный аккаунт в Instagram."
+
+#: inc/class-sb-instagram-posts-manager.php:1042
 msgid "It looks like your Instagram account is private. Instagram requires private accounts to be reauthenticated every 60 days. Refresh your account to allow it to continue updating, or %1$smake your Instagram account public%2$s."
 msgstr "Похоже, что ваш аккаунт в Instagram является личным. Instagram требует, чтобы личные аккаунты проходили повторную аутентификацию каждые 60 дней. Обновите свой аккаунт, чтобы он продолжал обновляться, или %1$sсделайте свой аккаунт Instagram публичным%2$s."
 
-#: inc/class-sb-instagram-settings.php:915
+#: inc/class-sb-instagram-settings.php:941
 msgid "Load More"
 msgstr "Загрузить ещё"
 
@@ -231,14 +1114,13 @@ msgstr "Загрузить ещё"
 msgid "Once Weekly"
 msgstr "Один раз в неделю"
 
+#: inc/class-sb-instagram-posts-manager.php:1014 inc/Platform_Data.php:322
+msgid "More Information"
+msgstr "Больше информации"
+
 #: inc/email.php:93
 msgid "%sLog in and disable these emails%s"
 msgstr "%sВойдите и отключите эти письма%s"
-
-#: inc/Builder/SBI_Feed_Builder.php:726 inc/Builder/SBI_Tooltip_Wizard.php:129
-#: inc/email.php:63
-msgid "Learn More"
-msgstr "Подробнее"
 
 #: inc/email.php:89
 msgid "Sent from %s"
@@ -249,33 +1131,38 @@ msgstr "Отправлено из %s"
 msgid "This is a courtesy email sent from the Smash Balloon Instagram Feed plugin on your website to alert you when there is an issue with one of your Instagram feeds."
 msgstr "Это письмо, отправленное плагином Smash Balloon Instagram Feed на вашем сайте, чтобы предупредить вас, когда возникает проблема с одной из ваших лент Instagram."
 
+#: inc/Builder/SBI_Feed_Builder.php:762 inc/Builder/SBI_Tooltip_Wizard.php:129
+#: inc/email.php:63
+msgid "Learn More"
+msgstr "Подробнее"
+
 #: inc/class-sb-instagram-education.php:79
 msgid "Twitter testimonials are one of the best ways to add verifiable social proof to your website. They add credibility to your brand, product, or service by displaying reviews from real people to your site, helping to convert more visitors into customers. Our free Custom Twitter Feeds plugin makes displaying Tweets on your website a breeze."
 msgstr "Отзывы в Twitter - это один из лучших способов добавить на ваш сайт поддающиеся проверке социальные доказательства. Они повышают доверие к вашему бренду, продукту или услуге, отображая отзывы реальных людей на вашем сайте, что помогает конвертировать больше посетителей в клиентов. Наш бесплатный плагин Custom Twitter Feeds позволяет легко отображать твиты на вашем сайте."
-
-#: inc/class-sb-instagram-education.php:72
-msgid "Display Facebook Pages and Groups"
-msgstr "Отображение страниц и групп Facebook"
-
-#: inc/class-sb-instagram-education.php:66
-msgid "Automated YouTube Live Streaming"
-msgstr "Автоматическая прямая трансляция на YouTube"
 
 #: inc/class-sb-instagram-education.php:78
 msgid "Adding Social Proof with Twitter Feeds"
 msgstr "Добавление социального доказательства с помощью Twitter Feeds"
 
+#: inc/class-sb-instagram-education.php:73
+msgid "Have a Facebook Page or Group? Easily embed a feed of posts into your website, delivering fresh content automatically to your site from Facebook. Posts, Photos, Events, Videos, Albums, Reviews, and more!"
+msgstr "У вас есть страница или группа в Facebook? Легко встраивайте ленту записей на свой веб-сайт, автоматически доставляя свежий контент на ваш сайт из Facebook. Записи, фотографии, события, видео, альбомы, обзоры и многое другое!"
+
+#: inc/class-sb-instagram-education.php:72
+msgid "Display Facebook Pages and Groups"
+msgstr "Отображение страниц и групп Facebook"
+
 #: inc/class-sb-instagram-education.php:67
 msgid "You can automatically feed live YouTube videos to your website using our Feeds For YouTube Pro plugin. It takes all the hassle out of publishing live videos to your site by automating the process."
 msgstr "Вы можете автоматически загружать видео с YouTube в прямом эфире на свой сайт с помощью нашего плагина Feeds For YouTube Pro. Он устраняет все хлопоты, связанные с публикацией видео в прямом эфире на вашем сайте, автоматизируя этот процесс."
 
+#: inc/class-sb-instagram-education.php:66
+msgid "Automated YouTube Live Streaming"
+msgstr "Автоматическая прямая трансляция на YouTube"
+
 #: inc/class-sb-instagram-education.php:58
 msgid "Control exactly which posts show up in your feed by using the Visual Moderation Mode feature to pick and choose what to display. Remove specific posts or create a whitelist of approved content using Instagram Feed Pro."
 msgstr "Контролируйте, какие именно записи появляются в вашей ленте, используя функцию Visual Moderation Mode, чтобы выбирать, что показывать. Удалите конкретные записи или создайте белый список разрешенного контента с помощью Instagram Feed Pro."
-
-#: inc/class-sb-instagram-education.php:73
-msgid "Have a Facebook Page or Group? Easily embed a feed of posts into your website, delivering fresh content automatically to your site from Facebook. Posts, Photos, Events, Videos, Albums, Reviews, and more!"
-msgstr "У вас есть страница или группа в Facebook? Легко встраивайте ленту записей на свой веб-сайт, автоматически доставляя свежий контент на ваш сайт из Facebook. Записи, фотографии, события, видео, альбомы, обзоры и многое другое!"
 
 #: inc/class-sb-instagram-education.php:57
 msgid "Moderate your Feed Content"
@@ -285,13 +1172,13 @@ msgstr "Модерируйте содержание ленты"
 msgid "Feature specific Instagram posts in your feeds by using the Highlight layout to feature specific posts, either by using their ID or a hashtag in their caption. Also create rotating carousels of your photos and videos to best utilize the space on your site. These layouts and more are available in our Pro version."
 msgstr "Добавляйте определенные записи в Instagram в свои ленты, используя макет «Выделение», чтобы отображать определенные записи, используя их ID или хэштег в подписи. Также создайте вращающиеся карусели из ваших фотографий и видео, чтобы максимально использовать пространство на вашем сайте. Эти и другие макеты доступны в нашей версии Pro."
 
-#: inc/class-sb-instagram-education.php:46
-msgid "You've done the hard work of getting a visitor onto your site, now keep them there by displaying your Instagram content inside a pop-up lightbox, rather than sending your visitors away to Instagram.  Learn more about the Instagram Feed Pro lightbox feature."
-msgstr "Вы проделали тяжелую работу по привлечению посетителей на свой сайт, а теперь удерживайте их там, отображая свой контент Instagram во всплывающем окне, а не отправляя посетителей в Instagram. Узнайте больше о функции лайтбокса Instagram Feed Pro."
-
 #: inc/class-sb-instagram-education.php:51
 msgid "Highlight Your Posts and Create Carousels"
 msgstr "Выделите свои записи и создайте карусели"
+
+#: inc/class-sb-instagram-education.php:46
+msgid "You've done the hard work of getting a visitor onto your site, now keep them there by displaying your Instagram content inside a pop-up lightbox, rather than sending your visitors away to Instagram.  Learn more about the Instagram Feed Pro lightbox feature."
+msgstr "Вы проделали тяжелую работу по привлечению посетителей на свой сайт, а теперь удерживайте их там, отображая свой контент Instagram во всплывающем окне, а не отправляя посетителей в Instagram. Узнайте больше о функции лайтбокса Instagram Feed Pro."
 
 #: inc/class-sb-instagram-education.php:45
 msgid "Keep Visitors on Your Site"
@@ -301,150 +1188,25 @@ msgstr "Удерживайте посетителей на своем сайте
 msgid "You can use hashtags on Instagram for so many things; targeted promotions, engaging with your audience, running contests, or just for categorizing posts. Learn more about how you can display Instagram hashtag feeds on your website using the Instagram Feed Pro plugin."
 msgstr "Вы можете использовать хэштеги на Instagram для многих вещей: целевых рекламных акций, взаимодействия с аудиторией, проведения конкурсов или просто для категоризации записей. Узнайте больше о том, как вы можете отображать ленту хэштегов Instagram на своем сайте с помощью плагина Instagram Feed Pro."
 
-#: inc/admin/actions.php:135
-msgid "OK"
-msgstr "ОК"
-
-#: inc/admin/actions.php:134
-msgid "Oops!"
-msgstr "Упс!"
-
 #: inc/class-sb-instagram-education.php:39
 msgid "Get the Most out of Hashtags"
 msgstr "Получите максимум от хэштегов"
 
-#: inc/admin/blocks/class-sbi-blocks.php:93
-msgid "Add Settings"
-msgstr "Добавить настройки"
-
-#: inc/admin/addon-functions.php:65
-msgid "Addon activated."
-msgstr "Дополнение активировано."
-
-#: inc/admin/addon-functions.php:30
-msgid "Addon deactivated."
-msgstr "Дополнение деактивировано."
-
-#: inc/admin/addon-functions.php:161
-msgid "Addon installed & activated."
-msgstr "Дополнение установлено и активировано."
-
-#: inc/admin/addon-functions.php:169
-msgid "Addon installed."
-msgstr "Дополнение установлено."
-
-#: inc/admin/actions.php:133
-msgid "Almost Done"
-msgstr "Почти закончили"
-
-#. Translators: %s is the link to the article where more details about critical
-#. are listed.
-#: inc/if-functions.php:1437
-msgid "An issue is preventing your Instagram Feeds from updating. %1$sResolve this issue%2$s."
-msgstr "Проблема заключается в том, что ваши ленты Instagram не обновляются. %1$sРешите эту проблему%2$s."
-
-#: inc/admin/blocks/class-sbi-blocks.php:96
-msgid "Apply Changes"
-msgstr "Применить изменения"
-
-#: admin/SBI_oEmbeds.php:213 inc/admin/actions.php:130
-#: inc/Builder/SBI_Feed_Builder.php:742
-msgid "Cancel"
-msgstr "Отмена"
-
-#: admin/SBI_About_Us.php:304 admin/SBI_Global_Settings.php:882
-#: inc/admin/actions.php:123
-msgid "Deactivate"
-msgstr "Деактивировать"
-
-#: inc/admin/actions.php:131
-msgid "Close"
-msgstr "Закрыть"
-
-#: inc/admin/actions.php:157 inc/admin/actions.php:167
-#: inc/Builder/SBI_Source.php:134 inc/class-sb-instagram-posts-manager.php:339
-#: inc/class-sb-instagram-posts-manager.php:362
-#: inc/class-sb-instagram-posts-manager.php:366
-#: inc/class-sb-instagram-posts-manager.php:370
-#: inc/class-sb-instagram-posts-manager.php:374
-#: inc/class-sb-instagram-posts-manager.php:378
-#: inc/class-sb-instagram-posts-manager.php:1000
-#: inc/class-sb-instagram-posts-manager.php:1034
+#: inc/admin/actions.php:171 inc/admin/actions.php:181
+#: inc/Builder/SBI_Source.php:136 inc/class-sb-instagram-posts-manager.php:360
+#: inc/class-sb-instagram-posts-manager.php:383
+#: inc/class-sb-instagram-posts-manager.php:387
+#: inc/class-sb-instagram-posts-manager.php:391
+#: inc/class-sb-instagram-posts-manager.php:395
+#: inc/class-sb-instagram-posts-manager.php:399
+#: inc/class-sb-instagram-posts-manager.php:1030
+#: inc/class-sb-instagram-posts-manager.php:1065
 msgid "Directions on how to resolve this issue"
 msgstr "Указания по решению данного вопроса"
 
-#: admin/SBI_About_Us.php:282
-msgid "RafflePress"
-msgstr "RafflePress"
-
-#: inc/admin/blocks/class-sbi-blocks.php:94
-msgid "Shortcode Settings"
-msgstr "Настройки шорткода"
-
-#: inc/admin/addon-functions.php:70
-msgid "Could not activate addon. Please activate from the Plugins page."
-msgstr "Не удалось активировать дополнение. Активируйте его на странице Плагины."
-
-#: inc/admin/addon-functions.php:34
-msgid "Could not deactivate the addon. Please deactivate from the Plugins page."
-msgstr "Не удалось деактивировать дополнение. Деактивируйте его на странице Плагины."
-
-#: inc/admin/actions.php:127
-msgid "Could not install a plugin. Please download from WordPress.org and install manually."
-msgstr "Не удалось установить плагин. Скачайте с WordPress.org и установите вручную."
-
-#: inc/admin/actions.php:126 inc/admin/addon-functions.php:89
-msgid "Could not install addon. Please download from wpforms.com and install manually."
-msgstr "Не удалось установить дополнение. Скачайте с сайта wpforms.com и установите вручную."
-
-#: admin/SBI_About_Us.php:265
-msgid "Our high-converting optin forms like Exit-Intent® popups, Fullscreen Welcome Mats, and Scroll boxes help you dramatically boost conversions and get more email subscribers."
-msgstr "Наши высоко конвертируемые анкеты, такие как всплывающие окна Exit-Intent®, полноэкранные приветствия и поля прокрутки, помогут вам значительно повысить конверсию и получить больше подписчиков электронной почты."
-
-#: inc/admin/addon-functions.php:63
-msgid "Plugin activated."
-msgstr "Плагин активирован."
-
-#: inc/admin/addon-functions.php:28
-msgid "Plugin deactivated."
-msgstr "Плагин деактивирован."
-
-#: admin/SBI_Upgrader.php:235 admin/SBI_Upgrader.php:292
-#: inc/admin/addon-functions.php:161
-msgid "Plugin installed & activated."
-msgstr "Плагин установлен и активирован."
-
-#: inc/admin/actions.php:125
-msgid "Install Addon"
-msgstr "Установить дополнение"
-
-#: inc/admin/actions.php:136
-msgid "Install and Activate"
-msgstr "Установить и активировать"
-
-#: inc/admin/actions.php:252
-msgid "Instagram Feed is encountering an error and your feeds may not be updating due to the following reasons:"
-msgstr "В ленте Instagram возникает ошибка, и ваши ленты могут не обновляться по следующим причинам:"
-
-#: admin/SBI_About_Us.php:274
-msgid "Make sure your website's emails reach the inbox. Our goal is to make email deliverability easy and reliable. Trusted by over 1 million websites."
-msgstr "Убедитесь, что электронные письма с вашего сайта доходят до почтового ящика. Наша цель - сделать доставку электронной почты простой и надежной. Нам доверяют более 1 миллиона веб-сайтов."
-
-#: inc/admin/class-sbi-sitehealth.php:65
-msgid "No critical errors have been detected."
-msgstr "Критических ошибок не обнаружено."
-
-#: inc/admin/class-sbi-sitehealth.php:75
-msgid "Your Instagram Feed is experiencing an error."
-msgstr "В вашей ленте Instagram произошла ошибка."
-
-#: inc/admin/addon-functions.php:169
-msgid "Plugin installed."
-msgstr "Плагин установлен."
-
-#: inc/admin/actions.php:128
-msgid "Searching Addons"
-msgstr "Поиск дополнений"
+#: inc/if-functions.php:1635
+msgid "An Instagram feed on your website is currently unable to connect to Instagram to retrieve new posts. Don't worry, your feed is still being displayed using a cached version, but is no longer able to display new posts."
+msgstr "Лента Instagram на вашем сайте в настоящее время не может подключиться к Instagram для получения новых записей. Не волнуйтесь, ваша лента по-прежнему отображается с помощью кэшированной версии, но больше не может отображать новые записи."
 
 #: inc/if-functions.php:1634
 msgid "There's an Issue with an Instagram Feed on Your Website"
@@ -454,66 +1216,163 @@ msgstr "Проблема с лентой Instagram на вашем сайте"
 msgid "Instagram Feed Report for %s"
 msgstr "Отчет ленты Instagram для %s"
 
-#: inc/admin/actions.php:137
-msgid "needs to be installed and activated to import its forms. Would you like us to install and activate it for you?"
-msgstr "необходимо установить и активировать для импорта его форм. Хотите, чтобы мы установили и активировали его для вас?"
-
-#: inc/class-sb-instagram-posts-manager.php:997
-#: inc/class-sb-instagram-posts-manager.php:1032
-msgid "View Feed and Retry"
-msgstr "Просмотр ленты и повторить"
-
-#: admin/SBI_About_Us.php:273
-msgid "WP Mail SMTP"
-msgstr "WP Mail SMTP"
-
-#: inc/if-functions.php:1635
-msgid "An Instagram feed on your website is currently unable to connect to Instagram to retrieve new posts. Don't worry, your feed is still being displayed using a cached version, but is no longer able to display new posts."
-msgstr "Лента Instagram на вашем сайте в настоящее время не может подключиться к Instagram для получения новых записей. Не волнуйтесь, ваша лента по-прежнему отображается с помощью кэшированной версии, но больше не может отображать новые записи."
+#. Translators: %s is the link to the article where more details about critical
+#. are listed.
+#: inc/if-functions.php:1437
+msgid "An issue is preventing your Instagram Feeds from updating. %1$sResolve this issue%2$s."
+msgstr "Проблема заключается в том, что ваши ленты Instagram не обновляются. %1$sРешите эту проблему%2$s."
 
 #: inc/if-functions.php:1432
 msgid "Instagram Feed Critical Issue"
 msgstr "Критическая проблема Instagram Feed"
 
-#: inc/admin/class-sbi-sitehealth.php:47
-msgid "Instagram Feed Errors"
-msgstr "Ошибки ленты Instagram Feed"
+#: inc/admin/blocks/class-sbi-blocks.php:96
+msgid "Apply Changes"
+msgstr "Применить изменения"
+
+#: inc/admin/blocks/class-sbi-blocks.php:94
+msgid "Shortcode Settings"
+msgstr "Настройки шорткода"
+
+#: inc/admin/blocks/class-sbi-blocks.php:93
+msgid "Add Settings"
+msgstr "Добавить настройки"
+
+#: inc/admin/class-sbi-sitehealth.php:75
+msgid "Your Instagram Feed is experiencing an error."
+msgstr "В вашей ленте Instagram произошла ошибка."
+
+#: inc/admin/class-sbi-sitehealth.php:65
+msgid "No critical errors have been detected."
+msgstr "Критических ошибок не обнаружено."
 
 #: inc/admin/class-sbi-sitehealth.php:59
 msgid "Instagram Feed has no critical errors"
 msgstr "Instagram Feed не имеет критических ошибок"
 
+#: inc/admin/class-sbi-sitehealth.php:47
+msgid "Instagram Feed Errors"
+msgstr "Ошибки ленты Instagram Feed"
+
+#: inc/admin/addon-functions.php:169
+msgid "Addon installed."
+msgstr "Дополнение установлено."
+
+#: inc/admin/addon-functions.php:169
+msgid "Plugin installed."
+msgstr "Плагин установлен."
+
+#: inc/admin/addon-functions.php:161
+msgid "Addon installed & activated."
+msgstr "Дополнение установлено и активировано."
+
+#: admin/SBI_Upgrader.php:236 admin/SBI_Upgrader.php:293
+#: inc/admin/addon-functions.php:161
+msgid "Plugin installed & activated."
+msgstr "Плагин установлен и активирован."
+
+#: inc/admin/addon-functions.php:70
+msgid "Could not activate addon. Please activate from the Plugins page."
+msgstr "Не удалось активировать дополнение. Активируйте его на странице Плагины."
+
+#: inc/admin/addon-functions.php:65
+msgid "Addon activated."
+msgstr "Дополнение активировано."
+
+#: inc/admin/addon-functions.php:63
+msgid "Plugin activated."
+msgstr "Плагин активирован."
+
+#: inc/admin/addon-functions.php:34
+msgid "Could not deactivate the addon. Please deactivate from the Plugins page."
+msgstr "Не удалось деактивировать дополнение. Деактивируйте его на странице Плагины."
+
+#: inc/admin/addon-functions.php:30
+msgid "Addon deactivated."
+msgstr "Дополнение деактивировано."
+
+#: inc/admin/addon-functions.php:28
+msgid "Plugin deactivated."
+msgstr "Плагин деактивирован."
+
+#: inc/class-sb-instagram-posts-manager.php:1027
+#: inc/class-sb-instagram-posts-manager.php:1063
+msgid "View Feed and Retry"
+msgstr "Просмотр ленты и повторить"
+
+#: inc/admin/actions.php:309
+msgid "Instagram Feed is encountering an error and your feeds may not be updating due to the following reasons:"
+msgstr "В ленте Instagram возникает ошибка, и ваши ленты могут не обновляться по следующим причинам:"
+
+#: inc/admin/actions.php:151
+msgid "needs to be installed and activated to import its forms. Would you like us to install and activate it for you?"
+msgstr "необходимо установить и активировать для импорта его форм. Хотите, чтобы мы установили и активировали его для вас?"
+
+#: inc/admin/actions.php:150
+msgid "Install and Activate"
+msgstr "Установить и активировать"
+
+#: inc/admin/actions.php:149
+msgid "OK"
+msgstr "OK"
+
+#: inc/admin/actions.php:148
+msgid "Oops!"
+msgstr "Упс!"
+
+#: inc/admin/actions.php:147
+msgid "Almost Done"
+msgstr "Почти закончили"
+
+#: inc/admin/actions.php:145
+msgid "Close"
+msgstr "Закрыть"
+
+#: admin/SBI_oEmbeds.php:213 inc/admin/actions.php:144
+#: inc/Builder/SBI_Feed_Builder.php:778
+msgid "Cancel"
+msgstr "Отмена"
+
+#: inc/admin/actions.php:142
+msgid "Searching Addons"
+msgstr "Поиск дополнений"
+
+#: inc/admin/actions.php:141
+msgid "Could not install a plugin. Please download from WordPress.org and install manually."
+msgstr "Не удалось установить плагин. Скачайте с WordPress.org и установите вручную."
+
+#: inc/admin/actions.php:140 inc/admin/addon-functions.php:89
+msgid "Could not install addon. Please download from wpforms.com and install manually."
+msgstr "Не удалось установить дополнение. Скачайте с сайта wpforms.com и установите вручную."
+
+#: inc/admin/actions.php:139
+msgid "Install Addon"
+msgstr "Установить дополнение"
+
+#: admin/SBI_About_Us.php:304 admin/SBI_Global_Settings.php:882
+#: inc/admin/actions.php:137
+msgid "Deactivate"
+msgstr "Деактивировать"
+
 #: admin/SBI_About_Us.php:283
 msgid "Turn your visitors into brand ambassadors! Easily grow your email list, website traffic, and social media followers with powerful viral giveaways & contests."
 msgstr "Стимулируйте ваших посетителей продвигать вашу марку. Увеличивайте кол-во подписчиков Emal-рассылки и страниц в соцсетях, а также трафик сайта с помощью \"вирусных\" розыгрышей, конкурсов и прочих акций."
 
-#: inc/Builder/SBI_Feed_Builder.php:314
-msgid "Custom Facebook Feed Pro"
-msgstr "Custom Facebook Feed Pro"
+#: admin/SBI_About_Us.php:282
+msgid "RafflePress"
+msgstr "RafflePress"
 
-#: admin/SBI_About_Us.php:217
-msgid "Custom Twitter Feeds"
-msgstr "Custom Twitter Feeds"
+#: admin/SBI_About_Us.php:274
+msgid "Make sure your website's emails reach the inbox. Our goal is to make email deliverability easy and reliable. Trusted by over 1 million websites."
+msgstr "Убедитесь, что электронные письма с вашего сайта доходят до почтового ящика. Наша цель - сделать доставку электронной почты простой и надежной. Нам доверяют более 1 миллиона веб-сайтов."
 
-#: inc/Builder/SBI_Feed_Builder.php:1229
-msgid "Custom Twitter Feeds is a highly customizable way to display tweets from your Twitter account. Promote your latest content and update your site content automatically."
-msgstr "Custom Twitter Feeds - это легко настраиваемый способ отображения твитов с вашего аккаунта в Twitter. Продвигайте свои последние материалы и автоматически обновляйте содержимое сайта."
+#: admin/SBI_About_Us.php:273
+msgid "WP Mail SMTP"
+msgstr "WP Mail SMTP"
 
-#: inc/Builder/SBI_Feed_Builder.php:312
-msgid "Custom Twitter Feeds Pro"
-msgstr "Custom Twitter Feeds Pro"
-
-#: admin/SBI_About_Us.php:226 inc/Builder/SBI_Feed_Builder.php:1239
-msgid "Feeds for YouTube"
-msgstr "Feeds for YouTube"
-
-#: admin/SBI_About_Us.php:255
-msgid "MonsterInsights"
-msgstr "MonsterInsights"
-
-#: admin/SBI_About_Us.php:246
-msgid "WPForms"
-msgstr "WPForms"
+#: admin/SBI_About_Us.php:265
+msgid "Our high-converting optin forms like Exit-Intent® popups, Fullscreen Welcome Mats, and Scroll boxes help you dramatically boost conversions and get more email subscribers."
+msgstr "Наши высоко конвертируемые анкеты, такие как всплывающие окна Exit-Intent®, полноэкранные приветствия и поля прокрутки, помогут вам значительно повысить конверсию и получить больше подписчиков электронной почты."
 
 #: admin/SBI_About_Us.php:264
 msgid "OptinMonster"
@@ -523,136 +1382,157 @@ msgstr "OptinMonster"
 msgid "MonsterInsights makes it “effortless” to properly connect your WordPress site with Google Analytics, so you can start making data-driven decisions to grow your business."
 msgstr "MonsterInsights позволяет \"без особых усилий\" правильно связать ваш сайт WordPress с Google Analytics, чтобы вы могли начать принимать решения, основанные на данных, для развития вашего бизнеса."
 
+#: admin/SBI_About_Us.php:255
+msgid "MonsterInsights"
+msgstr "MonsterInsights"
+
 #: admin/SBI_About_Us.php:247
 msgid "The most beginner friendly drag & drop WordPress forms plugin allowing you to create beautiful contact forms, subscription forms, payment forms, and more in minutes, not hours!"
 msgstr "Самый удобный для новичков плагин форм WordPress, позволяющий создавать красивые контактные формы, формы подписки, формы оплаты и многое другое за считанные минуты, а не часы!"
+
+#: admin/SBI_About_Us.php:246
+msgid "WPForms"
+msgstr "WPForms"
+
+#: admin/SBI_About_Us.php:226 inc/Builder/SBI_Feed_Builder.php:1316
+msgid "Feeds for YouTube"
+msgstr "Feeds for YouTube"
+
+#: inc/Builder/SBI_Feed_Builder.php:314
+msgid "Custom Twitter Feeds Pro"
+msgstr "Custom Twitter Feeds Pro"
+
+#: inc/Builder/SBI_Feed_Builder.php:1306
+msgid "Custom Twitter Feeds is a highly customizable way to display tweets from your Twitter account. Promote your latest content and update your site content automatically."
+msgstr "Custom Twitter Feeds - это легко настраиваемый способ отображения твитов с вашего аккаунта в Twitter. Продвигайте свои последние материалы и автоматически обновляйте содержимое сайта."
+
+#: admin/SBI_About_Us.php:217
+msgid "Custom Twitter Feeds"
+msgstr "Custom Twitter Feeds"
+
+#: inc/Builder/SBI_Feed_Builder.php:316
+msgid "Custom Facebook Feed Pro"
+msgstr "Custom Facebook Feed Pro"
 
 #: admin/SBI_About_Us.php:208
 msgid "Custom Facebook Feed"
 msgstr "Custom Facebook Feed"
 
-#: admin/SBI_About_Us.php:303 admin/SBI_Global_Settings.php:883
-#: inc/admin/actions.php:120 inc/admin/actions.php:138
-#: inc/Builder/SBI_Feed_Builder.php:813 inc/Builder/SBI_Feed_Builder.php:1156
-msgid "Activate"
-msgstr "Активировать"
-
-#: inc/admin/actions.php:121
-msgid "Activated"
-msgstr "Активировано"
-
-#: inc/admin/actions.php:122
-msgid "Active"
-msgstr "Активна"
-
 #: admin/SBI_oEmbeds.php:211
 msgid "Install Plugin"
 msgstr "Установить плагин"
 
-#: inc/admin/actions.php:124
+#: admin/SBI_About_Us.php:303 admin/SBI_Global_Settings.php:883
+#: inc/admin/actions.php:134 inc/admin/actions.php:152
+#: inc/Builder/SBI_Feed_Builder.php:853 inc/Builder/SBI_Feed_Builder.php:1208
+msgid "Activate"
+msgstr "Активировать"
+
+#: inc/admin/actions.php:138
 msgid "Inactive"
 msgstr "Неактивна"
 
-#: admin/SBI_Global_Settings.php:1028
-msgid "Friday"
-msgstr "Пятница"
+#: inc/admin/actions.php:135
+msgid "Activated"
+msgstr "Активировано"
 
-#: admin/SBI_Global_Settings.php:1012
-msgid "Monday"
-msgstr "Понедельник"
-
-#: admin/SBI_Global_Settings.php:1032
-msgid "Saturday"
-msgstr "Суббота"
-
-#: admin/SBI_Global_Settings.php:1036
-msgid "Sunday"
-msgstr "Воскресенье"
-
-#: admin/SBI_Global_Settings.php:1024
-msgid "Thursday"
-msgstr "Четверг"
-
-#: admin/SBI_Global_Settings.php:1016
-msgid "Tuesday"
-msgstr "Вторник"
-
-#: admin/SBI_Global_Settings.php:1020
-msgid "Wednesday"
-msgstr "Среда"
+#: inc/admin/actions.php:136
+msgid "Active"
+msgstr "Активна"
 
 #: admin/SBI_Support.php:161
 msgid "Getting Started"
 msgstr "Начало работы"
 
-#: inc/Builder/SBI_Feed_Builder.php:266 inc/Builder/SBI_Feed_Builder.php:290
-#: inc/Builder/SBI_Feed_Builder.php:336 inc/Builder/SBI_Feed_Builder.php:360
-#: inc/Builder/SBI_Feed_Builder.php:385 inc/Builder/SBI_Feed_Builder.php:410
-#: inc/Builder/SBI_Feed_Builder.php:435 inc/Builder/SBI_Feed_Builder.php:460
-#: inc/Builder/SBI_Feed_Builder.php:843
+#: inc/Builder/SBI_Feed_Builder.php:268 inc/Builder/SBI_Feed_Builder.php:292
+#: inc/Builder/SBI_Feed_Builder.php:338 inc/Builder/SBI_Feed_Builder.php:362
+#: inc/Builder/SBI_Feed_Builder.php:387 inc/Builder/SBI_Feed_Builder.php:412
+#: inc/Builder/SBI_Feed_Builder.php:437 inc/Builder/SBI_Feed_Builder.php:462
+#: inc/Builder/SBI_Feed_Builder.php:883
 msgid "Instagram Stories"
 msgstr "Истории (stories) Instagram"
 
+#: admin/SBI_Global_Settings.php:1036
+msgid "Sunday"
+msgstr "Воскресенье"
+
+#: admin/SBI_Global_Settings.php:1032
+msgid "Saturday"
+msgstr "Суббота"
+
+#: admin/SBI_Global_Settings.php:1028
+msgid "Friday"
+msgstr "Пятница"
+
+#: admin/SBI_Global_Settings.php:1024
+msgid "Thursday"
+msgstr "Четверг"
+
+#: admin/SBI_Global_Settings.php:1020
+msgid "Wednesday"
+msgstr "Среда"
+
+#: admin/SBI_Global_Settings.php:1016
+msgid "Tuesday"
+msgstr "Вторник"
+
+#: admin/SBI_Global_Settings.php:1012
+msgid "Monday"
+msgstr "Понедельник"
+
 #: admin/SBI_About_Us.php:58 admin/SBI_About_Us.php:59
-#: admin/SBI_About_Us.php:184 inc/Builder/SBI_Feed_Builder.php:1683
+#: admin/SBI_About_Us.php:184 inc/Builder/SBI_Feed_Builder.php:1767
 msgid "About Us"
 msgstr "О нас"
 
 #: widget.php:42
 msgid "Title:"
-msgstr "Название:"
-
-#: instagram-feed.php:228
-msgid "Weekly"
-msgstr "Еженедельно"
+msgstr "Заголовок:"
 
 #: widget.php:16
 msgid "Display your Instagram feed"
 msgstr "Отображение вашей Instagram-ленты"
 
+#: instagram-feed.php:228
+msgid "Weekly"
+msgstr "Еженедельно"
+
 #: inc/Builder/Tabs/SBI_Customize_Tab.php:596
 msgid "Use Custom Avatar"
 msgstr "Использовать собственный аватар"
 
-#: inc/class-sb-instagram-settings.php:773
-msgid "Error: Cannot add access token directly to the shortcode."
-msgstr "Ошибка: невозможно добавить токен доступа непосредственно в шорткод."
-
-#: inc/class-sb-instagram-settings.php:774
-msgid "Due to recent Instagram platform changes, it's no longer possible to create a feed by adding the access token to the shortcode. Remove the access token from the shortcode and connect an account on the %s instead."
-msgstr "Из-за недавних изменений платформы Instagram больше невозможно создать ленту, добавив токен доступа в шорткод. Удалите токен доступа из шорткода и вместо этого подключите учетную запись на %s."
-
-#: inc/class-sb-instagram-settings.php:739
-#: inc/class-sb-instagram-settings.php:770
-msgid "plugin Settings page"
-msgstr "страница настроек плагина"
-
-#: inc/Builder/SBI_Source.php:360
+#: inc/Builder/SBI_Source.php:373
 msgid "The Instagram account you are logged into is already connected as a \"business\" account. Remove the business account if you'd like to connect as a basic account instead (not recommended)."
 msgstr "Аккаунт Instagram, в который вы вошли, уже подключен как \"бизнес-аккаунт\". Удалите бизнес-аккаунт, если вы хотите подключиться как базовый аккаунт (не рекомендуется)."
 
-#: inc/class-sb-instagram-posts-manager.php:372
+#: inc/class-sb-instagram-posts-manager.php:393
 msgid "Error: Cannot retrieve posts for this hashtag."
 msgstr "Ошибка: невозможно получить записи для этого хэштега."
+
+#: inc/class-sb-instagram-settings.php:800
+msgid "Due to recent Instagram platform changes, it's no longer possible to create a feed by adding the access token to the shortcode. Remove the access token from the shortcode and connect an account on the %s instead."
+msgstr "Из-за недавних изменений платформы Instagram больше невозможно создать ленту, добавив токен доступа в шорткод. Удалите токен доступа из шорткода и вместо этого подключите учетную запись на %s."
+
+#: inc/class-sb-instagram-settings.php:799
+msgid "Error: Cannot add access token directly to the shortcode."
+msgstr "Ошибка: невозможно добавить токен доступа непосредственно в шорткод."
+
+#: inc/class-sb-instagram-settings.php:765
+#: inc/class-sb-instagram-settings.php:796
+msgid "plugin Settings page"
+msgstr "страница настроек плагина"
 
 #: inc/Builder/Tabs/SBI_Customize_Tab.php:900
 msgid "Medium (320x320)"
 msgstr "Средний (320x320)"
 
-#: inc/admin/actions.php:156 inc/class-sb-instagram-posts-manager.php:361
-#: inc/class-sb-instagram-posts-manager.php:377
-#: inc/class-sb-instagram-single.php:157
-msgid "API error %s:"
-msgstr "API-ошибка %s:"
+#: inc/class-sb-instagram-settings.php:768
+msgid "Error: There is no connected account for the user %s."
+msgstr "Ошибка: для пользователя %s нет подключенной учетной записи."
 
 #: inc/class-sb-instagram-post.php:528
 msgid "No database ID."
 msgstr "Нет ID базы данных."
-
-#: inc/admin/actions.php:161 inc/Builder/SBI_Source.php:126
-#: inc/class-sb-instagram-posts-manager.php:337
-msgid "Error connecting to %s."
-msgstr "Ошибка подключения к %s."
 
 #: inc/class-sb-instagram-post.php:192 inc/class-sb-instagram-post.php:528
 #: inc/class-sb-instagram-post.php:538
@@ -663,49 +1543,36 @@ msgstr "Ошибка при вставке записи."
 msgid "Error updating post."
 msgstr "Ошибка при обновлении записи."
 
-#: inc/class-sb-instagram-posts-manager.php:368
+#: inc/admin/actions.php:175 inc/Builder/SBI_Source.php:128
+#: inc/class-sb-instagram-posts-manager.php:358
+msgid "Error connecting to %s."
+msgstr "Ошибка подключения к %s."
+
+#: inc/class-sb-instagram-posts-manager.php:390
+msgid "Try using the big blue button on the \"Configure\" tab to reconnect the account and update its permissions."
+msgstr "Попробуйте использовать большую синюю кнопку на вкладке \"Конфигурация\", чтобы переподключить учетную запись и обновить ее разрешения."
+
+#: inc/class-sb-instagram-posts-manager.php:389
 msgid "Error: Connected account for the user %s does not have permission to use this feed type."
 msgstr "Ошибка: подключенная учетная запись для пользователя %s не имеет разрешения на использование этого типа ленты."
 
-#: inc/class-sb-instagram-posts-manager.php:364
+#: inc/class-sb-instagram-posts-manager.php:385
 msgid "Error: Hashtag limit of 30 unique hashtags per week has been reached."
 msgstr "Ошибка: достигнут лимит хэштегов в 30 уникальных хэштегов в неделю."
 
-#: inc/class-sb-instagram-settings.php:742
-msgid "Error: There is no connected account for the user %s."
-msgstr "Ошибка: для пользователя %s нет подключенной учетной записи."
+#: inc/admin/actions.php:170 inc/class-sb-instagram-posts-manager.php:382
+#: inc/class-sb-instagram-posts-manager.php:398
+#: inc/class-sb-instagram-single.php:157
+msgid "API error %s:"
+msgstr "API-ошибка %s:"
 
 #: admin/SBI_Global_Settings.php:971
 msgid "Reset Error Log"
 msgstr "Сброс журнала ошибок"
 
-#: inc/class-sb-instagram-posts-manager.php:369
-msgid "Try using the big blue button on the \"Configure\" tab to reconnect the account and update its permissions."
-msgstr "Попробуйте использовать большую синюю кнопку на вкладке \"Конфигурация\", чтобы переподключить учетную запись и обновить ее разрешения."
-
 #: admin/SBI_Global_Settings.php:981 admin/SBI_Global_Settings.php:997
 msgid "Initial posts will be loaded using AJAX instead of added to the page directly. If you use page caching, this will allow the feed to update according to the \"Check for new posts every\" setting on the \"Configure\" tab."
 msgstr "Первые записи будут загружаться с помощью AJAX, а не добавляться на страницу напрямую. Если вы используете кэширование страниц, это позволит ленте обновляться в соответствии с настройкой \"Проверять наличие новых записей каждый раз\" на вкладке \"Конфигурация\"."
-
-#: admin/SBI_Global_Settings.php:919
-msgid "Every 12 hours"
-msgstr "Каждые 12 часов"
-
-#: admin/SBI_Global_Settings.php:1217 admin/SBI_Support.php:386
-msgid "every 12 hours"
-msgstr "каждые 12 часов"
-
-#: admin/SBI_Global_Settings.php:920
-msgid "Every 24 hours"
-msgstr "Каждые 24 часа"
-
-#: admin/SBI_Global_Settings.php:1216 admin/SBI_Support.php:383
-msgid "every 30 minutes"
-msgstr "каждые 30 минут"
-
-#: admin/SBI_Global_Settings.php:918
-msgid "Every hour"
-msgstr "Каждый час"
 
 #: admin/SBI_Global_Settings.php:1221
 msgid "Nothing currently scheduled"
@@ -715,15 +1582,25 @@ msgstr "В настоящее время ничего не запланиров�
 msgid "Next check"
 msgstr "Следующая проверка"
 
-#: admin/SBI_Global_Settings.php:917 instagram-feed.php:224
-msgid "Every 30 minutes"
-msgstr "Каждые 30 минут"
+#: admin/SBI_Global_Settings.php:1217 admin/SBI_Support.php:386
+msgid "every 12 hours"
+msgstr "каждые 12 часов"
 
-#: inc/class-sb-instagram-feed.php:1409 inc/class-sb-instagram-feed.php:1410
-#: inc/class-sb-instagram-posts-manager.php:1012
-#: inc/class-sb-instagram-settings.php:819
-msgid "Click here to troubleshoot"
-msgstr "Нажмите здесь для устранения неполадок"
+#: admin/SBI_Global_Settings.php:1216 admin/SBI_Support.php:383
+msgid "every 30 minutes"
+msgstr "каждые 30 минут"
+
+#: admin/SBI_Global_Settings.php:920
+msgid "Every 24 hours"
+msgstr "Каждые 24 часа"
+
+#: admin/SBI_Global_Settings.php:919
+msgid "Every 12 hours"
+msgstr "Каждые 12 часов"
+
+#: admin/SBI_Global_Settings.php:918
+msgid "Every hour"
+msgstr "Каждый час"
 
 #: inc/class-sb-instagram-connected-account.php:187
 #: inc/class-sb-instagram-post.php:294
@@ -736,55 +1613,65 @@ msgstr "Ошибка редактирования изображения."
 msgid "Error saving edited image."
 msgstr "Error saving edited image."
 
-#: inc/class-sb-instagram-feed.php:1407
-msgid "Error: No posts found."
-msgstr "Ошибка: записи не найдено."
-
-#: templates/item.php:34 templates/item.php:45
-msgid "Instagram post %s"
-msgstr "Запись %s в Instagram"
-
-#: inc/class-sb-instagram-feed.php:1408
+#: inc/class-sb-instagram-feed.php:1456
 msgid "Make sure this account has posts available on instagram.com."
 msgstr "Убедитесь, что в этом аккаунте есть записи, доступные на instagram.com."
 
-#. Plugin Name of the plugin
-msgid "Smash Balloon Instagram Feed"
-msgstr "Smash Balloon Instagram Feed"
+#: inc/class-sb-instagram-feed.php:1455
+msgid "Error: No posts found."
+msgstr "Ошибка: записи не найдено."
 
-#: inc/class-sb-instagram-posts-manager.php:609 instagram-feed.php:285
-#: instagram-feed.php:307
-msgid "There was an error creating the folder for storing resized images."
-msgstr "При создании папки для хранения изображений с измененным размером произошла ошибка."
+#: inc/class-sb-instagram-feed.php:1272
+msgid "No posts found."
+msgstr "Записей не найдено."
+
+#: inc/class-sb-instagram-feed.php:1457 inc/class-sb-instagram-feed.php:1458
+#: inc/class-sb-instagram-posts-manager.php:1043
+#: inc/class-sb-instagram-settings.php:845
+msgid "Click here to troubleshoot"
+msgstr "Нажмите здесь для устранения неполадок"
 
 #: instagram-feed.php:408 instagram-feed.php:435
 msgid "There was an error when trying to create the database tables used for resizing images."
 msgstr "При попытке создать таблицы базы данных, используемые для изменения размеров изображений, возникла ошибка."
 
-#: inc/class-sb-instagram-feed.php:1271
-msgid "No posts found."
-msgstr "Записи не найдены."
+#: inc/class-sb-instagram-posts-manager.php:630 instagram-feed.php:285
+#: instagram-feed.php:307
+msgid "There was an error creating the folder for storing resized images."
+msgstr "При создании папки для хранения изображений с измененным размером произошла ошибка."
 
-#: inc/Builder/SBI_Feed_Builder.php:1491
+#: admin/SBI_Global_Settings.php:917 instagram-feed.php:224
+msgid "Every 30 minutes"
+msgstr "Каждые 30 минут"
+
+#: templates/item.php:34 templates/item.php:45
+msgid "Instagram post %s"
+msgstr "Запись %s в Instagram"
+
+#. Plugin Name of the plugin
+msgid "Smash Balloon Instagram Feed"
+msgstr "Smash Balloon Instagram Feed"
+
+#: inc/Builder/SBI_Feed_Builder.php:1575
 msgid "Visual"
 msgstr "Визуально"
-
-#: inc/Builder/Tabs/SBI_Customize_Tab.php:252
-msgid "Post ID"
-msgstr "ID записи"
-
-#: inc/Builder/SBI_Feed_Builder.php:909
-#: inc/Builder/Tabs/SBI_Customize_Tab.php:253
-msgid "Hashtag"
-msgstr "Хэштег"
 
 #: inc/Builder/Tabs/SBI_Customize_Tab.php:273
 msgid "Highlight every"
 msgstr "Выделите каждую"
 
-#: inc/Builder/Tabs/SBI_Customize_Tab.php:174
-msgid "Loop Type"
-msgstr "Тип цикла"
+#: inc/Builder/SBI_Feed_Builder.php:955
+#: inc/Builder/Tabs/SBI_Customize_Tab.php:253
+msgid "Hashtag"
+msgstr "Хэштег"
+
+#: inc/Builder/Tabs/SBI_Customize_Tab.php:252
+msgid "Post ID"
+msgstr "ID записи"
+
+#: inc/Builder/Tabs/SBI_Customize_Tab.php:251
+msgid "Pattern"
+msgstr "Паттерн"
 
 #: inc/Builder/Tabs/SBI_Customize_Tab.php:178
 msgid "Infinity"
@@ -794,18 +1681,31 @@ msgstr "Бесконечность"
 msgid "Rewind"
 msgstr "Перемотать назад"
 
-#: inc/Builder/Tabs/SBI_Customize_Tab.php:251
-msgid "Pattern"
-msgstr "Шаблон"
+#: inc/Builder/Tabs/SBI_Customize_Tab.php:174
+msgid "Loop Type"
+msgstr "Тип цикла"
 
 #: inc/Builder/Tabs/SBI_Customize_Tab.php:807
 msgid "Centered"
 msgstr "По центру"
 
-#: inc/Builder/SBI_Feed_Builder.php:1460
-#: inc/Builder/Tabs/SBI_Customize_Tab.php:107
-msgid "Grid"
-msgstr "Сетка"
+#: inc/Builder/Tabs/SBI_Customize_Tab.php:796
+msgid "Standard"
+msgstr "Стандартный"
+
+#: inc/Builder/SBI_Feed_Builder.php:1588
+#: inc/Builder/Tabs/SBI_Customize_Tab.php:585
+msgid "Large"
+msgstr "Большой"
+
+#: inc/Builder/Tabs/SBI_Customize_Tab.php:584
+msgid "Medium"
+msgstr "Средний"
+
+#: inc/Builder/SBI_Feed_Builder.php:1587
+#: inc/Builder/Tabs/SBI_Customize_Tab.php:583
+msgid "Small"
+msgstr "Маленький"
 
 #: inc/Builder/Tabs/SBI_Customize_Tab.php:581
 msgid "Header Size"
@@ -815,58 +1715,41 @@ msgstr "Размер заголовка"
 msgid "Highlight"
 msgstr "Выделение"
 
-#: inc/Builder/SBI_Feed_Builder.php:1504
-#: inc/Builder/Tabs/SBI_Customize_Tab.php:585
-msgid "Large"
-msgstr "Большой"
-
-#: inc/Builder/SBI_Feed_Builder.php:1461
+#: inc/Builder/SBI_Feed_Builder.php:1545
 #: inc/Builder/Tabs/SBI_Customize_Tab.php:119
 msgid "Masonry"
 msgstr "Кладка"
 
-#: inc/Builder/Tabs/SBI_Customize_Tab.php:584
-msgid "Medium"
-msgstr "Средний"
+#: inc/Builder/SBI_Feed_Builder.php:1544
+#: inc/Builder/Tabs/SBI_Customize_Tab.php:107
+msgid "Grid"
+msgstr "Сетка"
 
-#: inc/Builder/SBI_Feed_Builder.php:1503
-#: inc/Builder/Tabs/SBI_Customize_Tab.php:583
-msgid "Small"
-msgstr "Маленький"
-
-#: inc/Builder/Tabs/SBI_Customize_Tab.php:796
-msgid "Standard"
-msgstr "Стандартный"
-
-#: inc/Builder/SBI_Feed_Builder.php:927
-msgid "Connect an Instagram Account"
-msgstr "Подключить учётную запись Instagram"
-
-#: inc/Builder/SBI_Feed_Builder.php:717
+#: inc/Builder/SBI_Feed_Builder.php:753
 msgid "Remove"
 msgstr "Удалить"
 
-#: admin/SBI_Global_Settings.php:930 inc/admin/class-sbi-new-user.php:322
-#: inc/admin/class-sbi-notifications.php:572
-msgid "No"
-msgstr "Нет"
-
-#: inc/class-sb-instagram-posts-manager.php:360
-msgid "Error: Access Token is not valid or has expired."
-msgstr "Ошибка: токен доступа не действителен или срок его действия истек."
-
-#: inc/class-sb-instagram-posts-manager.php:336
-#: inc/class-sb-instagram-posts-manager.php:360
-msgid "Feed will not update."
-msgstr "Лента не обновляется."
+#: inc/Builder/SBI_Feed_Builder.php:973
+msgid "Connect an Instagram Account"
+msgstr "Подключить учётную запись Instagram"
 
 #: inc/if-functions.php:55 inc/if-functions.php:547
 msgid "This error message is only visible to WordPress admins"
 msgstr "Это сообщение об ошибке видно только администраторам WordPress"
 
-#: inc/Builder/SBI_Feed_Builder.php:311
-msgid "Instagram Feed Pro"
-msgstr "Instagram Feed Pro"
+#: inc/class-sb-instagram-posts-manager.php:357
+#: inc/class-sb-instagram-posts-manager.php:381
+msgid "Feed will not update."
+msgstr "Лента не обновляется."
+
+#: inc/class-sb-instagram-posts-manager.php:381
+msgid "Error: Access Token is not valid or has expired."
+msgstr "Ошибка: токен доступа не действителен или срок его действия истек."
+
+#: admin/SBI_Global_Settings.php:930 inc/admin/class-sbi-new-user.php:322
+#: inc/admin/class-sbi-notifications.php:601
+msgid "No"
+msgstr "Нет"
 
 #. Author URI of the plugin
 msgid "https://smashballoon.com/"
@@ -876,163 +1759,175 @@ msgstr "https://smashballoon.com/"
 msgid "Smash Balloon"
 msgstr "Smash Balloon"
 
+#. Description of the plugin
+msgid "Display beautifully clean, customizable, and responsive Instagram feeds."
+msgstr "Отображайте красивые, настраиваемые и отзывчивые ленты Instagram."
+
 #. Plugin URI of the plugin
 msgid "https://smashballoon.com/instagram-feed"
 msgstr "https://smashballoon.com/instagram-feed"
+
+#: inc/Builder/SBI_Feed_Builder.php:313
+msgid "Instagram Feed Pro"
+msgstr "Instagram Feed Pro"
 
 #: inc/admin/blocks/class-sbi-blocks.php:95
 msgid "Example"
 msgstr "Пример"
 
-#: admin/SBI_Global_Settings.php:742 inc/admin/actions.php:95
-#: inc/Builder/SBI_Feed_Builder.php:689 inc/Builder/SBI_Feed_Builder.php:701
-#: inc/Builder/SBI_Feed_Builder.php:1406 inc/Builder/SBI_Feed_Builder.php:1447
-#: inc/Builder/SBI_Feed_Builder.php:1680
-#: inc/Builder/Tabs/SBI_Builder_Customizer_Tab.php:33
-msgid "Settings"
-msgstr "Настройки"
+#: inc/Builder/SBI_Feed_Builder.php:1582
+msgid "Icon Color"
+msgstr "Цвет значка"
 
-#: admin/SBI_Support.php:61 admin/SBI_Support.php:62 admin/SBI_Support.php:160
-#: inc/Builder/SBI_Feed_Builder.php:1684
-msgid "Support"
-msgstr "Поддержка"
+#: inc/Builder/SBI_Feed_Builder.php:1654
+msgid "Text Size"
+msgstr "Размер текста"
 
-#: admin/SBI_Global_Settings.php:929 inc/admin/class-sbi-new-user.php:316
-#: inc/admin/class-sbi-notifications.php:567
-msgid "Yes"
-msgstr "Да"
+#: inc/Builder/SBI_Feed_Builder.php:1655
+msgid "Text Color"
+msgstr "Цвет текста"
 
-#: inc/Builder/SBI_Feed_Builder.php:1458
-#: inc/Builder/Tabs/SBI_Customize_Tab.php:101
-msgid "Layout"
-msgstr "Макет"
+#: inc/Builder/SBI_Feed_Builder.php:1622
+#: inc/Builder/Tabs/SBI_Customize_Tab.php:939
+msgid "Maximum Text Length"
+msgstr "Макс. длина текста"
 
-#: inc/Builder/SBI_Feed_Builder.php:1452 inc/Builder/SBI_Feed_Builder.php:1731
-#: inc/Builder/SBI_Feed_Builder.php:1847
-#: inc/Builder/Tabs/SBI_Customize_Tab.php:43
-#: inc/class-sb-instagram-feed-locator.php:651
-msgid "Header"
-msgstr "Заголовок"
+#: inc/Builder/Tabs/SBI_Customize_Tab.php:652
+msgid "Secondary Color"
+msgstr "Вторичный цвет"
 
-#: admin/SBI_Global_Settings.php:952
-msgid "Custom CSS"
-msgstr "Пользовательский CSS"
+#: inc/Builder/Tabs/SBI_Customize_Tab.php:638
+msgid "Primary Color"
+msgstr "Основной цвет"
 
-#: inc/Builder/SBI_Feed_Builder.php:1585
-msgid "Background Color"
-msgstr "Цвет фона"
+#: inc/Builder/Tabs/SBI_Customize_Tab.php:801
+msgid "Boxed"
+msgstr "Блоком"
 
-#: inc/Builder/Tabs/SBI_Customize_Tab.php:899
-msgid "Thumbnail (150x150)"
-msgstr "Миниатюра (150x150)"
+#: inc/Builder/Tabs/SBI_Customize_Tab.php:792
+msgid "Header Style"
+msgstr "Стиль заголовка"
 
-#: inc/Builder/Tabs/SBI_Customize_Tab.php:1068
-msgid "Information to display"
-msgstr "Информация для отображения"
-
-#: inc/Builder/Tabs/SBI_Customize_Tab.php:1076
-msgid "Username"
-msgstr "Имя пользователя"
-
-#: inc/Builder/SBI_Feed_Builder.php:1529
-#: inc/Builder/Tabs/SBI_Customize_Tab.php:1080
-msgid "Date"
-msgstr "Дата"
-
-#: inc/Builder/SBI_Feed_Builder.php:1462
-#: inc/Builder/Tabs/SBI_Customize_Tab.php:113
-msgid "Carousel"
-msgstr "Карусель"
-
-#: inc/Builder/Tabs/SBI_Customize_Tab.php:210
-msgid "Show Pagination"
-msgstr "Показать разбивку на страницы"
-
-#: inc/Builder/Tabs/SBI_Customize_Tab.php:224
-msgid "Enable Autoplay"
-msgstr "Включить автозапуск"
+#: inc/Builder/Tabs/SBI_Customize_Tab.php:667
+msgid "Show Bio Text"
+msgstr "Показать Bio Text"
 
 #: inc/Builder/Tabs/SBI_Customize_Tab.php:189
 msgid "Interval Time"
 msgstr "Время интервала"
 
-#: inc/Builder/SBI_Feed_Builder.php:1538
-#: inc/Builder/Tabs/SBI_Customize_Tab.php:939
-msgid "Maximum Text Length"
-msgstr "Максимальная длина текста"
+#: inc/Builder/Tabs/SBI_Customize_Tab.php:224
+msgid "Enable Autoplay"
+msgstr "Включить автозапуск"
 
-#: inc/Builder/SBI_Feed_Builder.php:1571
-msgid "Text Color"
-msgstr "Цвет текста"
+#: inc/Builder/Tabs/SBI_Customize_Tab.php:210
+msgid "Show Pagination"
+msgstr "Показать разбивку на страницы"
 
-#: inc/Builder/SBI_Feed_Builder.php:1570
-msgid "Text Size"
-msgstr "Размер текста"
+#: inc/Builder/Tabs/SBI_Customize_Tab.php:196
+msgid "Show Navigation Arrows"
+msgstr "Показать стрелки навигации"
 
-#: inc/class-sb-instagram-settings.php:960 inc/if-functions.php:855
-#: inc/if-functions.php:1728
-msgid "Follow on Instagram"
-msgstr "Подписаться в Instagram"
-
-#: inc/Builder/SBI_Feed_Builder.php:748
-msgid "General"
-msgstr "Основные"
-
-#: inc/Builder/Tabs/SBI_Customize_Tab.php:898
-msgid "Auto-detect (recommended)"
-msgstr "Автоопределение (рекомендуется)"
+#: inc/Builder/SBI_Feed_Builder.php:1546
+#: inc/Builder/Tabs/SBI_Customize_Tab.php:113
+msgid "Carousel"
+msgstr "Карусель"
 
 #: inc/Builder/Tabs/SBI_Customize_Tab.php:834
 #: inc/Builder/Tabs/SBI_Customize_Tab.php:1088
 msgid "Caption"
 msgstr "Подпись"
 
-#: inc/Builder/Tabs/SBI_Customize_Tab.php:792
-msgid "Header Style"
-msgstr "Стиль заголовка"
+#: inc/Builder/SBI_Feed_Builder.php:763
+msgid "Location"
+msgstr "Местонахождение"
 
-#: admin/SBI_About_Us.php:200 inc/admin/actions.php:38 inc/admin/actions.php:39
-#: inc/admin/class-sbi-sitehealth.php:62 widget.php:15
-msgid "Instagram Feed"
-msgstr "Лента Instagram"
+#: inc/Builder/SBI_Feed_Builder.php:1613
+#: inc/Builder/Tabs/SBI_Customize_Tab.php:1080
+msgid "Date"
+msgstr "Дата"
 
-#: inc/Builder/SBI_Feed_Builder.php:710
-#: inc/Builder/Tabs/SBI_Settings_Tab.php:159
-msgid "Photos"
-msgstr "Фотографии"
+#: inc/Builder/Tabs/SBI_Customize_Tab.php:1076
+msgid "Username"
+msgstr "Имя пользователя"
 
-#. Description of the plugin
-msgid "Display beautifully clean, customizable, and responsive Instagram feeds."
-msgstr "Отображайте красивые, настраиваемые и отзывчивые ленты Instagram."
-
-#: inc/Builder/SBI_Feed_Builder.php:1498
-msgid "Icon Color"
-msgstr "Цвет значка"
+#: inc/Builder/Tabs/SBI_Customize_Tab.php:1068
+msgid "Information to display"
+msgstr "Информация для отображения"
 
 #: inc/Builder/Tabs/SBI_Customize_Tab.php:901
 msgid "Full size (640x640)"
 msgstr "Полный размер (640x640)"
 
-#: inc/Builder/SBI_Feed_Builder.php:727
-msgid "Location"
-msgstr "Местонахождение"
+#: inc/Builder/Tabs/SBI_Customize_Tab.php:899
+msgid "Thumbnail (150x150)"
+msgstr "Миниатюра (150x150)"
 
-#: inc/Builder/Tabs/SBI_Settings_Tab.php:263
+#: inc/Builder/Tabs/SBI_Customize_Tab.php:898
+msgid "Auto-detect (recommended)"
+msgstr "Автоопределение (рекомендуется)"
+
+#: inc/Builder/Tabs/SBI_Settings_Tab.php:292
 msgid "Random"
 msgstr "Случайно"
 
-#: inc/Builder/Tabs/SBI_Customize_Tab.php:667
-msgid "Show Bio Text"
-msgstr "Показать Bio Text"
+#: inc/Builder/SBI_Feed_Builder.php:1669
+msgid "Background Color"
+msgstr "Цвет фона"
 
-#: inc/Builder/Tabs/SBI_Customize_Tab.php:196
-msgid "Show Navigation Arrows"
-msgstr "Показать стрелки навигации"
+#: admin/SBI_Global_Settings.php:952
+msgid "Custom CSS"
+msgstr "Произвольные CSS-стили"
 
-#: inc/Builder/Tabs/SBI_Customize_Tab.php:801
-msgid "Boxed"
-msgstr "Блоком"
+#: inc/Builder/SBI_Feed_Builder.php:1536 inc/Builder/SBI_Feed_Builder.php:1815
+#: inc/Builder/SBI_Feed_Builder.php:1929
+#: inc/Builder/Tabs/SBI_Customize_Tab.php:43
+#: inc/class-sb-instagram-feed-locator.php:646
+msgid "Header"
+msgstr "Заголовок"
+
+#: inc/Builder/SBI_Feed_Builder.php:746
+#: inc/Builder/Tabs/SBI_Settings_Tab.php:188
+msgid "Photos"
+msgstr "Фотографии"
+
+#: inc/Builder/SBI_Feed_Builder.php:1542
+#: inc/Builder/Tabs/SBI_Customize_Tab.php:101
+msgid "Layout"
+msgstr "Макет"
+
+#: inc/Builder/SBI_Feed_Builder.php:784
+msgid "General"
+msgstr "Общие"
+
+#: admin/SBI_Global_Settings.php:929 inc/admin/class-sbi-new-user.php:316
+#: inc/admin/class-sbi-notifications.php:596
+msgid "Yes"
+msgstr "Да"
+
+#: admin/SBI_Support.php:61 admin/SBI_Support.php:62 admin/SBI_Support.php:160
+#: inc/Builder/SBI_Feed_Builder.php:1768
+msgid "Support"
+msgstr "Поддержка"
+
+#: inc/class-sb-instagram-settings.php:986 inc/if-functions.php:855
+#: inc/if-functions.php:1728
+msgid "Follow on Instagram"
+msgstr "Подписаться в Instagram"
 
 #: inc/if-functions.php:845 inc/if-functions.php:1712
 msgid "Load More..."
 msgstr "Загрузить ещё..."
+
+#: admin/SBI_Global_Settings.php:742 inc/admin/actions.php:109
+#: inc/Builder/SBI_Feed_Builder.php:725 inc/Builder/SBI_Feed_Builder.php:737
+#: inc/Builder/SBI_Feed_Builder.php:1490 inc/Builder/SBI_Feed_Builder.php:1531
+#: inc/Builder/SBI_Feed_Builder.php:1764
+#: inc/Builder/Tabs/SBI_Builder_Customizer_Tab.php:33
+msgid "Settings"
+msgstr "Настройки"
+
+#: admin/SBI_About_Us.php:200 inc/admin/actions.php:41 inc/admin/actions.php:42
+#: inc/admin/class-sbi-sitehealth.php:62 widget.php:15
+msgid "Instagram Feed"
+msgstr "Лента Instagram"
