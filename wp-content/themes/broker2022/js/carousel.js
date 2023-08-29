@@ -2,6 +2,7 @@
 $(document).ready(function() {
 	const $owl              = $('.js-owl-carousel')
 	const $owlAuto          = $('.js-owl-carousel-auto')
+	const $owlAutoHeight    = $('.js-owl-carousel-auto-height')
 	const $owlBuildings     = $('.js-owl-buildings')
 	const $projectsGallery  = $('.js-projects-gallery')
 
@@ -46,6 +47,38 @@ $(document).ready(function() {
 
 	owlCarouselDefault()
 	// owl carousel default [END]
+
+
+
+	// owl carousel auto height [START]
+	const owlCarouselAutoHeight = () => {
+		if ($owlAutoHeight.length < 1) return
+
+		// slide next|prev with arrows on keyboard
+		document.addEventListener('keydown', function(e) {
+			switch (e.keyCode) {
+				case 37:
+					$owlAutoHeight.trigger('prev.owl.carousel');
+					break
+				case 39:
+					$owlAutoHeight.trigger('next.owl.carousel');
+					break
+			}
+		})
+
+		// carousel
+		$owlAutoHeight.owlCarousel({
+			autoHeight: true,
+			dots:       false,
+			items:      1,
+			loop:       true,
+			nav:        true,
+			navText:    ['', '']
+		})
+	}
+
+	owlCarouselAutoHeight()
+	// owl carousel auto height [END]
 
 
 
