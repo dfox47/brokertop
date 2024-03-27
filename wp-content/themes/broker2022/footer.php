@@ -42,7 +42,7 @@ $whatsapp   = esc_attr(get_option('broker_whatsapp'));
 					include "template-parts/social.php"; ?>
 				</div>
 
-				<a class="footer_agree" href="">Согласие на обработку персональных данных</a>
+				<span class="footer_agree">Согласие на обработку персональных данных</span>
 
 				<div class="yandex_badge_wrap js-yandex-badge"></div>
 			</div>
@@ -51,7 +51,7 @@ $whatsapp   = esc_attr(get_option('broker_whatsapp'));
 </footer>
 
 <?php if ($whatsapp) { ?>
-	<a class="whatsapp_link" href="//wa.me/<?= $whatsapp; ?>" target="_blank"><span class="whatsapp_link__img js-img-scroll" data-src="<?= $i . '/icons/whatsapp_green.svg'; ?>" title="whatsapp"></span></a>
+	<a class="whatsapp_link" href="//wa.me/<?= $whatsapp; ?>" target="_blank" title="WhatsApp"><span class="whatsapp_link__img js-img-scroll" data-src="<?= $i . '/icons/whatsapp_green.svg'; ?>" title="whatsapp"></span></a>
 <?php } ?>
 
 <?php // popup

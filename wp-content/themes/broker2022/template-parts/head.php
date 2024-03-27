@@ -41,11 +41,9 @@ else if ($currentUrl == '/o-kompanii/') {
 		<div class="header_wrap">
 			<header class="header">
 				<div class="header_left">
-					<a class="logo" href="/"></a>
+					<a class="logo" href="/" title="На главную"></a>
 
-					<div class="header_menu_toggle js-header-menu-toggle">
-						<span></span> Меню
-					</div>
+					<div class="header_menu_toggle js-header-menu-toggle"><span></span> Меню</div>
 				</div>
 
 				<div class="header_menu_wrap">

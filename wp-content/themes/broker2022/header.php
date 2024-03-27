@@ -17,6 +17,8 @@
 
 	<?php wp_head(); ?>
 
+	<meta name="description" content="Каталог элитной недвижимости. Недвижимость в Москва-сити. Недвижимость в Дубае.">
+
 	<link rel="stylesheet" href="<?= esc_url(get_template_directory_uri()); ?>/styles.css?v<?= (date("YmdH")); ?>" />
 </head>
 

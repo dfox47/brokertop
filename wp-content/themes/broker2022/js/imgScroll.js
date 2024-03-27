@@ -33,7 +33,5 @@ const imgScroll = () => {
 imgScroll()
 
 window.addEventListener('orientationChange', imgScroll)
-
 window.addEventListener('resize', imgScroll)
-
 window.addEventListener('scroll', imgScroll)
